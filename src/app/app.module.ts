@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AdminTableComponent } from './admin-table/admin-table.component';
 import { StatusTableComponent } from './status-table/status-table.component';
 import { PickupTableComponent } from './pickup-table/pickup-table.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PickupTableComponent } from './pickup-table/pickup-table.component';
     ProfileComponent,
     AdminTableComponent,
     StatusTableComponent,
-    PickupTableComponent
+    PickupTableComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
