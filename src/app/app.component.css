@@ -1,0 +1,13 @@
+*,*:before,*:after {
+	box-sizing: border-box;
+}
+
+:after {
+	content: "";
+}
+
+section {
+  position: relative;
+  text-align: center;
+
+}
