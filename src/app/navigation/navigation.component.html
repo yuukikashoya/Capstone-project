@@ -1,78 +1,64 @@
+<!-- admin nav -->
+
 <div class="area"></div><nav class="main-menu" *ngIf="this.admin == true && this.session == true">
     <ul>
         <li>
             <a routerLink="home">
                 <i class="fa fa-home fa-2x"></i>
                 <span class="nav-text">
-                   Admin
+                   Home
                 </span>
             </a>
           
         </li>
         <li class="has-subnav">
-            <a href="#">
-                <i class="fa fa-user fa-2x"></i>
+            <a routerLink="accounts">
+                <i class="fa fa-users fa-2x"></i>
                 <span class="nav-text">
-                    Global Surveyors
+                    Manage Accounts
                 </span>
             </a>
             
         </li>
         <li class="has-subnav">
-            <a href="#">
-               <i class="fa fa-comments fa-2x"></i>
+            <a routerLink="profile">
+               <i class="fa fa-user fa-2x"></i>
                 <span class="nav-text">
-                    Group Hub Forums
+                    Profile
                 </span>
             </a>
             
         </li>
         <li class="has-subnav">
-            <a href="#">
-               <i class="fa fa-camera-retro fa-2x"></i>
+            <a routerLink="sales">
+               <i class="fa fa-pie-chart fa-2x"></i>
                 <span class="nav-text">
-                    Survey Photos
+                    Manage Sales
                 </span>
             </a>
            
         </li>
         <li>
-            <a href="#">
-                <i class="fa fa-film fa-2x"></i>
-                <span class="nav-text">
-                    Surveying Tutorials
-                </span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
+            <a routerLink="laundry">
                 <i class="fa fa-book fa-2x"></i>
                 <span class="nav-text">
-                   Surveying Jobs
+                    Laundry
                 </span>
             </a>
         </li>
         <li>
-           <a href="#">
-               <i class="fa fa-cogs fa-2x"></i>
+            <a routerLink="announcement">
+                <i class="fa fa-bullhorn fa-2x"></i>
                 <span class="nav-text">
-                    Tools & Resources
+                   Announcement
                 </span>
             </a>
         </li>
         <li>
-           <a href="#">
-                <i class="fa fa-map-marker fa-2x"></i>
+            <a routerLink="chat">
+                <i class="fa fa-comments fa-2x"></i>
                 <span class="nav-text">
-                    Member Map
-                </span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-               <i class="fa fa-info fa-2x"></i>
-                <span class="nav-text">
-                    Documentation
+                   Chat
                 </span>
             </a>
         </li>
@@ -80,7 +66,7 @@
 
     <ul class="logout">
         <li>
-           <a href="#">
+           <a  (click)="logout()" >
                  <i class="fa fa-power-off fa-2x"></i>
                 <span class="nav-text">
                     Logout
@@ -90,13 +76,11 @@
     </ul>
 </nav>
 
-    <!-- <li><a routerLink="home">Home</a></li>                                                                           
-    <li><a routerLink="admin">Admin table</a></li>  
-    <li><a routerLink="user">User table</a></li>  
-    <li><a routerLink="profile"> Profile</a></li>  
-    <li><a routerLink="about"> About us</a></li>   -->
 
 
+
+
+<!-- user nav -->
  <div class="area"></div><nav class="main-menu" *ngIf="this.admin == false && this.session == true">
         <ul>
             <li>

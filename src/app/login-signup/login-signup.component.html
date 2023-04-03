@@ -1,1 +1,8 @@
 <p>login-signup works!</p>
+<form #testLogin="ngForm" (ngSubmit)="login(testLogin.value)" >
+    <input type="text" value="email" name="email" ngModel id="email">
+    <input type="submit"> 
+
+
+
+</form>
