@@ -11,12 +11,15 @@ import { StatusComponent } from './status/status.component';
 import { ChatComponent } from './chat/chat.component';
 
 import { ProfileComponent } from './profile/profile.component';
-import { AdminTableComponent } from './admin-table/admin-table.component';
-import { StatusTableComponent } from './status-table/status-table.component';
-import { PickupTableComponent } from './pickup-table/pickup-table.component';
+
+
 import { NavigationComponent } from './navigation/navigation.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { UserTableComponent } from './user-table/user-table.component';
+
+import { ManageAccountsComponent } from './manage-accounts/manage-accounts.component';
+import { ManageSalesComponent } from './manage-sales/manage-sales.component';
+import { LaundryComponent } from './laundry/laundry.component';
+import { AnnoucementComponent } from './annoucement/annoucement.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +32,14 @@ import { UserTableComponent } from './user-table/user-table.component';
     ChatComponent,
 
     ProfileComponent,
-    AdminTableComponent,
-    StatusTableComponent,
-    PickupTableComponent,
+
     NavigationComponent,
     AboutUsComponent,
-    UserTableComponent
+
+    ManageAccountsComponent,
+    ManageSalesComponent,
+    LaundryComponent,
+    AnnoucementComponent
   ],
   imports: [
     BrowserModule,
