@@ -1,3 +1,5 @@
+<!-- admin nav -->
+
 <div class="area"></div><nav class="main-menu" *ngIf="this.admin == true && this.session == true">
     <ul>
         <li>
@@ -64,7 +66,7 @@
 
     <ul class="logout">
         <li>
-           <a routerLink="sign">
+           <a  (click)="logout()" >
                  <i class="fa fa-power-off fa-2x"></i>
                 <span class="nav-text">
                     Logout
@@ -74,13 +76,11 @@
     </ul>
 </nav>
 
-    <!-- <li><a routerLink="home">Home</a></li>                                                                           
-    <li><a routerLink="admin">Admin table</a></li>  
-    <li><a routerLink="user">User table</a></li>  
-    <li><a routerLink="profile"> Profile</a></li>  
-    <li><a routerLink="about"> About us</a></li>   -->
 
 
+
+
+<!-- user nav -->
  <div class="area"></div><nav class="main-menu" *ngIf="this.admin == false && this.session == true">
         <ul>
             <li>

@@ -14,6 +14,7 @@ import { ManageAccountsComponent } from './manage-accounts/manage-accounts.compo
 import { ManageSalesComponent } from './manage-sales/manage-sales.component';
 import { LaundryComponent } from './laundry/laundry.component';
 import { AnnoucementComponent } from './annoucement/annoucement.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'laundry',component:LaundryComponent},
   {path: 'sales',component:ManageSalesComponent},
   {path: 'announcement',component:AnnoucementComponent},
+  {path: 'nav',component:NavigationComponent},
 
 ];
 
