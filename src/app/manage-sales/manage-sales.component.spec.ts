@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PickupTableComponent } from './pickup-table.component';
+import { ManageSalesComponent } from './manage-sales.component';
 
-describe('PickupTableComponent', () => {
-  let component: PickupTableComponent;
-  let fixture: ComponentFixture<PickupTableComponent>;
+describe('ManageSalesComponent', () => {
+  let component: ManageSalesComponent;
+  let fixture: ComponentFixture<ManageSalesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PickupTableComponent ]
+      declarations: [ ManageSalesComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PickupTableComponent);
+    fixture = TestBed.createComponent(ManageSalesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

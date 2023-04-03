@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StatusTableComponent } from './status-table.component';
+import { ManageAccountsComponent } from './manage-accounts.component';
 
-describe('StatusTableComponent', () => {
-  let component: StatusTableComponent;
-  let fixture: ComponentFixture<StatusTableComponent>;
+describe('ManageAccountsComponent', () => {
+  let component: ManageAccountsComponent;
+  let fixture: ComponentFixture<ManageAccountsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StatusTableComponent ]
+      declarations: [ ManageAccountsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(StatusTableComponent);
+    fixture = TestBed.createComponent(ManageAccountsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
