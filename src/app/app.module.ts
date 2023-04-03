@@ -16,6 +16,7 @@ import { StatusTableComponent } from './status-table/status-table.component';
 import { PickupTableComponent } from './pickup-table/pickup-table.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { UserTableComponent } from './user-table/user-table.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     StatusTableComponent,
     PickupTableComponent,
     NavigationComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    UserTableComponent
   ],
   imports: [
     BrowserModule,

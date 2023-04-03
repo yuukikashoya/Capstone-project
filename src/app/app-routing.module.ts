@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AdminTableComponent } from './admin-table/admin-table.component';
 import { BookingComponent } from './booking/booking.component';
 import { ChatComponent } from './chat/chat.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -9,6 +10,7 @@ import { PickupTableComponent } from './pickup-table/pickup-table.component';
 import { ProfileComponent } from './profile/profile.component';
 import { StatusTableComponent } from './status-table/status-table.component';
 import { StatusComponent } from './status/status.component';
+import { UserTableComponent } from './user-table/user-table.component';
 
 const routes: Routes = [
     {path: '',redirectTo:'home',pathMatch:'full' },
@@ -21,6 +23,8 @@ const routes: Routes = [
   {path: 'profile',component:ProfileComponent},
   {path: 'tracking',component:StatusComponent},
   {path: 'status',component:StatusTableComponent},
+  {path: 'user',component:UserTableComponent},
+  {path: 'admin',component:AdminTableComponent},
 ];
 
 @NgModule({
