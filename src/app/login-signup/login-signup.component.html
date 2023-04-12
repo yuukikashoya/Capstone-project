@@ -2,8 +2,11 @@
 <form #testLogin="ngForm" (ngSubmit)="login(testLogin.value)" >
     <label>login</label><br>
     <input type="text" placeholder="username" name="username" ngModel id="username"><br>
+    <input class="inputpassword" type="password" [type]="show ? 'text' : 'password'" placeholder="password" name="password" ngModel id="password">
+ 
+ <button class="passwordbutton" type="button" (click)="showpassword()">{{show ? 'hide' : 'show'}}</button><br> 
     <input type="submit" value="login"> 
-
+   
 
 
 </form>
