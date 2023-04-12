@@ -39,22 +39,7 @@ delay(ms: number) {
   }
           });
      
- 
 
-
-
-
-
-
-    // const id= sessionStorage.getItem('id');
-    // if(id == null){
-    //   this.session = false;
-    // }else{
-    //   this.session = true;
-    // }
-
-
-    
    }
 
   ngOnInit(): void {
