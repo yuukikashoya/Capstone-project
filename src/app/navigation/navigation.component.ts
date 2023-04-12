@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Database } from '@angular/fire/database';
 import { NavigationEnd, Router } from '@angular/router';
-import { onValue, ref } from 'firebase/database';
+import { onValue, ref, update } from 'firebase/database';
 
 @Component({
   selector: 'app-navigation',
@@ -46,11 +46,25 @@ delay(ms: number) {
 
 
   }
-logout(){
-  sessionStorage.clear();
-  this.router.navigate(['/sign'])
-  .then(() => {
-    window.location.reload();
-  });
+  async logout(){
+      const date = new Date();
+    const id= sessionStorage.getItem('id');
+  if(this.staff == true){
+update(ref(this.database, 'staff/' + id),{
+      last_login:date,
+      activity:false
+      } );
+}else{
+  update(ref(this.database, 'client/' + id),{
+    last_login:date,
+    activity:false
+    } );
+}
+await this.delay(1000);
+this.admin = false;
+this.session= false;
+this.staff = false;
+sessionStorage.clear();
+this.router.navigate(['/sign'])
 }
 }

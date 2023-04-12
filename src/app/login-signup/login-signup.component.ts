@@ -56,7 +56,8 @@ this.clientname = cd.username;
   //client login
   const date = new Date();
 update(ref(this.database, 'client/' + value.username),{
-last_login:date
+last_login:date,
+activity:true
 } );
 sessionStorage.setItem('id',value.username);
 
@@ -68,7 +69,8 @@ window.location.reload();
   //staff login
   const date = new Date();
   update(ref(this.database, 'staff/' + value.username),{
-  last_login:date
+  last_login:date,
+  activity:true
   } );
   sessionStorage.setItem('id',value.username);
   
