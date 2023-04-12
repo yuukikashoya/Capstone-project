@@ -31,11 +31,12 @@ delay(ms: number) {
      });
      
  
-      const starCountRef1 = ref(this.database, 'client/' + id);
+  const starCountRef1 = ref(this.database, 'client/' + id);
          onValue(starCountRef1, (snapshot) => {
           const cd = snapshot.val();  
-      this.session = true;
-  
+          if(cd.username == id){
+  this.session = true;
+  }
           });
      
  
