@@ -27,17 +27,17 @@ delay(ms: number) {
   this.staff = db.staff;
  this.session = this.staff;
  this.admin = this.admin;
- if (db.staff == undefined){
-  const starCountRef1 = ref(this.database, 'client/' + id);
-     onValue(starCountRef1, (snapshot) => {
-      const cd = snapshot.val();  
-  this.session = true;
-  console.log(this.session)
-      });
- }
+
      });
      
-    
+ 
+      const starCountRef1 = ref(this.database, 'client/' + id);
+         onValue(starCountRef1, (snapshot) => {
+          const cd = snapshot.val();  
+      this.session = true;
+  
+          });
+     
  
 
 
