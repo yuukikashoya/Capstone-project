@@ -1,0 +1,20 @@
+
+  .inputpassword {
+
+    flex-grow:2;
+  
+  }
+  
+  
+  .inputpassword:focus {
+    outline: none;
+  }
+  
+
+  
+  .passwordbutton {
+
+    border:1px solid blue;
+    background:blue;
+    color:white;
+  }
