@@ -1,5 +1,52 @@
-<p>login-signup works!</p>
-<form #testLogin="ngForm" (ngSubmit)="login(testLogin.value)" >
+<div class="container">
+	    
+    <div class="col-md-10 col-md-offset-1 main" >
+    <div class="col-md-6 left-side cat" >
+
+ 
+    <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/285944062_104105002329532_3087723177375662487_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=174925&_nc_eui2=AeEfrKqyLBRYvfloLP_WAOZy__mV4SgKyyT_-ZXhKArLJMOAOsqnqClgTI29x4BbBdg21UOtDnNEiRgwElOFYbBY&_nc_ohc=uI0QG48tBcwAX8VhvLI&_nc_ht=scontent.fceb2-1.fna&oh=00_AfCHPJqFvvmeU4J1G0a5A_Qq9dq2DH9H_Kr292C85wHxaw&oe=64552F31"  class="logosign" >
+
+    </div><!--col-sm-6-->
+    
+    <div class="col-md-6 right-side">
+    <h3>Login</h3>
+    
+<!--Form with header-->
+<div class="form">
+
+
+    <div class="form-group">
+        <label for="form2">Your usersname / e-mail</label>
+        <input type="text" id="form2" class="form-control input-lg">
+        
+    </div>
+
+    <div class="form-group">
+        <label for="form4">Your password</label>
+        <input type="password" id="form4" class="form-control input-lg">
+       
+    </div>
+
+    <div class="text-xs-center">
+        <button class="btn btn-deep-purple">Login</button>
+    </div>
+
+
+</div>
+<!--/Form with header-->
+
+    </div><!--col-sm-6-->
+    
+    
+    </div><!--col-sm-8-->
+    
+    </div><!--container-->
+
+
+
+
+    <!-- dont remove this one please -->
+<!-- <form #testLogin="ngForm" (ngSubmit)="login(testLogin.value)" >
     <label>login</label><br>
     <input type="text" placeholder="username" name="username" ngModel id="username"><br>
     <input class="inputpassword" type="password" [type]="show ? 'text' : 'password'" placeholder="password" name="password" ngModel id="password">
@@ -31,4 +78,4 @@
 
 
 
-</form>
+</form> -->
