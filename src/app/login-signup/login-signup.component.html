@@ -1,6 +1,6 @@
 
 
-
+<!-- login -->
 <div class="container" *ngIf="this.log == false">
 
     <button  class="btn btn-primary btn-sm active" role="button" >Login</button>
@@ -42,7 +42,7 @@
         <button class="btn btn-deep-purple" type="submit">Login</button>
     </div>
     <br>   <br>
-<p>Not a member?<a> Create Account</a></p>
+<p>Not a member?<a (click)="signlogin()" style="cursor: pointer;"> Create Account</a></p>
 
 </form>
 <!--/Form with header-->
@@ -59,7 +59,7 @@
 
 <!-- sign uppp -->
 
-    <div class="container" *ngIf="this.log == true">
+    <div class="container" *ngIf="this.log == true" style="margin-bottom: 10em;">
         <button (click)="signlogin()" class="btn btn-secondary btn-sm " role="button" >Login</button>
         <button class="btn  btn-primary btn-sm active" role="button" >Sign up</button>
         <div class="col-md-10 col-md-offset-1 main cat" >
@@ -88,14 +88,22 @@
             
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" name="password" ngModel id="password" class="form-control input-lg">
-                   
+                    <input type="password"  [type]="show ? 'text' : 'password'" name="password" ngModel id="password" class="form-control input-lg">
+                    <button class="passwordbutton" type="button" (click)="showpassword()">
+                        <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
+                        <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
+            
+                    </button>
                 </div>
             
                 <div class="form-group">
                     <label for="cpassword">Confirm password</label>
-                    <input type="password" name="cpassword" ngModel id="cpassword" class="form-control input-lg">
-                   
+                    <input type="password"  [type]="show ? 'text' : 'password'" name="cpassword" ngModel id="cpassword" class="form-control input-lg">
+                    <button class="passwordbutton" type="button" (click)="showpassword()">
+                        <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
+                        <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
+            
+                    </button>
                 </div>
             
             
