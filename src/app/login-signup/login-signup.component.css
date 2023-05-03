@@ -14,12 +14,11 @@
   
   .passwordbutton {
 
-    border:1px solid blue;
-    background:blue;
-    color:white;
+    border:transparent;
+    background:transparent;
+
   }
 
-  @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
 
 
   #playground-container {
@@ -101,14 +100,16 @@
       border-bottom: 1px solid #2196f3 !important;
       border-top: 1px !important;
       border-left: none !important;
+      
       border-right: none !important;}
+      
     .btn-deep-purple {
       background: #2196f3;
       border-radius: 18px;
       padding: 5px 19px;
       color: #FFF;
       font-weight: 600;
-      float: right;
+      
     -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
   -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
   box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
@@ -123,3 +124,5 @@ margin: 30%;
   .cat{
     background-color: white;
   }
+
+  
