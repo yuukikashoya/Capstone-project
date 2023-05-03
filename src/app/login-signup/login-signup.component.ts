@@ -18,7 +18,12 @@ export class LoginSignupComponent implements OnInit {
   staffdata="";
 clientname = "";
 staffname="";
+log: boolean = false;
 
+signlogin() {
+  this.log = !this.log;
+
+}
 
   showpassword() {
     this.show = !this.show;
@@ -146,8 +151,10 @@ this.checker = ad.username
       this.checker1 = "";
       this.password = "";
       this.cpassword = "";
+      this.log = !this.log;
       alert('account created!');
-      this.router.navigate(['/login'])
+ 
+
     }
    }
    

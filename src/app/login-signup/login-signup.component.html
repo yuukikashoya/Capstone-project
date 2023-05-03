@@ -1,7 +1,13 @@
 
-<div class="container">
-	    
+
+
+<div class="container" *ngIf="this.log == false">
+
+    <button  class="btn btn-primary btn-sm active" role="button" >Login</button>
+    <button (click)="signlogin()" class="btn btn-secondary btn-sm " role="button" >Sign up</button>
+
     <div class="col-md-10 col-md-offset-1 main" >
+        
     <div class="col-md-6 left-side cat" >
 
  
@@ -48,38 +54,47 @@
     
     </div><!--container-->
 
-    <div class="container">
-	    
+
+
+
+<!-- sign uppp -->
+
+    <div class="container" *ngIf="this.log == true">
+        <button (click)="signlogin()" class="btn btn-secondary btn-sm " role="button" >Login</button>
+        <button class="btn  btn-primary btn-sm active" role="button" >Sign up</button>
         <div class="col-md-10 col-md-offset-1 main cat" >
+
+
+             <form #signn="ngForm" (ngSubmit)="signup(signn.value)">
             <h3 style="font-weight: bold;">Sign up</h3>
         <div class="col-md-6 left-side cat" >
-        
+           
             <div class="form">
     
                 <div class="form-group">
-                    <label for="form2">Your usersname / e-mail</label>
-                    <input type="text" id="form2" class="form-control input-lg">
+                    <label for="username">Usersname </label>
+                    <input type="text"name="username" ngModel id="username" class="form-control input-lg">
                     
                 </div>     <div class="form-group">
-                    <label for="form2">Your usersname / e-mail</label>
-                    <input type="text" id="form2" class="form-control input-lg">
+                    <label for="email">E-mail</label>
+                    <input type="text"name="email" ngModel id="email" class="form-control input-lg">
                     
                 </div>
                 <div class="form-group">
-                    <label for="form2">Your usersname / e-mail</label>
-                    <input type="text" id="form2" class="form-control input-lg">
+                    <label for="phonenumber">Phonenumber</label>
+                    <input type="number" name="phonenumber" ngModel id="phonenumber" class="form-control input-lg">
                     
                 </div>
             
                 <div class="form-group">
-                    <label for="form4">Your password</label>
-                    <input type="password" id="form4" class="form-control input-lg">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" ngModel id="password" class="form-control input-lg">
                    
                 </div>
             
                 <div class="form-group">
-                    <label for="form4">Your password</label>
-                    <input type="password" id="form4" class="form-control input-lg">
+                    <label for="cpassword">Confirm password</label>
+                    <input type="password" name="cpassword" ngModel id="cpassword" class="form-control input-lg">
                    
                 </div>
             
@@ -91,27 +106,24 @@
        
         
     <!--Form with header-->
+
     <div class="form">
     
         <div class="form-group">
-            <label for="form2">Your usersname / e-mail</label>
-            <input type="text" id="form2" class="form-control input-lg">
+            <label for="fname">First name</label>
+            <input type="text" name="fname" ngModel id="fname" class="form-control input-lg">
             
         </div>     <div class="form-group">
-            <label for="form2">Your usersname / e-mail</label>
-            <input type="text" id="form2" class="form-control input-lg">
+            <label for="lname">Last name</label>
+            <input type="text"name="lname" ngModel id="lname" class="form-control input-lg">
             
         </div>
         <div class="form-group">
-            <label for="form2">Your usersname / e-mail</label>
-            <input type="text" id="form2" class="form-control input-lg">
+            <label for="address">Address</label>
+            <input type="text" name="address" ngModel id="address" class="form-control input-lg">
             
         </div>
-        <div class="form-group">
-            <label for="form2">Your usersname / e-mail</label>
-            <input type="text" id="form2" class="form-control input-lg">
-            
-        </div>
+  
     
         <div class="form-group">
             <label for="form2">Gender</label><br>
@@ -133,7 +145,7 @@
          <div class="text-xs-center cent">
             <button class="btn btn-deep-purple">Login</button>
         </div>
-        
+        </form>
         </div><!--col-sm-8-->
         
         </div><!--container-->
