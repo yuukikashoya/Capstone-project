@@ -18,6 +18,8 @@ export class LoginSignupComponent implements OnInit {
   staffdata="";
 clientname = "";
 staffname="";
+
+
   showpassword() {
     this.show = !this.show;
 }

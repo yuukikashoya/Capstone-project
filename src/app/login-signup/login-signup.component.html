@@ -1,3 +1,4 @@
+
 <div class="container">
 	    
     <div class="col-md-10 col-md-offset-1 main" >
@@ -9,30 +10,35 @@
     </div><!--col-sm-6-->
     
     <div class="col-md-6 right-side">
-    <h3>Login</h3>
+   <b><h3>Login</h3></b> 
     
 <!--Form with header-->
-<div class="form">
+<form class="form"#testLogin="ngForm" (ngSubmit)="login(testLogin.value)" >
 
 
     <div class="form-group">
-        <label for="form2">Your usersname / e-mail</label>
-        <input type="text" id="form2" class="form-control input-lg">
+        <label for="username+">Your usersname</label>
+        <input type="text" name="username" ngModel id="username" class="form-control input-lg">
         
     </div>
 
     <div class="form-group">
-        <label for="form4">Your password</label>
-        <input type="password" id="form4" class="form-control input-lg">
-       
+        <label for="password">Your password</label>
+        <input type="password" [type]="show ? 'text' : 'password'" name="password" ngModel id="password" class="form-control input-lg">
+        <button class="passwordbutton" type="button" (click)="showpassword()">
+            <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
+            <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
+
+        </button>
     </div>
 
     <div class="text-xs-center">
-        <button class="btn btn-deep-purple">Login</button>
+        <button class="btn btn-deep-purple" type="submit">Login</button>
     </div>
+    <br>   <br>
+<p>Not a member?<a> Create Account</a></p>
 
-
-</div>
+</form>
 <!--/Form with header-->
 
     </div><!--col-sm-6-->
@@ -42,7 +48,95 @@
     
     </div><!--container-->
 
-
+    <div class="container">
+	    
+        <div class="col-md-10 col-md-offset-1 main cat" >
+            <h3 style="font-weight: bold;">Sign up</h3>
+        <div class="col-md-6 left-side cat" >
+        
+            <div class="form">
+    
+                <div class="form-group">
+                    <label for="form2">Your usersname / e-mail</label>
+                    <input type="text" id="form2" class="form-control input-lg">
+                    
+                </div>     <div class="form-group">
+                    <label for="form2">Your usersname / e-mail</label>
+                    <input type="text" id="form2" class="form-control input-lg">
+                    
+                </div>
+                <div class="form-group">
+                    <label for="form2">Your usersname / e-mail</label>
+                    <input type="text" id="form2" class="form-control input-lg">
+                    
+                </div>
+            
+                <div class="form-group">
+                    <label for="form4">Your password</label>
+                    <input type="password" id="form4" class="form-control input-lg">
+                   
+                </div>
+            
+                <div class="form-group">
+                    <label for="form4">Your password</label>
+                    <input type="password" id="form4" class="form-control input-lg">
+                   
+                </div>
+            
+            
+            </div>
+        </div><!--col-sm-6-->
+        
+        <div class="col-md-6 right-side">
+       
+        
+    <!--Form with header-->
+    <div class="form">
+    
+        <div class="form-group">
+            <label for="form2">Your usersname / e-mail</label>
+            <input type="text" id="form2" class="form-control input-lg">
+            
+        </div>     <div class="form-group">
+            <label for="form2">Your usersname / e-mail</label>
+            <input type="text" id="form2" class="form-control input-lg">
+            
+        </div>
+        <div class="form-group">
+            <label for="form2">Your usersname / e-mail</label>
+            <input type="text" id="form2" class="form-control input-lg">
+            
+        </div>
+        <div class="form-group">
+            <label for="form2">Your usersname / e-mail</label>
+            <input type="text" id="form2" class="form-control input-lg">
+            
+        </div>
+    
+        <div class="form-group">
+            <label for="form2">Gender</label><br>
+            <select #roles name="set"  id="set" ngModel name="set"  >
+                <option disabled selected value default> -- select an option -- </option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                
+              </select>	<br>
+        </div>
+    
+       
+    
+    
+    </div>
+    <!--/Form with header-->
+    
+        </div><!--col-sm-6-->
+         <div class="text-xs-center cent">
+            <button class="btn btn-deep-purple">Login</button>
+        </div>
+        
+        </div><!--col-sm-8-->
+        
+        </div><!--container-->
 
 
     <!-- dont remove this one please -->
