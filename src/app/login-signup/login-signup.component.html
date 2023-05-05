@@ -1,6 +1,91 @@
+<div class="body1">
+<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="user" type="text" class="input">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign In">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<a href="#forgot">Forgot Password?</a>
+				</div>
+			</div>
+			<div class="sign-up-htm">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="user" type="text" class="input">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Repeat Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Email Address</label>
+					<input id="pass" type="text" class="input">
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign Up">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<a for="tab-1">Already Member?</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
 
 
-<!-- login -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
 <div class="container" *ngIf="this.log == false">
 
     <button  class="btn btn-primary btn-sm active" role="button" >Login</button>
@@ -13,12 +98,13 @@
  
     <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/285944062_104105002329532_3087723177375662487_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=174925&_nc_eui2=AeEfrKqyLBRYvfloLP_WAOZy__mV4SgKyyT_-ZXhKArLJMOAOsqnqClgTI29x4BbBdg21UOtDnNEiRgwElOFYbBY&_nc_ohc=uI0QG48tBcwAX8VhvLI&_nc_ht=scontent.fceb2-1.fna&oh=00_AfCHPJqFvvmeU4J1G0a5A_Qq9dq2DH9H_Kr292C85wHxaw&oe=64552F31"  class="logosign" >
 
-    </div><!--col-sm-6-->
+    </div>
     
     <div class="col-md-6 right-side">
+        
    <b><h3>Login</h3></b> 
-    
-<!--Form with header-->
+
+<img class="logo" src="https://cdn-icons-png.flaticon.com/512/3003/3003984.png">
 <form class="form"#testLogin="ngForm" (ngSubmit)="login(testLogin.value)" >
 
 
@@ -45,19 +131,6 @@
 <p>Not a member?<a (click)="signlogin()" style="cursor: pointer;"> Create Account</a></p>
 
 </form>
-<!--/Form with header-->
-
-    </div><!--col-sm-6-->
-    
-    
-    </div><!--col-sm-8-->
-    
-    </div><!--container-->
-
-
-
-
-<!-- sign uppp -->
 
     <div class="container" *ngIf="this.log == true" style="margin-bottom: 10em;">
         <button (click)="signlogin()" class="btn btn-secondary btn-sm " role="button" >Login</button>
@@ -108,12 +181,12 @@
             
             
             </div>
-        </div><!--col-sm-6-->
+        </div>
         
         <div class="col-md-6 right-side">
        
         
-    <!--Form with header-->
+
 
     <div class="form">
     
@@ -147,49 +220,16 @@
     
     
     </div>
-    <!--/Form with header-->
+
     
-        </div><!--col-sm-6-->
+        </div>
          <div class="text-xs-center cent">
             <button class="btn btn-deep-purple">Login</button>
         </div>
         </form>
-        </div><!--col-sm-8-->
+        </div>
         
-        </div><!--container-->
+        </div>
 
 
-    <!-- dont remove this one please -->
-<!-- <form #testLogin="ngForm" (ngSubmit)="login(testLogin.value)" >
-    <label>login</label><br>
-    <input type="text" placeholder="username" name="username" ngModel id="username"><br>
-    <input class="inputpassword" type="password" [type]="show ? 'text' : 'password'" placeholder="password" name="password" ngModel id="password">
- 
- <button class="passwordbutton" type="button" (click)="showpassword()">{{show ? 'hide' : 'show'}}</button><br> 
-    <input type="submit" value="login"> 
-   
-
-
-</form>
-
-<br><br><br><br><br><br><br><br><br><br><br>
-<form #signn="ngForm" (ngSubmit)="signup(signn.value)" >
-    <label>signup</label><br>
-    <input type="text" placeholder="username" name="username" ngModel id="username"><br>
-    <input type="password" placeholder="password" name="password" ngModel id="password"><br>
-    <input type="password" placeholder="Confirm password" name="cpassword" ngModel id="cpassword"><br>
-    <input type="text" placeholder="first name" name="fname" ngModel id="fname"><br>
-    <input type="text" placeholder="last name" name="lname" ngModel id="lname"><br>
-    <input type="text" placeholder="email" name="email" ngModel id="email"><br>
-    <input type="text" placeholder="address" name="address" ngModel id="address"><br>
-    <input type="text" placeholder="phonenumber - 09**********" name="phonenumber" ngModel id="phonenumber"><br>
-    <select #roles name="set"  id="set" ngModel name="set"  >
-        <option disabled selected value default> -- select an option -- </option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>	<br>
-    <input type="submit" value="signup"> 
-
-
-
-</form> -->
+ -->
