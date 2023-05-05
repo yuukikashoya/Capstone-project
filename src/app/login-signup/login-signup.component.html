@@ -1,195 +1,92 @@
-
-
-<!-- login -->
-<div class="container" *ngIf="this.log == false">
-
-    <button  class="btn btn-primary btn-sm active" role="button" >Login</button>
-    <button (click)="signlogin()" class="btn btn-secondary btn-sm " role="button" >Sign up</button>
-
-    <div class="col-md-10 col-md-offset-1 main" >
-        
-    <div class="col-md-6 left-side cat" >
-
- 
-    <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/285944062_104105002329532_3087723177375662487_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=174925&_nc_eui2=AeEfrKqyLBRYvfloLP_WAOZy__mV4SgKyyT_-ZXhKArLJMOAOsqnqClgTI29x4BbBdg21UOtDnNEiRgwElOFYbBY&_nc_ohc=uI0QG48tBcwAX8VhvLI&_nc_ht=scontent.fceb2-1.fna&oh=00_AfCHPJqFvvmeU4J1G0a5A_Qq9dq2DH9H_Kr292C85wHxaw&oe=64552F31"  class="logosign" >
-
-    </div><!--col-sm-6-->
-    
-    <div class="col-md-6 right-side">
-   <b><h3>Login</h3></b> 
-    
-<!--Form with header-->
-<form class="form"#testLogin="ngForm" (ngSubmit)="login(testLogin.value)" >
-
-
-    <div class="form-group">
-        <label for="username+">Your usersname</label>
-        <input type="text" name="username" ngModel id="username" class="form-control input-lg">
-        
-    </div>
-
-    <div class="form-group">
-        <label for="password">Your password</label>
-        <input type="password" [type]="show ? 'text' : 'password'" name="password" ngModel id="password" class="form-control input-lg">
-        <button class="passwordbutton" type="button" (click)="showpassword()">
-            <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
-            <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
-
-        </button>
-    </div>
-
-    <div class="text-xs-center">
-        <button class="btn btn-deep-purple" type="submit">Login</button>
-    </div>
-    <br>   <br>
-<p>Not a member?<a (click)="signlogin()" style="cursor: pointer;"> Create Account</a></p>
-
-</form>
-<!--/Form with header-->
-
-    </div><!--col-sm-6-->
-    
-    
-    </div><!--col-sm-8-->
-    
-    </div><!--container-->
-
-
-
-
-<!-- sign uppp -->
-
-    <div class="container" *ngIf="this.log == true" style="margin-bottom: 10em;">
-        <button (click)="signlogin()" class="btn btn-secondary btn-sm " role="button" >Login</button>
-        <button class="btn  btn-primary btn-sm active" role="button" >Sign up</button>
-        <div class="col-md-10 col-md-offset-1 main cat" >
-
-
-             <form #signn="ngForm" (ngSubmit)="signup(signn.value)">
-            <h3 style="font-weight: bold;">Sign up</h3>
-        <div class="col-md-6 left-side cat" >
-           
-            <div class="form">
-    
-                <div class="form-group">
-                    <label for="username">Usersname </label>
-                    <input type="text"name="username" ngModel id="username" class="form-control input-lg">
-                    
-                </div>     <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="text"name="email" ngModel id="email" class="form-control input-lg">
-                    
-                </div>
-                <div class="form-group">
-                    <label for="phonenumber">Phonenumber</label>
-                    <input type="number" name="phonenumber" ngModel id="phonenumber" class="form-control input-lg">
-                    
-                </div>
-            
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password"  [type]="show ? 'text' : 'password'" name="password" ngModel id="password" class="form-control input-lg">
-                    <button class="passwordbutton" type="button" (click)="showpassword()">
+<div class="body1">
+<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+		<div class="login-form">
+			<form class="sign-in-htm" #testLogin="ngForm" (ngSubmit)="login(testLogin.value)">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input name="username" ngModel id="username"  type="text" class="input">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>  <button class="passwordbutton" type="button" (click)="showpassword()">
                         <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
                         <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
             
                     </button>
-                </div>
-            
-                <div class="form-group">
-                    <label for="cpassword">Confirm password</label>
-                    <input type="password"  [type]="show ? 'text' : 'password'" name="cpassword" ngModel id="cpassword" class="form-control input-lg">
-                    <button class="passwordbutton" type="button" (click)="showpassword()">
-                        <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
-                        <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
-            
-                    </button>
-                </div>
-            
-            
-            </div>
-        </div><!--col-sm-6-->
+					<input  type="password" class="input" 
+                    [type]="show ? 'text' : 'password'" name="password" ngModel id="password">
+                  
+				</div>
+				<div class="group">
+                    <label for="tab-2" class="label">Not a member? <a for="tab-2">Create Account</a></label> 
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign In">
+				</div>
+
+			</form>
+			<form class="sign-up-htm" #signn="ngForm" (ngSubmit)="signup(signn.value)">
+				<div class="group">
+					<label for="username" class="label">Username</label>
+					<input name="username" ngModel id="username" type="text" class="input">
+				</div>
+
+				<div class="group">
+					<label for="email" class="label">Email Address</label>
+					<input name="email" ngModel id="email" type="text" class="input">
+				</div>
+                <div class="group">
+					<label for="phonenumber" class="label">phone number</label>
+					<input type="number" name="phonenumber" ngModel id="phonenumber" class="input">
+				</div>
+                <div class="group">
+					<label for="fname" class="label">First name</label>
+					<input name="fname" ngModel id="fname" type="text" class="input">
+				</div>
+                <div class="group">
+					<label for="lname" class="label">last name</label>
+					<input name="lname" ngModel id="lname" type="text" class="input">
+				</div>			
+                <div class="group">
+					<label for="address" class="label">Current Address</label>
+					<input name="address" ngModel id="address"  type="text" class="input" placeholder="Street, House #, City or Bording House address">
+				</div>		
+                <div class="group">        
+                        <label for="password" class="label">Password</label>
+                            <button class="passwordbutton" type="button" (click)="showpassword()">
+                    <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
+                    <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
         
-        <div class="col-md-6 right-side">
-       
-        
-    <!--Form with header-->
+                </button>
+					
+					<input  [type]="show ? 'text' : 'password'" name="password" ngModel id="password" type="password" class="input">
+				</div>
+				<div class="group">
+					<label for="cpassword" class="label">Repeat Password</label>
+					<input  [type]="show ? 'text' : 'password'" name="cpassword" ngModel id="cpassword" class="input">
+				</div>
+                <div class="group">
+                    <label for="ara " class="label">Gender</label>
+                    <select #roles name="set"  id="set" ngModel name="set"  >
+                        <option disabled selected value default> -- select an option -- </option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        
+                      </select>	
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign Up">
+				</div>
+     
+				<div class="group">
+                    <label for="tab-1" class="label">Alreadr member? <a for="tab-1">Login</a></label> 
+				</div>
 
-    <div class="form">
-    
-        <div class="form-group">
-            <label for="fname">First name</label>
-            <input type="text" name="fname" ngModel id="fname" class="form-control input-lg">
-            
-        </div>     <div class="form-group">
-            <label for="lname">Last name</label>
-            <input type="text"name="lname" ngModel id="lname" class="form-control input-lg">
-            
-        </div>
-        <div class="form-group">
-            <label for="address">Address</label>
-            <input type="text" name="address" ngModel id="address" class="form-control input-lg">
-            
-        </div>
-  
-    
-        <div class="form-group">
-            <label for="form2">Gender</label><br>
-            <select #roles name="set"  id="set" ngModel name="set"  >
-                <option disabled selected value default> -- select an option -- </option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                
-              </select>	<br>
-        </div>
-    
-       
-    
-    
-    </div>
-    <!--/Form with header-->
-    
-        </div><!--col-sm-6-->
-         <div class="text-xs-center cent">
-            <button class="btn btn-deep-purple">Login</button>
-        </div>
-        </form>
-        </div><!--col-sm-8-->
-        
-        </div><!--container-->
+			</form>
+		</div>
+	</div>
+</div>
+</div>
 
-
-    <!-- dont remove this one please -->
-<!-- <form #testLogin="ngForm" (ngSubmit)="login(testLogin.value)" >
-    <label>login</label><br>
-    <input type="text" placeholder="username" name="username" ngModel id="username"><br>
-    <input class="inputpassword" type="password" [type]="show ? 'text' : 'password'" placeholder="password" name="password" ngModel id="password">
- 
- <button class="passwordbutton" type="button" (click)="showpassword()">{{show ? 'hide' : 'show'}}</button><br> 
-    <input type="submit" value="login"> 
-   
-
-
-</form>
-
-<br><br><br><br><br><br><br><br><br><br><br>
-<form #signn="ngForm" (ngSubmit)="signup(signn.value)" >
-    <label>signup</label><br>
-    <input type="text" placeholder="username" name="username" ngModel id="username"><br>
-    <input type="password" placeholder="password" name="password" ngModel id="password"><br>
-    <input type="password" placeholder="Confirm password" name="cpassword" ngModel id="cpassword"><br>
-    <input type="text" placeholder="first name" name="fname" ngModel id="fname"><br>
-    <input type="text" placeholder="last name" name="lname" ngModel id="lname"><br>
-    <input type="text" placeholder="email" name="email" ngModel id="email"><br>
-    <input type="text" placeholder="address" name="address" ngModel id="address"><br>
-    <input type="text" placeholder="phonenumber - 09**********" name="phonenumber" ngModel id="phonenumber"><br>
-    <select #roles name="set"  id="set" ngModel name="set"  >
-        <option disabled selected value default> -- select an option -- </option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>	<br>
-    <input type="submit" value="signup"> 
-
-
-
-</form> -->
