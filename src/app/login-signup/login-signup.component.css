@@ -1,133 +1,5 @@
-/* 
-  .inputpassword {
+*/
 
-    flex-grow:2;
-  
-  }
-  
-  
-  .inputpassword:focus {
-    outline: none;
-  }
-  
-
-  
-  .passwordbutton {
-
-    border:transparent;
-    background:transparent;
-
-  }
-
-
-
-  #playground-container {
-      height: 250px;
-      overflow: hidden !important;
-      
-  }
-  .main{margin-top:70px; 
-  -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
-  -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
-  box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
-  padding:0px;
-  /* background:#2196f3; */
-  /* }
-  .fb:focus, .fb:hover{color:FFF !important;}
-  body{
-  font-family: 'Raleway', sans-serif;
-  }
-  
-  .left-side{
-    padding:0px 0px 0px;
-    
-    background-size:cover;
-  }
-  .left-side h3{
-    font-size: 30px;
-      font-weight: 900;
-    color:#FFF;
-    padding: 50px 10px 00px 26px;
-    }
-    
-    .left-side p{
-      font-weight:600;
-    color:#FFF;
-    padding:10px 10px 10px 26px;
-    }
-  
-    
-    .fb{background: #2d6bb7;
-      color: #FFF;
-      padding: 10px 15px;
-      border-radius: 18px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-right: 15px;
-    margin-left:26px;-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
-  -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
-  box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);}
-    .tw{background: #20c1ed;
-      color: #FFF;
-      padding: 10px 15px;
-      border-radius: 18px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-right: 15px;-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
-  -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
-  box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);}
-    
-    .right-side{
-    padding:0px 0px 0px;
-    background:#FFF;
-    background-size:cover;
-    min-height:514px;
-  }
-    .right-side h3{
-    font-size: 30px;
-      font-weight: 700;
-    color:#000;
-    padding: 50px 10px 00px 50px;
-    }
-    .right-side p{
-      font-weight:600;
-    color:#000;
-    padding:10px 50px 10px 50px;
-    }
-    .form{padding:10px 50px 10px 50px;}
-      .form-control{box-shadow: none !important;
-      border-radius: 0px !important;
-      border-bottom: 1px solid #2196f3 !important;
-      border-top: 1px !important;
-      border-left: none !important;
-      
-      border-right: none !important;}
-      
-    .btn-deep-purple {
-      background: #2196f3;
-      border-radius: 18px;
-      padding: 5px 19px;
-      color: #FFF;
-      font-weight: 600;
-      
-    -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
-  -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
-  box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
-  }
-  .logosign{
-    height: 50%;
-    width: 50%;
-    justify-content: center;
-margin: 30%;
-
-  }
-  .cat{
-    background-color: white;
-  }
-.logo{
-  height: 100px;
-} */
-   */
    .body1{
     margin:0;
     color:#6a6f8c;
@@ -143,9 +15,9 @@ margin: 30%;
     width:100%;
     margin:auto;
     max-width:525px;
-    min-height:670px;
+    min-height:1000px;
     position:relative;
-    background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center;
+    /* background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center; */
     box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
   }
   .login-html{
@@ -278,3 +150,8 @@ margin: 30%;
   .foot-lnk{
     text-align:center;
   }
+  .passwordbutton{
+  background-color: transparent;
+  color: #c8c8c8;
+  border: transparent;
+}
