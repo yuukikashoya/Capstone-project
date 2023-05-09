@@ -14,7 +14,7 @@ import { ManageAccountsComponent } from './manage-accounts/manage-accounts.compo
 import { ManageSalesComponent } from './manage-sales/manage-sales.component';
 import { LaundryComponent } from './laundry/laundry.component';
 import { AnnoucementComponent } from './annoucement/annoucement.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -51,6 +51,7 @@ import { environment } from '../environments/environment';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
