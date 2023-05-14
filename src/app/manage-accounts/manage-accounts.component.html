@@ -50,7 +50,26 @@
     </div>
 
     <div class="jumbotron jumbotron-fluid bg-dark ">
+        <h3> <span class="label label-default">Staff</span>  </h3>
+        <table class="table table-bordered table-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Username</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let z of account | async;let i = index">
+              <tr  *ngIf= "z">
+                <th scope="row">{{i + 1}}</th>
+                <td>{{z.firstname}}</td>
+                <td>{{z.lastname}}</td>
+                <td>{{z.username}}</td>
+              </tr>
 
+            </tbody>
+          </table>
     </div>
 
 </div>

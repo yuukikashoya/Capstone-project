@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-manage-accounts',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manage-accounts.component.css']
 })
 export class ManageAccountsComponent implements OnInit {
-
-  constructor() { }
+  account!: Observable<any[]>;
+  constructor(private FireDb: AngularFireDatabase) {
+    this.account = FireDb.list('/staff').valueChanges();
+   }
 
   ngOnInit(): void {
   }
