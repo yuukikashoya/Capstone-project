@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Database } from '@angular/fire/database';
+import { Database, set } from '@angular/fire/database';
 import { FormGroup } from '@angular/forms';
 import { onValue, ref } from 'firebase/database';
 
@@ -24,7 +24,7 @@ changemode=false
 max="11"
 min="2"
   heroForm: any;
-
+   iid= sessionStorage.getItem('id');
   constructor(public database:Database) {
     const id= sessionStorage.getItem('id');
     const starCountRef = ref(this.database, 'client/' + id);
@@ -58,7 +58,53 @@ min="2"
       this.changedd = "Pick up at the shop"
     }
   }
-  book(value:any){
+  checker=""
+  uuid=""
+ 
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
+  async book(value:any){
+
+  const starCountRef = ref(this.database, 'pickup/' + this.iid);
+  onValue(starCountRef, (snapshot) => {
+   const ad = snapshot.val();  
+this.checker = ad.username
+
+   }); 
+     await this.delay(1000);
+console.log(this.checker)
+   
+    if(this.checker == this.iid  ){
+     alert('You already booked!'); 
+   
+    }
+
+      
+    else {
+    
+
+       this.uuid = "pickup" +Math.floor(100000 + Math.random() * 900000);
+   set(ref(this.database, 'pickup/' + this.iid), {
+       id: this.uuid,
+       username: this.username,
+       name: value.name,
+       address:value.location,
+       for:value.changedd,
+       phonenumber:value.phonenumber,
+
+
+
+      }); 
+      this.checker = "";
+    
+     
+      alert('Booked!');
+ 
+
+    }
+   
+   
 
   }
   
