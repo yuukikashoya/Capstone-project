@@ -92,6 +92,7 @@ console.log(this.checker)
        address:value.location,
        for:value.changedd,
        phonenumber:value.phonenumber,
+      uid: this.uid
 
 
 
