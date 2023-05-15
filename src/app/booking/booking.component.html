@@ -1,1 +1,15 @@
-<p>booking works!</p>
+<div class="container">
+    <form style="background-color: beige;width: 40%;margin: auto;padding: 50px;"#booking="ngForm" (ngSubmit)="book(booking.value)">
+        <h1>note this is just a sample design not final design</h1>
+   <label style="margin-right: 9.5em;">Customer name </label><br>
+        <input type="text"style="width: 18.6em;"  [ngModel]="name" name="name" readonly><br>
+        <label style="margin-right: 8em;">Location of pick up </label><br>
+        <input type="text"style="width: 15em;" [ngModel]="location" name="location" [readOnly]="this.readlocation"><button style="width:3.5em" type="button" (click)="changelocation()">{{readlocation ? 'edit' : 'lock'}}</button><br>
+        <label for="ara " class="label" style="margin-right: 3.5em;">deliver or pick up on the shop</label><br>
+        <input type="text"style="width: 15em;"[ngModel]="changedd" name="changedd"readonly><button (click)="changedelivery()"type="button">change</button><br>
+        <label style="margin-right: 8em;">Phone Number </label><br>
+        <input type="number"style="width: 15em;" min="10" max="11"  id="contact"[ngModel]="phonenumber"    name="phonenumber" [readOnly]="this.readphonenumber"><button style="width:3.5em" type="button" (click)="changephonenumber()">{{readphonenumber ? 'edit' : 'lock'}}</button><br>
+
+  <input type="submit">
+    </form>
+</div>
