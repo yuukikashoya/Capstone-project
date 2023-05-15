@@ -10,8 +10,10 @@ import { Observable } from 'rxjs';
 })
 export class ManageAccountsComponent implements OnInit {
   account!: Observable<any[]>;
+  client!: Observable<any[]>;
   constructor(private FireDb: AngularFireDatabase,public database:Database) {
     this.account = FireDb.list('/staff').valueChanges();
+        this.client = FireDb.list('/client').valueChanges();
    }
 
   ngOnInit(): void {
