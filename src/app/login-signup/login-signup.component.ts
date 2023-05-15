@@ -131,7 +131,7 @@ this.checker = ad.username
       
     else {
     
-       console.log("test1")
+
        this.uuid = "client" +Math.floor(100000 + Math.random() * 900000);
    set(ref(this.database, 'client/' + value.username), {
        id: this.uuid,

@@ -2,40 +2,40 @@
     <div class="jumbotron jumbotron-fluid bg-dark ">
         <h3> <span class="label label-default">Add Staff</span>  </h3>
  
-        <form method="POST" class="left" >
+        <form  class="left"#addadmin="ngForm" (ngSubmit)="admin(addadmin.value)" >
             <div class="row">
          <div class="column">
             
             <label class="text-white">First Name</label><br>
-            <input Name ='fname' type="text" ><br>
+            <input ngModel name="fname" type="text" ><br>
             <label class="text-white">Last Name</label><br>
-            <input Name ='lname' type="text" ><br>
+            <input ngModel name='lname' type="text" ><br>
             <label class="text-white">User Name</label><br>
-            <input Name ='username' type="text" ><br>
+            <input ngModel name='username' type="text" ><br>
             <label class="text-white">Password</label><br>
-            <input Name ='password' type="password" class="name" readonly value="1"><br>    
+            <input ngModel name='password' type="password" class="name" readonly  [ngModel]="defultpassword"><br>    
         </div>
         <div class="column">
             <label class="text-white">Email</label><br>
-            <input Name ='email' type="text" ><br>
+            <input ngModel name='email' type="text" ><br>
             <label class="text-white">Gender</label><br>
 
-            <select #roles name="set"  id="gen" ngModel name="gen"  >
+            <select #roles  id="set" ngModel name="set"  >
                 <option disabled selected value default> -- select an option -- </option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 
               </select>	<br>
             <label class="text-white">Jobtitle</label><br>
-            <select #roles name="set"  id="role" ngModel name="role"  >
+            <select #roles id="role" ngModel name="role"  >
                 <option disabled selected value default> -- select an option -- </option>
                 <option value="Staff">Staff</option>
                 <option value="Delivery">Delivery</option>
-                <option value="admin">admin</option>
+
                 
               </select>	<br>
             <label class="text-white">phone number</label><br>
-            <input Name ='phonenumber' type="number" ><br>    
+            <input ngModel name='phonenumber' type="number" ><br>    
         </div>
     </div>
               <div class="alert alert-danger">  
