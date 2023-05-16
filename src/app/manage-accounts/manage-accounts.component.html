@@ -1,1 +1,120 @@
-<p>manage-accounts works!</p>
+<div class="container">
+    <div class="jumbotron jumbotron-fluid bg-dark ">
+        <h3> <span class="label label-default">Add Staff</span>  </h3>
+ 
+        <form  class="left"#addadmin="ngForm" (ngSubmit)="admin(addadmin.value)" >
+            <div class="row">
+         <div class="column">
+            
+            <label class="text-white">First Name</label><br>
+            <input ngModel name="fname" type="text" ><br>
+            <label class="text-white">Last Name</label><br>
+            <input ngModel name='lname' type="text" ><br>
+            <label class="text-white">User Name</label><br>
+            <input ngModel name='username' type="text" ><br>
+            <label class="text-white">Password</label><br>
+            <input ngModel name='password' type="password" class="name" readonly  [ngModel]="defultpassword"><br>    
+        </div>
+        <div class="column">
+            <label class="text-white">Email</label><br>
+            <input ngModel name='email' type="text" ><br>
+            <label class="text-white">Gender</label><br>
+
+            <select #roles  id="set" ngModel name="set"  >
+                <option disabled selected value default> -- select an option -- </option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                
+              </select>	<br>
+            <label class="text-white">Jobtitle</label><br>
+            <select #roles id="role" ngModel name="role"  >
+                <option disabled selected value default> -- select an option -- </option>
+                <option value="Staff">Staff</option>
+                <option value="Delivery">Delivery</option>
+
+                
+              </select>	<br>
+            <label class="text-white">phone number</label><br>
+            <input ngModel name='phonenumber' type="number" ><br>    
+        </div>
+    </div>
+              <div class="alert alert-danger">  
+               <p>  Note!! password is always set to 1  </p>
+            </div>
+                    
+              
+                  
+                    
+                    <input type="submit" class="btn btn-primary" name="submit" value="add">
+        </form>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid bg-dark ">
+        <h3> <span class="label label-default">Staff</span>  </h3>
+        <table class="table table-bordered table-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Username</th>                
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone number</th>                
+                <th scope="col">activity</th>
+                <th scope="col">Job title</th>
+
+              </tr>
+            </thead>
+            <tbody *ngFor="let z of account | async;let i = index">
+              <tr  *ngIf= "z">
+                <th scope="row">{{z.id}}</th>
+                <td>{{z.username}}</td>                
+                <td>{{z.firstname}}</td>
+                <td>{{z.lastname}}</td>
+                <td>{{z.gender}}</td>                
+                <td>{{z.Email}}</td>
+                <td>{{z.phonenumber}}</td>
+                <td *ngIf="z.activity == true">online</td>
+                <td *ngIf="z.activity != true">offline</td> 
+                <td>{{z.jobtitle}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+    </div>
+    <div class="jumbotron jumbotron-fluid bg-dark ">
+      <h3> <span class="label label-default">Client</span>  </h3>
+      <table class="table table-bordered table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Username</th>                
+              <th scope="col">First name</th>
+              <th scope="col">Last name</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone number</th>                
+              <th scope="col">activity</th>
+              <th scope="col">Address</th>
+
+            </tr>
+          </thead>
+          <tbody *ngFor="let y of client | async">
+            <tr  *ngIf= "y">
+              <th scope="row">{{y.id}}</th>
+              <td>{{y.username}}</td>                
+              <td>{{y.firstname}}</td>
+              <td>{{y.lastname}}</td>
+              <td>{{y.gender}}</td>                
+              <td>{{y.Email}}</td>
+              <td>{{y.phonenumber}}</td>
+              <td *ngIf="y.activity == true">online</td>
+              <td *ngIf="y.activity != true">offline</td> 
+              <td>{{y.address}}</td>
+            </tr>
+
+          </tbody>
+        </table>
+  </div>
+</div>
