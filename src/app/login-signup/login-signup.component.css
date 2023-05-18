@@ -14,6 +14,8 @@
   .login-wrap{
     width:100%;
     margin:auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
     max-width:525px;
     min-height:1000px;
     position:relative;
@@ -124,7 +126,7 @@
     transform:scale(0) rotate(0);
   }
   .login-form .group .check:checked + label{
-    color:#fff;
+    color:#2f3292;
   }
   .login-form .group .check:checked + label .icon{
     background:#1161ee;
@@ -154,4 +156,12 @@
   background-color: transparent;
   color: #c8c8c8;
   border: transparent;
+}
+.um{
+  background-color: #000000;
+  height: 2em;
+  border-radius: 50px;
+  color: white;
+  padding-left: 30px;
+  padding-right: 30px;
 }
