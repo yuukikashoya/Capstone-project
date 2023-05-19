@@ -2,8 +2,6 @@
 
    .body1{
     margin:0;
-    /* color:#6a6f8c;
-    background:#c8c8c8; */
     font:600 16px/18px 'Open Sans',sans-serif;
   }
   *,:after,:before{box-sizing:border-box}
@@ -17,7 +15,7 @@
     padding-bottom: 10px;
     padding-top: 10px;
     max-width:525px;
-    min-height:870px;
+    min-height:1100px;
     position:relative;
     /* background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center; */
     box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
