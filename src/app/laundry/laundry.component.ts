@@ -11,6 +11,7 @@ export class LaundryComponent implements OnInit {
   pickup!: Observable<any[]>;
   constructor(private FireDb: AngularFireDatabase) { 
       this.pickup = FireDb.list('/pickup').valueChanges();
+
   }
 
   ngOnInit(): void {
