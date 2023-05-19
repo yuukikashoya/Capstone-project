@@ -2,8 +2,6 @@
 
    .body1{
     margin:0;
-    /* color:#6a6f8c;
-    background:#c8c8c8; */
     font:600 16px/18px 'Open Sans',sans-serif;
   }
   *,:after,:before{box-sizing:border-box}
@@ -14,8 +12,10 @@
   .login-wrap{
     width:100%;
     margin:auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
     max-width:525px;
-    min-height:1000px;
+    min-height:1100px;
     position:relative;
     /* background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center; */
     box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
@@ -23,6 +23,7 @@
   .login-html{
     width:100%;
     height:100%;
+    margin: auto;
     position:absolute;
     padding:90px 70px 50px 70px;
     background:rgba(40,57,101,.9);
@@ -51,7 +52,7 @@
   .login-html .tab{
     font-size:22px;
     margin-right:15px;
-    padding-bottom:5px;
+    /* padding-bottom:5px; */
     margin:0 15px 10px 0;
     display:inline-block;
     border-bottom:2px solid transparent;
@@ -80,7 +81,7 @@
   .login-form .group .input,
   .login-form .group .button{
     border:none;
-    padding:15px 20px;
+    padding:8px 10px;
     border-radius:25px;
     background:rgba(255,255,255,.1);
   }
@@ -124,7 +125,7 @@
     transform:scale(0) rotate(0);
   }
   .login-form .group .check:checked + label{
-    color:#fff;
+    color:#2f3292;
   }
   .login-form .group .check:checked + label .icon{
     background:#1161ee;
@@ -154,4 +155,12 @@
   background-color: transparent;
   color: #c8c8c8;
   border: transparent;
+}
+.um{
+  background-color: #000000;
+  height: 2em;
+  border-radius: 50px;
+  color: white;
+  padding-left: 30px;
+  padding-right: 30px;
 }
