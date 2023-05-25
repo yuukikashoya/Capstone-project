@@ -26,7 +26,7 @@ delay(ms: number) {
      const db = snapshot.val();  
   this.staff = db.staff;
  this.session = this.staff;
- this.admin = this.admin;
+ this.admin = db.admin;
 
      });
      

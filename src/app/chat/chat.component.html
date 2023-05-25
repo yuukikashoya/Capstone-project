@@ -57,7 +57,7 @@
           <tbody *ngFor="let a of chatlist | async;">
             <tr  *ngIf= "a">
 
-              <th (click)="getchat(a) ">{{a.username}}</th>    
+              <th (click)="getchat(a) " style="cursor: pointer;">{{a.username}}</th>    
 
              
 
@@ -93,7 +93,7 @@
             <div class="msg-box">
               <div class="flr">
                 <div class="messages">
-                  <p class="msg" id="msg-1">
+                  <p class="msg" id="msg-1" >
                     {{z.chat}}
                   </p>
 
