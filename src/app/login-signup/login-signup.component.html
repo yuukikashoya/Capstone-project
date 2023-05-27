@@ -31,6 +31,12 @@
 			</form>
 			<form class="sign-up-htm" #signn="ngForm" (ngSubmit)="signup(signn.value)">
 				<div class="group">
+					<label for="fname" class="label">First name</label>
+					<input name="fname" ngModel id="fname" type="text" class="input">
+					<label for="lname" class="label">last name</label>
+					<input name="lname" ngModel id="lname" type="text" class="input">
+				</div>
+				<div class="group">
 					<label for="username" class="label">Username</label>
 					<input name="username" ngModel id="username" type="text" class="input">
 				</div>
@@ -43,20 +49,14 @@
 					<label for="phonenumber" class="label">phone number</label>
 					<input type="number" name="phonenumber" ngModel id="phonenumber" class="input">
 				</div>
-                <div class="group">
-					<label for="fname" class="label">First name</label>
-					<input name="fname" ngModel id="fname" type="text" class="input">
-				</div>
-                <div class="group">
-					<label for="lname" class="label">last name</label>
-					<input name="lname" ngModel id="lname" type="text" class="input">
-				</div>			
+			
                 <div class="group">
 					<label for="address" class="label">Current Address</label>
 					<input name="address" ngModel id="address"  type="text" class="input" placeholder="Street, House #, City or Bording House address">
 				</div>		
                 <div class="group">        
                         <label for="password" class="label">Password</label>
+						
                             <button class="passwordbutton" type="button" (click)="showpassword()">
                     <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
                     <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
@@ -66,7 +66,7 @@
 					<input  [type]="show ? 'text' : 'password'" name="password" ngModel id="password" type="password" class="input">
 				</div>
 				<div class="group">
-					<label for="cpassword" class="label">Repeat Password</label>
+					<label for="cpassword" class="label">Confirm Password</label>
 					<input  [type]="show ? 'text' : 'password'" name="cpassword" ngModel id="cpassword" class="input">
 				</div>
                 <div class="group">
