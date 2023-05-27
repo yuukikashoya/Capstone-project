@@ -1,6 +1,8 @@
 <div class="body1">
 <div class="login-wrap">
 	<div class="login-html">
+		<img src="https://scontent.fmnl3-3.fna.fbcdn.net/v/t39.30808-6/285944062_104105002329532_3087723177375662487_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=174925&_nc_eui2=AeFJy3HHtB32vHSwolJCXgeU__mV4SgKyyT_-ZXhKArLJCuEgwyPmov_Gk6UlfL9LZQY2sqEnMKibaXJmcH1eH9u&_nc_ohc=O8DWY6v8ofsAX9zdrTd&_nc_zt=23&_nc_ht=scontent.fmnl3-3.fna&oh=00_AfDFoLFtkJpnCoYBUHC7U_34xyPd5jzShB8XORqLvnfQFw&oe=646CEA31" style="height: 100px; weight: 100px; border-radius: 50px;">
+		<h2 style="color: white; font-family: Didot;">I.M Cafe and Laundromat</h2><hr><br>
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
 		<div class="login-form">
@@ -20,7 +22,7 @@
                   
 				</div>
 				<div class="group">
-                    <label for="tab-2" class="label">Not a member? <a for="tab-2">Create Account</a></label> 
+                    <label for="tab-2" class="label">Don't have an Account? <a for="tab-2">Sign Up</a></label> 
 				</div>
 				<div class="group">
 					<input type="submit" class="button" value="Sign In">
@@ -28,6 +30,12 @@
 
 			</form>
 			<form class="sign-up-htm" #signn="ngForm" (ngSubmit)="signup(signn.value)">
+				<div class="group">
+					<label for="fname" class="label">First name</label>
+					<input name="fname" ngModel id="fname" type="text" class="input">
+					<label for="lname" class="label">last name</label>
+					<input name="lname" ngModel id="lname" type="text" class="input">
+				</div>
 				<div class="group">
 					<label for="username" class="label">Username</label>
 					<input name="username" ngModel id="username" type="text" class="input">
@@ -41,20 +49,14 @@
 					<label for="phonenumber" class="label">phone number</label>
 					<input type="number" name="phonenumber" ngModel id="phonenumber" class="input">
 				</div>
-                <div class="group">
-					<label for="fname" class="label">First name</label>
-					<input name="fname" ngModel id="fname" type="text" class="input">
-				</div>
-                <div class="group">
-					<label for="lname" class="label">last name</label>
-					<input name="lname" ngModel id="lname" type="text" class="input">
-				</div>			
+			
                 <div class="group">
 					<label for="address" class="label">Current Address</label>
 					<input name="address" ngModel id="address"  type="text" class="input" placeholder="Street, House #, City or Bording House address">
 				</div>		
                 <div class="group">        
                         <label for="password" class="label">Password</label>
+						
                             <button class="passwordbutton" type="button" (click)="showpassword()">
                     <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
                     <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
@@ -64,12 +66,12 @@
 					<input  [type]="show ? 'text' : 'password'" name="password" ngModel id="password" type="password" class="input">
 				</div>
 				<div class="group">
-					<label for="cpassword" class="label">Repeat Password</label>
+					<label for="cpassword" class="label">Confirm Password</label>
 					<input  [type]="show ? 'text' : 'password'" name="cpassword" ngModel id="cpassword" class="input">
 				</div>
                 <div class="group">
                     <label for="ara " class="label">Gender</label>
-                    <select #roles name="set"  id="set" ngModel name="set"  >
+                    <select class="um" #roles name="set"  id="set" ngModel name="set"  >
                         <option disabled selected value default> -- select an option -- </option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>

@@ -11,7 +11,7 @@
             </a>
           
         </li>
-        <li class="has-subnav">
+        <li class="has-subnav" *ngIf="this.admin == true">
             <a routerLink="accounts">
                 <i class="fa fa-users fa-2x"></i>
                 <span class="nav-text">
@@ -47,7 +47,7 @@
             </a>
         </li>
         <li>
-            <a routerLink="announcement">
+            <a routerLink="announcement" *ngIf="this.admin == true">
                 <i class="fa fa-bullhorn fa-2x"></i>
                 <span class="nav-text">
                    Announcement
