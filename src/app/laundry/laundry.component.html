@@ -12,10 +12,11 @@
                 <th scope="col">Phone number</th>           
                 <th scope="col">Address</th>
                 <th scope="col">after washing to be</th>
+                <th scope="col">update</th>
 
               </tr>
             </thead>
-            <tbody *ngFor="let z of pickup | async;let i = index">
+            <tbody *ngFor="let z of pickup | async;">
               <tr  *ngIf= "z">
                 <th scope="row">{{z.id}}</th>
                 <td>{{z.username}}</td>    
@@ -24,7 +25,7 @@
                 <td>{{z.phonenumber}}</td>
                 <td>{{z.address}}</td>
                 <td>{{z.for}}</td>
-               
+                <td><button class="btn btn-primary" (click)="getupdate(z)">update</button></td>
 
               </tr>
      
@@ -34,7 +35,7 @@
     </div>
 
     <div class="jumbotron jumbotron-fluid bg-dark ">
-        <h3> <span class="label label-default">Pick up</span>  </h3>
+        <h3> <span class="label label-default">Wash</span>  </h3>
         <table class="table table-bordered table-dark">
             <thead>
               <tr>
@@ -45,19 +46,26 @@
                 <th scope="col">Phone number</th>           
                 <th scope="col">Address</th>
                 <th scope="col">after washing to be</th>
+                <th scope="col">status</th>
+                <th scope="col">kilo/s</th>
+                <th scope="col">number of pack/s</th>
+                <th scope="col">total due</th>
 
               </tr>
             </thead>
-            <tbody *ngFor="let z of pickup | async;let i = index">
-              <tr  *ngIf= "z">
-                <th scope="row">{{z.id}}</th>
-                <td>{{z.username}}</td>    
-                <td>{{z.name}}</td>                            
-                <td>{{z.uid}}</td>  
-                <td>{{z.phonenumber}}</td>
-                <td>{{z.address}}</td>
-                <td>{{z.for}}</td>
-               
+            <tbody *ngFor="let q of laundry | async;">
+              <tr  *ngIf= "q">
+                <th scope="row">{{q.id}}</th>
+                <td>{{q.username}}</td>    
+                <td>{{q.name}}</td>                            
+                <td>{{q.uid}}</td>  
+                <td>{{q.phonenumber}}</td>
+                <td>{{q.address}}</td>
+                <td>{{q.for}}</td>
+                <td>{{q.status}}</td>
+                <td>{{q.kilo}}</td>
+                <td>{{q.pack}}</td>
+                <td>₱{{q.total}}.00</td>
 
               </tr>
      
@@ -65,4 +73,78 @@
             
           </table>
     </div>
+
+
+    <div class="jumbotron jumbotron-fluid bg-dark ">
+      <h3> <span class="label label-default">Delivery</span>  </h3>
+      <table class="table table-bordered table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Username</th>  
+              <th scope="col">Name</th>              
+              <th scope="col">User ID</th>
+              <th scope="col">Phone number</th>           
+              <th scope="col">Address</th>
+              <th scope="col">after washing to be</th>
+
+            </tr>
+          </thead>
+          <tbody *ngFor="let z of pickup | async;let i = index">
+            <tr  *ngIf= "z">
+              <th scope="row">{{z.id}}</th>
+              <td>{{z.username}}</td>    
+              <td>{{z.name}}</td>                            
+              <td>{{z.uid}}</td>  
+              <td>{{z.phonenumber}}</td>
+              <td>{{z.address}}</td>
+              <td>{{z.for}}</td>
+             
+
+            </tr>
+   
+          </tbody>
+          
+        </table>
+  </div>
+
+  <div class="jumbotron jumbotron-fluid bg-dark ">
+    <button class="cancelbtn btn btn-danger" (click)="cancelupdate()">Cancel</button>
+    <h3> <span class="label label-default">Update</span>  </h3>
+
+    <form  class="left"#addadmin="ngForm" (ngSubmit)="update(addadmin.value)" >
+        <div class="row">
+     <div class="column">
+        
+        <label class="text-white">Pick Up ID#</label><br>
+        <input ngModel name="pickupid" type="text" readonly [ngModel]="upid"><br>
+        <label class="text-white">Username</label><br>
+        <input ngModel name='username' type="text" readonly [ngModel]="upusername"><br>
+        <label class="text-white">Customer Name</label><br>
+        <input ngModel name='name' type="text" readonly [ngModel]="upname"><br>
+        <label class="text-white">User ID</label><br>
+        <input ngModel name='userid' type="text" readonly [ngModel]="upuid"><br>    
+    </div>
+    <div class="column">
+        <label class="text-white">Phone  Number</label><br>
+        <input ngModel name='phonenumber' type="number" readonly [ngModel]="upphonenumber"><br>
+        <label class="text-white">Address</label><br>
+        <input ngModel name='address' type="text" readonly [ngModel]="upadress"><br>
+        <label class="text-white">After washing to be</label><br>
+        <input ngModel name='to' type="text" readonly [ngModel]="upfor"><br>
+        <label class="text-white">clothes kilo</label><br>
+        <input ngModel name='kilo' type="number" ><br>    
+    </div>
 </div>
+        
+          
+              
+                
+                <input type="submit" class="btn btn-primary" name="submit" value="Update">
+    </form>
+</div>
+
+
+
+</div>
+

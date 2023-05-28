@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Database, set } from '@angular/fire/database';
 import { FormGroup } from '@angular/forms';
@@ -83,9 +84,9 @@ console.log(this.checker)
       
     else {
     
-
-       this.uuid = "pickup" +Math.floor(100000 + Math.random() * 900000);
-   set(ref(this.database, 'pickup/' + this.iid), {
+      let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
+      this.uuid =  "laundry"+myDate;
+   set(ref(this.database, 'pickup/' + this.uuid), {
        id: this.uuid,
        username: this.username,
        name: value.name,
