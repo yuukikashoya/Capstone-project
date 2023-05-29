@@ -50,7 +50,7 @@
                 <th scope="col">kilo/s</th>
                 <th scope="col">number of pack/s</th>
                 <th scope="col">total due</th>
-
+                <th scope="col">update</th>
               </tr>
             </thead>
             <tbody *ngFor="let q of laundry | async;">
@@ -66,7 +66,7 @@
                 <td>{{q.kilo}}</td>
                 <td>{{q.pack}}</td>
                 <td>₱{{q.total}}.00</td>
-
+                <td><button class="btn btn-primary" (click)="getupdate(q)">update</button></td>
               </tr>
      
             </tbody>
