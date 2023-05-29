@@ -1,4 +1,5 @@
 <div class="container" *ngIf="this.admin != true">
+  <span class="badge">Admin</span>
     <section class="chatbox"#scrollframe>
         <section class="chat-window " >
           <div *ngFor="let z of chats | async;let i = index">
@@ -13,7 +14,11 @@
                 
             
                 </div>
-             
+                <span class="timestamp"><span class="username text-white" style="font-weight: bold;">{{z.username}}</span>&bull;
+
+                <span class="posttime" >{{z.timesent}}</span>
+
+              </span>
               </div>
             </div>
           </article>
@@ -26,7 +31,11 @@
                   </p>
 
                 </div>
-              
+                <span class="timestamp"><span class="username text-white" style="font-weight: bold;">{{z.username}}</span>&bull;
+
+                <span class="posttime" >{{z.timesent}}</span>
+
+              </span>
               </div>
               <img class="user-img" id="user-0" src="//gravatar.com/avatar/56234674574535734573000000000001?d=retro" />
             </div>
@@ -71,9 +80,13 @@
 
   </div>
   <div class="container" *ngIf="this.admin == true && this.adminchat == true">
+    <h1 class="badge">{{currentuserchat}}</h1>
     <section class="chatbox"#scrollframe>
+     
         <section class="chat-window " >
+           
           <div *ngFor="let z of chats | async;let i = index">
+              
           <article class="msg-container msg-remote" id="msg-0"  *ngIf= "z && this.admin != z.admin ">
             <div class="msg-box">
               <img class="user-img" id="user-0" src="//gravatar.com/avatar/00034587632094500000000000000000?d=retro" />
@@ -85,7 +98,11 @@
                 
             
                 </div>
-             
+                <span class="timestamp"><span class="username text-white" style="font-weight: bold;">{{z.username}}</span>&bull;
+
+                <span class="posttime" >{{z.timesent}}</span>
+
+              </span>
               </div>
             </div>
           </article>
@@ -96,9 +113,13 @@
                   <p class="msg" id="msg-1" >
                     {{z.chat}}
                   </p>
-
+                
                 </div>
-              
+                <span class="timestamp"><span class="username text-white" style="font-weight: bold;">{{z.username}}</span>&bull;
+
+                <span class="posttime" >{{z.timesent}}</span>
+
+              </span>
               </div>
               <img class="user-img" id="user-0" src="//gravatar.com/avatar/56234674574535734573000000000001?d=retro" />
             </div>
@@ -113,4 +134,5 @@
                     </button>
         </form>
       </section>
+
   </div>
