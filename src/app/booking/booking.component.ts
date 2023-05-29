@@ -85,7 +85,7 @@ console.log(this.checker)
     else {
     
       let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
-      this.uuid =  "laundry"+myDate;
+      this.uuid =  "laundry"+myDate+ Math.floor(100 + Math.random() * 900000);
    set(ref(this.database, 'pickup/' + this.uuid), {
        id: this.uuid,
        username: this.username,

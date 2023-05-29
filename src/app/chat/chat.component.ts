@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Database, onValue, ref, set, update } from '@angular/fire/database';
@@ -10,13 +11,17 @@ import { Observable } from 'rxjs';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+
+
+
+
+
   chats!: Observable<any[]>;
   chatlist!: Observable<any[]>;
   iid= sessionStorage.getItem('id');
   admin = false
-  constructor(public database:Database,private FireDb: AngularFireDatabase) {
-  
 
+  constructor(public database:Database,private FireDb: AngularFireDatabase) {
     const starCountRef = ref(this.database, 'staff/' + this.iid);
     onValue(starCountRef, (snapshot) => {
      const db = snapshot.val();  
@@ -46,14 +51,16 @@ sendchat(value:any){
   alert("wala")
  }else{
   
-  const date = new Date();
-  
+  const date = formatDate(new Date(), 'YYYYddMMhhmmss', 'en')
+  const datenow = formatDate(new Date(), ' hh:mma MMM/dd/YYYY', 'en')
+  const superid = date + Math.floor(100 + Math.random() * 900000);
   
   set(ref(this.database, 'chat/' + this.iid + '/'+date), {
   username: this.iid,
-  time:  date,
   chat: value.chat,
-  admin: this.admin
+  admin: this.admin,
+  timesent: datenow,
+  id:date
 
  });
 
@@ -76,15 +83,17 @@ adminsendchat(value:any){
   alert("wala")
  }else{
   
-  const date = new Date();
-  
+  const date = formatDate(new Date(), 'YYYYddMMhhmmss', 'en')
+  const datenow = formatDate(new Date(), ' hh:mma MMM/dd/YYYY', 'en')
+  const superid = date + Math.floor(100 + Math.random() * 900000);
   
   set(ref(this.database, 'chat/' + this.currentuserchat + '/'+date), {
   username: this.iid,
-  time:  date,
-  chat: value.chat,
-  admin: this.admin
 
+  chat: value.chat,
+  admin: this.admin,
+  timesent: datenow,
+  id:date
  });
 
 this.chat = ""

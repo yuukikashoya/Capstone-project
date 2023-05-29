@@ -86,7 +86,7 @@ this.pack = this.decimal1 + 1
   this.total = this.pack * this.defultpricing;
 // adding to the database
 let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
-this.uuid =  "laundry"+myDate;
+this.uuid =  "laundry"+myDate+ Math.floor(100 + Math.random() * 900000);
 set(ref(this.database, 'laundry/' + this.uuid), {
     id: this.uuid,
     username: value.username,
