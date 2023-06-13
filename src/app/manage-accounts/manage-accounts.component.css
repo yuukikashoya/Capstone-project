@@ -4,4 +4,7 @@
   
   .column {
     flex: 50%;
+  } .nor{
+    cursor: pointer;
   }
+  
