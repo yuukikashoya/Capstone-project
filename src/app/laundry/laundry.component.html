@@ -1,6 +1,30 @@
+
 <div class="container">
 
-    <div class="jumbotron jumbotron-fluid bg-dark table-responsive">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+     
+      
+          <div class="collapse navbar-collapse " id="navbarCollapse" >
+              <div class="navbar-nav" >
+         
+                  <a  (click)="showPK()" class="nav-item nav-link nor" *ngIf="this.PKactive != true">Pick up</a>
+                  <a  (click)="showPK()" class="nav-item nav-link nor active" *ngIf="this.PKactive == true">Pick up</a>
+                  <a  (click)="showW()" class="nav-item nav-link nor" *ngIf="this.Wactive != true">Wash</a>
+                  <a  (click)="showW()" class="nav-item nav-link active nor" *ngIf="this.Wactive == true">Wash</a>
+                  <a  (click)="showD()"class="nav-item nav-link nor" *ngIf="this.Dactive != true">Deliviry</a>
+                  <a  (click)="showD()"class="nav-item nav-link nor active" *ngIf="this.Dactive == true">Deliviry</a>
+         
+              </div>
+
+
+
+      </div>
+  </nav>
+
+
+    <div class="jumbotron jumbotron-fluid bg-dark table-responsive"  *ngIf="this.PKactive == true">
         <h3> <span class="label label-default">Pick up</span>  </h3>
         <table class="table table-bordered table-dark">
             <thead>
@@ -34,7 +58,7 @@
           </table>
     </div>
 
-    <div class="jumbotron jumbotron-fluid bg-dark table-responsive">
+    <div class="jumbotron jumbotron-fluid bg-dark table-responsive"*ngIf="this.Wactive == true">
         <h3> <span class="label label-default">Wash</span>  </h3>
         <table class="table table-bordered table-dark">
             <thead>
@@ -75,7 +99,7 @@
     </div>
 
 
-    <div class="jumbotron jumbotron-fluid bg-dark table-responsive">
+    <div class="jumbotron jumbotron-fluid bg-dark table-responsive" *ngIf="this.Dactive == true">
       <h3> <span class="label label-default">Delivery</span>  </h3>
       <table class="table table-bordered table-dark">
           <thead>
@@ -108,7 +132,7 @@
         </table>
   </div>
 
-  <div class="jumbotron jumbotron-fluid bg-dark ">
+  <div class="jumbotron jumbotron-fluid bg-dark " *ngIf="this.PUactive == true">
     <button class="cancelbtn btn btn-danger" (click)="cancelupdate()">Cancel</button>
     <h3> <span class="label label-default">Update</span>  </h3>
 

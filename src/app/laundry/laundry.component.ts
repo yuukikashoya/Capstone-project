@@ -41,6 +41,8 @@ upfor = ""
     this.upphonenumber = value.phonenumber
     this.upadress= value.address
     this.upfor = value.for
+    this.PKactive =  false;
+    this.PUactive = true;
   }
   cancelupdate(){
     // clear the value
@@ -51,7 +53,8 @@ upfor = ""
     this.upphonenumber = ""
     this.upadress= ""
     this.upfor = ""
-
+    this.PKactive =  true;
+    this.PUactive = false;
   }
 
   defultkilo = 7
@@ -117,6 +120,38 @@ set(ref(this.database, 'laundry/' + this.uuid), {
 
 
 }
+}
+
+
+
+
+PKactive = true;
+Dactive = false;
+Wactive = false;
+PUactive = false;
+WUactive = false;
+
+
+showPK(){
+  this.PKactive =  true;
+  this.Dactive = false;
+  this.Wactive = false;
+  this.PUactive = false;
+  this.WUactive = false;
+}
+showD(){
+  this.PKactive =  false;
+  this.Dactive = true;
+  this.Wactive = false;
+  this.PUactive = false;
+  this.WUactive = false;
+}
+showW(){
+  this.PKactive =  false;
+  this.Dactive = false;
+  this.Wactive = true;
+  this.PUactive = false;
+  this.WUactive = false;
 }
 
 
