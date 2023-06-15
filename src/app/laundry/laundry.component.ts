@@ -57,6 +57,50 @@ upfor = ""
     this.PUactive = false;
   }
 
+laid = ""
+lausername = ""
+laname = ""
+lauid = ""
+laphonenumber = ""
+laadress = ""
+lafor = ""
+lakilo = ""
+lapack = ""
+laprice = ""
+lastatus = ""
+  getLaundry(value:any){
+    // getting the value
+    this.laid = value.id
+    this.lausername = value.username
+    this.laname = value.name
+    this.lauid = value.uid
+    this.laphonenumber = value.phonenumber
+    this.laadress= value.address
+    this.lafor = value.for
+    this.lakilo = value.kilo
+    this.laprice = "₱" + value.total+".00"
+    this.lastatus = value.status;
+    this.lapack = value.pack;  
+    this.Wactive =  false;
+    this.WUactive = true;
+
+  }
+  cancellaupdate(){
+    // clear the value
+    this.laid = ""
+    this.lausername = ""
+    this.laname = ""
+    this.lauid = ""
+    this.laphonenumber = ""
+    this.laadress= ""
+    this.lafor = ""
+    this.lakilo = ""
+    this.laprice = ""
+    this.lastatus = ""
+    this.lapack = "";  
+    this.Wactive =  true;
+    this.WUactive = false;
+  }
   defultkilo = 7
   defultpricing = 150
   decimal = 0
