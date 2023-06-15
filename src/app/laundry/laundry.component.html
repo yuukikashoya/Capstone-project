@@ -1,6 +1,30 @@
+
 <div class="container">
 
-    <div class="jumbotron jumbotron-fluid bg-dark table-responsive">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+     
+      
+          <div class="collapse navbar-collapse " id="navbarCollapse" >
+              <div class="navbar-nav" >
+         
+                  <a  (click)="showPK()" class="nav-item nav-link nor" *ngIf="this.PKactive != true">Pick up</a>
+                  <a  (click)="showPK()" class="nav-item nav-link nor active" *ngIf="this.PKactive == true">Pick up</a>
+                  <a  (click)="showW()" class="nav-item nav-link nor" *ngIf="this.Wactive != true">Wash</a>
+                  <a  (click)="showW()" class="nav-item nav-link active nor" *ngIf="this.Wactive == true">Wash</a>
+                  <a  (click)="showD()"class="nav-item nav-link nor" *ngIf="this.Dactive != true">Deliviry</a>
+                  <a  (click)="showD()"class="nav-item nav-link nor active" *ngIf="this.Dactive == true">Deliviry</a>
+         
+              </div>
+
+
+
+      </div>
+  </nav>
+
+
+    <div class="jumbotron jumbotron-fluid bg-dark table-responsive"  *ngIf="this.PKactive == true">
         <h3> <span class="label label-default">Pick up</span>  </h3>
         <table class="table table-bordered table-dark">
             <thead>
@@ -34,7 +58,7 @@
           </table>
     </div>
 
-    <div class="jumbotron jumbotron-fluid bg-dark table-responsive">
+    <div class="jumbotron jumbotron-fluid bg-dark table-responsive"*ngIf="this.Wactive == true">
         <h3> <span class="label label-default">Wash</span>  </h3>
         <table class="table table-bordered table-dark">
             <thead>
@@ -66,7 +90,7 @@
                 <td>{{q.kilo}}</td>
                 <td>{{q.pack}}</td>
                 <td>₱{{q.total}}.00</td>
-                <td><button class="btn btn-primary" (click)="getupdate(q)">update</button></td>
+                <td><button class="btn btn-primary" (click)="getLaundry(q)">update</button></td>
               </tr>
      
             </tbody>
@@ -75,7 +99,7 @@
     </div>
 
 
-    <div class="jumbotron jumbotron-fluid bg-dark table-responsive">
+    <div class="jumbotron jumbotron-fluid bg-dark table-responsive" *ngIf="this.Dactive == true">
       <h3> <span class="label label-default">Delivery</span>  </h3>
       <table class="table table-bordered table-dark">
           <thead>
@@ -108,7 +132,7 @@
         </table>
   </div>
 
-  <div class="jumbotron jumbotron-fluid bg-dark ">
+  <div class="jumbotron jumbotron-fluid bg-dark " *ngIf="this.PUactive == true">
     <button class="cancelbtn btn btn-danger" (click)="cancelupdate()">Cancel</button>
     <h3> <span class="label label-default">Update</span>  </h3>
 
@@ -142,6 +166,48 @@
                 
                 <input type="submit" class="btn btn-primary" name="submit" value="Update">
     </form>
+</div>
+
+
+
+
+<div class="jumbotron jumbotron-fluid bg-dark " *ngIf="this.WUactive == true">
+  <button class="cancelbtn btn btn-danger" (click)="cancellaupdate()">Cancel</button>
+  <h3> <span class="label label-default">Update</span>  </h3>
+
+  <form  class="left">
+      <div class="row">
+   <div class="column">
+      
+      <label class="text-white">Pick Up ID#</label><br>
+      <input ngModel name="pickupid" type="text" readonly [ngModel]="laid"><br>
+      <label class="text-white">Username</label><br>
+      <input ngModel name='username' type="text" readonly [ngModel]="lausername"><br>
+      <label class="text-white">Customer Name</label><br>
+      <input ngModel name='name' type="text" readonly [ngModel]="laname"><br>
+      <label class="text-white">User ID</label><br>
+      <input ngModel name='userid' type="text" readonly [ngModel]="lauid"><br>    
+  </div>
+  <div class="column">
+      <label class="text-white">Status</label><br>
+      <input ngModel name='phonenumber' type="text" readonly [ngModel]="lastatus"><br>
+      <label class="text-white">number of packs</label><br>
+      <input ngModel name='address' type="text" readonly [ngModel]="lapack"><br>
+      <label class="text-white">Kilo of clothes</label><br>
+      <input ngModel name='to' type="text" readonly [ngModel]="lakilo"><br>
+      <label class="text-white">Total price</label><br>
+      <input ngModel name='kilo' type="text" readonly [ngModel]="laprice"><br>    
+  </div>
+</div>
+      
+        
+            
+              
+<input type="submit" class="btn btn-danger balancer" name="submit" value="Delete">
+<input type="submit" class="btn btn-primary balancer" name="submit" value="Washing">
+<input type="submit" class="btn btn-success balancer" name="submit" value="Ready for Pick up" *ngIf='lafor == "Pick up at the shop"'>
+<input type="submit" class="btn btn-success balancer" name="submit" value="Ready for Deliviry"*ngIf='lafor == "Delivery to Address"'>
+  </form>
 </div>
 
 

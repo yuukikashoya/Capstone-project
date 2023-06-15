@@ -93,4 +93,24 @@ export class ManageAccountsComponent implements OnInit {
     }
     
 }
+
+ADDactive = true
+staffactive = false
+cleintactive = false
+showAddStaff(){
+  this.ADDactive =  true;
+  this.staffactive = false;
+  this.cleintactive = false;
+
+}
+showStaff(){
+  this.ADDactive =  false;
+  this.staffactive = true;
+  this.cleintactive = false;
+}
+showclient(){
+  this.ADDactive =  false;
+  this.staffactive = false;
+  this.cleintactive = true; 
+}
 }

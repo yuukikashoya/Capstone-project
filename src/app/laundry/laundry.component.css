@@ -8,3 +8,17 @@
   .cancelbtn {
 float: left;
   }
+
+
+  .mininav{
+    display: flex;
+  }
+  .nor{
+    cursor: pointer;
+  }
+  .balancer {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top:5px;
+    margin-bottom:0px;
+  }
