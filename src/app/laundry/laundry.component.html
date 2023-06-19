@@ -9,13 +9,14 @@
           <div class="collapse navbar-collapse " id="navbarCollapse" >
               <div class="navbar-nav" >
          
-                  <a  (click)="showPK()" class="nav-item nav-link nor" *ngIf="this.PKactive != true">Pick up</a>
-                  <a  (click)="showPK()" class="nav-item nav-link nor active" *ngIf="this.PKactive == true">Pick up</a>
+                  <a  (click)="showPK()" class="nav-item nav-link nor" *ngIf="this.PKactive != true">Deliviry Pick up</a>
+                  <a  (click)="showPK()" class="nav-item nav-link nor active" *ngIf="this.PKactive == true">Deliviry Pick up</a>
                   <a  (click)="showW()" class="nav-item nav-link nor" *ngIf="this.Wactive != true">Wash</a>
                   <a  (click)="showW()" class="nav-item nav-link active nor" *ngIf="this.Wactive == true">Wash</a>
                   <a  (click)="showD()"class="nav-item nav-link nor" *ngIf="this.Dactive != true">Deliviry</a>
                   <a  (click)="showD()"class="nav-item nav-link nor active" *ngIf="this.Dactive == true">Deliviry</a>
-         
+                  <a  (click)="showpick()"class="nav-item nav-link nor" *ngIf="this.Pickupactive != true"> Client Pick up</a>
+                  <a  (click)="showpick()"class="nav-item nav-link nor active" *ngIf="this.Pickupactive == true">Client Pick up</a>
               </div>
 
 
@@ -204,7 +205,7 @@
             
               
 <input type="submit" class="btn btn-danger balancer" name="submit" value="Delete">
-<input type="submit" class="btn btn-primary balancer" name="submit" value="Washing">
+<input type="submit" class="btn btn-primary balancer" name="submit" value="Washing" (click)="updatewashing()" *ngIf='lastatus == "processing"'>
 <input type="submit" class="btn btn-success balancer" name="submit" value="Ready for Pick up" *ngIf='lafor == "Pick up at the shop"'>
 <input type="submit" class="btn btn-success balancer" name="submit" value="Ready for Deliviry"*ngIf='lafor == "Delivery to Address"'>
   </form>

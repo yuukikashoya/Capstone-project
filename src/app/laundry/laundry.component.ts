@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { Database, ref, remove, set } from '@angular/fire/database';
+import { Database, ref, remove, set, update } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import {formatDate} from '@angular/common';
 
@@ -172,8 +172,10 @@ set(ref(this.database, 'laundry/' + this.uuid), {
 PKactive = true;
 Dactive = false;
 Wactive = false;
+Pickupactive = false;
 PUactive = false;
 WUactive = false;
+
 
 
 showPK(){
@@ -182,6 +184,7 @@ showPK(){
   this.Wactive = false;
   this.PUactive = false;
   this.WUactive = false;
+  this.Pickupactive = false;
 }
 showD(){
   this.PKactive =  false;
@@ -189,16 +192,38 @@ showD(){
   this.Wactive = false;
   this.PUactive = false;
   this.WUactive = false;
+  this.Pickupactive = false;
 }
-showW(){
+showW(): void{
   this.PKactive =  false;
   this.Dactive = false;
   this.Wactive = true;
   this.PUactive = false;
   this.WUactive = false;
+  this.Pickupactive = false;
+}
+showpick(){
+  this.PKactive =  false;
+  this.Dactive = false;
+  this.Wactive = false;
+  this.PUactive = false;
+  this.WUactive = false;
+  this.Pickupactive = true;
 }
 
 
+updatewashing(){
+  update(ref(this.database, 'laundry/' + this.laid), {
+
+   status: "washing"
+
+
+
+   }); 
+   this.Wactive =  true;
+   this.WUactive = false;
+
+}
 
 
 }
