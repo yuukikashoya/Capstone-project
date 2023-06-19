@@ -68,12 +68,20 @@ this.chat = ""
 
  }
 }
+listbox = true;
+chatbox = false;
 currentuserchat= ""
 adminchat = false
 getchat(value: any){
   this.chats = this.FireDb.list('/chat/'+ value.username).valueChanges();
   this.adminchat = true
   this.currentuserchat= value.username
+  this.listbox = false
+}
+closechatbox(){
+  this.adminchat = false
+  this.currentuserchat= ""
+  this.listbox = true
 }
 
 
@@ -100,4 +108,7 @@ this.chat = ""
 
  }
 }
+
+
+
 }
