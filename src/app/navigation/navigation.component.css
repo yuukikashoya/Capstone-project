@@ -28,8 +28,9 @@ top:0;
 bottom:0;
 height:100%;
 left:0;
-width:60px;
-overflow:hidden;
+width:250px;
+overflow:visible;
+
 -webkit-transition:width .05s linear;
 transition:width .05s linear;
 -webkit-transform:translateZ(0) scale(1,1);
