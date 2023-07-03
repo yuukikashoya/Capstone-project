@@ -113,4 +113,54 @@ showclient(){
   this.staffactive = false;
   this.cleintactive = true; 
 }
+
+
+
+// edit staff
+usfirstname = ""
+uslastname = ""
+usphonenumber = ""
+usemail = ""
+usgender = "male"
+usnamejobtitle = "staff"
+ususername = ""
+modea = false
+modeb = false
+
+getstuff(value:any){
+  this.usfirstname = value.firstname
+  this.uslastname = value.lastname
+  this.usphonenumber = value.phonenumber
+  this.usemail = value.Email
+  this.usgender = value.gender
+  this.usnamejobtitle = value.jobtitle
+  this.ususername = value.username
+  if(value.gender == "male"){
+    this.modeb = false
+  }else{
+    this.modeb = true
+  }
+  if(value.gender == "Staff"){
+    this.modeb = false
+  }else{
+    this.modeb = true
+  }
+}
+changejob(){
+  this.modea = !this.modea;
+  if(this.modea == false){
+    this.usnamejobtitle = "Staff"
+  }else{
+    this.usnamejobtitle = "Delivery"
+  }
+}
+changegender(){
+  this.modeb = !this.modeb;
+  if(this.modeb == false){
+    this.usgender = "male"
+  }else{
+    this.usgender = "female"
+  }
+}
+
 }
