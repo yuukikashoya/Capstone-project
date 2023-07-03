@@ -139,7 +139,7 @@
           </tbody>
         </table>
   </div>
-  <div class="jumbotron jumbotron-fluid bg-dark table-responsive" *ngIf="this.ADDactive == true">
+  <div class="jumbotron jumbotron-fluid bg-dark table-responsive" *ngIf="this.editstuff == true">
     <h3> <span class="label label-default">Update Staff</span>  </h3>
     <span class="label label-default">{{ususername}}</span> 
     <form  class="left" >
@@ -159,9 +159,9 @@
         <input ngModel name='email' type="text" [(ngModel)]="usemail"><br>
         <label class="text-white">Gender</label><br>
 
-        <input ngModel name='Gender' type="text" [(ngModel)]="usgender"> <button  class="btn btn-light btn-sm" >change</button><br>
+        <input ngModel name='Gender' type="text" [(ngModel)]="usgender"readOnly> <button (click)="changegender()" class="btn btn-light btn-sm" >change</button><br>
         <label class="text-white">Jobtitle</label><br>
-        <input ngModel name='Jobtitle' type="text" [(ngModel)]="usnamejobtitle"> <button  class="btn btn-light btn-sm"   >change</button><br>
+        <input ngModel name='Jobtitle' type="text" [(ngModel)]="usnamejobtitle" readonly> <button   (click)="changejob()" class="btn btn-light btn-sm"   >change</button><br>
   
     </div>
 </div>
@@ -172,7 +172,7 @@
                 
                 <input type="submit" class="btn btn-primary" name="submit" value="update" style="margin-right: 20px;">
                 <button  class="btn btn-danger" name="delete" style="margin-left: 20px;margin-right: 20px;">Delete</button>
-                <button  class="btn btn-secondary" name="delete" style="margin-left: 20px;">Back</button>
+                <button  class="btn btn-secondary" name="delete" style="margin-left: 20px;" (click)="backupdatestaff()">Back</button>
     </form>
 </div>
 </div>

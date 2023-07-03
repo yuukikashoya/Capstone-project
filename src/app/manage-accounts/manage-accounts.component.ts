@@ -128,6 +128,10 @@ modea = false
 modeb = false
 
 getstuff(value:any){
+  if(value.jobtitle == "administrator" || value.jobtitle == "owner"){
+    alert("you cant edit a admin or owner")
+  }else{
+    this.editstuff = true
   this.usfirstname = value.firstname
   this.uslastname = value.lastname
   this.usphonenumber = value.phonenumber
@@ -135,6 +139,7 @@ getstuff(value:any){
   this.usgender = value.gender
   this.usnamejobtitle = value.jobtitle
   this.ususername = value.username
+  this.staffactive = false;
   if(value.gender == "male"){
     this.modeb = false
   }else{
@@ -145,6 +150,7 @@ getstuff(value:any){
   }else{
     this.modeb = true
   }
+}
 }
 changejob(){
   this.modea = !this.modea;
@@ -162,5 +168,16 @@ changegender(){
     this.usgender = "female"
   }
 }
-
+editstuff = false
+backupdatestaff(){
+  this.ADDactive =  false;
+  this.staffactive = true;
+  this.cleintactive = false;
+  this.usfirstname = ''
+  this.uslastname = ''
+  this.usphonenumber = ''
+  this.usemail = ''
+  this.ususername =''
+  this.editstuff = false
+}
 }
