@@ -83,6 +83,7 @@
                 <th scope="col">Phone number</th>                
                 <th scope="col">activity</th>
                 <th scope="col">Job title</th>
+                <th scope="col">Action</th>
 
               </tr>
             </thead>
@@ -98,6 +99,7 @@
                 <td *ngIf="z.activity == true">online</td>
                 <td *ngIf="z.activity != true">offline</td> 
                 <td>{{z.jobtitle}}</td>
+                <td><button class="btn btn-primary" (click)="getstuff(z)" *ngIf="z.username != this.iid">Update</button></td>
               </tr>
 
             </tbody>
@@ -137,4 +139,40 @@
           </tbody>
         </table>
   </div>
+  <div class="jumbotron jumbotron-fluid bg-dark table-responsive" *ngIf="this.editstuff == true">
+    <h3> <span class="label label-default">Update Staff</span>  </h3>
+    <span class="label label-default">{{ususername}}</span> 
+    <form  class="left" >
+        <div class="row">
+     <div class="column">
+        
+        <label class="text-white">First Name</label><br>
+        <input ngModel name="fname" type="text" [(ngModel)]="usfirstname"><br>
+        <label class="text-white" [(ngModel)]="usfirstname">Last Name</label><br>
+        <input ngModel name='lname' type="text" [(ngModel)]="uslastname"><br>
+        <label class="text-white">phone number</label><br>
+             
+        <input ngModel name='phonenumber' type="number"[(ngModel)]="usphonenumber" ><br>  
+    </div>
+    <div class="column">
+        <label class="text-white">Email</label><br>
+        <input ngModel name='email' type="text" [(ngModel)]="usemail"><br>
+        <label class="text-white">Gender</label><br>
+
+        <input ngModel name='Gender' type="text" [(ngModel)]="usgender"readOnly> <button (click)="changegender()" class="btn btn-light btn-sm" >change</button><br>
+        <label class="text-white">Jobtitle</label><br>
+        <input ngModel name='Jobtitle' type="text" [(ngModel)]="usnamejobtitle" readonly> <button   (click)="changejob()" class="btn btn-light btn-sm"   >change</button><br>
+  
+    </div>
+</div>
+
+                
+          
+              
+                
+                <input type="submit" class="btn btn-primary" name="submit" value="update" style="margin-right: 20px;">
+                <button  class="btn btn-danger" name="delete" style="margin-left: 20px;margin-right: 20px;">Delete</button>
+                <button  class="btn btn-secondary" name="delete" style="margin-left: 20px;" (click)="backupdatestaff()">Back</button>
+    </form>
+</div>
 </div>

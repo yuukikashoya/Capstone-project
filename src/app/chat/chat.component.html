@@ -111,10 +111,10 @@
             <div class="msg-box">
               <div class="flr">
                 <div class="messages">
-                  <p class="msg" id="msg-1" >
+                  <p class="msg" id="msg-1">
                     {{z.chat}}
                   </p>
-                
+
                 </div>
                 <span class="timestamp"><span class="username text-white" style="font-weight: bold;">{{z.username}}</span>&bull;
 
@@ -122,9 +122,10 @@
 
               </span>
               </div>
-              <img class="user-i mg" id="user-0" src="//gravatar.com/avatar/56234674574535734573000000000001?d=retro" />
+              <img class="user-img" id="user-0" src="//gravatar.com/avatar/56234674574535734573000000000001?d=retro" />
             </div>
           </article>
+       
         </div>
         </section>
         <form class="chat-input" #sending="ngForm" (ngSubmit)="adminsendchat(sending.value)"  >
