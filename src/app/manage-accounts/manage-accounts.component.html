@@ -99,7 +99,7 @@
                 <td *ngIf="z.activity == true">online</td>
                 <td *ngIf="z.activity != true">offline</td> 
                 <td>{{z.jobtitle}}</td>
-                <td><button class="btn btn-primary" (click)="getstuff(z)">Update</button></td>
+                <td><button class="btn btn-primary" (click)="getstuff(z)" *ngIf="z.username != this.iid">Update</button></td>
               </tr>
 
             </tbody>
