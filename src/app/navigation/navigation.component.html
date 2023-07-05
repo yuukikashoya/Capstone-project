@@ -1,6 +1,6 @@
 <!-- admin nav -->
 
-<div class="area"></div><nav class="main-menu" *ngIf="this.staff == true && this.session == true">
+<div class="area"  *ngIf="this.staff == true && this.session == true"></div><nav class="main-menu" *ngIf="this.staff == true && this.session == true">
     <ul>
         <li>
             <a routerLink="home">
@@ -81,7 +81,7 @@
 
 
 <!-- user nav -->
- <div class="area"></div><nav class="main-menu" *ngIf="this.staff == false && this.session == true">
+ <div class="area"  *ngIf="this.staff == false && this.session == true"></div><nav class="main-menu" *ngIf="this.staff == false && this.session == true">
         <ul>
             <li>
                 <a routerLink="home">
