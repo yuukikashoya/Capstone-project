@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { Database, onValue, ref, set } from '@angular/fire/database';
+import { Database, onValue, ref, remove, set, update } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -101,17 +101,20 @@ showAddStaff(){
   this.ADDactive =  true;
   this.staffactive = false;
   this.cleintactive = false;
+  this.editstuff = false
 
 }
 showStaff(){
   this.ADDactive =  false;
   this.staffactive = true;
   this.cleintactive = false;
+  this.editstuff = false
 }
 showclient(){
   this.ADDactive =  false;
   this.staffactive = false;
   this.cleintactive = true; 
+  this.editstuff = false
 }
 
 
@@ -179,5 +182,45 @@ backupdatestaff(){
   this.usemail = ''
   this.ususername =''
   this.editstuff = false
+}
+deletestaff(){
+  remove(ref(this.database,  'staff/' + this.ususername));
+  this.ADDactive =  false;
+  this.staffactive = true;
+  this.cleintactive = false;
+  this.usfirstname = ''
+  this.uslastname = ''
+  this.usphonenumber = ''
+  this.usemail = ''
+  this.ususername =''
+  this.editstuff = false
+
+}
+
+updatestaff(){
+
+update(ref(this.database, 'staff/' + this.ususername), {
+
+
+  firstname:  this.usfirstname,
+  lastname: this.uslastname,
+  Email: this.usemail,
+  gender: this.usgender,
+  phonenumber: this.usphonenumber,
+  jobtitle: this.usnamejobtitle,
+
+
+  }); 
+  alert("user updated")
+  this.ADDactive =  false;
+  this.staffactive = true;
+  this.cleintactive = false;
+  this.usfirstname = ''
+  this.uslastname = ''
+  this.usphonenumber = ''
+  this.usemail = ''
+  this.ususername =''
+  this.editstuff = false
+
 }
 }
