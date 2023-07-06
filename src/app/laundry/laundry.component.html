@@ -112,6 +112,7 @@
               <th scope="col">Phone number</th>           
               <th scope="col">Address</th>
               <th scope="col">after washing to be</th>
+              <th scope="col">update</th>
 
             </tr>
           </thead>
@@ -124,7 +125,7 @@
               <td>{{z.phonenumber}}</td>
               <td>{{z.address}}</td>
               <td>{{z.for}}</td>
-             
+              <td><button class="btn btn-primary" (click)="getLaundry(z)">update</button></td>
 
             </tr>
    
