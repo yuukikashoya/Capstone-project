@@ -12,9 +12,9 @@
     margin-left: -250px;
 }
 .logo1{
-    margin-left: 20em;
-    height: 50em;
-    width: 50em;
+    margin-left: 10em;
+    height: 25em;
+    width: 25em;
     margin-top: 12em;
     border-radius: 50%;
     animation-name: slideDown;
@@ -34,15 +34,15 @@
   }
 
  .title1{
-    padding-top: 1em;
-    font-size: 8em;
+    padding-top: 1.5em;
+    font-size: 4em;
     margin-right: 2em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bolder;
     margin-left: 2em;
   }
   .tagline{
-    font-size: 5em;
+    font-size: 3em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-left: 2em;
   }
@@ -98,13 +98,14 @@
     background-repeat: no-repeat;
     height: 100vh;
     column-count: 2;
-    width: 100%;
+
     padding-top: 1em;
+    margin-left: -250px;
   }
   .logo{
-    height: 85em;
-    width: 105em;
-    margin-top: 20em;
+    height: 40em;
+    width: 60em;
+    margin-top: 10em;
     border: solid rgb(210, 126, 0);
     border-width: 2em;
     border-radius: 10%;
@@ -123,7 +124,7 @@
   color: #121212;
   cursor: pointer;
   font-family: Inter,sans-serif;
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1;
   outline: none;
@@ -141,7 +142,7 @@
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 .desc{
-  font-size: 3.5em;
+  font-size: 1.75em;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-top: 1em;
   text-align: justify;
@@ -149,7 +150,7 @@
 }
 .title2{
   padding-top: 2em;
-  font-size: 8em;
+  font-size: 4em;
   margin-right: 2em;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: bolder;
