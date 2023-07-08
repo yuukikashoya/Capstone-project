@@ -31,6 +31,7 @@ const routes: Routes = [
   {path: 'sales',component:ManageSalesComponent},
   {path: 'announcement',component:AnnoucementComponent},
   {path: 'nav',component:NavigationComponent},
+  
 
 ];
 

@@ -12,14 +12,16 @@
 					<input name="username" ngModel id="username"  type="text" class="input">
 				</div>
 				<div class="group">
-					<label for="pass" class="label">Password</label>  <button class="passwordbutton" type="button" (click)="showpassword()">
+					<label for="pass" class="label">Password</label>
+					<div class="input-container">
+					<button class="passwordbutton" type="button" (click)="showpassword()">
                         <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
                         <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
             
                     </button>
 					<input  type="password" class="input" 
                     [type]="show ? 'text' : 'password'" name="password" ngModel id="password">
-                  
+                  </div>
 				</div>
 				<div class="group">
                     <label for="tab-2" class="label">Don't have an Account? <a for="tab-2">Sign Up</a></label> 
@@ -31,32 +33,31 @@
 			</form>
 			<form class="sign-up-htm" #signn="ngForm" (ngSubmit)="signup(signn.value)">
 				<div class="group">
+
+					<div [hidden]="s1">
 					<label for="fname" class="label">First name</label>
 					<input name="fname" ngModel id="fname" type="text" class="input">
 					<label for="lname" class="label">last name</label>
 					<input name="lname" ngModel id="lname" type="text" class="input">
-				</div>
-				<div class="group">
+			
 					<label for="username" class="label">Username</label>
 					<input name="username" ngModel id="username" type="text" class="input">
-				</div>
-
-				<div class="group">
+			
 					<label for="email" class="label">Email Address</label>
 					<input name="email" ngModel id="email" type="text" class="input">
-				</div>
-                <div class="group">
+			
 					<label for="phonenumber" class="label">phone number</label>
 					<input type="number" name="phonenumber" ngModel id="phonenumber" class="input">
-				</div>
 			
-                <div class="group">
+							</div>
+
+							<div [hidden]="s2 ">
+
 					<label for="address" class="label">Current Address</label>
 					<input name="address" ngModel id="address"  type="text" class="input" placeholder="Street, House #, City or Bording House address">
-				</div>		
-                <div class="group">        
+			       
                         <label for="password" class="label">Password</label>
-						
+						<div class="input-container">
                             <button class="passwordbutton" type="button" (click)="showpassword()">
                     <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
                     <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
@@ -64,13 +65,23 @@
                 </button>
 					
 					<input  [type]="show ? 'text' : 'password'" name="password" ngModel id="password" type="password" class="input">
-				</div>
-				<div class="group">
+			
+					</div>
+
+
 					<label for="cpassword" class="label">Confirm Password</label>
+					<div class="input-container">
+					<button class="passwordbutton" type="button" (click)="showpassword()">
+					<i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
+					<i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
+
+					</button>
 					<input  [type]="show ? 'text' : 'password'" name="cpassword" ngModel id="cpassword" class="input">
-				</div>
-                <div class="group">
-                    <label for="ara " class="label">Gender</label>
+                 
+					</div>
+					
+					
+					<label for="ara " class="label">Gender</label>
                     <select class="um" #roles name="set"  id="set" ngModel name="set"  >
                         <option disabled selected value default> -- select an option -- </option>
                         <option value="male">Male</option>
@@ -78,10 +89,19 @@
                         
                       </select>	
 				</div>
+
+
+				</div>
+
 				<div class="group">
+					<button class="button"  type="button" [hidden]="s2 " (click)="back()">back</button>	
+				</div>
+				<div class="group" [hidden]="s2 ">
 					<input type="submit" class="button" value="Sign Up">
 				</div>
-     
+				<div class="group">
+					<button class="button"  type="button"  [hidden]="s1 " (click)="next()">next</button>
+				</div>
 				<div class="group">
                     <label for="tab-1" class="label">Alreadr member? <a for="tab-1">Login</a></label> 
 				</div>

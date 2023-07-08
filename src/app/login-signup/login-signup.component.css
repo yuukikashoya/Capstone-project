@@ -4,6 +4,15 @@
     margin:0;
     font:600 16px/18px 'Open Sans',sans-serif;
     margin-left:-250px;
+    background: url(https://i.pinimg.com/750x/72/53/fc/7253fccf5e0c5cddde4ebecceaeb9a61.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 112.3vh;
+    /* min-height:1200px; */
+    background-attachment: fixed;
+    
+    margin-left: -250px;
   }
   *,:after,:before{box-sizing:border-box}
   .clearfix:after,.clearfix:before{content:'';display:table}
@@ -13,10 +22,11 @@
   .login-wrap{
     width:100%;
     margin:auto;
+margin-top: -5em;
     padding-bottom: 10px;
     padding-top: 10px;
     max-width:525px;
-    min-height:1100px;
+    min-height:100vh;
     position:relative;
     /* background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center; */
     box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
@@ -164,4 +174,29 @@
   color: white;
   padding-left: 30px;
   padding-right: 30px;
+}
+
+
+
+
+
+.input-container {
+  position: relative;
+  display: inline-block;
+    width: 100%;
+}
+
+.input-container input {
+  padding-right: 40px; /* Adjust the padding to make space for the button */
+}
+
+.input-container button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  outline: none;
+
 }

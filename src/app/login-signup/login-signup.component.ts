@@ -154,10 +154,28 @@ this.checker = ad.username
       this.log = !this.log;
       alert('account created!');
  
-
+      window.location.reload();
     }
    }
    
 }
+}
+
+
+
+
+// hide and show sign up
+
+
+s1 = false
+s2 = true
+
+next(){
+this.s1 = true
+this.s2 = false
+}
+back(){
+  this.s1 = false
+  this.s2 = true
 }
 }
