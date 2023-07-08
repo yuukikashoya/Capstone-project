@@ -282,4 +282,22 @@ readyforpickup(){
 
 }
 
+// finish  or delete
+confirmid = ""
+confirmname = ""
+confirmusername = ""
+confirmuid = ""
+confirmpayed = ""
+confirmpack = ""
+confirmaddress = ""
+
+
+delivered(){
+
+
+}
+
+
+
+
 }

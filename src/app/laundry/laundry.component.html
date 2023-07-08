@@ -116,7 +116,7 @@
               <th scope="col">kilo/s</th>
               <th scope="col">number of pack/s</th>
               <th scope="col">total due</th>
-              <th scope="col">update</th>
+              <th scope="col">Delivered</th>
             </tr>
           </thead>
           <tbody *ngFor="let d of deliverylist | async;let i = index">
@@ -131,6 +131,7 @@
               <td>{{d.kilo}}</td>
               <td>{{d.pack}}</td>
               <td>{{d.total}}</td>
+              <td><button class="btn btn-primary" >Delivered</button></td>
             </tr>
    
           </tbody>
@@ -231,7 +232,7 @@
           <th scope="col">kilo/s</th>
           <th scope="col">number of pack/s</th>
           <th scope="col">total due</th>
-          <th scope="col">update</th>
+          <th scope="col">Picked up</th>
         </tr>
       </thead>
       <tbody *ngFor="let l of customerpickuplist | async;">
@@ -245,7 +246,7 @@
           <td>{{l.kilo}}</td>
           <td>{{l.pack}}</td>
           <td>{{l.total}}</td>
-          <td><button class="btn btn-primary" (click)="getLaundry(l)">update</button></td>
+          <td><button class="btn btn-primary" (click)="getLaundry(l)">Picked up</button></td>
         </tr>
 
       </tbody>
@@ -255,5 +256,29 @@
 
 
 
+
+
+
+<div class="confirmation-box">
+  <h3> Name: {{confirmname}}</h3>
+  <h3> Usernmae: {{confirmusername}}</h3>
+  <h3> Address: {{confirmaddress}}</h3>
+  <h3> Number of packs: {{confirmpack}}</h3>
+  <h3> Total amount due: {{confirmpayed}}</h3>
+  <h2>Are you sure is this delivered and paid??</h2>
+
+<button class="btn btn-primary lala">Yes</button>
+<button  class="btn btn-danger lala">No</button>
+</div>
+<div class="confirmation-box">
+  <h3> Name: {{confirmname}}</h3>
+  <h3> Usernmae: {{confirmusername}}</h3>
+  <h3> Number of packs: {{confirmpack}}</h3>
+  <h3> Total amount due: {{confirmpayed}}</h3>
+  <h2>Are you sure is this picked up and paid?</h2>
+  
+<button class="btn btn-primary lala">Yes</button>
+<button  class="btn btn-danger lala">No</button>
+</div>
 </div>
 
