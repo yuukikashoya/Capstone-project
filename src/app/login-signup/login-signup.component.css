@@ -4,6 +4,12 @@
     margin:0;
     font:600 16px/18px 'Open Sans',sans-serif;
     margin-left:-250px;
+    background: url(https://i.pinimg.com/750x/72/53/fc/7253fccf5e0c5cddde4ebecceaeb9a61.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin-left: -250px;
   }
   *,:after,:before{box-sizing:border-box}
   .clearfix:after,.clearfix:before{content:'';display:table}

@@ -111,21 +111,27 @@
               <th scope="col">User ID</th>
               <th scope="col">Phone number</th>           
               <th scope="col">Address</th>
-              <th scope="col">after washing to be</th>
-
+ 
+              <th scope="col">status</th>
+              <th scope="col">kilo/s</th>
+              <th scope="col">number of pack/s</th>
+              <th scope="col">total due</th>
+              <th scope="col">Delivered</th>
             </tr>
           </thead>
-          <tbody *ngFor="let z of pickup | async;let i = index">
-            <tr  *ngIf= "z">
-              <th scope="row">{{z.id}}</th>
-              <td>{{z.username}}</td>    
-              <td>{{z.name}}</td>                            
-              <td>{{z.uid}}</td>  
-              <td>{{z.phonenumber}}</td>
-              <td>{{z.address}}</td>
-              <td>{{z.for}}</td>
-             
-
+          <tbody *ngFor="let d of deliverylist | async;let i = index">
+            <tr  *ngIf= "d">
+              <th scope="row">{{d.id}}</th>
+              <td>{{d.username}}</td>    
+              <td>{{d.name}}</td>                            
+              <td>{{d.uid}}</td>  
+              <td>{{d.phonenumber}}</td>
+              <td>{{d.address}}</td>
+              <td>{{d.status}}</td>
+              <td>{{d.kilo}}</td>
+              <td>{{d.pack}}</td>
+              <td>{{d.total}}</td>
+              <td><button class="btn btn-primary" >Delivered</button></td>
             </tr>
    
           </tbody>
@@ -204,14 +210,75 @@
         
             
               
-<input type="submit" class="btn btn-danger balancer" name="submit" value="Delete">
+
 <input type="submit" class="btn btn-primary balancer" name="submit" value="Washing" (click)="updatewashing()" *ngIf='lastatus == "processing"'>
-<input type="submit" class="btn btn-success balancer" name="submit" value="Ready for Pick up" *ngIf='lafor == "Pick up at the shop"'>
-<input type="submit" class="btn btn-success balancer" name="submit" value="Ready for Deliviry"*ngIf='lafor == "Delivery to Address"'>
+<input type="submit" class="btn btn-success balancer" name="submit" value="Ready for Pick up" *ngIf='lafor == "Pick up at the shop"' (click)="readyforpickup()">
+<input type="submit" class="btn btn-success balancer" name="submit" value="Ready for Deliviry"*ngIf='lafor == "Delivery to Address"' (click)="readyfordelivery()">
   </form>
 </div>
 
 
+<div class="jumbotron jumbotron-fluid bg-dark table-responsive"*ngIf="this.Pickupactive == true">
+  <h3> <span class="label label-default">Customer Pickup</span>  </h3>
+  <table class="table table-bordered table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Username</th>  
+          <th scope="col">Name</th>              
+          <th scope="col">User ID</th>
+          <th scope="col">Phone number</th>           
+          <th scope="col">status</th>
+          <th scope="col">kilo/s</th>
+          <th scope="col">number of pack/s</th>
+          <th scope="col">total due</th>
+          <th scope="col">Picked up</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let l of customerpickuplist | async;">
+        <tr  *ngIf= "l">
+          <th scope="row">{{l.id}}</th>
+          <td>{{l.username}}</td>    
+          <td>{{l.name}}</td>                            
+          <td>{{l.uid}}</td>  
+          <td>{{l.phonenumber}}</td>
+          <td>{{l.status}}</td>
+          <td>{{l.kilo}}</td>
+          <td>{{l.pack}}</td>
+          <td>{{l.total}}</td>
+          <td><button class="btn btn-primary" (click)="getLaundry(l)">Picked up</button></td>
+        </tr>
 
+      </tbody>
+      
+    </table>
+</div>
+
+
+
+
+
+
+<div class="confirmation-box">
+  <h3> Name: {{confirmname}}</h3>
+  <h3> Usernmae: {{confirmusername}}</h3>
+  <h3> Address: {{confirmaddress}}</h3>
+  <h3> Number of packs: {{confirmpack}}</h3>
+  <h3> Total amount due: {{confirmpayed}}</h3>
+  <h2>Are you sure is this delivered and paid??</h2>
+
+<button class="btn btn-primary lala">Yes</button>
+<button  class="btn btn-danger lala">No</button>
+</div>
+<div class="confirmation-box">
+  <h3> Name: {{confirmname}}</h3>
+  <h3> Usernmae: {{confirmusername}}</h3>
+  <h3> Number of packs: {{confirmpack}}</h3>
+  <h3> Total amount due: {{confirmpayed}}</h3>
+  <h2>Are you sure is this picked up and paid?</h2>
+  
+<button class="btn btn-primary lala">Yes</button>
+<button  class="btn btn-danger lala">No</button>
+</div>
 </div>
 
