@@ -14,13 +14,14 @@
 				<div class="group">
 					<label for="pass" class="label">Password</label>
 					<div class="input-container">
-					<button class="passwordbutton" type="button" (click)="showpassword()">
+				
+					<input  type="password" class="input" 
+                    [type]="show ? 'text' : 'password'" name="password" ngModel id="password">
+						<button class="passwordbutton" type="button" (click)="showpassword()">
                         <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
                         <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
             
                     </button>
-					<input  type="password" class="input" 
-                    [type]="show ? 'text' : 'password'" name="password" ngModel id="password">
                   </div>
 				</div>
 				<div class="group">
@@ -58,26 +59,26 @@
 			       
                         <label for="password" class="label">Password</label>
 						<div class="input-container">
-                            <button class="passwordbutton" type="button" (click)="showpassword()">
+                         
+					
+					<input  [type]="show ? 'text' : 'password'" name="password" ngModel id="password" type="password" class="input">
+			   <button class="passwordbutton" type="button" (click)="showpassword()">
                     <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
                     <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
         
                 </button>
-					
-					<input  [type]="show ? 'text' : 'password'" name="password" ngModel id="password" type="password" class="input">
-			
 					</div>
 
 
 					<label for="cpassword" class="label">Confirm Password</label>
 					<div class="input-container">
-					<button class="passwordbutton" type="button" (click)="showpassword()">
+				
+					<input  [type]="show ? 'text' : 'password'" name="cpassword" ngModel id="cpassword" class="input">
+                 	<button class="passwordbutton" type="button" (click)="showpassword()">
 					<i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
 					<i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
 
 					</button>
-					<input  [type]="show ? 'text' : 'password'" name="cpassword" ngModel id="cpassword" class="input">
-                 
 					</div>
 					
 					
