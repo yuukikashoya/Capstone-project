@@ -12,12 +12,16 @@ import {formatDate} from '@angular/common';
 export class LaundryComponent implements OnInit {
   pickup!: Observable<any[]>;
   laundry!: Observable<any[]>;
+  deliverylist!: Observable<any[]>;
+  customerpickuplist!: Observable<any[]>;
 
 
 
   constructor(private FireDb: AngularFireDatabase, public database:Database) { 
       this.pickup = FireDb.list('/pickup').valueChanges();
       this.laundry = FireDb.list('/laundry').valueChanges();
+      this.deliverylist = FireDb.list('/delivery').valueChanges();
+      this.customerpickuplist = FireDb.list('/customerpickup').valueChanges();
 
   }
 
@@ -164,6 +168,9 @@ set(ref(this.database, 'laundry/' + this.uuid), {
 
 
 }
+
+this.PKactive =  true;
+this.PUactive = false;
 }
 
 
@@ -175,7 +182,7 @@ Wactive = false;
 Pickupactive = false;
 PUactive = false;
 WUactive = false;
-
+CPKactive = false;
 
 
 showPK(){
@@ -185,6 +192,7 @@ showPK(){
   this.PUactive = false;
   this.WUactive = false;
   this.Pickupactive = false;
+  this.CPKactive = false;
 }
 showD(){
   this.PKactive =  false;
@@ -193,6 +201,7 @@ showD(){
   this.PUactive = false;
   this.WUactive = false;
   this.Pickupactive = false;
+  this.CPKactive = false;
 }
 showW(): void{
   this.PKactive =  false;
@@ -201,6 +210,7 @@ showW(): void{
   this.PUactive = false;
   this.WUactive = false;
   this.Pickupactive = false;
+  this.CPKactive = false;
 }
 showpick(){
   this.PKactive =  false;
@@ -209,6 +219,7 @@ showpick(){
   this.PUactive = false;
   this.WUactive = false;
   this.Pickupactive = true;
+  this.CPKactive = false;
 }
 
 
@@ -224,6 +235,69 @@ updatewashing(){
    this.WUactive = false;
 
 }
+
+readyfordelivery(){
+  remove(ref(this.database, 'laundry/' + this.laid));
+
+  set(ref(this.database, 'delivery/' + this.laid), {
+    id: this.laid,
+    username: this.lausername,
+    name: this.laname,
+    address:this.laadress,
+    phonenumber:this.laphonenumber,
+   uid: this.lauid,
+   total: this.laprice,
+   pack: this.lapack,
+   kilo: this.lakilo,
+   status: "On the Delivery"
+
+
+
+   }); 
+
+
+   this.Wactive =  true;
+   this.WUactive = false;
+
+}
+readyforpickup(){
+  remove(ref(this.database, 'laundry/' + this.laid));
+
+  set(ref(this.database, 'customerpickup/' + this.laid), {
+    id: this.laid,
+    username: this.lausername,
+    name: this.laname,
+    address:this.laadress,
+    phonenumber:this.laphonenumber,
+   uid: this.lauid,
+   total: this.laprice,
+   pack: this.lapack,
+   kilo: this.lakilo,
+   status: "Ready for Pick up"
+   }); 
+
+
+   this.Wactive =  true;
+   this.WUactive = false;
+
+}
+
+// finish  or delete
+confirmid = ""
+confirmname = ""
+confirmusername = ""
+confirmuid = ""
+confirmpayed = ""
+confirmpack = ""
+confirmaddress = ""
+
+
+delivered(){
+
+
+}
+
+
 
 
 }
