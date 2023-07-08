@@ -11,10 +11,11 @@
     height: 100vh;
     margin-left: -250px;
 }
-img{
-    height: 35em;
-    width: 35em;
-    margin-top: 10em;
+.logo1{
+    margin-left: 20em;
+    height: 50em;
+    width: 50em;
+    margin-top: 12em;
     border-radius: 50%;
     animation-name: slideDown;
     animation-duration: 1s;
@@ -32,15 +33,18 @@ img{
     }
   }
 
-  h1{
-    font-size: 5em;
-    margin-top: 1em;
+ .title1{
+    padding-top: 1em;
+    font-size: 8em;
+    margin-right: 2em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bolder;
+    margin-left: 2em;
   }
-  p{
-    font-size: 2.5em;
+  .tagline{
+    font-size: 5em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 2em;
   }
 
   .button-28 {
@@ -69,6 +73,7 @@ img{
     touch-action: manipulation;
     width: 20%;
     will-change: transform;
+    margin-left: 4em;
   }
   
   .button-28:disabled {
@@ -86,3 +91,67 @@ img{
     box-shadow: none;
     transform: translateY(0);
   }
+  .about{
+    background: url('https://i.pinimg.com/750x/43/3a/bd/433abd90cea7ad1fb56794a3ded53d9f.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    column-count: 2;
+    width: 100%;
+    padding-top: 1em;
+  }
+  .logo{
+    height: 85em;
+    width: 105em;
+    margin-top: 20em;
+    border: solid rgb(210, 126, 0);
+    border-width: 2em;
+    border-radius: 10%;
+    animation-name: slideDown;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+
+
+.button-35 {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  font-family: Inter,sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-decoration: none;
+  transition: box-shadow .2s,-webkit-box-shadow .2s;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  height: 3em;
+}
+
+.button-35:hover {
+  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+}
+.desc{
+  font-size: 3.5em;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-top: 1em;
+  text-align: justify;
+  margin-right: 2em;
+}
+.title2{
+  padding-top: 2em;
+  font-size: 8em;
+  margin-right: 2em;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bolder;
+  margin-left: 2em;
+}
