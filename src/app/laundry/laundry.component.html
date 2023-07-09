@@ -2,7 +2,7 @@
 <div class="container">
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"*ngIf="nav == true">
 
      
       
@@ -131,7 +131,7 @@
               <td>{{d.kilo}}</td>
               <td>{{d.pack}}</td>
               <td>{{d.total}}</td>
-              <td><button class="btn btn-primary" >Delivered</button></td>
+              <td><button class="btn btn-primary" (click)="cdedivered(d)">Delivered</button></td>
             </tr>
    
           </tbody>
@@ -246,7 +246,7 @@
           <td>{{l.kilo}}</td>
           <td>{{l.pack}}</td>
           <td>{{l.total}}</td>
-          <td><button class="btn btn-primary" (click)="getLaundry(l)">Picked up</button></td>
+          <td><button class="btn btn-primary" (click)="cpickup(l)">Picked up</button></td>
         </tr>
 
       </tbody>
@@ -259,26 +259,29 @@
 
 
 
-<div class="confirmation-box">
-  <h3> Name: {{confirmname}}</h3>
-  <h3> Usernmae: {{confirmusername}}</h3>
-  <h3> Address: {{confirmaddress}}</h3>
-  <h3> Number of packs: {{confirmpack}}</h3>
-  <h3> Total amount due: {{confirmpayed}}</h3>
-  <h2>Are you sure is this delivered and paid??</h2>
+<div class="confirmation-box" *ngIf="pickedactive == true">
+  <div class="sideclass">
+  <h3> Name:<b>{{confirmname}}</b> </h3>
+  <h3> Usernmae: <b>{{confirmusername}}</b></h3>
+  <h3> Number of packs: <b>{{confirmpack}}</b></h3>
+  <h3> Total amount due:<b>{{confirmpayed}}</b> </h3>
+ </div>
+  <h2 >Are you sure is this picked up and paid??</h2>
 
-<button class="btn btn-primary lala">Yes</button>
-<button  class="btn btn-danger lala">No</button>
+<button class="btn btn-primary lala " (click)="pickedupyes()">Yes</button>
+<button  class="btn btn-danger lala " (click)="pickedupno()">No</button>
+
 </div>
-<div class="confirmation-box">
-  <h3> Name: {{confirmname}}</h3>
-  <h3> Usernmae: {{confirmusername}}</h3>
-  <h3> Number of packs: {{confirmpack}}</h3>
-  <h3> Total amount due: {{confirmpayed}}</h3>
-  <h2>Are you sure is this picked up and paid?</h2>
+<div class="confirmation-box" *ngIf="deliveredavtive == true">
+  <h3> Name: <b>{{confirmname}}</b></h3>
+  <h3> Usernmae:<b>{{confirmusername}}</b> </h3>
+  <h3> Address:<b>{{confirmaddress}}</b> </h3>
+  <h3> Number of packs:<b>{{confirmpack}}</b> </h3>
+  <h3> Total amount due:<b>{{confirmpayed}}</b> </h3>
+  <h2>Are you sure is this Delivered up and paid?</h2>
   
-<button class="btn btn-primary lala">Yes</button>
-<button  class="btn btn-danger lala">No</button>
+<button class="btn btn-primary lala"(click)="deliveryyes()">Yes</button>
+<button  class="btn btn-danger lala" (click)="deliveryno()">No</button>
 </div>
 </div>
 
