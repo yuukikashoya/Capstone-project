@@ -292,12 +292,118 @@ confirmpack = ""
 confirmaddress = ""
 
 
-delivered(){
+nav = true
+pickedactive = false
+deliveredavtive = false
+cpickup(l:any){
+  this.confirmid = l.id
+  this.confirmname = l.name
+  this.confirmusername = l.username
+  this.confirmuid = l.uid
+  this.confirmpayed = l.total
+  this.confirmpack = l.pack
 
+  this.pickedactive = true
+  this.nav = false
+this.Pickupactive = false
+
+}
+transacitonid = ""
+pickedupyes(){
+// temporarty funtion for now
+const iaid = sessionStorage.getItem('id');
+let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
+let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
+let realtime = formatDate(new Date(), 'hh:mma', 'en')
+this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 900000);
+set(ref(this.database, 'logs/' + this.transacitonid), {
+  transacitonid: this.transacitonid,
+  pastid: this.confirmid,
+  username: this.confirmusername,
+  name: this.confirmname,
+ uid: this.confirmuid,
+ payed: this.confirmpayed,
+ pack: this.confirmpack,
+ transacby: iaid,
+ time: realtime,
+ date:realdate,
+ type: "picked up"
+
+ }); 
+remove(ref(this.database, 'customerpickup/' + this.confirmid));
+alert('temporary done')
+this.nav = true
+this.Pickupactive = true
+this.pickedactive = false
+
+}
+
+
+pickedupno(){
+  this.nav = true
+this.Pickupactive = true
+this.pickedactive = false
 
 }
 
 
 
 
+
+
+cdedivered(d:any){
+
+  this.confirmid = d.id
+  this.confirmname = d.name
+  this.confirmusername = d.username
+  this.confirmuid = d.uid
+  this.confirmpayed = d.total
+  this.confirmpack = d.pack
+  this.confirmaddress = d.address
+
+  this.deliveredavtive = true
+  this.nav = false
+  this.Dactive = false
 }
+
+deliveryno(){
+  this.nav = true
+this.Dactive = true
+this.deliveredavtive = false
+
+}
+deliveryyes(){
+  const iaid = sessionStorage.getItem('id');
+  let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
+  let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
+  let realtime = formatDate(new Date(), 'hh:mma', 'en')
+  this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 900000);
+  set(ref(this.database, 'logs/' + this.transacitonid), {
+    transacitonid: this.transacitonid,
+    pastid: this.confirmid,
+    username: this.confirmusername,
+    name: this.confirmname,
+   uid: this.confirmuid,
+   payed: this.confirmpayed,
+   pack: this.confirmpack,
+   transacby: iaid,
+   time: realtime,
+   date:realdate,
+   type: "delivered",
+   deliveredTo:this.confirmaddress
+
+  
+   }); 
+  remove(ref(this.database, 'delivery/' + this.confirmid));
+  alert('temporary done')
+  this.nav = true
+this.Dactive = true
+this.deliveredavtive = false
+  
+  }
+  
+
+}
+
+
+
