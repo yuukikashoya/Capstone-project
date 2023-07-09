@@ -366,7 +366,44 @@ cdedivered(d:any){
   this.Dactive = false
 }
 
-
-
+deliveryno(){
+  this.nav = true
+this.Dactive = true
+this.deliveredavtive = false
 
 }
+deliveryyes(){
+  const iaid = sessionStorage.getItem('id');
+  let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
+  let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
+  let realtime = formatDate(new Date(), 'hh:mma', 'en')
+  this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 900000);
+  set(ref(this.database, 'logs/' + this.transacitonid), {
+    transacitonid: this.transacitonid,
+    pastid: this.confirmid,
+    username: this.confirmusername,
+    name: this.confirmname,
+   uid: this.confirmuid,
+   payed: this.confirmpayed,
+   pack: this.confirmpack,
+   transacby: iaid,
+   time: realtime,
+   date:realdate,
+   type: "delivered",
+   deliveredTo:this.confirmaddress
+
+  
+   }); 
+  remove(ref(this.database, 'delivery/' + this.confirmid));
+  alert('temporary done')
+  this.nav = true
+this.Dactive = true
+this.deliveredavtive = false
+  
+  }
+  
+
+}
+
+
+
