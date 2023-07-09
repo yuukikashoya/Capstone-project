@@ -26,16 +26,23 @@ float: left;
 
 
   .confirmation-box {
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
     background-color: aliceblue;
       border: 0.5em solid rgb(75, 75, 239);
       padding: 20px;
-      max-width: 100em;
-      margin: 0 auto;
-      text-align: justify;
+      max-width: 45em;
+
+ 
   }
   
 .lala{
   margin: 1em;
   font-size: 2em;
 }
+.sideclass{
+  text-align: justify;
 
+}
