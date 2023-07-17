@@ -9,6 +9,9 @@ export class AnnoucementComponent implements OnInit {
 
   constructor() { }
 
+  postna(any:any){
+
+  }
   ngOnInit(): void {
   }
 

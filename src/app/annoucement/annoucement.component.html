@@ -1,2 +1,34 @@
-<p>annoucement works!</p>
-<!-- hakio -->
+<div class=" container manok">
+
+
+<div class="jumbotron jumbotron-fluid a" >
+
+
+    <form #postaaa="ngForm" class="center"  (ngSubmit)="postna(postaaa.value)">
+   
+  
+        <input  type="text" style="text-align: center;font-weight: bold;font-size: 1.5em; border-radius: 30px;" name="name"  class="headinput" id="name" placeholder="Name"><br>
+        <textarea type="text"  autocomplete="off" class="textarea" style="border-radius: 10px; font-size: 1em;"     ngModel  name="post" id="post" placeholder="post"></textarea><br>
+        <input  class="bg-primary text-white kick" type="submit" value="Post">
+    </form>
+
+
+
+</div>
+
+
+
+
+
+    <div class="form-alerts toasts ">
+        <div role="alert" class="fade form-warning alert alert-primary alert-dismissible show ">
+      
+          <div class="d-flex align-items-center  ">
+            <img alt="noti-icon" src="https://cdn-icons-png.flaticon.com/256/1378/1378644.png" width="28" class="me-4">
+            <h2><b class="pad ">Let's fantasy world.</b>
+            </h2>
+          </div>
+             <p class="letter">hellow wala kaming pasok</p>
+        </div>
+      </div>    
+</div>

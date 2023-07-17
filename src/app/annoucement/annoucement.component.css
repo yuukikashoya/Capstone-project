@@ -1,0 +1,31 @@
+.letter{
+    text-align: center;
+    margin-left: 3em;
+    font-weight:500;
+    font-size: 1.5em;
+}
+.pad{
+  text-align: center;
+}
+.center{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom:10px;
+    font-size: 1em;
+
+
+}
+.textarea {
+    border: 1px #ddd solid;
+    width: 400px;
+    height: 60px;
+    font: 9pt Consolas;
+    width: 100%;
+}
+.a{
+    padding-right: -40px;
+    padding-left: -40px;
+    border-radius: 1em;
+}
+
+
