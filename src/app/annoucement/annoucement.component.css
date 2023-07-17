@@ -3,6 +3,13 @@
     margin-left: 3em;
     font-weight:500;
     font-size: 1.5em;
+    width: auto;
+}
+
+
+.letter pre {
+  margin: 0;
+  white-space: pre-wrap;
 }
 .pad{
   text-align: center;
@@ -51,4 +58,5 @@
     font-weight: bold;
     font-size: 1.9em;
     padding-right: 2em;
+  
   }
