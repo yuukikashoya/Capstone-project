@@ -24,7 +24,7 @@
 
 
 
-<div *ngFor="let a of announcements | async;let i = index">
+<div *ngFor="let a of (announcements | async)?.reverse()">
     <div class="form-alerts toasts " *ngIf="a">
         <div role="alert" class="fade form-warning alert alert-warning alert-dismissible show ">
       
