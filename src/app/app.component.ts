@@ -9,14 +9,5 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Capstone';
 
-  constructor(private router:Router){
-    const sessionValue = sessionStorage.getItem('id');
 
-    if (sessionValue) {
-
-    } else {
-      this.router.navigate(['/sign'])
-    }
-
-  }
 }

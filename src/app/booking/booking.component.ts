@@ -2,6 +2,7 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Database, set } from '@angular/fire/database';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { onValue, ref } from 'firebase/database';
 
 @Component({
@@ -26,7 +27,21 @@ max="11"
 min="2"
   heroForm: any;
    iid= sessionStorage.getItem('id');
-  constructor(public database:Database) {
+
+
+
+
+
+   
+  constructor(public database:Database,public router:Router) {
+
+    const sessionValue = sessionStorage.getItem('type');
+   
+    if (sessionValue == "1" ) {
+    
+    } else {
+      this.router.navigate(['/sign'])
+    }
     const id= sessionStorage.getItem('id');
     const starCountRef = ref(this.database, 'client/' + id);
     onValue(starCountRef, (snapshot) => {
