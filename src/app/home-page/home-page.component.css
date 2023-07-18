@@ -1,8 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Modak");
 * {
     margin: 0;
     padding: 0;
  
   }
+  .top{
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* height: 5vh; */
+    margin-left: -250px;   
+  }
+
+  .design{
+    background-color: #3B3B3B;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 5vh;
+    margin-left: -250px;
+  }
+
   .back{
     background: url(https://i.pinimg.com/750x/fa/fb/88/fafb8834262cb00e0855f7a6d6b02451.jpg);
     background-size: cover;
@@ -10,12 +29,13 @@
     background-repeat: no-repeat;
     height: 100vh;
     margin-left: -250px;
+    column-count: 2;
 }
-.logo1{
+.logo2{
     margin-left: 10em;
-    height: 25em;
-    width: 25em;
-    margin-top: 12em;
+    height: 45em;
+    width: 45em;
+    margin-top: 6em;
     border-radius: 50%;
     animation-name: slideDown;
     animation-duration: 1s;
@@ -33,18 +53,43 @@
     }
   }
 
- .title1{
-    padding-top: 1.5em;
-    font-size: 4em;
-    margin-right: 2em;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: bolder;
-    margin-left: 2em;
+  @font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
   }
-  .tagline{
-    font-size: 3em;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-left: 2em;
+
+ .mint{
+    /* color: rgb(0, 78, 212); */
+    padding-top: 1%;
+    font-size: 5em;
+    margin-right: 1em;
+    font-family: 'Rocher';
+    font-weight: bolder;
+    margin-left: 4em;
+    flex-direction: column;
+  }
+
+  @font-palette-values --Mint {
+    font-family: Rocher;
+    base-palette: 7;
+  }
+
+  .mint {
+    font-palette: --Mint;
+  }
+
+  .text-3{
+    padding-top: 3em;
+    font-size: 65px;
+    font-family: Modak;
+    margin-right: 2em;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-top: calc(50vh - 100px);
+    /* text-shadow: 2px 2px #3c3cbf; */
+    background-color: red; /* For browsers that do not support gradients */
+    background-image: linear-gradient(red, rgb(87, 92, 221));
   }
 
   .button-28 {
@@ -144,15 +189,21 @@
 .desc{
   font-size: 1.75em;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  margin-top: 1em;
+  margin-top: 1px;
   text-align: justify;
   margin-right: 2em;
 }
 .title2{
-  padding-top: 2em;
-  font-size: 4em;
+  padding-top: 1em;
+  font-size: 5em;
   margin-right: 2em;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-weight: bolder;
+  font-family: Modak;
   margin-left: 2em;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-top: calc(50vh - 100px);
+  /* text-shadow: 2px 2px #3c3cbf; */
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(red, rgb(87, 92, 221));
 }

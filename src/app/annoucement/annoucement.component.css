@@ -1,0 +1,73 @@
+.letter{
+text-align: justify;
+    margin-left: 3em;
+    font-weight:500;
+    font-size: 1.5em;
+    width: auto;
+}
+
+
+.letter pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.pad{
+  text-align: center;
+}
+.center{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom:10px;
+    font-size: 1em;
+
+
+}
+.textarea {
+    border: 1px #ddd solid;
+    white-space: pre;
+  text-align: justify;
+    height: 200px;
+    font: 9pt Consolas;
+    width: 100%;
+    padding:2em ;
+}
+.a{
+    padding-right: -40px;
+    padding-left: -40px;
+    border-radius: 1em;
+ 
+}
+.headertitle{
+  font-weight: bold;
+  font-size: 1.5em;
+    border-radius: 30px;
+    text-align: center;
+  height: 2em;
+}
+
+.kick{
+    float: right;
+    border-radius: 10px;
+
+  }
+  .headinput{
+    width: 60%;
+  }
+  .title{
+    text-align: justify;
+    font-weight: bold;
+    font-size: 1.9em;
+    padding-right: 2em;
+  
+  }
+  .scrollable-div {
+
+    height: 30em;
+    overflow: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.frome {
+padding-top: 0;
+height: 310px;
+}
