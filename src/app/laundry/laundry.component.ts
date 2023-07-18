@@ -3,6 +3,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Database, ref, remove, set, update } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import {formatDate} from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-laundry',
@@ -17,7 +18,15 @@ export class LaundryComponent implements OnInit {
 
 
 
-  constructor(private FireDb: AngularFireDatabase, public database:Database) { 
+  constructor(private FireDb: AngularFireDatabase, public database:Database,public router:Router) { 
+
+    const sessionValue = sessionStorage.getItem('type');
+   
+    if (sessionValue == "1" ) {
+    
+    } else {
+      this.router.navigate(['/sign'])
+    }
       this.pickup = FireDb.list('/pickup').valueChanges();
       this.laundry = FireDb.list('/laundry').valueChanges();
       this.deliverylist = FireDb.list('/delivery').valueChanges();

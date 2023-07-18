@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Database, onValue, ref, remove, set, update } from '@angular/fire/database';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,9 +12,19 @@ import { Observable } from 'rxjs';
 export class ManageAccountsComponent implements OnInit {
   account!: Observable<any[]>;
   client!: Observable<any[]>;
-  constructor(private FireDb: AngularFireDatabase,public database:Database) {
+  constructor(private FireDb: AngularFireDatabase,public database:Database,public router: Router) {
     this.account = FireDb.list('/staff').valueChanges();
         this.client = FireDb.list('/client').valueChanges();
+
+        const sessionValue = sessionStorage.getItem('type');
+        const sid = sessionStorage.getItem('id');
+
+        if (sessionValue == "1" && sid == "admin" || sid == "owner") {
+    
+        } else {
+          this.router.navigate(['/sign'])
+        }
+    
    }
 
   ngOnInit(): void {

@@ -67,7 +67,7 @@ last_login:date,
 activity:true
 } );
 sessionStorage.setItem('id',value.username);
-
+sessionStorage.setItem('type','0');
 this.router.navigate(['/home'])
 .then(() => {
 window.location.reload();
@@ -80,7 +80,7 @@ window.location.reload();
   activity:true
   } );
   sessionStorage.setItem('id',value.username);
-  
+  sessionStorage.setItem('type','1');
   this.router.navigate(['/home'])
   .then(() => {
   window.location.reload();
