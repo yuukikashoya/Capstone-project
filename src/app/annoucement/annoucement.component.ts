@@ -3,6 +3,7 @@ import { Component, OnInit,ViewChild  } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Database, set } from '@angular/fire/database';
 import { FormGroup, NgForm} from '@angular/forms';
+import { Router } from '@angular/router';
 import { onValue, ref } from 'firebase/database';
 import { Observable } from 'rxjs';
 
@@ -15,7 +16,14 @@ export class AnnoucementComponent implements OnInit {
   announcements!: Observable<any[]>;
   @ViewChild('postaaa') myForm!: NgForm;
 
-  constructor(public database:Database,private FireDb: AngularFireDatabase) {
+  constructor(public database:Database,private FireDb: AngularFireDatabase,public router:Router) {
+    const sessionValue = sessionStorage.getItem('type');
+    const sid = sessionStorage.getItem('id');
+    if (sessionValue == "1" && sid == "admin" || sid == "owner") {
+    
+    } else {
+      this.router.navigate(['/sign'])
+    }
     this.announcements = FireDb.list('/announcements').valueChanges();
 
    }

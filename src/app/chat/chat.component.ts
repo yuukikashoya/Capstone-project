@@ -2,6 +2,7 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Database, onValue, ref, set, update } from '@angular/fire/database';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
@@ -21,7 +22,20 @@ export class ChatComponent implements OnInit {
   iid= sessionStorage.getItem('id');
   admin = false
 
-  constructor(public database:Database,private FireDb: AngularFireDatabase) {
+  constructor(public router:Router,public database:Database,private FireDb: AngularFireDatabase) {
+    
+  
+
+      const sessionValue = sessionStorage.getItem('type');
+     
+      if (sessionValue ) {
+      
+      } else {
+        this.router.navigate(['/sign'])
+      }
+    
+    
+    
     const starCountRef = ref(this.database, 'staff/' + this.iid);
     onValue(starCountRef, (snapshot) => {
      const db = snapshot.val();  
