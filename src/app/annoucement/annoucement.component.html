@@ -1,15 +1,20 @@
 <div class=" container manok">
 
 
-<div class="jumbotron jumbotron-fluid a" >
+<div class="jumbotron jumbotron-fluid a frome" >
 
 
     <form #postaaa="ngForm" class="center"  (ngSubmit)="postna(postaaa.value)">
-   
-  
-        <input  type="text" style="text-align: center;font-weight: bold;font-size: 1.5em; border-radius: 30px;" name="name"  class="headinput" id="name" placeholder="Name"><br>
-        <textarea type="text"  autocomplete="off" class="textarea" style="border-radius: 10px; font-size: 1em;"     ngModel  name="post" id="post" placeholder="post"></textarea><br>
-        <input  class="bg-primary text-white kick" type="submit" value="Post">
+   <div class="d-flex">
+  <p class="title">Title</p>   
+        <input  type="text" name="header" ngModel  class="headinput headertitle" id="header" placeholder="Header"><br>
+</div>
+<div class="d-flex">
+  <p class="title" style="margin-right:-1em;">Details</p>
+        <textarea type="text"  autocomplete="off" class="textarea"  style="border-radius: 10px; font-size: 1.5em;"     ngModel  name="body" id="body" placeholder="body"></textarea><br>
+    
+    </div>
+        <input  class=" btn btn-primary kick" type="submit" value="Announce">
     </form>
 
 
@@ -17,18 +22,19 @@
 </div>
 
 
+<div class="scrollable-div">
 
-
-
-    <div class="form-alerts toasts ">
-        <div role="alert" class="fade form-warning alert alert-primary alert-dismissible show ">
+<div *ngFor="let a of (announcements | async)?.reverse()" >
+    <div class="form-alerts toasts " *ngIf="a">
+        <div role="alert" class="fade form-warning alert alert-warning alert-dismissible show ">
       
           <div class="d-flex align-items-center  ">
             <img alt="noti-icon" src="https://cdn-icons-png.flaticon.com/256/1378/1378644.png" width="28" class="me-4">
-            <h2><b class="pad ">Let's fantasy world.</b>
-            </h2>
+            <h2><b class="pad ">{{a.title}}</b>
+            </h2><mark>{{a.timedate}}</mark>
           </div>
-             <p class="letter">hellow wala kaming pasok</p>
+             <div class="letter"><pre>{{a.body}}</pre></div>
         </div>
       </div>    
-</div>
+      </div>
+</div></div>
