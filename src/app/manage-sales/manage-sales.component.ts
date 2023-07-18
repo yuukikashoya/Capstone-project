@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-sales',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageSalesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router) {
+
+    const sessionValue = sessionStorage.getItem('type');
+   
+    if (sessionValue == "1" ) {
+    
+    } else {
+      this.router.navigate(['/sign'])
+    }
+   }
 
   ngOnInit(): void {
   }
