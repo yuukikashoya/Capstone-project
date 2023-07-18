@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Modak");
+.about{
+    background: url('https://i.pinimg.com/750x/43/3a/bd/433abd90cea7ad1fb56794a3ded53d9f.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    column-count: 2;
+
+    padding-top: 1em;
+    margin-left: -250px;
+  }
+
+  .logo{
+    height: 40em;
+    width: 60em;
+    margin-top: 10em;
+    border: solid rgb(210, 126, 0);
+    border-width: 2em;
+    border-radius: 10%;
+    animation-name: slideDown;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+
+.button-35 {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+    box-sizing: border-box;
+    color: #121212;
+    cursor: pointer;
+    font-family: Inter,sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    outline: none;
+    padding: 1rem 1.2rem;
+    text-decoration: none;
+    transition: box-shadow .2s,-webkit-box-shadow .2s;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    height: 3em;
+  }
+  
+
+.button-35:hover {
+    box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+  }
+  .desc{
+    font-size: 1.75em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 1px;
+    text-align: justify;
+    margin-right: 2em;
+  }
+  .title2{
+    padding-top: 1em;
+    font-size: 5em;
+    margin-right: 2em;
+    font-family: Modak;
+    margin-left: 2em;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-top: calc(50vh - 100px);
+    /* text-shadow: 2px 2px #3c3cbf; */
+    background-color: red; /* For browsers that do not support gradients */
+    background-image: linear-gradient(red, rgb(87, 92, 221));
+  }
+.hey{
+    column-count: 2;
+    margin-left: -250px;
+    
+}
+.desc1{
+    font-size: 3em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 1px;
+    text-align: center;
+
+}
