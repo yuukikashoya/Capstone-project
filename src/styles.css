@@ -15,3 +15,12 @@
     background-position: center;
     height: 100%;
   }
+
+  .scrollable {
+
+    max-height: 52em;
+    overflow: auto;
+    border: 1px solid #ccc;
+    
+}
+
