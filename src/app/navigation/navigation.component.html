@@ -1,6 +1,84 @@
 <!-- admin nav -->
 
-<div class="area"  *ngIf="this.staff == true && this.session == true"></div><nav class="main-menu" *ngIf="this.staff == true && this.session == true">
+
+<div style="float: left;"  *ngIf="this.staff == true && this.session == true">
+<nav>
+    <div class="navicon">
+      <div></div>
+    </div>
+
+            <a routerLink="home">
+                <i class="fa fa-home fa-2x"></i>
+                <span class="nav-text">
+                   Home
+                </span>
+            </a>
+          
+
+            <a routerLink="accounts" *ngIf="this.admin == true">
+                <i class="fa fa-users fa-2x"></i>
+                <span class="nav-text">
+                    Manage Accounts
+                </span>
+            </a>
+            
+
+            <a routerLink="profile">
+               <i class="fa fa-user fa-2x"></i>
+                <span class="nav-text">
+                    Profile
+                </span>
+            </a>
+            
+ 
+            <a routerLink="sales">
+               <i class="fa fa-pie-chart fa-2x"></i>
+                <span class="nav-text">
+                    Manage Sales
+                </span>
+            </a>
+           
+
+            <a routerLink="laundry">
+                <i class="fa fa-book fa-2x"></i>
+                <span class="nav-text">
+                    Laundry
+                </span>
+            </a>
+ 
+            <a routerLink="announcement" *ngIf="this.admin == true">
+                <i class="fa fa-bullhorn fa-2x"></i>
+                <span class="nav-text">
+                   Announcement
+                </span>
+            </a>
+
+            <a routerLink="chat">
+                <i class="fa fa-comments fa-2x"></i>
+                <span class="nav-text">
+                   Chat
+                </span>
+            </a>
+
+            <a  (click)="logout()" >
+                  <i class="fa fa-power-off fa-2x"></i>
+                 <span class="nav-text">
+                     Logout
+                 </span>
+             </a>
+     
+  
+  </nav>
+</div>
+
+
+
+
+
+<!-- admin nav -->
+
+<!-- <div class="area"  *ngIf="this.staff == true && this.session == true"></div>
+    <nav class="main-menu" *ngIf="this.staff == true && this.session == true">
     <ul>
         <li>
             <a routerLink="home">
@@ -80,7 +158,7 @@
 
 
 
-<!-- user nav -->
+ user nav 
  <div class="area"  *ngIf="this.staff == false && this.session == true"></div><nav class="main-menu" *ngIf="this.staff == false && this.session == true">
         <ul>
             <li>
@@ -145,7 +223,7 @@
                </a>
             </li>  
         </ul>
-    </nav>
+    </nav> -->
     
         <!-- <li><a routerLink="home">Home</a></li>                                                                           
         <li><a routerLink="admin">Admin table</a></li>  
