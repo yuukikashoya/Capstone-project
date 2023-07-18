@@ -1,5 +1,5 @@
 .letter{
-    text-align: center;
+text-align: justify;
     margin-left: 3em;
     font-weight:500;
     font-size: 1.5em;
@@ -60,3 +60,14 @@
     padding-right: 2em;
   
   }
+  .scrollable-div {
+
+    height: 30em;
+    overflow: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.frome {
+padding-top: 0;
+height: 310px;
+}
