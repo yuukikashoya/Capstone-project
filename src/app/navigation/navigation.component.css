@@ -135,13 +135,13 @@ height: 100%;
 nav {
 
   z-index: 9999;
-  margin-top: 0.5em;
+  margin-top: 1em;
   position: fixed;
   width: 300px;
-  background: rgb(0, 0, 0);
-  color: rgba(255, 255, 255, 0.87);
-  -webkit-clip-path: circle(29px at 37px 29px);
-  clip-path: circle(29px at 37px 29px);
+  background: transparent;;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-clip-path: circle(31px at 37px 31px);
+  clip-path: circle(31px at 37px 31px);
   -webkit-transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
   transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
 }
@@ -152,8 +152,8 @@ nav:hover {
   transition-timing-function: ease-out;
   -webkit-transition-duration: 0.75s;
   transition-duration: 0.75s;
-  -webkit-clip-path: circle(460px at 225px 24px);
-  clip-path: circle(460px at 150px 24px);
+  -webkit-clip-path: circle(480px at 225px 24px);
+  clip-path: circle(480px at 150px 24px);
 }
 
 a {
@@ -166,6 +166,7 @@ a {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  background-color: white;
 
 }
 
@@ -174,7 +175,7 @@ a:hover { background: #ffe082; }
 a:active { background: #ffca28; }
 
 .navicon {
-  padding: 29px 24px;
+  padding: 29px 20px;
   cursor: pointer;
   -webkit-transform-origin: 32px 24px;
   -ms-transform-origin: 32px 24px;
@@ -183,22 +184,26 @@ a:active { background: #ffca28; }
 
 .navicon div {
   position: relative;
-  width: 25px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.87);
+  width: 35px;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.87);
 }
 
 .navicon div:before,
 .navicon div:after {
   display: block;
   content: "";
-  width: 25px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.87);
+  width: 35px;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.87);
   position: absolute;
 }
 
-.navicon div:before { top: -7px; }
+.navicon div:before { top: -10px; }
 
-.navicon div:after { top: 7px; }
+.navicon div:after { top: 10px; }
+
+.nav-text{
+  font-size: 2em;
+}
 
