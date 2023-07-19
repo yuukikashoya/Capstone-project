@@ -1,7 +1,7 @@
 <!-- admin nav -->
 
 
-<div style="float: left;"  *ngIf="this.staff == true && this.session == true">
+<div style="float: left;"  *ngIf="this.typeid == '1'">
 <nav>
     <div class="navicon">
       <div></div>
@@ -72,7 +72,7 @@
 </div>
 
 <!-- user nav  -->
-<div style="float: left;" *ngIf="this.staff == false && this.session == true">
+<div style="float: left;" *ngIf="this.typeid == '0'">
     <nav>
         <div class="navicon">
           <div></div>

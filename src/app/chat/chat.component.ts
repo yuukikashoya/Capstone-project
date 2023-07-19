@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, AfterViewInit, ViewChild, ElementRef  } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Database, onValue, ref, set, update } from '@angular/fire/database';
 import { Router } from '@angular/router';
@@ -12,16 +12,21 @@ import { Observable } from 'rxjs';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+  @ViewChild('chatWindow', { static: false }) chatWindow!: ElementRef;
 
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
 
-
-
-
+  scrollToBottom() {
+    const chatWindowElement = this.chatWindow.nativeElement;
+    chatWindowElement.scrollTop = chatWindowElement.scrollHeight;
+  }
   chats!: Observable<any[]>;
   chatlist!: Observable<any[]>;
   iid= sessionStorage.getItem('id');
   admin = false
-
+  typeid = sessionStorage.getItem('type');
   constructor(public router:Router,public database:Database,private FireDb: AngularFireDatabase) {
     
   
@@ -44,8 +49,8 @@ export class ChatComponent implements OnInit {
 
      } );
        
-    console.log(this.admin)
-      if(this.admin == true){
+   
+      if(this.typeid == '1'){
         this.chatlist = FireDb.list('/client').valueChanges();
 
       }else{

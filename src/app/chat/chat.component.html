@@ -1,7 +1,7 @@
-<div class="container" *ngIf="this.admin != true ">
+<div class="container"  *ngIf="this.typeid == '0'">
   <span class="badge">Admin</span>
-    <section class="chatbox"#scrollframe>
-        <section class="chat-window " >
+    <section class="chatbox">
+        <section class="chat-window "  #chatWindow>
           <div *ngFor="let z of chats | async;let i = index">
           <article class="msg-container msg-remote" id="msg-0"  *ngIf= "z && this.admin != z.admin ">
             <div class="msg-box">
@@ -51,7 +51,7 @@
         </form>
       </section>
   </div>
-  <div class="container" *ngIf="this.admin == true && listbox == true">
+  <div class="container" *ngIf="this.typeid == '1' && listbox == true" style="padding-top:6em ;">
     <div class="jumbotron jumbotron-fluid bg-dark text-center scrollable">
       <h3> <span class="label label-default">Chat</span>  </h3>
       <table class="table table-bordered table-dark">
@@ -79,12 +79,12 @@
 
 
   </div>
-  <div class="container"  *ngIf="this.admin == true && this.adminchat == true">
+  <div class="container"  *ngIf="this.typeid == '1' && this.adminchat == true">
 
     <h1 class="badge">{{currentuserchat}}</h1>
     <section class="chatbox"#scrollframe>
          <button class="btn btn-danger" style="float:left " (click)="closechatbox()">Close</button>
-        <section class="chat-window " >
+        <section class="chat-window " #chatWindow >
            
           <div *ngFor="let z of chats | async;let i = index">
               

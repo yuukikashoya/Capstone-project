@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 export class AnnoucementComponent implements OnInit {
   announcements!: Observable<any[]>;
   @ViewChild('postaaa') myForm!: NgForm;
-
+typeid = sessionStorage.getItem('type');
   constructor(public database:Database,private FireDb: AngularFireDatabase,public router:Router) {
     const sessionValue = sessionStorage.getItem('type');
     const sid = sessionStorage.getItem('id');
