@@ -1,7 +1,7 @@
 <div class=" container manok">
 
 
-<div class="jumbotron jumbotron-fluid a frome" >
+<div class="jumbotron jumbotron-fluid a frome" *ngIf="this.typeid == '1'">
 
 
     <form #postaaa="ngForm" class="center"  (ngSubmit)="postna(postaaa.value)">
@@ -22,7 +22,7 @@
 </div>
 
 
-<div class="scrollable-div">
+<div class="scrollable-div"  *ngIf="this.typeid == '1'">
 
 <div *ngFor="let a of (announcements | async)?.reverse()" >
     <div class="form-alerts toasts " *ngIf="a">
@@ -37,4 +37,5 @@
         </div>
       </div>    
       </div>
-</div></div>
+</div>
+</div>

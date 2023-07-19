@@ -89,7 +89,6 @@
 .hey{
     column-count: 2;
     column-gap: 20px;
-    /* margin-left: -250px; */
     background: url('aboutwallpaper2.png');
     background-size: cover;
     background-position: center;
@@ -126,13 +125,14 @@ body {
 main {
   display: flex;
   height: 100%;
+  margin-left: 4em;
 }
 
 .process {
   cursor: pointer;
   /* position: relative;
   display: inline-block; */
-  font-size: 7rem;
+  font-size: 5.5rem;
   background: linear-gradient(to bottom, #004577, #000000 60%,  #004577 100%, #004577 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -143,6 +143,7 @@ main {
   word-spacing: 3em;
   text-align: center;
   font-weight: bold;
+
 }
 
 .title4{
@@ -157,6 +158,8 @@ main {
   color: transparent;
   text-shadow: 2px 2px #c4c4c469; 
   background-image: linear-gradient(rgb(254, 36, 36), rgb(0, 61, 94));
+  margin-left: 2em;
+  margin-bottom: 1em;
 }
 span {
   position: relative;
@@ -184,10 +187,63 @@ span:hover:before {
 }
 .numb{
   font-size: 5em;
- margin-left: 45px;
+ margin-left: 30px;
  padding-right: 5px;
 }
 .extra{
-  margin-right: 6em;
-  word-spacing: 30px;
+margin-left: 10em;
 }
+.work{
+  height: 130px;
+  weight: 130px;
+}
+.contact{
+  background: url('contact.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  top: 0px;
+}
+.title5{ 
+  text-align: center;
+    font-family: Modak;
+  font-size: 600%;
+  background-clip: text;
+   -webkit-background-clip: text; 
+  text-shadow: linear-gradient(rgb(255, 0, 0), rgb(0, 166, 255));     
+  color: transparent;
+  text-shadow: 2px 2px #c4c4c469; 
+  background-image: linear-gradient(rgb(254, 36, 36), rgb(0, 61, 94));
+}
+.det{
+  text-align: center;
+  font-size: 3em;
+}
+.button-35 {
+  background: url('https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png');
+  border-radius: 50px;
+  box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  font-family: Inter,sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-decoration: none;
+  transition: box-shadow .2s,-webkit-box-shadow .2s;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  height: 3em;
+}
+
+.button-35:hover {
+  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+}
+
+
