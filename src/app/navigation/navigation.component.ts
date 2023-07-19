@@ -12,7 +12,7 @@ export class NavigationComponent implements OnInit {
 admin = false;
 session= false;
 staff = false;
-
+typeid = sessionStorage.getItem('type');
 delay(ms: number) {
   return new Promise( resolve => setTimeout(resolve, ms) );
 }

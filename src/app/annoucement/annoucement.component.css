@@ -26,10 +26,13 @@ text-align: justify;
     border: 1px #ddd solid;
     white-space: pre;
   text-align: justify;
-    height: 200px;
+    height: 120px;
     font: 9pt Consolas;
     width: 100%;
-    padding:2em ;
+    padding:1.5em ;
+    overflow-x: auto;
+    word-break: break-word;
+    resize: none;
 }
 .a{
     padding-right: -40px;
@@ -69,6 +72,7 @@ text-align: justify;
 }
 .frome {
 padding-top: 0;
-height: 310px;
+height: 210px;
+ margin-top: 8em;
 }
 
