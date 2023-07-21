@@ -64,6 +64,7 @@ delay(ms: number) {
   async logout(){
       const date = new Date();
     const id= sessionStorage.getItem('id');
+
   if(this.staff == true){
 update(ref(this.database, 'staff/' + id),{
       last_login:date,
@@ -75,7 +76,7 @@ update(ref(this.database, 'staff/' + id),{
     activity:false
     } );
 }
-await this.delay(1000);
+// await this.delay(1000);
 this.admin = false;
 this.session= false;
 this.staff = false;
