@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  
+   type = sessionStorage.getItem('type');
   constructor(public router:Router) {
 
     const sessionValue = sessionStorage.getItem('type');
