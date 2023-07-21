@@ -21,7 +21,11 @@ delay(ms: number) {
 
   constructor(private router:Router,public database:Database) {
     const id= sessionStorage.getItem('id');
-    const starCountRef = ref(this.database, 'staff/' + id);
+    const sessionValue = sessionStorage.getItem('type');
+
+    if (sessionValue == "1") {
+    
+         const starCountRef = ref(this.database, 'staff/' + id);
     onValue(starCountRef, (snapshot) => {
      const db = snapshot.val();  
   this.staff = db.staff;
@@ -29,7 +33,9 @@ delay(ms: number) {
  this.admin = db.admin;
 
      });
-     
+
+
+    }else if(sessionValue == "0"){
  
   const starCountRef1 = ref(this.database, 'client/' + id);
          onValue(starCountRef1, (snapshot) => {
@@ -38,6 +44,15 @@ delay(ms: number) {
   this.session = true;
   }
           });
+
+    }
+    
+    else {
+    
+    } 
+ 
+     
+
      
 
    }

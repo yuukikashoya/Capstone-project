@@ -69,9 +69,9 @@ activity:true
 sessionStorage.setItem('id',value.username);
 sessionStorage.setItem('type','0');
 this.router.navigate(['/home'])
-.then(() => {
-window.location.reload();
-});
+// .then(() => {
+// window.location.reload();
+// });
 }else if(this.staffdata == value.password){
   //staff login
   const date = new Date();
@@ -82,9 +82,10 @@ window.location.reload();
   sessionStorage.setItem('id',value.username);
   sessionStorage.setItem('type','1');
   this.router.navigate(['/home'])
-  .then(() => {
-  window.location.reload();
-  });
+  // .then(() => {
+  // window.location.reload();
+  // });
+  
 }else{
 alert('wrong credential!');
 }
