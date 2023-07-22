@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Database } from '@angular/fire/database';
 import { NavigationEnd, Router } from '@angular/router';
 import { onValue, ref, update } from 'firebase/database';
+import { NavService } from '../nav.service';
 
 @Component({
   selector: 'app-navigation',
@@ -12,16 +13,27 @@ export class NavigationComponent implements OnInit {
 admin = false;
 session= false;
 staff = false;
-typeid = sessionStorage.getItem('type');
+typeid :any;
 delay(ms: number) {
   return new Promise( resolve => setTimeout(resolve, ms) );
 }
 
+navData: any;
+reloadNavComponent() {
+  const ara = sessionStorage.getItem('type');
+this.typeid = ara
+}
 
+  constructor(private router:Router,public database:Database, public navservice:NavService) {
+  const id= sessionStorage.getItem('id');
+ 
 
-  constructor(private router:Router,public database:Database) {
-    const id= sessionStorage.getItem('id');
+  
     const sessionValue = sessionStorage.getItem('type');
+    this.typeid = sessionValue
+    this.navservice.reloadNav$.subscribe(() => {
+      this.reloadNavComponent();
+    });
 
     if (sessionValue == "1") {
     
