@@ -37,7 +37,7 @@ min="2"
 
     const sessionValue = sessionStorage.getItem('type');
    
-    if (sessionValue == "1" ) {
+    if (sessionValue == "0" ) {
     
     } else {
       this.router.navigate(['/sign'])
