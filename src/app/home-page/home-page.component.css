@@ -14,16 +14,16 @@
   }
 
   .design{
-    background-color: #3B3B3B;
+    background-color: #fadc95;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 5vh;
+    height: 3vh;
 
   }
 
   .back{
-    background: url(https://i.pinimg.com/750x/fa/fb/88/fafb8834262cb00e0855f7a6d6b02451.jpg);
+    background: url(aw2.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -79,17 +79,15 @@
   }
 
   .text-3{
-    padding-top: 3em;
-    font-size: 65px;
+    padding-top: 1em;
+    font-size: 60px;
     font-family: Modak;
-    margin-right: 2em;
+    margin-left: 5em;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    margin-top: calc(50vh - 100px);
-    /* text-shadow: 2px 2px #3c3cbf; */
-    background-color: red; /* For browsers that do not support gradients */
-    background-image: linear-gradient(red, rgb(87, 92, 221));
+    background-image: linear-gradient(red, rgb(15, 23, 255));
+    text-shadow: 2px 2px #c4c4c444; 
   }
 
   .button-28 {
@@ -118,7 +116,7 @@
     touch-action: manipulation;
     width: 20%;
     will-change: transform;
-    margin-left: 4em;
+    margin-left: 10em;
   }
   
   .button-28:disabled {
@@ -137,7 +135,7 @@
     transform: translateY(0);
   }
   .about{
-    background: url('https://i.pinimg.com/750x/43/3a/bd/433abd90cea7ad1fb56794a3ded53d9f.jpg');
+    background: url('aboutwallpaper1.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -191,7 +189,8 @@
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-top: 1px;
   text-align: justify;
-  margin-right: 2em;
+  margin-right: 3em;
+  margin-left: 2em;
 }
 .title2{
   padding-top: 1em;
