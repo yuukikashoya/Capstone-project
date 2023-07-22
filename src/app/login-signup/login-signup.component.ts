@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Database,set,ref,onValue,update } from '@angular/fire/database';
+import { NavService } from '../nav.service';
 
 @Component({
   selector: 'app-login-signup',
@@ -29,7 +30,7 @@ signlogin() {
     this.show = !this.show;
 }
 
-  constructor(private router:Router,public database:Database) { }
+  constructor(private router:Router,public database:Database,public navService:NavService) { }
 
   ngOnInit(): void {
   }
@@ -69,9 +70,10 @@ activity:true
 sessionStorage.setItem('id',value.username);
 sessionStorage.setItem('type','0');
 this.router.navigate(['/home'])
-.then(() => {
-window.location.reload();
-});
+// .then(() => {
+// window.location.reload();
+// });
+this.navService.reloadNav();
 }else if(this.staffdata == value.password){
   //staff login
   const date = new Date();
@@ -82,11 +84,13 @@ window.location.reload();
   sessionStorage.setItem('id',value.username);
   sessionStorage.setItem('type','1');
   this.router.navigate(['/home'])
-  .then(() => {
-  window.location.reload();
-  });
+  // .then(() => {
+  // window.location.reload();
+  // });
+  const updatedData = { /* ... */ };
+  this.navService.reloadNav();
 }else{
-alert('wrong credential!');
+alert('wrong credential! or slow internet connection');
 }
 }
 
