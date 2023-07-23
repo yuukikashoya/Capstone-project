@@ -53,14 +53,16 @@
   .login-form .group .label,
   .login-form .group .button{
     text-transform:uppercase;
+
   }
   .login-html .tab{
     font-size:22px;
-    margin-right:15px;
+
     /* padding-bottom:5px; */
-    margin:0 15px 10px 0;
+    margin-left: 60px;
     display:inline-block;
     border-bottom:2px solid transparent;
+
   }
   .login-html .sign-in:checked + .tab,
   .login-html .sign-up:checked + .tab{
