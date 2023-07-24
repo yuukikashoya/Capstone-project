@@ -3,7 +3,7 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "public": "dist/Capstone",
+    "public": "dist/capstone",
     "ignore": [
       "firebase.json",
       "**/.*",
