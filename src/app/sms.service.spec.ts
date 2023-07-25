@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TwilioService } from './twilio.service';
+import { SmsService } from './sms.service';
 
-describe('TwilioService', () => {
-  let service: TwilioService;
+describe('SmsService', () => {
+  let service: SmsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TwilioService);
+    service = TestBed.inject(SmsService);
   });
 
   it('should be created', () => {

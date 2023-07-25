@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TwilioService } from '../twilio.service';
+
+import { SmsService } from '../sms.service';
 
 @Component({
   selector: 'app-manage-sales',
@@ -9,7 +10,8 @@ import { TwilioService } from '../twilio.service';
 })
 export class ManageSalesComponent implements OnInit {
 
-  constructor(public router:Router,private twilioService: TwilioService) {
+
+  constructor(public router:Router,private smsService: SmsService) {
 
     const sessionValue = sessionStorage.getItem('type');
    
@@ -22,15 +24,20 @@ export class ManageSalesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  async sendSMS() {
-    const toPhoneNumber = '+639126747327'; // Replace with the recipient's phone number
-    const message = 'yey gumagana lets goooooo!'; // Replace with the desired message
 
-    try {
-      await this.twilioService.sendSMS(toPhoneNumber, message);
-      console.log('SMS sent successfully!');
-    } catch (error) {
-      console.error('Failed to send SMS:', error);
-    }
+    phoneNumber= '+639566702686';
+  message = 'hello my freind';
+  onSubmit() {
+    
+    this.smsService.sendSMS(this.phoneNumber, this.message)
+      .subscribe(
+        (response) => {
+          console.log('SMS sent successfully:', response);
+        },
+        (error) => {
+          console.error('Failed to send SMS:', error);
+        }
+      );
   }
-}
+  }
+
