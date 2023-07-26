@@ -1,18 +1,20 @@
 <div class="container">
-    <div class="jumbotron jumbotron-fluid ">
 
+    <div class="jumbotron jumbotron-fluid ">
+  <h1>Place your Booking</h1>
     <form #booking="ngForm" (ngSubmit)="book(booking.value)">
 
    <label >Customer name </label><br>
         <input type="text"  [ngModel]="name" name="name" readonly><br>
         <label >Location of pick up </label><br>
-        <input type="text" [ngModel]="location" name="location" [readOnly]="this.readlocation"><button  type="button" (click)="changelocation()">{{readlocation ? 'edit' : 'lock'}}</button><br>
-        <label for="ara " class="label" >deliver or pick up on the shop</label><br>
-        <input type="text"[ngModel]="changedd" name="changedd"readonly><button (click)="changedelivery()"type="button">change</button><br>
+        <input type="text" [ngModel]="location" name="location" [readOnly]="this.readlocation"><button class="buttn" type="button" (click)="changelocation()">{{readlocation ? 'Edit' : 'lock'}}</button><br>
+        <label for="ara " >Deliver or pick up on the shop</label><br>
+        <input type="text"[ngModel]="changedd" name="changedd"readonly><button class="buttn" (click)="changedelivery()"type="button">Change</button><br>
         <label >Phone Number </label><br>
-        <input type="number" min="10" max="11"  id="contact"[ngModel]="phonenumber"    name="phonenumber" [readOnly]="this.readphonenumber"><button  type="button" (click)="changephonenumber()">{{readphonenumber ? 'edit' : 'lock'}}</button><br>
+        <input type="number" min="10" max="11"  id="contact"[ngModel]="phonenumber"    name="phonenumber" [readOnly]="this.readphonenumber"><br>
+        <button class="butt" type="button" (click)="changephonenumber()" class="butt">{{readphonenumber ? 'Edit' : 'lock'}}</button><br>
 
-  <input type="submit">
+  <input  class="butt" type="submit">
     </form>
     </div>
 </div>
