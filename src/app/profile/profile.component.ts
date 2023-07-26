@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   gender=""
   jobtitle = ""
 
-
+   eid= sessionStorage.getItem('id');
    type = sessionStorage.getItem('type');
   constructor(public router:Router ,public database:Database) {
     
@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
       this.phonenumber = db.phonenumber,
     this.jobtitle = db.jobtitle
     });
-console.log(this.namef)
+
 
    }else if(sessionValue == "0"){
 
@@ -68,4 +68,25 @@ console.log(this.namef)
   ngOnInit(): void {
   }
 
+
+   oldpassword = ""
+  // change password
+  changepassword(){
+
+    if (this.type == "1") {
+    // staff change password
+    const starCountRef = ref(this.database, 'staff/' + this.eid);
+    onValue(starCountRef, (snapshot) => {
+     const db = snapshot.val();  
+     this.oldpassword = db.password
+
+     });
+
+ }else if(this.type == "0"){
+// userchange password
+
+ }else{
+
+ }
+  }
 }
