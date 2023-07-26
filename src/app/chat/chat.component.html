@@ -1,6 +1,12 @@
+
 <div class="container"  *ngIf="this.typeid == '0'">
-  <span class="badge">Admin</span>
+
+
     <section class="chatbox">
+      <div class="solo">
+      <h1>CHAT</h1>
+      </div>
+      <span class="badge">Admin</span>
         <section class="chat-window "  #chatWindow>
           <div *ngFor="let z of chats | async;let i = index">
           <article class="msg-container msg-remote" id="msg-0"  *ngIf= "z && false != z.admin ">
