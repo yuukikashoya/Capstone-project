@@ -20,8 +20,16 @@ delay(ms: number) {
 
 navData: any;
 reloadNavComponent() {
+  const id= sessionStorage.getItem('id');
   const ara = sessionStorage.getItem('type');
 this.typeid = ara
+const starCountRef = ref(this.database, 'staff/' + id);
+onValue(starCountRef, (snapshot) => {
+ const db = snapshot.val();  
+this.staff = db.staff;
+this.admin = db.admin;
+
+ });
 }
 
   constructor(private router:Router,public database:Database, public navService:NavService) {
