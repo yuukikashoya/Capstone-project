@@ -219,3 +219,7 @@
 .mint {
   font-palette: --Mint;
 }
+img{
+  height: 100px;
+  width: 100px;
+}
