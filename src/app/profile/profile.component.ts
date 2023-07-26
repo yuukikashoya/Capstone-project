@@ -118,6 +118,8 @@ confirmpassword!:string;
     alert("fill the form")
   }
 }
-
-  
+show: boolean = false;
+showpassword() {
+  this.show = !this.show;
+}
 }

@@ -63,32 +63,52 @@
 
                     <h3>Change Password</h3>
                     
-                    <form class="form-horizontal" role="form"  #profile="ngForm"(ngSubmit)="changepassword(profile.value)">
+                    <form class="form-horizontal" role="form" #profile="ngForm" (ngSubmit)="changepassword(profile.value)">
                       <div class="form-group">
                         <label class="col-lg-4 control-label">Old password:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="password" name="oldpassword" ngModel [(ngModel)]="oldpassword">
+                          <div class="input-group">
+                            <input class="form-control" [type]="show ? 'text' : 'password'" name="oldpassword" ngModel [(ngModel)]="oldpassword">
+                            <div class="input-group-append">
+                              <button class="btn  bg-white" type="button" (click)="showpassword()">
+                                <i class='fa' [ngClass]="{'fa-eye': show, 'fa-eye-slash': !show}" style="font-size: 1.5em;"></i>
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-4 control-label">New password:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="password" name="newpassword" ngModel  [(ngModel)]="newpasword">
+                          <div class="input-group">
+                            <input class="form-control" [type]="show ? 'text' : 'password'" name="newpassword" ngModel [(ngModel)]="newpasword">
+                            <div class="input-group-append">
+                              <button class="btn  bg-white" type="button" (click)="showpassword()">
+                                <i class='fa' [ngClass]="{'fa-eye': show, 'fa-eye-slash': !show}" style="font-size: 1.5em;"></i>
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-4 control-label">Confirm password:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="password" name="confirmpassword" ngModel  [(ngModel)]="confirmpassword">
+                          <div class="input-group">
+                            <input class="form-control" [type]="show ? 'text' : 'password'" name="confirmpassword" ngModel [(ngModel)]="confirmpassword">
+                            <div class="input-group-append">
+                              <button class="btn  bg-white" type="button" (click)="showpassword()">
+                                <i class='fa' [ngClass]="{'fa-eye': show, 'fa-eye-slash': !show}" style="font-size: 1.5em;"></i>
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-4 control-la"></label>
                         <div class="col-lg-8">
-                          <input class=" btn btn-primary" type="submit" value="Change Password" >
+                          <input class="btn btn-primary" type="submit" value="Change Password">
                         </div>
                       </div>
-                
                     </form>
                   </div>
             </div>
