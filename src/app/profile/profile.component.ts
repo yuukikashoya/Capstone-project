@@ -9,8 +9,21 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
+  namef=""
+  namel=""
+  location=""
+  uid=""
+  time=""
+  phonenumber=""
+  username=""
+  email=""
+  gender=""
+  jobtitle = ""
+
+
    type = sessionStorage.getItem('type');
   constructor(public router:Router ,public database:Database) {
+    
     const id= sessionStorage.getItem('id');
     const sessionValue = sessionStorage.getItem('type');
    
@@ -22,9 +35,14 @@ export class ProfileComponent implements OnInit {
    onValue(starCountRef, (snapshot) => {
     const db = snapshot.val();  
 // get the value of the staff
-
+      this.namef = db.firstname,
+      this.namel = db.lastname,
+      this.gender = db.gender,
+      this.email = db.Email,
+      this.phonenumber = db.phonenumber,
+    this.jobtitle = db.jobtitle
     });
-
+console.log(this.namef)
 
    }else if(sessionValue == "0"){
 
