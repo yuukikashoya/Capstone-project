@@ -63,7 +63,7 @@
 
                     <h3>Change Password</h3>
                     
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" role="form"  #profile="ngForm"(ngSubmit)="changepassword(profile.value)">
                       <div class="form-group">
                         <label class="col-lg-4 control-label">Old password:</label>
                         <div class="col-lg-8">

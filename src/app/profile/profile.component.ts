@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Database, onValue, ref } from '@angular/fire/database';
+import { Database, onValue, ref, update } from '@angular/fire/database';
 import { Router } from '@angular/router';
 
 @Component({
@@ -69,24 +69,41 @@ export class ProfileComponent implements OnInit {
   }
 
 
-   oldpassword = ""
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
   // change password
-  changepassword(){
-
+   changepassword(value:any){
+    let oldpassword = ""
     if (this.type == "1") {
     // staff change password
     const starCountRef = ref(this.database, 'staff/' + this.eid);
     onValue(starCountRef, (snapshot) => {
      const db = snapshot.val();  
-     this.oldpassword = db.password
+     oldpassword = db.password
 
      });
+    
+ 
+if(oldpassword == value.oldpassword){
+      if(value.newpassword == value.confirmpassword){
+        update(ref(this.database, 'staff/' + this.eid),{
 
+          password:value.confirmpassword
+          } );
+          alert("password updated")
+      }else{
+        alert('Please Confirm your password')
+      }
+}else{
+  alert(" old password dint match")
+}
  }else if(this.type == "0"){
 // userchange password
 
- }else{
-
  }
   }
+
+
+  
 }
