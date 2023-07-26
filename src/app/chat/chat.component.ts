@@ -77,7 +77,7 @@ sendchat(value:any){
   set(ref(this.database, 'chat/' + this.iid + '/'+date), {
   username: this.iid,
   chat: value.chat,
-  admin: this.admin,
+  admin: false,
   timesent: datenow,
   id:date
 
