@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Modak");
 ::-webkit-scrollbar {
     width: 4px;
   }
@@ -7,19 +8,24 @@
   }
   .chatbox {
      max-width: calc(100% - 60px);
-      height: 400px;
-      max-height: 400px;
+      height: 550px;
+      max-height: 600px;
       display: flex;
       flex-direction: column;
       overflow: hidden;
       box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
       margin-top: 50px;
           margin-left: auto;
+          border-radius: 5%;
   }
   .chat-window {
       flex: auto;
       max-height: calc(100% - 60px);
-      background: #2f323b;
+      background-image: url("chat.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 100%;
       overflow: auto;
   }
   .chat-input {
@@ -35,11 +41,11 @@
       outline: 0 none;
       border: none;
       width: calc(100% - 60px);
-      color: white;
+      color: rgb(0, 0, 0);
       text-indent: 10px;
       font-size: 12pt;
       padding: 0;
-      background: #40434e;
+      background: #ffffff;
   }
   .chat-input button {
       float: right;
@@ -69,14 +75,16 @@
       width: 100%;
       margin: 0 0 10px 0;
       padding: 0;
+
+    
   }
   .msg-box {
       display: flex;
-      background: #5b5e6c;
+      background: #456c5f;
       padding: 10px 10px 0 10px;
       border-radius: 0 6px 6px 0;
-      max-width: 80%;
-      width: auto;
+      max-width: 50em;
+      width: 40em;
       float: left;
       box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
   }
@@ -85,7 +93,7 @@
       border-radius: 50%;
       height: 40px;
       width: 40px;
-      background: #2671ff;
+      background: #ffffff;
       margin: 0 10px 10px 0;
   }
   .flr {
@@ -101,14 +109,14 @@
       display: inline-block;
       font-size: 11pt;
       line-height: 13pt;
-      color: rgba(255,255,255,.7);
+      color: rgba(255, 255, 255, 0.982);
       margin: 0 0 4px 0;
   }
   .msg:first-of-type {
       margin-top: 8px;
   }
   .timestamp {
-      color: rgba(0,0,0,.38);
+      color: rgba(255, 255, 255, 0.658);
       font-size: 8pt;
       margin-bottom: 10px;
   }
@@ -120,7 +128,7 @@
   }
   .msg-self .msg-box {
       border-radius: 6px 0 0 6px;
-      background: #2671ff;
+      background: #ff9465;
       float: right;
   }
   .msg-self .user-img {
@@ -134,4 +142,26 @@
   }
   .container{
     margin: auto;
+  }
+  .badge{
+    font-size: 200%;
+    background-color: #58c2ff;
+  }
+  h1{
+
+    text-align: center;
+    padding-top: 10px;
+    font-size: 5em;
+    font-family: Modak;
+    background-clip: text;
+     -webkit-background-clip: text; 
+    text-shadow: linear-gradient(rgb(255, 0, 0), rgb(0, 166, 255));     
+    color: transparent;
+    text-shadow: 2px 2px #c4c4c443; 
+    /* background-color: red; For browsers that do not support gradients */
+    background-image: linear-gradient(rgb(254, 36, 36), rgb(0, 61, 94));
+  }
+  .solo{
+    background-color: white;
+    
   }
