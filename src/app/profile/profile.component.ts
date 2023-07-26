@@ -72,38 +72,52 @@ export class ProfileComponent implements OnInit {
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
 }
+
+
+
+
+oldpassword!: string;
+newpasword!: string;
+confirmpassword!:string;
   // change password
    changepassword(value:any){
-    let oldpassword = ""
-    if (this.type == "1") {
-    // staff change password
-    const starCountRef = ref(this.database, 'staff/' + this.eid);
-    onValue(starCountRef, (snapshot) => {
-     const db = snapshot.val();  
-     oldpassword = db.password
+    if(this.oldpassword && this.newpasword && this.confirmpassword){
+     let oldpassword = ""
+     if (this.type == "1") {
+     // staff change password
+     const starCountRef = ref(this.database, 'staff/' + this.eid);
+     onValue(starCountRef, (snapshot) => {
+      const db = snapshot.val();  
+      oldpassword = db.password
 
-     });
+      });
     
  
-if(oldpassword == value.oldpassword){
-      if(value.newpassword == value.confirmpassword){
-        update(ref(this.database, 'staff/' + this.eid),{
+ if(oldpassword == value.oldpassword){
+       if(value.newpassword == value.confirmpassword){
+         update(ref(this.database, 'staff/' + this.eid),{
 
-          password:value.confirmpassword
-          } );
-          alert("password updated")
-      }else{
-        alert('Please Confirm your password')
-      }
-}else{
-  alert(" old password dint match")
-}
- }else if(this.type == "0"){
-// userchange password
-
+           password:value.confirmpassword
+           } );
+           alert("password updated")
+           this.oldpassword=""
+           this.newpasword=""
+           this.confirmpassword=""
+       }else{
+         alert('Please Confirm your password')
+       }
+ }else{
+   alert(" old password dint match")
  }
+  }else if(this.type == "0"){
+ // userchange password
+
   }
 
+   }else{
+    alert("fill the form")
+  }
+}
 
   
 }

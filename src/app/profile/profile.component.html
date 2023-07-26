@@ -67,25 +67,25 @@
                       <div class="form-group">
                         <label class="col-lg-4 control-label">Old password:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="password" name="oldpassword" ngModel >
+                          <input class="form-control" type="password" name="oldpassword" ngModel [(ngModel)]="oldpassword">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-4 control-label">New password:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="password" name="newpassword" ngModel>
+                          <input class="form-control" type="password" name="newpassword" ngModel  [(ngModel)]="newpasword">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-4 control-label">Confirm password:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="password" name="confirmpassword" ngModel>
+                          <input class="form-control" type="password" name="confirmpassword" ngModel  [(ngModel)]="confirmpassword">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-4 control-la"></label>
                         <div class="col-lg-8">
-                          <input class=" btn btn-primary" type="submit" value="Change Password" ngModel>
+                          <input class=" btn btn-primary" type="submit" value="Change Password" >
                         </div>
                       </div>
                 
