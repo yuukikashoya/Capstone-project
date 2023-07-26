@@ -1,5 +1,5 @@
 <div class="container  ">
- 
+ <!-- admin -->
     <div class="container bootstrap snippets bootdey  kara" *ngIf="type =='1'">
 
         <h1 class="text-primary">Profile</h1>
@@ -12,45 +12,40 @@
 
                     <h3>Personal info</h3>
                     
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" role="form" #booking="ngForm">
                       <div class="form-group">
                         <label class="col-lg-4 control-la">Name:</label>
                         <div class="col-lg-4">
-                          <input class="form-control" type="text" placeholder="first name"readonly>
+                          <input class="form-control" type="text" placeholder="first name"readonly  [(ngModel)]="namef" name="namef">
                         </div>
                         <div class="col-lg-4">
-                            <input class="form-control" type="text" placeholder="last name"readonly>
+                            <input class="form-control" type="text" placeholder="last name"readonly  [(ngModel)]="namel" name="namel">
                           </div>
                       </div>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-la">Birthday:</label>
-                        <div class="col-lg-8">
-                          <input class="form-control" type="text" readonly>
-                        </div>
-                      </div>
+
                       <div class="form-group">
                         <label class="col-lg-4 control-la">Gender:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="text" readonly>
+                          <input class="form-control" type="text" readonly  [(ngModel)]="gender" name="gender">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-4 control-la">Email:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="text" readonly>
+                          <input class="form-control" type="text" readonly  [(ngModel)]="email" name="email"> 
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-4 control-la">Phone number:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="text" readonly>
+                          <input class="form-control" type="text" readonly  [(ngModel)]="phonenumber" name="phonenumber">
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label class="col-lg-4 control-la">Jobtitle:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="text" readonly>
+                          <input class="form-control" type="text" readonly  [(ngModel)]="jobtitle" name="jobtitle">
                         </div>
                       </div>
  
@@ -68,32 +63,52 @@
 
                     <h3>Change Password</h3>
                     
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" role="form" #profile="ngForm" (ngSubmit)="changepassword(profile.value)">
                       <div class="form-group">
                         <label class="col-lg-4 control-label">Old password:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="password" name="oldpassword" ngModel>
+                          <div class="input-group">
+                            <input class="form-control" [type]="show ? 'text' : 'password'" name="oldpassword" ngModel [(ngModel)]="oldpassword">
+                            <div class="input-group-append">
+                              <button class="btn  bg-white" type="button" (click)="showpassword()">
+                                <i class='fa' [ngClass]="{'fa-eye': show, 'fa-eye-slash': !show}" style="font-size: 1.5em;"></i>
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-4 control-label">New password:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="password" name="newpassword" ngModel>
+                          <div class="input-group">
+                            <input class="form-control" [type]="show ? 'text' : 'password'" name="newpassword" ngModel [(ngModel)]="newpasword">
+                            <div class="input-group-append">
+                              <button class="btn  bg-white" type="button" (click)="showpassword()">
+                                <i class='fa' [ngClass]="{'fa-eye': show, 'fa-eye-slash': !show}" style="font-size: 1.5em;"></i>
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-4 control-label">Confirm password:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="password" name="confirmpassword" ngModel>
+                          <div class="input-group">
+                            <input class="form-control" [type]="show ? 'text' : 'password'" name="confirmpassword" ngModel [(ngModel)]="confirmpassword">
+                            <div class="input-group-append">
+                              <button class="btn  bg-white" type="button" (click)="showpassword()">
+                                <i class='fa' [ngClass]="{'fa-eye': show, 'fa-eye-slash': !show}" style="font-size: 1.5em;"></i>
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-4 control-la"></label>
                         <div class="col-lg-8">
-                          <input class=" btn btn-primary" type="submit" value="Change Password" ngModel>
+                          <input class="btn btn-primary" type="submit" value="Change Password">
                         </div>
                       </div>
-                
                     </form>
                   </div>
             </div>

@@ -87,7 +87,7 @@ this.navService.reloadNav();
   // .then(() => {
   // window.location.reload();
   // });
-  const updatedData = { /* ... */ };
+
   this.navService.reloadNav();
 }else{
 alert('wrong credential! or slow internet connection');
