@@ -12,6 +12,7 @@ nav {
   clip-path: circle(31px at 37px 31px);
   -webkit-transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
   transition: -webkit-clip-path 0.2625s, clip-path 0.175s;
+  text-decoration: none;
 }
 
 nav:hover {
@@ -22,6 +23,7 @@ nav:hover {
   transition-duration: 0.75s;
   -webkit-clip-path: circle(480px at 225px 24px);
   clip-path: circle(480px at 150px 24px);
+  text-decoration: none;
 }
 
 a {
@@ -35,12 +37,13 @@ a {
   -ms-user-select: none;
   user-select: none;
   background-color: white;
+  text-decoration: none;
 
 }
 
-a:hover { background: #ffe082; }
+a:hover { background: #ffe082;   text-decoration: none;}
 
-a:active { background: #ffca28; }
+a:active { background: #ffca28;   text-decoration: none;}
 
 .navicon {
   padding: 29px 20px;
@@ -48,6 +51,7 @@ a:active { background: #ffca28; }
   -webkit-transform-origin: 32px 24px;
   -ms-transform-origin: 32px 24px;
   transform-origin: 32px 24px;
+  text-decoration: none;
 }
 
 .navicon div {
@@ -55,6 +59,7 @@ a:active { background: #ffca28; }
   width: 35px;
   height: 4px;
   background: rgba(0, 0, 0, 0.87);
+  text-decoration: none;
 }
 
 .navicon div:before,
@@ -65,13 +70,19 @@ a:active { background: #ffca28; }
   height: 4px;
   background: rgba(0, 0, 0, 0.87);
   position: absolute;
+  text-decoration: none;
 }
 
-.navicon div:before { top: -10px; }
+.navicon div:before { top: -10px;   text-decoration: none;}
 
-.navicon div:after { top: 10px; }
+.navicon div:after { top: 10px;   text-decoration: none;}
 
 .nav-text{
   font-size: 2em;
+  text-decoration: none;
+}
+.nav-text:hover{
+  font-size: 2em;
+  text-decoration: none;
 }
 
