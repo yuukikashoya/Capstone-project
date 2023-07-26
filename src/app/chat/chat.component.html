@@ -1,9 +1,15 @@
+
 <div class="container"  *ngIf="this.typeid == '0'">
-  <span class="badge">Admin</span>
+
+
     <section class="chatbox">
+      <div class="solo">
+      <h1>CHAT</h1>
+      </div>
+      <span class="badge">Admin</span>
         <section class="chat-window "  #chatWindow>
           <div *ngFor="let z of chats | async;let i = index">
-          <article class="msg-container msg-remote" id="msg-0"  *ngIf= "z && this.admin != z.admin ">
+          <article class="msg-container msg-remote" id="msg-0"  *ngIf= "z && false != z.admin ">
             <div class="msg-box">
               <img class="user-img" id="user-0" src="//gravatar.com/avatar/00034587632094500000000000000000?d=retro" />
               <div class="flr">
@@ -22,7 +28,7 @@
               </div>
             </div>
           </article>
-          <article class="msg-container msg-self" id="msg-0"*ngIf= "z && this.admin == z.admin">
+          <article class="msg-container msg-self" id="msg-0"*ngIf= "z && false == z.admin">
             <div class="msg-box">
               <div class="flr">
                 <div class="messages">

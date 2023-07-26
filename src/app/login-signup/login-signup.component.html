@@ -1,10 +1,13 @@
+
 <div class="body1">
 <div class="login-wrap">
-	<div class="login-html">
-		<img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/285944062_104105002329532_3087723177375662487_n.jpg?_nc_cat=103&cb=99be929b-3346023f&ccb=1-7&_nc_sid=174925&_nc_eui2=AeFJy3HHtB32vHSwolJCXgeU__mV4SgKyyT_-ZXhKArLJCuEgwyPmov_Gk6UlfL9LZQY2sqEnMKibaXJmcH1eH9u&_nc_ohc=AW602ecgz1cAX-o_tkV&_nc_ht=scontent.fceb2-1.fna&oh=00_AfB_pb5GDA3wyxHDwyR_994f_Mn2RpsXZrQ4BgHcpMQHfg&oe=64AE2C71" style="height: 100px; width: 100px; border-radius: 50px;">
-		<h2 style="color: white; font-family: Didot;">I.M Cafe and Laundromat</h2><hr><br>
+	<div class="login-html">		
+
+		<h2 class="mint">I.M Cafe and Laundromat</h2><hr><br>
+
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+
 		<div class="login-form">
 			<form class="sign-in-htm" #testLogin="ngForm" (ngSubmit)="login(testLogin.value)">
 				<div class="group">
@@ -104,13 +107,14 @@
 					<button class="button"  type="button"  [hidden]="s1 " (click)="next()">next</button>
 				</div>
 				<div class="group">
-                    <label for="tab-1" class="label">Alreadr member? <a for="tab-1">Login</a></label> 
+                    <label for="tab-1" class="label">Alreadr member? <a for="tab-1">Login</a></label> <br><br><br><br><br><br>
 				</div>
-
 			</form>
+
 		</div>
 	</div>
 </div>
+<img class="log" src=".../../../../assets/image/LOGO1.png">
 </div>
 
 <!-- bug test -->

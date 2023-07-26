@@ -20,20 +20,25 @@ delay(ms: number) {
 
 navData: any;
 reloadNavComponent() {
+  const id= sessionStorage.getItem('id');
   const ara = sessionStorage.getItem('type');
 this.typeid = ara
+const starCountRef = ref(this.database, 'staff/' + id);
+onValue(starCountRef, (snapshot) => {
+ const db = snapshot.val();  
+this.staff = db.staff;
+this.admin = db.admin;
+
+ });
 }
 
-  constructor(private router:Router,public database:Database, public navservice:NavService) {
+  constructor(private router:Router,public database:Database, public navService:NavService) {
   const id= sessionStorage.getItem('id');
  
 
   
     const sessionValue = sessionStorage.getItem('type');
     this.typeid = sessionValue
-    this.navservice.reloadNav$.subscribe(() => {
-      this.reloadNavComponent();
-    });
 
     if (sessionValue == "1") {
     
@@ -41,7 +46,6 @@ this.typeid = ara
     onValue(starCountRef, (snapshot) => {
      const db = snapshot.val();  
   this.staff = db.staff;
- this.session = this.staff;
  this.admin = db.admin;
 
      });
@@ -65,7 +69,10 @@ this.typeid = ara
  
      
 
-     
+    this.navService.reloadNav$.subscribe(() => {
+      this.reloadNavComponent();
+    });
+ 
 
    }
 
@@ -90,9 +97,10 @@ update(ref(this.database, 'staff/' + id),{
 }
 // await this.delay(1000);
 this.admin = false;
-this.session= false;
 this.staff = false;
+
 sessionStorage.clear();
 this.router.navigate(['/sign'])
+this.navService.reloadNav();
 }
 }
