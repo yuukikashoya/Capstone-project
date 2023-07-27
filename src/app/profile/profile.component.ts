@@ -9,16 +9,16 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  namef=""
-  namel=""
-  location=""
-  uid=""
-  time=""
-  phonenumber=""
-  username=""
-  email=""
-  gender=""
-  jobtitle = ""
+  namef!:string;
+  namel!:string;
+  location!:string;
+  uid!:string;
+  time!:string;
+  phonenumber!:string;
+  username!:string;
+  email!:string;
+  gender!:string;
+  jobtitle!:string;
 
    eid= sessionStorage.getItem('id');
    type = sessionStorage.getItem('type');
@@ -148,5 +148,14 @@ alert(" old password dint match")
 show: boolean = false;
 showpassword() {
   this.show = !this.show;
+}
+
+;
+changegender() {
+ if(this.gender == "male"){
+  this.gender = "female"
+ }else{
+  this.gender = "male"
+ }
 }
 }
