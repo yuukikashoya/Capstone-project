@@ -60,9 +60,7 @@ this.location = cd.address
 
    }
    
-   else {
-   
-   } 
+  
 
     
 
@@ -117,7 +115,30 @@ confirmpassword!:string;
  }
   }else if(this.type == "0"){
  // userchange password
+ const starCountRef = ref(this.database, 'client/' + this.eid);
+ onValue(starCountRef, (snapshot) => {
+  const db = snapshot.val();  
+  oldpassword = db.password
 
+  });
+
+
+if(oldpassword == value.oldpassword){
+   if(value.newpassword == value.confirmpassword){
+     update(ref(this.database, 'client/' + this.eid),{
+
+       password:value.confirmpassword
+       } );
+       alert("password updated")
+       this.oldpassword=""
+       this.newpasword=""
+       this.confirmpassword=""
+   }else{
+     alert('Please Confirm your password')
+   }
+}else{
+alert(" old password dint match")
+}
   }
 
    }else{
