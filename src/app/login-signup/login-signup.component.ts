@@ -129,7 +129,7 @@ this.checker = ad.username
     await this.delay(1000);
     if(this.checker == value.username || this.checker1 == value.username ){
      alert('user email already exist!'); 
-     console.log(this.checker," and ",this.checker1)
+ 
     }
 
       
