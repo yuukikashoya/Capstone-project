@@ -50,6 +50,12 @@ export class ProfileComponent implements OnInit {
         onValue(starCountRef1, (snapshot) => {
          const cd = snapshot.val();  
 // get the value of client
+this.namef = cd.firstname,
+this.namel = cd.lastname,
+this.gender = cd.gender,
+this.email = cd.Email,
+this.phonenumber = cd.phonenumber,
+this.location = cd.address
          });
 
    }
