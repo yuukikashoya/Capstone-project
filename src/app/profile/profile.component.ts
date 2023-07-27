@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
   email!:string;
   gender!:string;
   jobtitle!:string;
-
+masterkey = false
    eid= sessionStorage.getItem('id');
    type = sessionStorage.getItem('type');
   constructor(public router:Router ,public database:Database) {
@@ -42,7 +42,9 @@ export class ProfileComponent implements OnInit {
       this.phonenumber = db.phonenumber,
     this.jobtitle = db.jobtitle
     });
-
+if (id == "admin" || id == "owner"){
+  this.masterkey = true
+}
 
    }else if(sessionValue == "0"){
 
@@ -158,4 +160,8 @@ changegender() {
   this.gender = "male"
  }
 }
+
+
+
+
 }
