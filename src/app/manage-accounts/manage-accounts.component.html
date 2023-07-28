@@ -1,9 +1,9 @@
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="nav navbar-expand-lg navbar-light">
 
      
       
-    <div class="collapse navbar-collapse " id="navbarCollapse" >
+    <div  id="nav" >
         <div class="navbar-nav" >
    
             <a  (click)="showAddStaff()" class="nav-item nav-link nor" *ngIf="this.ADDactive != true">Add Admin</a>
@@ -19,26 +19,26 @@
 
 </div>
 </nav>
-    <div class="jumbotron jumbotron-fluid bg-dark table-responsive" *ngIf="this.ADDactive == true">
-        <h3> <span class="label label-default">Add Staff</span>  </h3>
+    <div class="jumbotron jumbotron-fluid table-responsive" *ngIf="this.ADDactive == true">
+        <h3> <span class="label label-default">ADD STAFF</span>  </h3>
  
         <form  class="left"#addadmin="ngForm" (ngSubmit)="admin(addadmin.value)" >
             <div class="row">
          <div class="column">
             
-            <label class="text-white">First Name</label><br>
+            <label >First Name</label><br>
             <input ngModel name="fname" type="text" ><br>
-            <label class="text-white">Last Name</label><br>
+            <label >Last Name</label><br>
             <input ngModel name='lname' type="text" ><br>
-            <label class="text-white">User Name</label><br>
+            <label >User Name</label><br>
             <input ngModel name='username' type="text" ><br>
-            <label class="text-white">Password</label><br>
+            <label >Password</label><br>
             <input ngModel name='password' type="password" class="name" readonly  [ngModel]="defultpassword"><br>    
         </div>
         <div class="column">
-            <label class="text-white">Email</label><br>
+            <label >Email</label><br>
             <input ngModel name='email' type="text" ><br>
-            <label class="text-white">Gender</label><br>
+            <label >Gender</label><br>
 
             <select #roles  id="set" ngModel name="set"  >
                 <option disabled selected value default> -- select an option -- </option>
@@ -46,7 +46,7 @@
                 <option value="female">Female</option>
                 
               </select>	<br>
-            <label class="text-white">Jobtitle</label><br>
+            <label >Jobtitle</label><br>
             <select #roles id="role" ngModel name="role"  >
                 <option disabled selected value default> -- select an option -- </option>
                 <option value="Staff">Staff</option>
@@ -54,7 +54,7 @@
 
                 
               </select>	<br>
-            <label class="text-white">phone number</label><br>
+            <label >phone number</label><br>
             <input ngModel name='phonenumber' type="number" ><br>    
         </div>
     </div>
@@ -65,12 +65,12 @@
               
                   
                     
-                    <input type="submit" class="btn btn-primary" name="submit" value="add">
+                    <input type="submit" class="button" name="submit" value="ADD">
         </form>
     </div>
 
     <div class="jumbotron jumbotron-fluid bg-dark table-responsive scrollable" *ngIf="this.staffactive == true">
-        <h3> <span class="label label-default">Staff</span>  </h3>
+        <h3> <span class="lab">STAFF</span>  </h3>
         <table class="table table-bordered table-dark">
             <thead>
               <tr>
@@ -106,7 +106,7 @@
           </table>
     </div>
     <div class="jumbotron jumbotron-fluid bg-dark table-responsive scrollable" *ngIf="this.cleintactive == true">
-      <h3> <span class="label label-default">Client</span>  </h3>
+      <h3> <span class="lab">CLIENT</span>  </h3>
       <table class="table table-bordered table-dark">
           <thead>
             <tr>
@@ -146,21 +146,21 @@
         <div class="row">
      <div class="column">
         
-        <label class="text-white">First Name</label><br>
+        <label >First Name</label><br>
         <input ngModel name="fname" type="text" [(ngModel)]="usfirstname"><br>
-        <label class="text-white" [(ngModel)]="usfirstname">Last Name</label><br>
+        <label  [(ngModel)]="usfirstname">Last Name</label><br>
         <input ngModel name='lname' type="text" [(ngModel)]="uslastname"><br>
-        <label class="text-white">phone number</label><br>
+        <label >phone number</label><br>
              
         <input ngModel name='phonenumber' type="number"[(ngModel)]="usphonenumber" ><br>  
     </div>
     <div class="column">
-        <label class="text-white">Email</label><br>
+        <label >Email</label><br>
         <input ngModel name='email' type="text" [(ngModel)]="usemail"><br>
-        <label class="text-white">Gender</label><br>
+        <label >Gender</label><br>
 
         <input ngModel name='Gender' type="text" [(ngModel)]="usgender"readOnly> <button (click)="changegender()" class="btn btn-light btn-sm" >change</button><br>
-        <label class="text-white">Jobtitle</label><br>
+        <label >Jobtitle</label><br>
         <input ngModel name='Jobtitle' type="text" [(ngModel)]="usnamejobtitle" readonly> <button   (click)="changejob()" class="btn btn-light btn-sm"   >change</button><br>
   
     </div>
