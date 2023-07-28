@@ -1,14 +1,14 @@
 <div class="container  ">
- <!-- admin -->
-    <div class="container bootstrap snippets bootdey  kara" *ngIf="type =='1'">
 
-        <h1 class="text-primary">Profile</h1>
-          <hr>
-        <div class="row">
-          <!-- left column -->
-          <div class="col-md-6">
-            <div class="text-center">
-                <div class="col-md-9 personal-info">
+ 
+  <div class="container bootstrap snippets bootdey  kara" *ngIf="type =='1'">
+    <h1 style="margin: 1em;">Profile</h1>
+  
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-6">
+        <div class="text-center">
+            <div class="col-md-9 personal-info">
 
                     <h3>Personal info</h3>
                     
@@ -50,7 +50,7 @@
                       <div class="form-group">
                         <label class="col-lg-4 control-la">Jobtitle:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="text" [readOnly]="masterkey == false"  [(ngModel)]="jobtitle" name="jobtitle">
+                          <input class="form-control" type="text"readOnly [(ngModel)]="jobtitle" name="jobtitle">
                         </div>
                       </div>
                       <div class="form-group" *ngIf="masterkey">
@@ -128,13 +128,13 @@
 
       </div>
     </div>
-    <hr>
+
 
 
 
     <div class="container bootstrap snippets bootdey  kara" *ngIf="type =='0'">
-        <h1 class="text-primary" style="margin: 1em;">Profile</h1>
-          <hr>
+        <h1 style="margin: 1em;">Profile</h1>
+      
         <div class="row">
           <!-- left column -->
           <div class="col-md-6">
