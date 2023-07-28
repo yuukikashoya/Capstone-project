@@ -128,7 +128,7 @@
   }
   .msg-self .msg-box {
       border-radius: 6px 0 0 6px;
-      background: #ff9465;
+      background: #d78914;
       float: right;
   }
   .msg-self .user-img {
@@ -145,10 +145,10 @@
   }
   .badge{
     font-size: 200%;
-    background-color: #58c2ff;
+    background-color: #ffffff;
+    color: black;
   }
   h1{
-
     text-align: center;
     padding-top: 10px;
     font-size: 5em;
@@ -157,11 +157,11 @@
      -webkit-background-clip: text; 
     text-shadow: linear-gradient(rgb(255, 0, 0), rgb(0, 166, 255));     
     color: transparent;
-    text-shadow: 2px 2px #c4c4c443; 
+    text-shadow: 2px 2px #c4c4c427; 
     /* background-color: red; For browsers that do not support gradients */
     background-image: linear-gradient(rgb(254, 36, 36), rgb(0, 61, 94));
   }
   .solo{
-    background-color: white;
+    background-color: rgb(156, 211, 247);
     
   }
