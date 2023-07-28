@@ -62,9 +62,6 @@ this.location = cd.address
 
    }
    
-  
-
-    
 
 
     } else {
@@ -162,6 +159,15 @@ changegender() {
 }
 
 
+
+
+updateprofile(){
+  if (this.type == "1") {
+// admin
+  }else{
+// user
+  }
+}
 
 
 }
