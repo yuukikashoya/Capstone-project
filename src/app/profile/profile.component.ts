@@ -161,11 +161,31 @@ changegender() {
 
 
 
-updateprofile(){
+updateprofile(value:any){
   if (this.type == "1") {
 // admin
+update(ref(this.database, 'staff/' + this.eid),{
+  firstname:this.namef,
+  lastname:this.namel,
+  Email:this.email,
+  phonenumber:this.phonenumber
+  
+
+  } );
+  alert("Prodile updated")
   }else{
 // user
+update(ref(this.database, 'client/' + this.eid),{
+  firstname:this.namef,
+  lastname:this.namel,
+  Email:this.email,
+  phonenumber:this.phonenumber,
+  gender:this.gender,
+  address:this.location
+  
+
+  } );
+  alert("Prodile updated")
   }
 }
 
