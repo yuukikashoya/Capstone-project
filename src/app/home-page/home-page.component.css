@@ -66,7 +66,7 @@
     margin-right: 1em;
     font-family: 'Rocher';
     font-weight: bolder;
-    margin-left: 4em;
+    margin-left: 5em;
     flex-direction: column;
   }
 
@@ -87,8 +87,9 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    background-image: linear-gradient(red, rgb(15, 23, 255));
     text-shadow: 2px 2px #c4c4c444; 
+    background-image: linear-gradient(red, rgb(15, 23, 255));
+
   }
 
   .button-28 {
@@ -203,7 +204,7 @@
   -webkit-background-clip: text;
   color: transparent;
   margin-top: calc(50vh - 100px);
-  /* text-shadow: 2px 2px #3c3cbf; */
+  text-shadow: 2px 2px #c4c4c433; 
   background-color: red; /* For browsers that do not support gradients */
   background-image: linear-gradient(red, rgb(87, 92, 221));
 }
