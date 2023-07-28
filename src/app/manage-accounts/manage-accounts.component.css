@@ -8,6 +8,67 @@
     cursor: pointer;
   }
   a{
-    font-size: 2em;
+    font-size: 3em;
+    margin-left: 5em;
+
   }
-  
+  #nav{ 
+    margin-top: 7em;
+    background: rgb(71, 177, 185);
+    border-radius: 10px;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    min-width: 100%;
+    border: solid black;
+    box-shadow: 5px 5px 5px black;
+
+  }
+.jumbotron-fluid, .table-responsive{
+  background-color: rgb(255, 234, 224);
+  margin-bottom: 1%;
+
+}
+.nav{
+    min-height: 100%;  
+}
+.label, .label-default{
+  text-align: center;
+  align-items: center;
+  color: black;
+  margin-left: 19em;
+  font-size: 130%;
+  background: transparent;
+}
+label{
+  font-size: 150%;
+}
+input{
+  height: 15%;
+  width: 70%;
+  border: none;
+  border-radius: 8px;
+}
+.alert, .alert-danger{
+  margin-top: 5em;
+  width: 40%;
+  text-align: center;
+  margin-left: 60em;
+  background: rgb(255, 101, 101);
+  border-radius: 10px;
+}
+.button{
+  width: 10%;
+  font-size: 3em;
+  margin-left: 30em;
+  background-color: rgb(0, 95, 133);
+  font-weight: bold;
+  color: white;
+}
+.lab{
+  color: white;
+  font-size: 2em;
+  margin-left: 43%;
+}
+.table, .table-bordered, .table-dark{
+  font-size: 15px;
+}

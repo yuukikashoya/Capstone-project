@@ -4,6 +4,7 @@ import { Database, ref, remove, set, update } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import {formatDate} from '@angular/common';
 import { Router } from '@angular/router';
+import { SmsService } from '../sms.service';
 
 @Component({
   selector: 'app-laundry',
@@ -18,7 +19,9 @@ export class LaundryComponent implements OnInit {
 
 
 
-  constructor(private FireDb: AngularFireDatabase, public database:Database,public router:Router) { 
+  constructor(private FireDb: AngularFireDatabase,
+     public database:Database,public router:Router,
+     private smsService: SmsService) { 
 
     const sessionValue = sessionStorage.getItem('type');
    
@@ -263,10 +266,24 @@ readyfordelivery(){
 
 
    }); 
+ 
+   const message = "Hello "+ this.laname +", Exciting news! Your fresh laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is on its way. Payment amount: "+ this.laprice +". We value your trust and look forward to serving you again.  -I.M CAFE AND LAUNDROMAT";
 
+     
+     this.smsService.sendSMS(this.laphonenumber, message)
+       .subscribe(
+         (response) => {
+           console.log('SMS sent successfully:', response);
+         },
+         (error) => {
+           console.error('Failed to send SMS:', error);
+         }
+       );
+   
 
    this.Wactive =  true;
    this.WUactive = false;
+
 
 }
 readyforpickup(){
@@ -285,6 +302,19 @@ readyforpickup(){
    status: "Ready for Pick up"
    }); 
 
+   const message = "Hello "+ this.laname +", Your laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is ready for pick up. Payment amount: "+ this.laprice +". Thank you for choosing us. We look forward to serving you again. -I.M CAFE AND LAUNDROMAT";
+
+     
+     this.smsService.sendSMS(this.laphonenumber, message)
+       .subscribe(
+         (response) => {
+           console.log('SMS sent successfully:', response);
+         },
+         (error) => {
+           console.error('Failed to send SMS:', error);
+         }
+       );
+   
 
    this.Wactive =  true;
    this.WUactive = false;

@@ -9,17 +9,17 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  namef=""
-  namel=""
-  location=""
-  uid=""
-  time=""
-  phonenumber=""
-  username=""
-  email=""
-  gender=""
-  jobtitle = ""
-
+  namef!:string;
+  namel!:string;
+  location!:string;
+  uid!:string;
+  time!:string;
+  phonenumber!:string;
+  username!:string;
+  email!:string;
+  gender!:string;
+  jobtitle!:string;
+masterkey = false
    eid= sessionStorage.getItem('id');
    type = sessionStorage.getItem('type');
   constructor(public router:Router ,public database:Database) {
@@ -42,7 +42,9 @@ export class ProfileComponent implements OnInit {
       this.phonenumber = db.phonenumber,
     this.jobtitle = db.jobtitle
     });
-
+if (id == "admin" || id == "owner"){
+  this.masterkey = true
+}
 
    }else if(sessionValue == "0"){
 
@@ -50,15 +52,16 @@ export class ProfileComponent implements OnInit {
         onValue(starCountRef1, (snapshot) => {
          const cd = snapshot.val();  
 // get the value of client
+this.namef = cd.firstname,
+this.namel = cd.lastname,
+this.gender = cd.gender,
+this.email = cd.Email,
+this.phonenumber = cd.phonenumber,
+this.location = cd.address
          });
 
    }
    
-   else {
-   
-   } 
-
-    
 
 
     } else {
@@ -111,7 +114,30 @@ confirmpassword!:string;
  }
   }else if(this.type == "0"){
  // userchange password
+ const starCountRef = ref(this.database, 'client/' + this.eid);
+ onValue(starCountRef, (snapshot) => {
+  const db = snapshot.val();  
+  oldpassword = db.password
 
+  });
+
+
+if(oldpassword == value.oldpassword){
+   if(value.newpassword == value.confirmpassword){
+     update(ref(this.database, 'client/' + this.eid),{
+
+       password:value.confirmpassword
+       } );
+       alert("password updated")
+       this.oldpassword=""
+       this.newpasword=""
+       this.confirmpassword=""
+   }else{
+     alert('Please Confirm your password')
+   }
+}else{
+alert(" old password dint match")
+}
   }
 
    }else{
@@ -122,4 +148,26 @@ show: boolean = false;
 showpassword() {
   this.show = !this.show;
 }
+
+;
+changegender() {
+ if(this.gender == "male"){
+  this.gender = "female"
+ }else{
+  this.gender = "male"
+ }
+}
+
+
+
+
+updateprofile(){
+  if (this.type == "1") {
+// admin
+  }else{
+// user
+  }
+}
+
+
 }
