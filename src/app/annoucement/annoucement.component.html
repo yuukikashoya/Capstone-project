@@ -1,7 +1,7 @@
 <div class=" container manok">
 
 
-<div class="jumbotron jumbotron-fluid a frome" *ngIf="this.typeid == '1'">
+<div class="jumbotron jumbotron-fluid a frome"  *ngIf="this.eid == 'admin' || this.eid == 'owner ' ">
 
 
     <form #postaaa="ngForm" class="center"  (ngSubmit)="postna(postaaa.value)">
@@ -22,7 +22,7 @@
 </div>
 
 
-<div class="scrollable-div"  *ngIf="this.typeid == '1'">
+<div class="scrollable-div"  *ngIf="this.eid == 'admin' || this.eid == 'owner ' ">
 
 <div *ngFor="let a of (announcements | async)?.reverse()" >
     <div class="form-alerts toasts " *ngIf="a">
@@ -38,4 +38,21 @@
       </div>    
       </div>
 </div>
-</div>
+
+<div class="scrollable-div1"  *ngIf="this.typeid == '0' || this.typeid == '1 ' && this.eid != 'admin' && this.eid != 'owner'  ">
+
+  <div *ngFor="let a of (announcements | async)?.reverse()" >
+      <div class="form-alerts toasts " *ngIf="a">
+          <div role="alert" class="fade form-warning alert alert-warning alert-dismissible show ">
+        
+            <div class="d-flex align-items-center  ">
+              <img alt="noti-icon" src="https://cdn-icons-png.flaticon.com/256/1378/1378644.png" width="28" class="me-4">
+              <h2><b class="pad ">{{a.title}}</b>
+              </h2><mark>{{a.timedate}}</mark>
+            </div>
+               <div class="letter"><pre>{{a.body}}</pre></div>
+          </div>
+        </div>    
+        </div>
+  </div>
+  </div>

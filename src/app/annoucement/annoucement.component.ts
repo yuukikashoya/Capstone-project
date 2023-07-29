@@ -15,11 +15,12 @@ import { Observable } from 'rxjs';
 export class AnnoucementComponent implements OnInit {
   announcements!: Observable<any[]>;
   @ViewChild('postaaa') myForm!: NgForm;
+   eid = sessionStorage.getItem('id');
 typeid = sessionStorage.getItem('type');
   constructor(public database:Database,private FireDb: AngularFireDatabase,public router:Router) {
     const sessionValue = sessionStorage.getItem('type');
     const sid = sessionStorage.getItem('id');
-    if (sessionValue == "1" && sid == "admin" || sid == "owner") {
+    if (sessionValue) {
     
     } else {
       this.router.navigate(['/sign'])
