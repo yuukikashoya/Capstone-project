@@ -54,7 +54,7 @@
 
                 
               </select>	<br>
-            <label >phone number</label><br>
+            <label >Phone number</label><br>
             <input ngModel name='phonenumber' type="number" ><br>    
         </div>
     </div>
@@ -72,7 +72,7 @@
     <div class="jumbotron jumbotron-fluid bg-dark table-responsive scrollable" *ngIf="this.staffactive == true">
         <h3> <span class="lab">STAFF</span>  </h3>
         <table class="table table-bordered table-dark">
-            <thead>
+            <thead >
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Username</th>                
@@ -90,16 +90,16 @@
             <tbody *ngFor="let z of account | async;let i = index">
               <tr  *ngIf= "z">
                 <th scope="row">{{z.id}}</th>
-                <td>{{z.username}}</td>                
-                <td>{{z.firstname}}</td>
-                <td>{{z.lastname}}</td>
-                <td>{{z.gender}}</td>                
-                <td>{{z.Email}}</td>
-                <td>{{z.phonenumber}}</td>
+                <td >{{z.username}}</td>                
+                <td >{{z.firstname}}</td>
+                <td >{{z.lastname}}</td>
+                <td >{{z.gender}}</td>                
+                <td >{{z.Email}}</td>
+                <td >{{z.phonenumber}}</td>
                 <td *ngIf="z.activity == true">online</td>
                 <td *ngIf="z.activity != true">offline</td> 
-                <td>{{z.jobtitle}}</td>
-                <td><button class="btn btn-primary" (click)="getstuff(z)" *ngIf="z.username != this.iid">Update</button></td>
+                <td >{{z.jobtitle}}</td>
+                <td ><button class="button4" (click)="getstuff(z)" *ngIf="z.username != this.iid">Update</button></td>
               </tr>
 
             </tbody>
@@ -140,28 +140,29 @@
         </table>
   </div>
   <div class="jumbotron jumbotron-fluid bg-dark table-responsive" *ngIf="this.editstuff == true">
-    <h3> <span class="label label-default">Update Staff</span>  </h3>
-    <span class="label label-default">{{ususername}}</span> 
+    <h3 class="lol"> <span>Update Staff</span>  </h3>
+    <!-- <span class="label label-default">{{ususername}}</span>  -->
     <form  class="left" >
         <div class="row">
      <div class="column">
         
-        <label >First Name</label><br>
-        <input ngModel name="fname" type="text" [(ngModel)]="usfirstname"><br>
-        <label  [(ngModel)]="usfirstname">Last Name</label><br>
-        <input ngModel name='lname' type="text" [(ngModel)]="uslastname"><br>
-        <label >phone number</label><br>
-             
-        <input ngModel name='phonenumber' type="number"[(ngModel)]="usphonenumber" ><br>  
+        <label class="hi">First Name</label><br>
+        <input class="ab" ngModel name="fname" type="text" [(ngModel)]="usfirstname"><br>
+        <label class="hi"[(ngModel)]="usfirstname">Last Name</label><br>
+        <input class="ab" ngModel name='lname' type="text" [(ngModel)]="uslastname"><br>
+        <label class="hi"[(ngModel)]="ususername">Username</label><br>
+        <input class="ab" ngModel name='username' type="text" [(ngModel)]="ususername"><br>
+        <label class="hi">phone number</label><br>
+        <input class="ab" ngModel name='phonenumber' type="number"[(ngModel)]="usphonenumber" ><br>  
     </div>
     <div class="column">
-        <label >Email</label><br>
-        <input ngModel name='email' type="text" [(ngModel)]="usemail"><br>
-        <label >Gender</label><br>
+        <label class="hi">Email</label><br>
+        <input class="ab" ngModel name='email' type="text" [(ngModel)]="usemail"><br>
+        <label class="hi">Gender</label><br>
 
-        <input ngModel name='Gender' type="text" [(ngModel)]="usgender"readOnly> <button (click)="changegender()" class="btn btn-light btn-sm" >change</button><br>
-        <label >Jobtitle</label><br>
-        <input ngModel name='Jobtitle' type="text" [(ngModel)]="usnamejobtitle" readonly> <button   (click)="changejob()" class="btn btn-light btn-sm"   >change</button><br>
+        <input class="ab" ngModel name='Gender' type="text" [(ngModel)]="usgender"readOnly> <br><button (click)="changegender()" class="sm" >change</button><br>
+        <label class="hi">Jobtitle</label><br>
+        <input class="ab" ngModel name='Jobtitle' type="text" [(ngModel)]="usnamejobtitle" readonly><br> <button   (click)="changejob()" class="sm"   >change</button><br>
   
     </div>
 </div>
@@ -169,10 +170,11 @@
                 
           
               
-                
-                <button  class="btn btn-primary"   style="margin-right: 20px;"(click)="updatestaff()">Update</button>
-                <button  class="btn btn-danger" nastyle="margin-left: 20px;margin-right: 20px;"(click)="deletestaff()">Delete</button>
-                <button  class="btn btn-secondary" style="margin-left: 20px;" (click)="backupdatestaff()">Back</button>
-    </form>
+<div class="lst">            
+                <button  class="button3"   style="margin-right: 20px;"(click)="updatestaff()">Update</button>
+                <button  class="button3" nastyle="margin-left: 20px;margin-right: 20px;"(click)="deletestaff()">Delete</button>
+                <button  class="button3" style="margin-left: 20px;" (click)="backupdatestaff()">Back</button>
+</div>      
+              </form>
 </div>
 </div>
