@@ -1,4 +1,6 @@
+
 <div class="container">
+  <h1 class="mint">Account Management</h1>
   <nav class="nav navbar-expand-lg navbar-light">
 
      
@@ -6,8 +8,8 @@
     <div  id="nav" >
         <div class="navbar-nav" >
    
-            <a  (click)="showAddStaff()" class="nav-item nav-link nor" *ngIf="this.ADDactive != true">Add Admin</a>
-            <a  (click)="showAddStaff()" class="nav-item nav-link nor active" *ngIf="this.ADDactive == true">Add Admin</a>
+            <a  (click)="showAddStaff()" class="nav-item nav-link nor" *ngIf="this.ADDactive != true">Add</a>
+            <a  (click)="showAddStaff()" class="nav-item nav-link nor active" *ngIf="this.ADDactive == true">Add</a>
             <a  (click)="showStaff()" class="nav-item nav-link nor" *ngIf="this.staffactive != true">Staff table</a>
             <a  (click)="showStaff()" class="nav-item nav-link active nor" *ngIf="this.staffactive == true">Staff table</a>
             <a  (click)="showclient()"class="nav-item nav-link nor" *ngIf="this.cleintactive != true">Client table</a>

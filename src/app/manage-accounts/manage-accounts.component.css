@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Modak");
 .row {
     display: flex;
   }
@@ -9,11 +10,11 @@
   }
   a{
     font-size: 3em;
-    margin-left: 5em;
+    margin-left: 200px;
 
   }
   #nav{ 
-    margin-top: 7em;
+    margin-top: 2em;
     background: rgb(71, 177, 185);
     border-radius: 10px;
     padding-bottom: 1em;
@@ -34,7 +35,7 @@
 .label, .label-default{
   text-align: center;
   align-items: center;
-  color: black;
+  color: rgb(0, 92, 167);
   margin-left: 19em;
   font-size: 130%;
   background: transparent;
@@ -154,4 +155,27 @@ th{
 .thead{
   border: 1px white;
   margin: 6px;
+}
+@font-face {
+  font-family: 'Rocher';
+  src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+
+.mint{
+  /* color: rgb(0, 78, 212); */
+  font-size: 4em;
+  font-family: 'Rocher';
+  font-weight: bolder;
+  margin-left: 13px;
+  flex-direction: column;
+  margin-top: 13px;
+}
+
+@font-palette-values --Mint {
+  font-family: Rocher;
+  base-palette: 7;
+}
+
+.mint {
+  font-palette: --Mint;
 }

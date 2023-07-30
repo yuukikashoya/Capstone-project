@@ -1,4 +1,4 @@
-.row {
+ .row {
     display: flex;
   }
   
@@ -45,4 +45,38 @@ float: left;
 .sideclass{
   text-align: justify;
 
+}
+@font-face {
+  font-family: 'Rocher';
+  src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+.mint{
+  /* color: rgb(0, 78, 212); */
+  font-size: 4em;
+  font-family: 'Rocher';
+  font-weight: bolder;
+
+  flex-direction: column;
+  margin-top: 15px;
+  
+}
+
+@font-palette-values --Mint {
+  font-family: Rocher;
+  base-palette: 7;
+}
+
+.mint {
+  font-palette: --Mint;
+}
+#nav{ 
+  margin-top: 2em;
+  background: rgb(71, 177, 185);
+  border-radius: 10px;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  min-width: 100%;
+  border: solid black;
+  box-shadow: 5px 5px 5px black;
+  margin-bottom: 1px;
 }
