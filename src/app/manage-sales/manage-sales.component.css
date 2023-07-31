@@ -30,3 +30,23 @@ h2 {
 p {
     font-size: 22px;
 }
+
+.arrow {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }
+  .arrow-left {
+    height: 2em;
+    width: 2em;
+  }
+  .arrow-right {
+ height: 2em;
+ width: 2em;
+  }
+  .number {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left:1em ;
+    margin-right: 1em;
+  }

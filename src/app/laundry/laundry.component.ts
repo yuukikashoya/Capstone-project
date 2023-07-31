@@ -421,7 +421,8 @@ set(ref(this.database, 'logs/' + this.transacitonid), {
  this.currentweek =  currentWeekNumber ;
  set(ref(this.database, 'sales/week/' + currentWeekNumber), {
 income: this.currentincomeweek + this.amountInInteger,
-sales:  this.currentsaleweek + 1
+sales:  this.currentsaleweek + 1,
+currentWeekNumber: currentWeekNumber
 
  
   }); 
@@ -430,7 +431,8 @@ sales:  this.currentsaleweek + 1
   this.currentyear = tttodate + 0
   set(ref(this.database, 'sales/year/' + this.currentyear), {
    income: this.currentincomeyear + this.amountInInteger,
-   sales:  this.currentsaleyear + 1
+   sales:  this.currentsaleyear + 1,
+   currentyear: this.currentyear
    
      
       }); 
@@ -513,7 +515,8 @@ deliveryyes(){
       
    set(ref(this.database, 'sales/week/' + currentWeekNumber), {
  income: this.currentincomeweek + this.amountInInteger,
- sales:  this.currentsaleweek + 1
+ sales:  this.currentsaleweek + 1,
+ currentWeekNumber: currentWeekNumber
  
    
     }); 
@@ -522,7 +525,8 @@ deliveryyes(){
     this.currentyear = tttodate + 0
     set(ref(this.database, 'sales/year/' + this.currentyear), {
      income: this.currentincomeyear + this.amountInInteger,
-     sales:  this.currentsaleyear + 1
+     sales:  this.currentsaleyear + 1,
+     currentyear:  this.currentyear
      
        
         }); 
@@ -535,6 +539,10 @@ this.deliveredavtive = false
   
   }
   
+
+
+
+
 
 }
 
