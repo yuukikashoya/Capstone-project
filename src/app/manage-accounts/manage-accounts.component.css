@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Modak");
 .row {
     display: flex;
   }
@@ -9,11 +10,11 @@
   }
   a{
     font-size: 3em;
-    margin-left: 5em;
+    margin-left: 200px;
 
   }
   #nav{ 
-    margin-top: 7em;
+    margin-top: 2em;
     background: rgb(71, 177, 185);
     border-radius: 10px;
     padding-bottom: 1em;
@@ -34,7 +35,7 @@
 .label, .label-default{
   text-align: center;
   align-items: center;
-  color: black;
+  color: rgb(0, 92, 167);
   margin-left: 19em;
   font-size: 130%;
   background: transparent;
@@ -52,17 +53,26 @@ input{
   margin-top: 5em;
   width: 40%;
   text-align: center;
-  margin-left: 60em;
+  margin-left: 50em;
   background: rgb(255, 101, 101);
   border-radius: 10px;
+  border: solid rgb(111, 0, 0);
 }
 .button{
   width: 10%;
-  font-size: 3em;
-  margin-left: 30em;
+  font-size: 2em;
+  margin-left: 38.5em;
   background-color: rgb(0, 95, 133);
   font-weight: bold;
   color: white;
+  padding: 3px;
+  font-weight: 500;
+}
+.button:hover{
+  background: rgb(0, 185, 252);
+  color: black;
+  font-size: 2em;
+  padding: 3px;  
 }
 .lab{
   color: white;
@@ -71,4 +81,101 @@ input{
 }
 .table, .table-bordered, .table-dark{
   font-size: 15px;
+}
+.button3{
+  border: none;
+  border-radius: 10px;
+  padding: 7px;
+  font-size: 15px;
+  margin-top: 50px;
+}
+.button3:hover{
+  background: rgb(0, 174, 255);
+  font-weight: bold;  
+}
+.sm{
+  border: none;
+  border-radius: 10px;
+  padding: 7px;
+  font-size: 13px; 
+  margin-top: 5px;
+}
+.sm:hover{
+  background: rgb(0, 174, 255);
+  border: solid white;
+  font-weight: bold;  
+}
+.lol{
+  text-align: center;
+  color: white;
+  font-size: 40px;
+}
+.lst{
+  margin-left: 65em;
+}
+.hi{
+  color: white;
+  font-size: 18px;
+}
+.left{
+  margin-left: 8em;
+}
+.ab{
+  height: 28px;
+}
+.table{
+  border: none;
+}
+.button4{
+  border: none;
+  border-radius: 10px;
+  padding: 7px;
+  font-size: 13px; 
+  margin-top: 5px; 
+  color: black;
+}
+.button4:hover{
+  background: rgb(0, 174, 255);
+}
+#roles{
+  border: none;
+  border-radius: 10px;
+}
+select{
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+}
+.table, .table-bordered, .table-dark, .table-responsive{
+  border: none;
+}
+th{
+  border: none;  
+}
+.thead{
+  border: 1px white;
+  margin: 6px;
+}
+@font-face {
+  font-family: 'Rocher';
+  src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+
+.mint{
+  /* color: rgb(0, 78, 212); */
+  font-size: 4em;
+  font-family: 'Rocher';
+  font-weight: bolder;
+  margin-left: 13px;
+  flex-direction: column;
+  margin-top: 13px;
+}
+
+@font-palette-values --Mint {
+  font-family: Rocher;
+  base-palette: 7;
+}
+
+.mint {
+  font-palette: --Mint;
 }
