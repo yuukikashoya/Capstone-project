@@ -1,0 +1,32 @@
+/* Set the container to occupy the full height of the viewport */
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Center the cards within the container */
+.d-flex.cc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Apply styles to the cards */
+.card {
+    background-color: #f1f1f1;
+    padding: 40px; /* Increase the padding to make the box even bigger */
+    margin: 30px; /* Increase the margin for more space between cards */
+    border-radius: 15px; /* Increase the border radius for more rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Adjust the box shadow for a more prominent effect */
+}
+
+/* Increase the font size for the headers and paragraphs inside the cards */
+h2 {
+    font-size: 28px;
+}
+
+p {
+    font-size: 22px;
+}

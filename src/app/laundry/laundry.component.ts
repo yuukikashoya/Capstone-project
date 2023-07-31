@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { Database, ref, remove, set, update } from '@angular/fire/database';
+import { Database, onValue, ref, remove, set, update } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import {formatDate} from '@angular/common';
 import { Router } from '@angular/router';
@@ -17,23 +17,62 @@ export class LaundryComponent implements OnInit {
   deliverylist!: Observable<any[]>;
   customerpickuplist!: Observable<any[]>;
 
+  currentweek = 0
+  currentyear = 0
+  currentincomeweek = 0
+  currentsaleweek = 0
+  currentincomeyear = 0
+  currentsaleyear = 0
 
 
+  currencyAmount = '₱150.00';
+  amountInInteger!: number;
   constructor(private FireDb: AngularFireDatabase,
      public database:Database,public router:Router,
      private smsService: SmsService) { 
 
+    // Remove the currency symbol '₱' and the decimal point '.'
+    const amountWithoutCurrency = this.currencyAmount.substring(1);
+    
+    // Convert to an integer
+    this.amountInInteger = parseInt(amountWithoutCurrency);
+
+      console.log(this.amountInInteger)
+
+
+      const ttoday = new Date();
+      let tttodate = ttoday.getFullYear();
+      this.currentyear = tttodate + 0
+           const today = new Date();
+        const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
+        const pastDaysOfYear = (today.getTime() - firstDayOfYear.getTime()) / 86400000;
+        const currentWeekNumber = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+      
     const sessionValue = sessionStorage.getItem('type');
    
     if (sessionValue == "1" ) {
-    
-    } else {
-      this.router.navigate(['/sign'])
-    }
-      this.pickup = FireDb.list('/pickup').valueChanges();
+      this.currentweek =  currentWeekNumber ;
+      const starCountRef = ref(this.database, 'sales/week/' + currentWeekNumber);
+      onValue(starCountRef, (snapshot) => {
+       const db = snapshot.val();  
+       this.currentincomeweek = db.income
+       this.currentsaleweek = db.sales
+       });
+       this.currentweek =  currentWeekNumber ;
+       const starCountRef1 = ref(this.database, 'sales/year/' + this.currentyear);
+       onValue(starCountRef1, (snapshot) => {
+        const db1 = snapshot.val();  
+        this.currentincomeyear = db1.income
+        this.currentsaleyear = db1.sales
+        });
+              this.pickup = FireDb.list('/pickup').valueChanges();
       this.laundry = FireDb.list('/laundry').valueChanges();
       this.deliverylist = FireDb.list('/delivery').valueChanges();
       this.customerpickuplist = FireDb.list('/customerpickup').valueChanges();
+    } else {
+      this.router.navigate(['/sign'])
+    }
+
 
   }
 
@@ -369,8 +408,34 @@ set(ref(this.database, 'logs/' + this.transacitonid), {
  type: "picked up"
 
  }); 
+ const today = new Date();
+ const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
+ const pastDaysOfYear = (today.getTime() - firstDayOfYear.getTime()) / 86400000;
+ const currentWeekNumber = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+       // Remove the currency symbol '₱' and the decimal point '.'
+       const amountWithoutCurrency = this.confirmpayed.substring(1);
+    
+       // Convert to an integer
+       this.amountInInteger = parseInt(amountWithoutCurrency);
+   
+ this.currentweek =  currentWeekNumber ;
+ set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+income: this.currentincomeweek + this.amountInInteger,
+sales:  this.currentsaleweek + 1
+
+ 
+  }); 
+  const ttoday = new Date();
+  let tttodate = ttoday.getFullYear();
+  this.currentyear = tttodate + 0
+  set(ref(this.database, 'sales/year/' + this.currentyear), {
+   income: this.currentincomeyear + this.amountInInteger,
+   sales:  this.currentsaleyear + 1
+   
+     
+      }); 
 remove(ref(this.database, 'customerpickup/' + this.confirmid));
-alert('temporary done')
+alert('done')
 this.nav = true
 this.Pickupactive = true
 this.pickedactive = false
@@ -433,8 +498,37 @@ deliveryyes(){
 
   
    }); 
+   const today = new Date();
+   const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
+   const pastDaysOfYear = (today.getTime() - firstDayOfYear.getTime()) / 86400000;
+   const currentWeekNumber = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+ 
+   this.currentweek =  currentWeekNumber ;
+       // Remove the currency symbol '₱' and the decimal point '.'
+       const amountWithoutCurrency = this.confirmpayed.substring(1);
+    
+       // Convert to an integer
+       this.amountInInteger = parseInt(amountWithoutCurrency);
+   
+      
+   set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+ income: this.currentincomeweek + this.amountInInteger,
+ sales:  this.currentsaleweek + 1
+ 
+   
+    }); 
+    const ttoday = new Date();
+    let tttodate = ttoday.getFullYear();
+    this.currentyear = tttodate + 0
+    set(ref(this.database, 'sales/year/' + this.currentyear), {
+     income: this.currentincomeyear + this.amountInInteger,
+     sales:  this.currentsaleyear + 1
+     
+       
+        }); 
+   
   remove(ref(this.database, 'delivery/' + this.confirmid));
-  alert('temporary done')
+  alert('Done')
   this.nav = true
 this.Dactive = true
 this.deliveredavtive = false
