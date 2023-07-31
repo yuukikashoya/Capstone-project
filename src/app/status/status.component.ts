@@ -30,5 +30,45 @@ customerpickup!: Observable<any[]>;
 
   ngOnInit(): void {
   }
+  DeliveryPickupA = true
+  processingA = false
+  wasingA = false
+  ReadyD = false
+  ReadyP = false
 
+  DeliveryPickup() {
+    this.DeliveryPickupA = true
+    this.processingA = false
+    this.wasingA = false
+    this.ReadyD = false
+    this.ReadyP = false
+  }
+  processing() {
+    this.DeliveryPickupA = false
+    this.processingA = true
+    this.wasingA = false
+    this.ReadyD = false
+    this.ReadyP = false
+  }
+  wasing() {
+    this.DeliveryPickupA = false
+    this.processingA = false
+    this.wasingA = true
+    this.ReadyD = false
+    this.ReadyP = false
+  }
+  Readydd() {
+    this.DeliveryPickupA = false
+    this.processingA = false
+    this.wasingA = false
+    this.ReadyD = true
+    this.ReadyP = false
+  }
+  Readypp() {
+    this.DeliveryPickupA = false
+    this.processingA = false
+    this.wasingA = false
+    this.ReadyD = false
+    this.ReadyP = true
+  }
 }

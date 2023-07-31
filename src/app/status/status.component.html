@@ -1,12 +1,12 @@
 <div class="container"><div class="process-nav">
-  <a href="#">Delivery Pick up</a>
-  <a href="#">Processing</a>
-  <a href="#">Washing</a>
-  <a href="#">Ready for Delivery</a>
-  <a href="#">Ready for Pick up</a>
+  <a (click)="DeliveryPickup()">Delivery Pick up</a>
+  <a (click)="processing()">Processing</a>
+  <a (click)=" wasing()">Washing</a>
+  <a (click)="Readydd()">Ready for Delivery</a>
+  <a (click)=" Readypp() ">Ready for Pick up</a>
 </div>
 <!-- pickup delivery rider -->
-<div class="jumbotron jumbotron-fluid ">
+<div class="jumbotron jumbotron-fluid " *ngIf="DeliveryPickupA">
     <h3> <span class="label label-default">Delivery Pick up</span>  </h3>
     <div *ngFor="let a of pickup | async" >
       <details class=" " *ngIf="a && eid == a.username">  
@@ -27,7 +27,7 @@
           </div>
 </div>
 <!-- Processing tracking -->
-<div class="jumbotron jumbotron-fluid ">
+<div class="jumbotron jumbotron-fluid "  *ngIf="processingA">
     <h3> <span class="label label-default">Processing</span>  </h3>
     <div *ngFor="let b of laundry | async" >
         <details class=" " *ngIf="b && eid == b.username && b.status == 'processing'">  
@@ -49,7 +49,7 @@
           </div>
 </div>
 <!-- washing tracking -->
-<div class="jumbotron jumbotron-fluid ">
+<div class="jumbotron jumbotron-fluid "  *ngIf="wasingA">
   <h3> <span class="label label-default">washing</span>  </h3>
   <div *ngFor="let b of laundry | async" >
       <details class=" " *ngIf="b && eid == b.username && b.status == 'washing'">  
@@ -71,7 +71,7 @@
         </div>
 </div>
 <!-- Ready for Delivery -->
-<div class="jumbotron jumbotron-fluid ">
+<div class="jumbotron jumbotron-fluid " *ngIf="ReadyD">
   <h3> <span class="label label-default">Delivery</span>  </h3>
   <div *ngFor="let c of delivery | async" >
       <details class=" " *ngIf="c && eid == c.username">  
@@ -93,7 +93,7 @@
         </div>
 </div>
 <!-- pickup -->
-<div class="jumbotron jumbotron-fluid ">
+<div class="jumbotron jumbotron-fluid " *ngIf="ReadyP">
   <h3> <span class="label label-default">Pick Up at the Shop</span>  </h3>
   <div *ngFor="let d of customerpickup | async" >
       <details class=" " *ngIf="d && eid == d.username">  
