@@ -1,1 +1,117 @@
-<p>status works!</p>
+<div class="container"><div class="process-nav">
+  <a (click)="DeliveryPickup()">Delivery Pick up</a>
+  <a (click)="processing()">Processing</a>
+  <a (click)=" wasing()">Washing</a>
+  <a (click)="Readydd()">Ready for Delivery</a>
+  <a (click)=" Readypp() ">Ready for Pick up</a>
+</div>
+<!-- pickup delivery rider -->
+<div class="jumbotron jumbotron-fluid " *ngIf="DeliveryPickupA">
+    <h3> <span class="label label-default">Delivery Pick up</span>  </h3>
+    <div *ngFor="let a of pickup | async" >
+      <details class=" " *ngIf="a && eid == a.username">  
+        <summary class="sumsum">
+          Laundry Number: {{a.id}}
+                  </summary>
+                  <h2><strong>Pickup Location:</strong> {{a.address}}</h2>
+       
+                  <h2><strong>Contact Information:</strong></h2>
+                  <ul>
+                      <li><h2>Name:</h2> <h3>{{a.name}}</h3></li>
+                      <li><h2>Phone Number:</h2> <h3>{{a.phonenumber}}</h3></li>
+                      <li><h2>Instructions:</h2> <h3>{{a.for}}</h3></li>
+                  </ul>
+                
+                  <h2><strong>Laundry Number:</strong> {{a.id}}</h2>
+        </details>   
+          </div>
+</div>
+<!-- Processing tracking -->
+<div class="jumbotron jumbotron-fluid "  *ngIf="processingA">
+    <h3> <span class="label label-default">Processing</span>  </h3>
+    <div *ngFor="let b of laundry | async" >
+        <details class=" " *ngIf="b && eid == b.username && b.status == 'processing'">  
+          <summary class="sumsum">
+            Laundry Number: {{b.id}}
+                    </summary>
+                    <h2><strong>Pickup Location:</strong> {{b.address}}</h2>
+                    <h2><strong>Item Details:</strong>Kilo: {{b.kilo}}, pack:{{b.pack}}</h2>
+                    <h2><strong>Contact Information:</strong></h2>
+                    <ul>
+                        <li><h2>Name:</h2><h3> {{b.name}}</h3></li>
+                        <li><h2>Phone Number:</h2> <h3>{{b.phonenumber}}</h3></li>
+                        <li><h2>Instructions:</h2><h3> {{b.for}}</h3></li>
+                    </ul>
+                    <h2><strong>Total amout to pay:</strong>₱{{b.total}}</h2>
+                    <h2><strong>Status:</strong>{{b.status}}</h2>
+                    <h2><strong>Laundry Number:</strong> {{b.id}}</h2>
+          </details>    
+          </div>
+</div>
+<!-- washing tracking -->
+<div class="jumbotron jumbotron-fluid "  *ngIf="wasingA">
+  <h3> <span class="label label-default">washing</span>  </h3>
+  <div *ngFor="let b of laundry | async" >
+      <details class=" " *ngIf="b && eid == b.username && b.status == 'washing'">  
+        <summary class="sumsum">
+          Laundry Number: {{b.id}}
+                  </summary>
+                  <h2><strong>Pickup Location:</strong> {{b.address}}</h2>
+                  <h2><strong>Item Details:</strong>Kilo: {{b.kilo}}, pack:{{b.pack}}</h2>
+                  <h2><strong>Contact Information:</strong></h2>
+                  <ul>
+                      <li><h2>Name:</h2> <h3>{{b.name}}</h3></li>
+                      <li><h2>Phone Number:</h2> <h3>{{b.phonenumber}}</h3></li>
+                      <li><h2>Instructions:</h2> <h3>{{b.for}}</h3></li>
+                  </ul>
+                     <h2><strong>Total amout to pay:</strong>₱{{b.total}}</h2>
+                  <h2><strong>Status:</strong>{{b.status}}</h2>
+                  <h2><strong>Laundry Number:</strong> {{b.id}}</h2>
+        </details>    
+        </div>
+</div>
+<!-- Ready for Delivery -->
+<div class="jumbotron jumbotron-fluid " *ngIf="ReadyD">
+  <h3> <span class="label label-default">Delivery</span>  </h3>
+  <div *ngFor="let c of delivery | async" >
+      <details class=" " *ngIf="c && eid == c.username">  
+        <summary class="sumsum">
+          Laundry Number: {{c.id}}
+                  </summary>
+                  <h2><strong>Pickup Location:</strong> {{c.address}}</h2>
+                  <h2><strong>Item Details:</strong>Kilo: {{c.kilo}}, pack:{{c.pack}}</h2>
+                  <h2><strong>Contact Information:</strong></h2>
+                  <ul>
+                      <li><h2>Name:</h2><h3>{{c.name}}</h3> </li>
+                      <li><h2>Phone Number:</h2><h3>{{c.phonenumber}}</h3> </li>
+                    
+                  </ul>
+                     <h2><strong>Total amout to pay:</strong>{{c.total}}</h2>
+                  <h2><strong>Status:</strong>{{c.status}}</h2>
+                  <h2><strong>Laundry Number:</strong> {{c.id}}</h2>
+        </details>    
+        </div>
+</div>
+<!-- pickup -->
+<div class="jumbotron jumbotron-fluid " *ngIf="ReadyP">
+  <h3> <span class="label label-default">Pick Up at the Shop</span>  </h3>
+  <div *ngFor="let d of customerpickup | async" >
+      <details class=" " *ngIf="d && eid == d.username">  
+        <summary class="sumsum">
+          Laundry Number: {{d.id}}
+                  </summary>
+                  <h2><strong>Pickup Location:</strong> {{d.address}}</h2>
+                  <h2><strong>Item Details:</strong>Kilo: {{d.kilo}}, pack:{{d.pack}}</h2>
+                  <h2><strong>Contact Information:</strong></h2>
+                  <ul>
+                      <li><h2>Name:</h2><h3>{{d.name}}</h3> </li>
+                      <li><h2>Phone Number:</h2><h3>{{d.phonenumber}}</h3> </li>
+                    
+                  </ul>
+                     <h2><strong>Total amout to pay:</strong>{{d.total}}</h2>
+                  <h2><strong>Status:</strong>{{d.status}}</h2>
+                  <h2><strong>Laundry Number:</strong> {{d.id}}</h2>
+        </details>    
+        </div>
+</div>
+</div>

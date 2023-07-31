@@ -1,8 +1,8 @@
 <div class="container  ">
-
+    <h1 class="mint">Profile</h1>
  
   <div class="container bootstrap snippets bootdey  kara" *ngIf="type =='1'">
-    <h1 style="margin: 1em;">Profile</h1>
+
   
     <div class="row">
       <!-- left column -->
@@ -12,7 +12,7 @@
 
                     <h3>Personal info</h3>
                     
-                    <form class="form-horizontal" role="form" #booking="ngForm">
+                    <form class="form-horizontal" role="form" #profileedit="ngForm" (ngSubmit)="updateprofile(profileedit.value)">
                       <div class="form-group">
                         <label class="col-lg-4 control-la">Name:</label>
                         <div class="col-lg-4">
@@ -56,7 +56,7 @@
                       <div class="form-group" *ngIf="masterkey">
                         <label class="col-lg-4 control-la"></label>
                         <div class="col-lg-8">
-                          <input class="btn btn-primary" type="submit" value="Change Password">
+                          <input class="btn btn-primary" type="submit" value="Update Profile">
                         </div>
                       </div>
                      
@@ -133,7 +133,6 @@
 
 
     <div class="container bootstrap snippets bootdey  kara" *ngIf="type =='0'">
-        <h1 style="margin: 1em;">Profile</h1>
       
         <div class="row">
           <!-- left column -->
@@ -143,7 +142,7 @@
 
                     <h3>Personal info</h3>
                     
-                    <form class="form-horizontal" role="form" #booking="ngForm">
+                    <form class="form-horizontal" role="form" #profileedit="ngForm" (ngSubmit)="updateprofile(profileedit.value)">
                       <div class="form-group">
                         <label class="col-lg-4 control-la">Name:</label>
                         <div class="col-lg-4">
