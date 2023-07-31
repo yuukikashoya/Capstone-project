@@ -73,10 +73,23 @@ float: left;
   margin-top: 2em;
   background: rgb(71, 177, 185);
   border-radius: 10px;
-  padding-bottom: 1em;
-  padding-top: 1em;
   min-width: 100%;
   border: solid black;
   box-shadow: 5px 5px 5px black;
   margin-bottom: 1px;
+  padding-left: 1em;
+  font-size: 20px;
+  height: 70px;
+}
+.item{
+  padding-top: 10px;
+  padding-bottom: 11px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.item:hover{
+  background-color: rgb(222, 247, 255);
+  border-radius: 3px;
+  transform: scale(1.3);
+  font-weight: bold;
 }

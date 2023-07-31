@@ -7,16 +7,16 @@
      
       
           <div id="nav" >
-              <div class="navbar-nav" >
+              <div class="navbar" >
          
-                  <a  (click)="showPK()" class="nav-item nav-link nor" *ngIf="this.PKactive != true">Deliviry Pick up</a>
-                  <a  (click)="showPK()" class="nav-item nav-link nor active" *ngIf="this.PKactive == true">Deliviry Pick up</a>
-                  <a  (click)="showW()" class="nav-item nav-link nor" *ngIf="this.Wactive != true">Wash</a>
-                  <a  (click)="showW()" class="nav-item nav-link active nor" *ngIf="this.Wactive == true">Wash</a>
-                  <a  (click)="showD()"class="nav-item nav-link nor" *ngIf="this.Dactive != true">Deliviry</a>
-                  <a  (click)="showD()"class="nav-item nav-link nor active" *ngIf="this.Dactive == true">Deliviry</a>
-                  <a  (click)="showpick()"class="nav-item nav-link nor" *ngIf="this.Pickupactive != true"> Client Pick up</a>
-                  <a  (click)="showpick()"class="nav-item nav-link nor active" *ngIf="this.Pickupactive == true">Client Pick up</a>
+                  <a  (click)="showPK()" class="item" *ngIf="this.PKactive != true">Delivery Pick up</a>
+                  <a  (click)="showPK()" class="item active" *ngIf="this.PKactive == true">Delivery Pick up</a>
+                  <a  (click)="showW()" class="item" *ngIf="this.Wactive != true">Wash</a>
+                  <a  (click)="showW()" class="item" *ngIf="this.Wactive == true">Wash</a>
+                  <a  (click)="showD()"class="item" *ngIf="this.Dactive != true">Delivery</a>
+                  <a  (click)="showD()"class="item active" *ngIf="this.Dactive == true">Delivery</a>
+                  <a  (click)="showpick()"class="item" *ngIf="this.Pickupactive != true"> Client Pick up</a>
+                  <a  (click)="showpick()"class="item active" *ngIf="this.Pickupactive == true">Client Pick up</a>
               </div>
 
 
