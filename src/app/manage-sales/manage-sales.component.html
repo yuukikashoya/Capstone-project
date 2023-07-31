@@ -1,1 +1,36 @@
-<div style="text-align: center;"> <button class="btn btn-primary" >try</button></div>
+
+<div class="container">
+    <div class="d-flex cc">
+    <div class="card">
+        <div class="arrow">
+           
+            <div class="btn" (click)="minusweek()"><img class="arrow-left" src="https://cdn-icons-png.flaticon.com/256/271/271220.png"></div>
+            <div class="number"> Week {{currentweek}}</div>
+            <div class="btn"  (click)="addweek()"><img class="arrow-right" src="https://cdn-icons-png.flaticon.com/256/271/271228.png"></div>
+       
+        </div>
+             <h2>Weekly Income and Transact</h2>
+        <div  *ngFor="let l of week | async;">
+         <div  *ngIf= "l && currentweek == l.currentWeekNumber">
+   
+        <p><strong>Income:</strong> ₱{{l.income}}</p>
+        <p><strong>Transact:</strong> {{l.sales}}</p>
+          </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="arrow">
+            <div class="btn" (click)="minusyear()"><img class="arrow-left" src="https://cdn-icons-png.flaticon.com/256/271/271220.png"></div>
+            <div class="number"> Year {{currentyear}}</div>
+            <div class="btn" (click)="addyear()"><img class="arrow-right" src="https://cdn-icons-png.flaticon.com/256/271/271228.png"></div>
+          </div>
+        <h2>Yearly Income and Transact</h2>
+        <div  *ngFor="let y of year | async;">
+            <div  *ngIf= "y && currentyear == y.currentyear">
+         <p><strong>Income:</strong> ₱{{y.income}}</p>
+         <p><strong>Transact:</strong> {{y.sales}}</p>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
