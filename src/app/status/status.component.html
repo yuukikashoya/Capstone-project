@@ -1,1 +1,48 @@
-<p>status works!</p>
+<div class="container"><ul class="process-list">
+    <li>
+        <a> Delivery Pick up</a>
+        <a> Processing</a>
+        <a> Washing</a>
+        <a> Ready for Delivery</a>
+        <a> Ready for Pick up</a>
+    </li>
+</ul>
+
+
+<div class="jumbotron jumbotron-fluid ">
+    <h3> <span class="label label-default">Delivery Pick up</span>  </h3>
+    <div *ngFor="let a of pickup | async" >
+        <div class="form-alerts toasts " *ngIf="a">
+            <div role="alert" class="fade form-warning alert alert-warning alert-dismissible show ">
+          
+              <div class="d-flex align-items-center  ">
+              
+                <img alt="noti-icon" src="https://cdn-icons-png.flaticon.com/256/6384/6384822.png" width="28" class="me-4">
+                 
+                <h2><b class="pad ">ID: {{a.id}}</b>
+                </h2>
+              </div>
+                 <h3 class="letter"><pre> For {{a.for}} Contact {{a.phonenumber}} pick up at {{a.address}}</pre></h3>
+            </div>
+          </div>    
+          </div>
+</div>
+<div class="jumbotron jumbotron-fluid ">
+    <h3> <span class="label label-default">Processing</span>  </h3>
+    <div *ngFor="let b of laundry | async" >
+        <div class="form-alerts toasts " *ngIf="b">
+            <div role="alert" class="fade form-warning alert alert-warning alert-dismissible show ">
+          
+              <div class="d-flex align-items-center  ">
+              
+                <img alt="noti-icon" src="https://cdn-icons-png.flaticon.com/256/6384/6384822.png" width="28" class="me-4">
+                 
+                <h2><b class="pad ">ID: {{b.id}}</b>
+                </h2>
+              </div>
+                 <h3 class="letter"><pre> For {{b.for}} Contact {{b.phonenumber}} pick up at {{b.address}}</pre></h3>
+            </div>
+          </div>    
+          </div>
+</div>
+</div>

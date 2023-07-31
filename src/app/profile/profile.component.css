@@ -2,10 +2,13 @@
 .container{
     padding-bottom: 3em;
     color: rgb(35, 73, 101);
-    border-radius: 5%;
+    border-radius: 10px;
+    padding-top: 2px;
+    height: 450px;
 }
 .kara{
-    margin-top:7%;
+  padding-top: 5em;
+    margin-top:2%;
 background-color: rgba(69, 175, 186, 0.765);
 
 }
@@ -16,6 +19,7 @@ height:300px;
 } */
 
 h3{
+    padding-bottom: 8 px;
     font-size: 25px;
     color: rgb(255, 255, 255);
 }
@@ -67,19 +71,30 @@ h3{
         box-shadow: none;
         transform: translateY(0);
       }
-    h1{
-      text-align: center;
-      padding-top: 10px;
-      font-size: 5em;
-      font-family: Modak;
-      background-clip: text;
-       -webkit-background-clip: text;
-      text-shadow: linear-gradient(rgb(255, 0, 0), rgb(0, 166, 255));
-      color: transparent;
-      text-shadow: 2px 2px #c4c4c427;
-      /* background-color: red; For browsers that do not support gradients */
-      background-image: linear-gradient(rgb(254, 36, 36), rgb(0, 61, 94));
-    }
+
     .form-control{
       font-size: 15px;
+    }
+    @font-face {
+      font-family: 'Rocher';
+      src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+    }
+    .mint{
+      /* color: rgb(0, 78, 212); */
+      font-size: 4em;
+      font-family: 'Rocher';
+      font-weight: bolder;
+      margin-left: 1em;
+      flex-direction: column;
+      margin-top: 15px;
+      
+    }
+    
+    @font-palette-values --Mint {
+      font-family: Rocher;
+      base-palette: 7;
+    }
+    
+    .mint {
+      font-palette: --Mint;
     }
