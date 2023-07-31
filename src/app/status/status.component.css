@@ -1,0 +1,23 @@
+ul.process-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for each list item */
+ul.process-list li {
+    margin: 10px 0;
+}
+
+/* Style for the anchor links */
+ul.process-list li a {
+    display: block;
+    padding: 10px;
+    background-color: #f2f2f2;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: auto;
+    text-align: center;
+}
