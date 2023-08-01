@@ -130,6 +130,7 @@ margin-top: 5em;
 .scrollable-div{
   border: solid black;
   border-radius:  8px;
+  background-color: rgba(11, 77, 99, 0.361);
 }
 .headinput{
   border: none;
