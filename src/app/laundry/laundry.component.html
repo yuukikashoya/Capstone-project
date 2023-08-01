@@ -25,8 +25,8 @@
   </nav>
 
 
-    <div class="jumbotron jumbotron-fluid table-responsive scrollable"  *ngIf="this.PKactive == true">
-        <h3> <span class="label label-default">Pick up</span>  </h3>
+    <div class="jumbotron  table-responsive scrollable"  *ngIf="this.PKactive == true">
+        <h3> <span class="">Pick up</span>  </h3>
         <table class="table table-bordered table-dark">
             <thead>
               <tr>
@@ -36,7 +36,7 @@
                 <th scope="col">User ID</th>
                 <th scope="col">Phone number</th>           
                 <th scope="col">Address</th>
-                <th scope="col">after washing to be</th>
+                <th scope="col">After washing to be</th>
                 <th scope="col">update</th>
 
               </tr>
@@ -59,8 +59,8 @@
           </table>
     </div>
 
-    <div class="jumbotron jumbotron-fluid bg-dark table-responsive scrollable"*ngIf="this.Wactive == true">
-        <h3> <span class="label label-default">Wash</span>  </h3>
+    <div class="jumbotron table-responsive scrollable"*ngIf="this.Wactive == true">
+        <h3> <span class="">Wash</span>  </h3>
         <table class="table table-bordered table-dark">
             <thead>
               <tr>
@@ -70,12 +70,12 @@
                 <th scope="col">User ID</th>
                 <th scope="col">Phone number</th>           
                 <th scope="col">Address</th>
-                <th scope="col">after washing to be</th>
-                <th scope="col">status</th>
-                <th scope="col">kilo/s</th>
-                <th scope="col">number of pack/s</th>
-                <th scope="col">total due</th>
-                <th scope="col">update</th>
+                <th scope="col">After washing to be</th>
+                <th scope="col">Status</th>
+                <th scope="col">Kilo/s</th>
+                <th scope="col">Number of pack/s</th>
+                <th scope="col">Total due</th>
+                <th scope="col">Update</th>
               </tr>
             </thead>
             <tbody *ngFor="let q of laundry | async;">
@@ -100,8 +100,8 @@
     </div>
 
 
-    <div class="jumbotron jumbotron-fluid bg-dark table-responsive scrollable" *ngIf="this.Dactive == true">
-      <h3> <span class="label label-default">Delivery</span>  </h3>
+    <div class="jumbotron table-responsive scrollable" *ngIf="this.Dactive == true">
+      <h3> <span class="">Delivery</span>  </h3>
       <table class="table table-bordered table-dark">
           <thead>
             <tr>
@@ -110,12 +110,11 @@
               <th scope="col">Name</th>              
               <th scope="col">User ID</th>
               <th scope="col">Phone number</th>           
-              <th scope="col">Address</th>
- 
-              <th scope="col">status</th>
-              <th scope="col">kilo/s</th>
-              <th scope="col">number of pack/s</th>
-              <th scope="col">total due</th>
+              <th scope="col">Address</th> 
+              <th scope="col">Status</th>
+              <th scope="col">Kilo/s</th>
+              <th scope="col">Number of pack/s</th>
+              <th scope="col">Notal due</th>
               <th scope="col">Delivered</th>
             </tr>
           </thead>
@@ -139,9 +138,9 @@
         </table>
   </div>
 
-  <div class="jumbotron jumbotron-fluid bg-dark " *ngIf="this.PUactive == true">
+  <div class="jumbotron " *ngIf="this.PUactive == true">
     <button class="cancelbtn btn btn-danger" (click)="cancelupdate()">Cancel</button>
-    <h3> <span class="label label-default">Update</span>  </h3>
+    <h3> <span class="">Update</span>  </h3>
 
     <form  class="left"#addadmin="ngForm" (ngSubmit)="update(addadmin.value)" >
         <div class="row">
@@ -178,9 +177,9 @@
 
 
 
-<div class="jumbotron jumbotron-fluid bg-dark " *ngIf="this.WUactive == true">
+<div class="jumbotron " *ngIf="this.WUactive == true">
   <button class="cancelbtn btn btn-danger" (click)="cancellaupdate()">Cancel</button>
-  <h3> <span class="label label-default">Update</span>  </h3>
+  <h3> <span class="">Update</span>  </h3>
 
   <form  class="left">
       <div class="row">
@@ -218,8 +217,8 @@
 </div>
 
 
-<div class="jumbotron jumbotron-fluid bg-dark table-responsive scrollable"*ngIf="this.Pickupactive == true">
-  <h3> <span class="label label-default">Customer Pickup</span>  </h3>
+<div class="jumbotron table-responsive scrollable"*ngIf="this.Pickupactive == true">
+  <h3> <span class="">Customer Pickup</span>  </h3>
   <table class="table table-bordered table-dark">
       <thead>
         <tr>
