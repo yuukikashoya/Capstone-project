@@ -5,7 +5,29 @@ text-align: justify;
     font-size: 1.5em;
     width: auto;
 }
+@font-face {
+  font-family: 'Rocher';
+  src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+.mint{
+  /* color: rgb(0, 78, 212); */
+  font-size: 4em;
+  font-family: 'Rocher';
+  font-weight: bolder;
 
+  flex-direction: column;
+  margin-top: 15px;
+  
+}
+
+@font-palette-values --Mint {
+  font-family: Rocher;
+  base-palette: 7;
+}
+
+.mint {
+  font-palette: --Mint;
+}
 
 .letter pre {
   margin: 0;
@@ -81,4 +103,36 @@ margin-top: 5em;
   overflow: auto;
   border: 1px solid #ccc;
   padding: 10px;
+}
+.jumbotron{
+  background-color: rgb(150, 229, 255); 
+  text-align: justify;
+  margin-top: 1px;
+  height: 23em;
+}
+.butt{
+  background-color: white;
+  padding: 5px;
+  margin-top: 4px;
+  font-size:  18px;
+  border-radius: 5px;
+  border: none;
+  margin-left: 52em;
+}
+.butt:hover{
+  background-color: rgb(0, 89, 104);
+  color: white;
+  font-weight: bold;
+}
+.alert-warning{
+  background-color: rgb(252, 238, 227);
+}
+.scrollable-div{
+  border: solid black;
+  border-radius:  8px;
+  background-color: rgba(11, 77, 99, 0.361);
+}
+.headinput{
+  border: none;
+  border-radius: 5px;
 }
