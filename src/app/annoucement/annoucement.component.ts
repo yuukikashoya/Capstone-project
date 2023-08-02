@@ -58,7 +58,7 @@ getedit(value:any){
 this.editac = true
 this.editid = value.postid
 this.body = value.body
-this.header = value.body
+this.header = value.title
 }
 edit(){
   if(this.header && this.body){
