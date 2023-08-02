@@ -234,6 +234,7 @@ Pickupactive = false;
 PUactive = false;
 WUactive = false;
 CPKactive = false;
+addLactive = false
 
 
 showPK(){
@@ -244,6 +245,7 @@ showPK(){
   this.WUactive = false;
   this.Pickupactive = false;
   this.CPKactive = false;
+  this.addLactive = false
 }
 showD(){
   this.PKactive =  false;
@@ -253,6 +255,7 @@ showD(){
   this.WUactive = false;
   this.Pickupactive = false;
   this.CPKactive = false;
+  this.addLactive = false
 }
 showW(): void{
   this.PKactive =  false;
@@ -262,6 +265,7 @@ showW(): void{
   this.WUactive = false;
   this.Pickupactive = false;
   this.CPKactive = false;
+  this.addLactive = false
 }
 showpick(){
   this.PKactive =  false;
@@ -271,6 +275,17 @@ showpick(){
   this.WUactive = false;
   this.Pickupactive = true;
   this.CPKactive = false;
+  this.addLactive = false
+}
+addLa(){
+  this.PKactive =  false;
+  this.Dactive = false;
+  this.Wactive = false;
+  this.PUactive = false;
+  this.WUactive = false;
+  this.Pickupactive = false;
+  this.CPKactive = false;
+  this.addLactive = true
 }
 
 
@@ -540,11 +555,24 @@ this.deliveredavtive = false
   }
   
 
+  changedelivery(){
+    this.changemode = !this.changemode;
+    if(this.changemode == false){
+      this.changedd = "Delivery to Address"
+    }else{
+      this.changedd = "Pick up at the shop"
+    }
+  }
 
+  changedd="Pick up at the shop"
+  changemode=false
+  phonenumber= ""
+  location= ""
+  name=""
+  username=""
+  
+  addlaundryy(value:any){
 
-
-
+    
+   }
 }
-
-
-
