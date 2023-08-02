@@ -35,7 +35,7 @@ body= ""
     this.header = any.header
     this.body = any.body
 
-
+if(any.header && any.body){
     let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
     this.postid =  "post"+myDate+ Math.floor(100 + Math.random() * 900000);
     let timedate = formatDate(new Date(), 'hh:mma - MM/dd/yyyy', 'en')
@@ -47,7 +47,8 @@ body= ""
 
     }); 
     alert("posted")
-    this.myForm.reset();
+    this.myForm.reset(); 
+}
   }
   ngOnInit(): void {
   }
