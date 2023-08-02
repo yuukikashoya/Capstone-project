@@ -136,3 +136,42 @@ margin-top: 5em;
   border: none;
   border-radius: 5px;
 }
+.icon-button {
+  background-image: url('https://cdn-icons-png.flaticon.com/256/1160/1160515.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* Add any other button styles you want */
+  width: 3em;
+  height: 3em;
+  float: right;
+  margin-right:  1em;
+  border: none;
+}
+
+.icon-close {
+  background-image: url('https://cdn-icons-png.flaticon.com/256/6861/6861362.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* Add any other button styles you want */
+  width: 3em;
+  height: 3em;
+  float: right;
+  border: none;
+}
+.luck{
+  background-color: white;
+  padding: 5px;
+  margin-top: 4px;
+  font-size:  18px;
+  border-radius: 5px;
+  border: none;
+  margin-left: 2em;
+ 
+}
+.luck:hover{
+  background-color: rgb(0, 89, 104);
+  color: white;
+  font-weight: bold;
+}

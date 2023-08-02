@@ -1,7 +1,7 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit,ViewChild  } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { Database, set } from '@angular/fire/database';
+import { Database, remove, set, update } from '@angular/fire/database';
 import { FormGroup, NgForm} from '@angular/forms';
 import { Router } from '@angular/router';
 import { onValue, ref } from 'firebase/database';
@@ -52,7 +52,32 @@ if(any.header && any.body){
   }
   ngOnInit(): void {
   }
-
-
+  editid=""
+  editac = false
+getedit(value:any){
+this.editac = true
+this.editid = value.postid
+this.body = value.body
+this.header = value.body
+}
+edit(){
+  if(this.header && this.body){
+  update(ref(this.database, 'announcements/' + this.editid), {
+    title: this.header,
+    body : this.body,
+   
+       }); 
+       alert("updated")
+       this.myForm.reset(); 
+  this.editac = false
+      }
+}
+editcancel(){
+  this.editac = false
+  this.myForm.reset(); 
+}
+deletea(value:any){
+  remove(ref(this.database,   'announcements/' + value));
+}
   
 }
