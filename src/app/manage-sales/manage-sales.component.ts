@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Database, onValue, ref, set } from '@angular/fire/database';
@@ -28,6 +29,7 @@ export class ManageSalesComponent implements OnInit {
       const currentWeekNumber = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
     
     if (sessionValue == "1" ) {
+      this.daily = FireDb.list('/sales/daily').valueChanges();
       this.week = FireDb.list('/sales/week').valueChanges();
       this.year = FireDb.list('/sales/year').valueChanges();
       this.currentweek =  currentWeekNumber ;
@@ -43,9 +45,11 @@ export class ManageSalesComponent implements OnInit {
 currentweek = 0
 currentyear = 0
 
-
-
-
+currentDate: Date = new Date();
+  currentday = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+  getFormattedDate(): string {
+    return formatDate(this.currentDate, 'MM~dd~yyyy', 'en');
+  }
 addweek(){
   this.currentweek = this.currentweek + 1 ;
 }
@@ -58,6 +62,13 @@ addyear(){
 minusyear(){
   this.currentyear = this.currentyear - 1 ;
 }
+addday() : void{
+  this.currentDate.setDate(this.currentDate.getDate() + 1);
+}
+minusday(): void{
+  this.currentDate.setDate(this.currentDate.getDate() - 1);
+}
+
 
 
 

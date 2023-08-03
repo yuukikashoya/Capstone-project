@@ -4,17 +4,17 @@
         <div class="card">
             <div class="arrow">
                
-                <div class="btn" (click)="minusweek()"><img class="arrow-left" src="https://cdn-icons-png.flaticon.com/256/271/271220.png"></div>
-                <div class="number"> Week {{currentweek}}</div>
-                <div class="btn"  (click)="addweek()"><img class="arrow-right" src="https://cdn-icons-png.flaticon.com/256/271/271228.png"></div>
+                <div class="btn" (click)="minusday()"><img class="arrow-left" src="https://cdn-icons-png.flaticon.com/256/271/271220.png"></div>
+                <div class="number">  {{getFormattedDate()}}</div>
+                <div class="btn"  (click)="addday()"><img class="arrow-right" src="https://cdn-icons-png.flaticon.com/256/271/271228.png"></div>
            
             </div>
-                 <h2>Weekly Income and Transact</h2>
-            <div  *ngFor="let l of week | async;">
-             <div  *ngIf= "l && currentweek == l.currentWeekNumber">
+                 <h2>Daily Income and Transact</h2>
+            <div  *ngFor="let q of daily | async;">
+             <div  *ngIf= "q && getFormattedDate() == q.currentday">
        
-            <p><strong>Income:</strong> ₱{{l.income}}</p>
-            <p><strong>Transact:</strong> {{l.sales}}</p>
+            <p><strong>Income:</strong> ₱{{q.income}}</p>
+            <p><strong>Transact:</strong> {{q.sales}}</p>
               </div>
             </div>
         </div>
