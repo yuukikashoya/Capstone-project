@@ -45,3 +45,41 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #013b56; 
 }
+/* Add this CSS at the end of your existing CSS code */
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  html {
+    background-image: none; /* Remove background image for smaller screens */
+    background-color: #f0f0f0; /* Set a background color instead */
+  }
+
+  body {
+    padding: 10px; /* Add some padding to the body for smaller screens */
+  }
+
+  .scrollable {
+    max-height: 35em; /* Adjust max-height for smaller screens */
+  }
+
+  /* Adjust scrollbar styles for smaller screens */
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: none; /* Remove box-shadow for smaller screens */
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(0, 145, 255);
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #013b56;
+  }
+}
