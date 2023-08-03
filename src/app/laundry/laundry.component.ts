@@ -564,15 +564,66 @@ this.deliveredavtive = false
     }
   }
 
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
   changedd="Pick up at the shop"
   changemode=false
   phonenumber= ""
   location= ""
   name=""
   username=""
-  
-  addlaundryy(value:any){
+  uid= ""
+  async addlaundryy(value:any){
+this.username = value.username
+    const starCountRef = ref(this.database, 'client/' + this.username);
+    onValue(starCountRef, (snapshot) => {
+     const db = snapshot.val();  
+      this.name = db.firstname + " "+db.lastname;
+      this.location= db.address;
+      this.uid = db.id;
+      this.phonenumber = db.phonenumber
+      this.username = db.username
 
-    
+     });
+     await this.delay(1000);
+
+
+   // calculation of pricing
+   this.decimal = value.kilo/ this.defultkilo;
+   if(this.decimal < 1){
+     this.decimal = 1
+   }
+ 
+   this.decimal1 = Math.trunc(this.decimal);
+   this.remover = this.decimal -  this.decimal1 
+ if(this.remover != 0){
+ this.pack = this.decimal1 + 1
+ }else{
+   this.pack = this.decimal1
+ }
+ 
+   this.total = this.pack * this.defultpricing;
+
+
+
+
+     let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
+     this.uuid =  "laundry"+myDate+ Math.floor(100 + Math.random() * 900000);
+  set(ref(this.database, 'laundry/' + this.uuid), {
+      id: this.uuid,
+      username: this.username,
+      name: this.name,
+      address:this.location,
+      for:this.changedd,
+      phonenumber:this.phonenumber,
+     uid: this.uid,
+     total: this.total,
+     pack: this.pack,
+     kilo: value.kilo,
+     status: "processing"
+     }); 
+
+     alert('Booked!');
    }
 }
