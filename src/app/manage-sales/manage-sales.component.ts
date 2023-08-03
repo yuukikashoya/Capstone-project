@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./manage-sales.component.css']
 })
 export class ManageSalesComponent implements OnInit {
+  daily!: Observable<any[]>;
   week!: Observable<any[]>;
   year!: Observable<any[]>;
 

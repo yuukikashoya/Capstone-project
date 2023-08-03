@@ -16,7 +16,8 @@ export class LaundryComponent implements OnInit {
   laundry!: Observable<any[]>;
   deliverylist!: Observable<any[]>;
   customerpickuplist!: Observable<any[]>;
-
+  currentsaledaily = 0
+  currentincomedaily = 0
   currentweek = 0
   currentyear = 0
   currentincomeweek = 0
@@ -30,7 +31,7 @@ export class LaundryComponent implements OnInit {
   constructor(private FireDb: AngularFireDatabase,
      public database:Database,public router:Router,
      private smsService: SmsService) { 
-
+      let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
     // Remove the currency symbol '₱' and the decimal point '.'
     const amountWithoutCurrency = this.currencyAmount.substring(1);
     
@@ -51,6 +52,13 @@ export class LaundryComponent implements OnInit {
     const sessionValue = sessionStorage.getItem('type');
    
     if (sessionValue == "1" ) {
+      this.currentweek =  currentWeekNumber ;
+      const starCountRef2 = ref(this.database, 'sales/daily/' + dailysalee);
+      onValue(starCountRef2, (snapshot) => {
+       const db4 = snapshot.val();  
+       this.currentincomedaily = db4.income
+       this.currentsaledaily = db4.sales
+       });
       this.currentweek =  currentWeekNumber ;
       const starCountRef = ref(this.database, 'sales/week/' + currentWeekNumber);
       onValue(starCountRef, (snapshot) => {
@@ -432,7 +440,18 @@ set(ref(this.database, 'logs/' + this.transacitonid), {
     
        // Convert to an integer
        this.amountInInteger = parseInt(amountWithoutCurrency);
-   
+
+      //  daily 
+      let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+      set(ref(this.database, 'sales/daily/' + dailysalee), {
+       income: this.currentincomedaily + this.amountInInteger,
+       sales:  this.currentsaledaily + 1,
+       currentday: dailysalee
+       
+         
+          }); 
+
+
  this.currentweek =  currentWeekNumber ;
  set(ref(this.database, 'sales/week/' + currentWeekNumber), {
 income: this.currentincomeweek + this.amountInInteger,
@@ -527,7 +546,17 @@ deliveryyes(){
        // Convert to an integer
        this.amountInInteger = parseInt(amountWithoutCurrency);
    
-      
+    //  daily 
+    let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+       set(ref(this.database, 'sales/daily/' + dailysalee), {
+        income: this.currentincomedaily + this.amountInInteger,
+        sales:  this.currentsaledaily + 1,
+        currentday: dailysalee
+        
+          
+           }); 
+
+// weekly
    set(ref(this.database, 'sales/week/' + currentWeekNumber), {
  income: this.currentincomeweek + this.amountInInteger,
  sales:  this.currentsaleweek + 1,
