@@ -208,3 +208,88 @@
   background-color: red; /* For browsers that do not support gradients */
   background-image: linear-gradient(red, rgb(87, 92, 221));
 }
+/* Add this CSS at the end of your existing CSS code */
+/* Media queries for responsive design */
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  /* Adjust font size and margin for smaller screens */
+  .mint {
+    font-size: 3em;
+    margin-left: 2em;
+  }
+
+  /* Adjust font size and margin for smaller screens */
+  .text-3 {
+    font-size: 40px;
+    margin-left: 2em;
+  }
+
+  /* Adjust width and margin for smaller screens */
+  .button-28 {
+    width: 80%;
+    margin-left: 2em;
+  }
+
+  /* Adjust font size, margin, and padding for smaller screens */
+  .desc {
+    font-size: 1.25em;
+    margin-right: 1em;
+    margin-left: 1em;
+    padding-bottom: 2em;
+  }
+
+  /* Adjust font size and margin for smaller screens */
+  .title2 {
+    font-size: 3em;
+    margin-left: 1em;
+    margin-top: 10px;
+  }
+
+  /* Adjust padding for smaller screens */
+  .back {
+    padding: 1em;
+  }
+
+  /* Adjust margin for smaller screens */
+  .logo2 {
+    margin-left: 5em;
+  }
+}
+
+/* For screens smaller than 576px */
+@media (max-width: 576px) {
+  /* Adjust font size for even smaller screens */
+  .mint {
+    font-size: 2em;
+  }
+
+  /* Adjust font size for even smaller screens */
+  .text-3 {
+    font-size: 30px;
+  }
+
+  /* Adjust width for even smaller screens */
+  .button-28 {
+    width: 90%;
+  }
+
+  /* Adjust font size and margin for even smaller screens */
+  .desc {
+    font-size: 1em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    padding-bottom: 1em;
+  }
+
+  /* Adjust font size and margin for even smaller screens */
+  .title2 {
+    font-size: 2.5em;
+    margin-left: 0.5em;
+  }
+
+  /* Adjust margin for even smaller screens */
+  .logo2 {
+    margin-left: 2em;
+  }
+}
