@@ -1,7 +1,7 @@
 
 
 nav {
-
+  border-radius: 10px;
   z-index: 9999;
   margin-top: 1em;
   position: fixed;
@@ -21,7 +21,7 @@ nav:hover {
   transition-timing-function: ease-out;
   -webkit-transition-duration: 0.75s;
   transition-duration: 0.75s;
-  -webkit-clip-path: circle(480px at 225px 24px);
+  border-radius: 10px;
   clip-path: circle(480px at 150px 24px);
   text-decoration: none;
 }
@@ -52,6 +52,7 @@ a:active { background: #ffca28;   text-decoration: none;}
   -ms-transform-origin: 32px 24px;
   transform-origin: 32px 24px;
   text-decoration: none;
+  border-radius: 10px;
 }
 
 .navicon div {
@@ -60,6 +61,7 @@ a:active { background: #ffca28;   text-decoration: none;}
   height: 4px;
   background: rgba(0, 0, 0, 0.87);
   text-decoration: none;
+  border-radius: 10px;
 }
 
 .navicon div:before,
@@ -84,5 +86,6 @@ a:active { background: #ffca28;   text-decoration: none;}
 .nav-text:hover{
   font-size: 2em;
   text-decoration: none;
+  border-radius: 10px;
 }
 

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Modak");
+
 ::-webkit-scrollbar {
     width: 4px;
   }
@@ -14,7 +14,6 @@
       flex-direction: column;
       overflow: hidden;
       box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-      margin-top: 66px;
           margin-left: auto;
           border-radius: 3%;
   }
@@ -141,29 +140,58 @@
       text-align: right;
   }
   .container{
-    margin: auto;
+    margin-top: 10px;
+  
   }
   .badge{
     font-size: 200%;
     background-color: #ffffff;
     color: black;
   }
-  h1{
-    margin-left: 1em;
-    padding-top: 10px;
-    font-size: 5em;
-    font-family: Modak;
-    background-clip: text;
-     -webkit-background-clip: text; 
-    text-shadow: linear-gradient(rgb(255, 0, 0), rgb(0, 166, 255));     
-    color: transparent;
-    text-shadow: 2px 2px #c4c4c427; 
-    /* background-color: red; For browsers that do not support gradients */
-    background-image: linear-gradient(rgb(254, 36, 36), rgb(0, 61, 94));
+  @font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
   }
-  .solo{
-    background-color: rgb(156, 211, 247);
-    
+
+  .mint{
+    /* color: rgb(0, 78, 212); */
+    font-size: 5em;
+    font-family: 'Rocher';
+    font-weight: bolder;
+    flex-direction: column;
+    margin-left: 2em;
+    padding-top: 15px;
+  }
+  
+  @font-palette-values --Mint {
+    font-family: Rocher;
+    base-palette: 7;
+  }
+  
+  .mint {
+    font-palette: --Mint;
+  }
+  .usern{
+    font-size: 2.5em;
+    margin-left: 2em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .ayokona{
+    background-color: rgba(46, 113, 134, 0.642);
+  }
+  
+  .mint {
+    font-palette: --Mint;
+  }
+  .usern{
+    font-size: 2.5em;
+    margin-left: 2em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .ayokona{
+    background-color: rgba(46, 113, 134, 0.642);
   }
   .adminchatlist{
 width: 30em;
