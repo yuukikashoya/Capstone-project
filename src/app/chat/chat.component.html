@@ -1,7 +1,6 @@
 
 <div class="container"  *ngIf="this.typeid == '0'">
 
-
     <section class="chatbox">
       <div class="solo">
       <h1>CHAT</h1>
@@ -57,9 +56,9 @@
         </form>
       </section>
   </div>
+  <h1 class="mint"> Chat </h1>
   <div class="container" *ngIf="this.typeid == '1' && listbox == true" style="padding-top:6em ;">
-    <div class="jumbotron jumbotron-fluid bg-dark text-center scrollable">
-      <h3> <span class="label label-default">Chat</span>  </h3>
+    <div class="jumbotron jumbotron-fluid ayokona text-center scrollable">
       <table class="table table-bordered table-dark">
           <thead>
             <tr >
@@ -85,10 +84,10 @@
 
 
   </div>
+  <!-- admin -->
   <div class="container"  *ngIf="this.typeid == '1' && this.adminchat == true">
-
-    <h1 class="badge">{{currentuserchat}}</h1>
     <section class="chatbox"#scrollframe>
+    <h1 class="usern">{{currentuserchat}}</h1>      
          <button class="btn btn-danger" style="float:left " (click)="closechatbox()">Close</button>
         <section class="chat-window " #chatWindow >
            

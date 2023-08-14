@@ -24,6 +24,12 @@
     box-shadow: 5px 5px 5px black;
 
   }
+  .nav-link:hover{
+    background-color: rgb(222, 247, 255);
+    border-radius: 3px;
+    transform: scale(1.3);
+    font-weight: bold;
+  }
 .jumbotron-fluid, .table-responsive{
   background-color: rgb(255, 234, 224);
   margin-bottom: 1%;
@@ -169,6 +175,29 @@ th{
   margin-left: 13px;
   flex-direction: column;
   margin-top: 13px;
+}
+
+@font-palette-values --Mint {
+  font-family: Rocher;
+  base-palette: 7;
+}
+
+.mint {
+  font-palette: --Mint;
+}
+@font-face {
+  font-family: 'Rocher';
+  src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+.mint{
+  /* color: rgb(0, 78, 212); */
+  font-size: 4em;
+  font-family: 'Rocher';
+  font-weight: bolder;
+
+  flex-direction: column;
+  margin-top: 15px;
+  
 }
 
 @font-palette-values --Mint {
