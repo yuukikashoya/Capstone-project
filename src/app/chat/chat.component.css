@@ -165,3 +165,19 @@
     background-color: rgb(156, 211, 247);
     
   }
+  .adminchatlist{
+width: 30em;
+max-height: calc(100% - 60px);
+height: 100%;
+background-color: white;
+  }
+  .marginator{
+    margin: 0;
+    padding: 0;
+  }
+  .under-h1 {
+    border: none;
+    border-top: 2px solid;
+    width: 80%;
+    margin: 10px auto;
+  }
