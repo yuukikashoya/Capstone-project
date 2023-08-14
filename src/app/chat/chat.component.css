@@ -162,6 +162,15 @@
     margin-left: 2em;
     padding-top: 15px;
   }
+  .mint2{
+    /* color: rgb(0, 78, 212); */
+    font-size: 2.5em;
+    font-family: 'Rocher';
+    font-weight: bolder;
+    flex-direction: column;
+    margin-left: 2em;
+    padding-top: 15px;
+  }
   
   @font-palette-values --Mint {
     font-family: Rocher;
@@ -179,4 +188,33 @@
   }
   .ayokona{
     background-color: rgba(46, 113, 134, 0.642);
+  }
+  
+  .mint {
+    font-palette: --Mint;
+  }
+  .usern{
+    font-size: 2.5em;
+    margin-left: 2em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .ayokona{
+    background-color: rgba(46, 113, 134, 0.642);
+  }
+  .adminchatlist{
+width: 30em;
+max-height: calc(100% - 60px);
+height: 100%;
+background-color: white;
+  }
+  .marginator{
+    margin: 0;
+    padding: 0;
+  }
+  .under-h1 {
+    border: none;
+    border-top: 2px solid;
+    width: 80%;
+    margin: 10px auto;
   }
