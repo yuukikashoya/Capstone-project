@@ -162,6 +162,15 @@
     margin-left: 2em;
     padding-top: 15px;
   }
+  .mint2{
+    /* color: rgb(0, 78, 212); */
+    font-size: 2.5em;
+    font-family: 'Rocher';
+    font-weight: bolder;
+    flex-direction: column;
+    margin-left: 2em;
+    padding-top: 15px;
+  }
   
   @font-palette-values --Mint {
     font-family: Rocher;
