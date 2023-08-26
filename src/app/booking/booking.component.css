@@ -1,12 +1,13 @@
 
 .jumbotron-fluid{
-    background-color: rgba(0, 72, 120, 0.79);
+    background-color: rgba(175, 89, 2, 0.824);
     width: 60em;
-    padding-left: 6em;
+
     padding-top: 1em;
     height: 520px;
     color: rgba(255, 255, 255, 0.694);
     margin-bottom: 2em;
+  ;
     
 }
 .log{
@@ -14,6 +15,7 @@
   width: 400px;
   border-radius: 50%;
   margin-left: 15em;
+
 
 }
 label{
@@ -27,7 +29,7 @@ input{
     width: 450px;
     font-size: 15px;
     color: black;
-    background-color: rgb(149, 218, 255);
+    background-color: rgb(255, 255, 255);
     
 
 }
@@ -110,5 +112,27 @@ h1{
   font-size: 5em;
   color: white;
 }
+@font-face {
+  font-family: 'Rocher';
+  src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+.mint{
+  /* color: rgb(0, 78, 212); */
+  font-size: 5em;
+  font-family: 'Rocher';
+  font-weight: bolder;
+  margin-left: 2em;
+  flex-direction: column;
+  margin-top: 15px;
+  
+}
 
+@font-palette-values --Mint {
+  font-family: Rocher;
+  base-palette: 7;
+}
+
+.mint {
+  font-palette: --Mint;
+}
 

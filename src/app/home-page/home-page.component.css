@@ -14,7 +14,7 @@
   }
 
   .design{
-    background-color: rgb(255, 86, 86);
+    background-color: rgb(203, 111, 46);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@
   }
 
   .back{
-    background: url(back1.png);
+    background: url(back4.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -80,7 +80,7 @@
   }
 
   .text-3{
- 
+    margin-bottom: -30px;
     font-size: 12em;
     font-family: Modak;
     margin-left: 180px;
@@ -88,7 +88,7 @@
     -webkit-background-clip: text;
     color: transparent;
     text-shadow: 2px 2px #ffffff23; 
-    background-image: linear-gradient(rgb(255, 61, 61), rgb(76, 81, 251));
+    background-image: linear-gradient(rgb(247, 17, 17),    rgb(3, 11, 255));
   }
 
   .button-28 {
