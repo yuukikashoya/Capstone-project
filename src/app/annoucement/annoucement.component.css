@@ -105,10 +105,11 @@ margin-top: 5em;
   padding: 10px;
 }
 .jumbotron{
-  background-color: rgb(150, 229, 255); 
+  background-color: rgb(167, 92, 39);
   text-align: justify;
   margin-top: 1px;
   height: 23em;
+  border: solid rgb(128, 128, 128);
 }
 .butt{
   background-color: white;
@@ -125,7 +126,8 @@ margin-top: 5em;
   font-weight: bold;
 }
 .alert-warning{
-  background-color: rgb(252, 238, 227);
+  background-color: rgb(213, 250, 255);
+  border: solid gray;
 }
 .scrollable-div{
   border: solid black;

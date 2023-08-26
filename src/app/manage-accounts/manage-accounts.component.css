@@ -11,18 +11,24 @@
   a{
     font-size: 3em;
     margin-left: 200px;
-
+    color: white;
   }
   #nav{ 
     margin-top: 2em;
-    background: rgb(71, 177, 185);
+    background-color: rgb(167, 92, 39);
     border-radius: 10px;
     padding-bottom: 1em;
     padding-top: 1em;
     min-width: 100%;
     border: solid black;
-    box-shadow: 5px 5px 5px black;
+ 
 
+  }
+  .navbar-light .navbar-nav .nav-link:hover{
+    color: black;
+  }
+  .navbar-light .navbar-nav .nav-link {
+    color: white;
   }
   .nav-link:hover{
     background-color: rgb(222, 247, 255);
@@ -31,7 +37,7 @@
     font-weight: bold;
   }
 .jumbotron-fluid, .table-responsive{
-  background-color: rgb(255, 234, 224);
+  background-color: rgb(213, 250, 255);
   margin-bottom: 1%;
 
 }
@@ -87,6 +93,7 @@ input{
 }
 .table, .table-bordered, .table-dark{
   font-size: 15px;
+  border: solid black;
 }
 .button3{
   border: none;
@@ -154,6 +161,7 @@ select{
 }
 .table, .table-bordered, .table-dark, .table-responsive{
   border: none;
+  border: solid black;
 }
 th{
   border: none;  
