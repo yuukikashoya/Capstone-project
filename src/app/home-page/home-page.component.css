@@ -14,7 +14,7 @@
   }
 
   .design{
-    background-color: #fadc95;
+    background-color: rgb(255, 86, 86);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@
   }
 
   .back{
-    background: url(aw2.png);
+    background: url(back1.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -32,10 +32,10 @@
     column-count: 2;
 }
 .logo2{
-    margin-left: 10em;
+    margin-left: 18em;
     height: 45em;
     width: 45em;
-    margin-top: 6em;
+    margin-top: 10em;
     border-radius: 50%;
     animation-name: slideDown;
     animation-duration: 1s;
@@ -80,16 +80,15 @@
   }
 
   .text-3{
-    padding-top: 1em;
-    font-size: 60px;
+ 
+    font-size: 12em;
     font-family: Modak;
-    margin-left: 5em;
+    margin-left: 180px;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    text-shadow: 2px 2px #c4c4c444; 
-    background-image: linear-gradient(red, rgb(15, 23, 255));
-
+    text-shadow: 2px 2px #ffffff23; 
+    background-image: linear-gradient(rgb(255, 61, 61), rgb(76, 81, 251));
   }
 
   .button-28 {
@@ -162,7 +161,7 @@
 
 
 .button-35 {
-  background-color: #fff;
+  background-color: #fc9859;
   border-radius: 12px;
   box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
   box-sizing: border-box;
