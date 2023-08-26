@@ -79,7 +79,7 @@
   }
   .msg-box {
       display: flex;
-      background: #456c5f;
+      background: #014a6c;
       padding: 10px 10px 0 10px;
       border-radius: 0 6px 6px 0;
       max-width: 50em;
@@ -145,8 +145,10 @@
   }
   .badge{
     font-size: 200%;
-    background-color: #ffffff;
-    color: black;
+    background-color: #893400;
+    color: white;
+    border: solid black;
+
   }
   @font-face {
     font-family: 'Rocher';
