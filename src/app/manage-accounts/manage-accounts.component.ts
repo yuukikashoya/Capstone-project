@@ -195,17 +195,8 @@ backupdatestaff(){
   this.editstuff = false
 }
 deletestaff(){
-  remove(ref(this.database,  'staff/' + this.ususername));
-  this.ADDactive =  false;
-  this.staffactive = true;
-  this.cleintactive = false;
-  this.usfirstname = ''
-  this.uslastname = ''
-  this.usphonenumber = ''
-  this.usemail = ''
-  this.ususername =''
-  this.editstuff = false
 
+  this.showDialog = true;
 }
 
 updatestaff(){
@@ -234,4 +225,33 @@ update(ref(this.database, 'staff/' + this.ususername), {
   this.editstuff = false
 
 }
+
+
+showDialog = false;
+
+openConfirmationDialog(): void {
+  this.showDialog = true;
 }
+
+onConfirmed(): void {
+  remove(ref(this.database,  'staff/' + this.ususername));
+  this.ADDactive =  false;
+  this.staffactive = true;
+  this.cleintactive = false;
+  this.usfirstname = ''
+  this.uslastname = ''
+  this.usphonenumber = ''
+  this.usemail = ''
+  this.ususername =''
+  this.editstuff = false
+  this.showDialog = false;
+}
+
+onCancelled(): void {
+  // User cancelled, close the dialog
+  this.showDialog = false;
+}
+}
+
+
+
