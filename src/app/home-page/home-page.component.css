@@ -14,7 +14,7 @@
   }
 
   .design{
-    background-color: #fadc95;
+    background-color: rgb(147, 18, 18);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,19 +23,45 @@
   }
 
   .back{
-    background: url(aw2.png);
+    background: url(b5.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
 
-    column-count: 2;
+}
+.off{
+ text-align: right;
+ padding-top: 2em;
+ padding-right: 2em;
+  font-size: 4em;
+  font-weight: bold;
+  color: white;
+}
+.off1{
+  text-align: right;
+  padding-top: 1em;
+  padding-right: 4em;
+   color: white;
+   font-size: 1.75em;
+}
+.slct{
+  column-count: 2;
+  text-align: right;
+  text-align: right;
+  padding-right: 10em;
+  margin-left: 40em;
+
+}
+.hays{
+  font-size: 1.75em;
+  color: white;
 }
 .logo2{
-    margin-left: 10em;
-    height: 45em;
-    width: 45em;
-    margin-top: 6em;
+    margin-left: 18em;
+    height: 20em;
+    width: 20em;
+    margin-top: 10em;
     border-radius: 50%;
     animation-name: slideDown;
     animation-duration: 1s;
@@ -54,42 +80,28 @@
     }
   }
 
-  @font-face {
-    font-family: 'Rocher';
-    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
-  }
 
- .mint{
-    /* color: rgb(0, 78, 212); */
+
+ h2{
     padding-top: 1%;
-    font-size: 5em;
+    font-size: 35px;
     margin-right: 1em;
-    font-family: 'Rocher';
+    font-family: Bahnschrift;
     font-weight: bolder;
-    margin-left: 5em;
+    text-align: left;
     flex-direction: column;
-  }
-
-  @font-palette-values --Mint {
-    font-family: Rocher;
-    base-palette: 7;
-  }
-
-  .mint {
-    font-palette: --Mint;
-  }
+ }
 
   .text-3{
-    padding-top: 1em;
-    font-size: 60px;
+    margin-bottom: -30px;
+    font-size: 12em;
     font-family: Modak;
-    margin-left: 5em;
+    margin-left: 180px;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    text-shadow: 2px 2px #c4c4c444; 
-    background-image: linear-gradient(red, rgb(15, 23, 255));
-
+    text-shadow: 2px 2px #ffffff23; 
+    background-image: linear-gradient(rgb(247, 17, 17),    rgb(3, 11, 255));
   }
 
   .button-28 {
@@ -118,7 +130,7 @@
     touch-action: manipulation;
     width: 20%;
     will-change: transform;
-    margin-left: 10em;
+    margin-left: 46em;
   }
   
   .button-28:disabled {
@@ -137,14 +149,21 @@
     transform: translateY(0);
   }
   .about{
-    background: url('aboutwallpaper1.png');
+    background: url('newlog.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
-    column-count: 2;
-
     padding-top: 1em;
+
+  }
+  .extra{
+    border: solid rgb(151, 21, 21);
+    margin-top: 2em;
+    float:right; 
+    width: 550px;
+    height: 500px;
+    margin-right: 50px;
 
   }
   .logo{
@@ -162,7 +181,7 @@
 
 
 .button-35 {
-  background-color: #fff;
+  background-color: #fc9859;
   border-radius: 12px;
   box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
   box-sizing: border-box;
@@ -196,17 +215,13 @@
 }
 .title2{
   padding-top: 1em;
-  font-size: 5em;
+  font-size: 4em;
   margin-right: 2em;
-  font-family: Modak;
-  margin-left: 2em;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  margin-top: calc(50vh - 100px);
-  text-shadow: 2px 2px #c4c4c433; 
-  background-color: red; /* For browsers that do not support gradients */
-  background-image: linear-gradient(red, rgb(87, 92, 221));
+  font-family: Bahnschrift;
+  margin-left: 1em;
+  color: black;
+  text-align: right;
+
 }
 /* Add this CSS at the end of your existing CSS code */
 /* Media queries for responsive design */
@@ -255,26 +270,7 @@
   .logo2 {
     margin-left: 5em;
   }
-}
 
-/* For screens smaller than 576px */
-@media (max-width: 576px) {
-  /* Adjust font size for even smaller screens */
-  .mint {
-    font-size: 2em;
-  }
-
-  /* Adjust font size for even smaller screens */
-  .text-3 {
-    font-size: 30px;
-  }
-
-  /* Adjust width for even smaller screens */
-  .button-28 {
-    width: 90%;
-  }
-
-  /* Adjust font size and margin for even smaller screens */
   .desc {
     font-size: 1em;
     margin-right: 0.5em;
@@ -286,6 +282,7 @@
   .title2 {
     font-size: 2.5em;
     margin-left: 0.5em;
+    text-align: right;
   }
 
   /* Adjust margin for even smaller screens */
@@ -293,3 +290,156 @@
     margin-left: 2em;
   }
 }
+
+.extra1{
+  margin-left: 10em;
+  }
+  .title4{
+    text-align: center;
+    margin-right: 3em;
+    margin-top: 1em;
+    font-family: Bahnschrift;
+    font-size: 4em;
+    color: black;
+    margin-left: 2em;
+    margin-bottom: 1em;
+  }
+  .numb{
+    font-size: 5em;
+   margin-left: 30px;
+   padding-right: 5px;
+  }
+  .work{
+    height: 300px;
+    width: 300px; 
+    border-radius: 50%;
+    
+  }
+  .work1{
+    height: 50px;
+    width: 50px; 
+    
+  }
+  .process {
+    cursor: pointer;
+    font-size: 4rem;
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+    word-spacing: 3em;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    height: 600px;
+    width: 300px;
+    margin-right: 50px;
+    font-family: Bahnschrift;
+    border-top-left-radius: 150px;
+    border-top-right-radius: 150px;
+    margin-bottom: 2em;
+  }
+  main {
+    display: flex;
+    height: 100%;
+    margin-left: 4em;
+  }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown > input[type="checkbox"] {
+    position: absolute;
+    left: -100vw;
+  }
+  
+  .dropdown > label,
+  .dropdown > a[role="button"] {
+    display: inline-block;
+    padding: 6px 15px;
+    color: white;
+    line-height: 1.5em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+  
+  .dropdown > label:hover,
+  .dropdown > a[role="button"]:hover,
+  .dropdown > a[role="button"]:focus {
+    border-color: #333;
+  }
+  
+  .dropdown > label:after,
+  .dropdown > a[role="button"]:after {
+    content: "\f0d7";
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-left: 6px;
+  }
+  
+  .dropdown > ul {
+    position: absolute;
+    z-index: 999;
+    display: block;
+    left: -100vw;
+    top: calc(1.5em + 14px);
+    border: 1px solid #8c8c8c;
+    background: #fff;
+    padding: 6px 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 3px 8px rgba(0,0,0,.15);
+    -moz-box-shadow: 0 3px 8px rgba(0,0,0,.15);
+    box-shadow: 0 3px 8px rgba(0,0,0,.15);
+  }
+  
+  .dropdown > ul a {
+    display: block;
+    padding: 6px 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+  }
+  
+  .dropdown > ul a:hover,
+  .dropdown > ul a:focus {
+    background: #ececec;
+  }
+  
+  .dropdown > input[type="checkbox"]:checked ~ ul,
+  .dropdown > ul:target {
+    left: 0;
+  }
+  
+  .dropdown > [type="checkbox"]:checked + label:after,
+  .dropdown > ul:target ~ a:after {
+    content: "\f0d8";
+  }
+  
+  .dropdown a.close {
+    display: none;
+  }
+  
+  .dropdown > ul:target ~ a.close {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    text-indent: -100vw;
+    z-index: 1000;
+  }
+
+
+
+
+
+  

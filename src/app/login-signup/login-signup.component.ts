@@ -19,6 +19,42 @@ export class LoginSignupComponent implements OnInit {
   staffdata="";
 clientname = "";
 staffname="";
+
+
+
+fname=""
+lname=""
+username=""
+email=""
+phonenumber="9"
+
+address=""
+ccpassword=""
+cccpassword=""
+set=""
+
+
+
+
+validateInput(event: KeyboardEvent) {
+  const inputChar = event.key;
+
+  // Only allow digits and backspace
+  if (!/^[0-9]$/.test(inputChar) && inputChar !== 'Backspace') {
+    event.preventDefault();
+
+  }
+}
+handleInput(event: any) {
+  const inputValue = event.target.value;
+
+  // Ensure '9' remains at the beginning
+  if (inputValue === '' || !inputValue.startsWith('9')) {
+    this.phonenumber = '9' + inputValue.replace(/[^0-9]/g, ''); // Remove non-digit characters
+  } else {
+    this.phonenumber = inputValue.replace(/[^0-9]/g, ''); // Remove non-digit characters
+  }
+}
 log: boolean = false;
 
 signlogin() {

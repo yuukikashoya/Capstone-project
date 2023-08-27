@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Modak");
 .about{
-    background: url('aboutwallpaper1.png');
+    background: url('newlog.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -67,9 +67,9 @@
     -webkit-background-clip: text;
     color: transparent;
     margin-top: calc(50vh - 100px);
-    text-shadow: 2px 2px #c4c4c469; 
+    text-shadow: 2px 2px #c4c4c433; 
     background-color: red; /* For browsers that do not support gradients */
-    background-image: linear-gradient(rgb(254, 36, 36), rgb(0, 61, 94));
+    background-image: linear-gradient(red, rgb(87, 92, 221));
   }
   .title3{
     font-size: 750%;
@@ -77,13 +77,12 @@
     font-family: Modak;
     margin-left: 2em;
     background-clip: text;
-     -webkit-background-clip: text; 
-    text-shadow: linear-gradient(rgb(255, 0, 0), rgb(0, 166, 255));     
+    -webkit-background-clip: text;
     color: transparent;
     margin-top: calc(50vh - 100px);
-    text-shadow: 2px 2px #c4c4c469; 
-    /* background-color: red; For browsers that do not support gradients */
-    background-image: linear-gradient(rgb(254, 36, 36), rgb(0, 61, 94));
+    text-shadow: 2px 2px #c4c4c433; 
+    background-color: red; /* For browsers that do not support gradients */
+    background-image: linear-gradient(red, rgb(87, 92, 221));
 
   }
 .hey{
@@ -143,24 +142,9 @@ main {
   word-spacing: 3em;
   text-align: center;
   font-weight: bold;
-
 }
 
-.title4{
-  text-align: center;
-  margin-right: 3em;
-  margin-top: 1em;
-  font-family: Modak;
-  font-size: 600%;
-  background-clip: text;
-   -webkit-background-clip: text; 
-  text-shadow: linear-gradient(rgb(255, 0, 0), rgb(0, 166, 255));     
-  color: transparent;
-  text-shadow: 2px 2px #c4c4c469; 
-  background-image: linear-gradient(rgb(254, 36, 36), rgb(0, 61, 94));
-  margin-left: 2em;
-  margin-bottom: 1em;
-}
+
 span {
   position: relative;
   margin-bottom: 10em;
@@ -190,9 +174,7 @@ span:hover:before {
  margin-left: 30px;
  padding-right: 5px;
 }
-.extra{
-margin-left: 10em;
-}
+
 .work{
   height: 130px;
   
@@ -210,11 +192,11 @@ margin-left: 10em;
     font-family: Modak;
   font-size: 600%;
   background-clip: text;
-   -webkit-background-clip: text; 
-  text-shadow: linear-gradient(rgb(255, 0, 0), rgb(0, 166, 255));     
+  -webkit-background-clip: text;
   color: transparent;
-  text-shadow: 2px 2px #c4c4c469; 
-  background-image: linear-gradient(rgb(254, 36, 36), rgb(0, 61, 94));
+  text-shadow: 2px 2px #c4c4c433; 
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(red, rgb(87, 92, 221));
 }
 .det{
   text-align: center;
