@@ -51,7 +51,7 @@
 					<input name="email" ngModel id="email" type="text" class="input" [(ngModel)]="email">
 			
 					<label for="phonenumber" class="label">phone number</label>
-					<input type="number" name="phonenumber" ngModel id="phonenumber" class="input" [(ngModel)]="phonenumber">
+					<input  type="text" [(ngModel)]="phonenumber" name="phonenumber"  id="phonenumber"  (input)="handleInput($event)"  maxlength="10" (keypress)="validateInput($event)" class="input" >
 			
 							</div>
 
@@ -100,11 +100,11 @@
 				<div class="group">
 					<button class="button"  type="button" [hidden]="s2" (click)="back()">back</button>	
 				</div>
-				<div class="group" *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !=='' && email   !=='' && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' ">
+				<div class="group" *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' ">
 					<input type="submit" class="button" value="Sign Up">
 				</div>
 				<div class="group">
-					<button class="button"  type="button"  *ngIf="s1 == false && fname  !== '' && lname   !== '' && username  !=='' && email   !=='' && phonenumber != '' " (click)="next()">next</button>
+					<button class="button"  type="button"  *ngIf="s1 == false && fname  !== '' && lname   !== '' && username  !==''  && phonenumber != '' " (click)="next()">next</button>
 				</div>
 				<div class="group">
                     <label for="tab-1" class="label">Alreadr member? <a for="tab-1">Login</a></label> <br><br><br><br><br><br>
