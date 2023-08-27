@@ -39,32 +39,32 @@
 				<div class="group">
 
 					<div [hidden]="s1">
-					<label for="fname" class="label">First name</label>
-					<input name="fname" ngModel id="fname" type="text" class="input">
+					<label for="fname" class="label" >First name</label>
+					<input name="fname" ngModel id="fname" type="text" class="input" [(ngModel)]="fname">
 					<label for="lname" class="label">last name</label>
-					<input name="lname" ngModel id="lname" type="text" class="input">
+					<input name="lname" ngModel id="lname" type="text" class="input" [(ngModel)]="lname">
 			
 					<label for="username" class="label">Username</label>
-					<input name="username" ngModel id="username" type="text" class="input">
+					<input name="username" ngModel id="username" type="text" class="input" [(ngModel)]="username">
 			
-					<label for="email" class="label">Email Address</label>
-					<input name="email" ngModel id="email" type="text" class="input">
+					<label for="email" class="label">Email Address (Optional)</label>
+					<input name="email" ngModel id="email" type="text" class="input" [(ngModel)]="email">
 			
 					<label for="phonenumber" class="label">phone number</label>
-					<input type="number" name="phonenumber" ngModel id="phonenumber" class="input">
+					<input  type="text" [(ngModel)]="phonenumber" name="phonenumber"  id="phonenumber"  (input)="handleInput($event)"  maxlength="10" (keypress)="validateInput($event)" class="input" >
 			
 							</div>
 
 							<div [hidden]="s2 ">
 
 					<label for="address" class="label">Current Address</label>
-					<input name="address" ngModel id="address"  type="text" class="input" placeholder="Street, House #, City or Bording House address">
+					<input name="address" ngModel id="address"  type="text" class="input" [(ngModel)]="address" placeholder="Street, House #, City or Bording House address">
 			       
                         <label for="password" class="label">Password</label>
 						<div class="input-container">
                          
 					
-					<input  [type]="show ? 'text' : 'password'" name="password" ngModel id="password" type="password" class="input">
+					<input  [type]="show ? 'text' : 'password'" name="password" ngModel id="password" [(ngModel)]="ccpassword" type="password" class="input">
 			   <button class="passwordbutton" type="button" (click)="showpassword()">
                     <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
                     <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
@@ -76,7 +76,7 @@
 					<label for="cpassword" class="label">Confirm Password</label>
 					<div class="input-container">
 				
-					<input  [type]="show ? 'text' : 'password'" name="cpassword" ngModel id="cpassword" class="input">
+					<input  [type]="show ? 'text' : 'password'" name="cpassword" ngModel id="cpassword" [(ngModel)]="cccpassword" class="input">
                  	<button class="passwordbutton" type="button" (click)="showpassword()">
 					<i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
 					<i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
@@ -86,7 +86,7 @@
 					
 					
 					<label for="ara " class="label">Gender</label>
-                    <select class="um" #roles name="set"  id="set" ngModel name="set"  >
+                    <select class="um" #roles name="set"  id="set" ngModel name="set"  [(ngModel)]="set">
                         <option disabled selected value default> -- select an option -- </option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -98,13 +98,13 @@
 				</div>
 
 				<div class="group">
-					<button class="button"  type="button" [hidden]="s2 " (click)="back()">back</button>	
+					<button class="button"  type="button" [hidden]="s2" (click)="back()">back</button>	
 				</div>
-				<div class="group" [hidden]="s2 ">
+				<div class="group" *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' ">
 					<input type="submit" class="button" value="Sign Up">
 				</div>
 				<div class="group">
-					<button class="button"  type="button"  [hidden]="s1 " (click)="next()">next</button>
+					<button class="button"  type="button"  *ngIf="s1 == false && fname  !== '' && lname   !== '' && username  !==''  && phonenumber != '' " (click)="next()">next</button>
 				</div>
 				<div class="group">
                     <label for="tab-1" class="label">Alreadr member? <a for="tab-1">Login</a></label> <br><br><br><br><br><br>

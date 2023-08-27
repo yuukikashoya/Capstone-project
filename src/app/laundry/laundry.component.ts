@@ -31,6 +31,16 @@ export class LaundryComponent implements OnInit {
   constructor(private FireDb: AngularFireDatabase,
      public database:Database,public router:Router,
      private smsService: SmsService) { 
+
+      const qwer = ref(this.database, 'sales/Pricing');
+      onValue(qwer, (snapshot) => {
+       const qw = snapshot.val();  
+   // get the value of the staff
+         this.defultpricing = qw.pricing,
+         this.defultkilo = qw.Kilo
+     
+       });
+
       let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
     // Remove the currency symbol '₱' and the decimal point '.'
     const amountWithoutCurrency = this.currencyAmount.substring(1);

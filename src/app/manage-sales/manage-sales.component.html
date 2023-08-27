@@ -1,5 +1,13 @@
-    <h1 class="mint">Manage Sales</h1>
-<div class="container">
+
+   
+   <h1 class="mint">Manage Sales</h1>
+    <br>
+    <div class="text-center" *ngIf="graphshow">
+          <button class="btn btn-primary " (click)="edittime()">update Pricing</button>
+    </div>
+  
+<div class="container" *ngIf="graphshow">
+
     <div class="d-flex cc">
         <div class="card">
             <div class="arrow">
@@ -50,4 +58,18 @@
     </div>
     </div>
 </div>
+</div>
+<div class="container text-dark"  *ngIf="editshow">
+
+
+
+    <form  class="align-justify">
+        <h1 style="font-weight: bold;">
+       <input type="number" name="pricing" [(ngModel)]="defultkilo">Kilo per pack<br>
+       <input type="number" name="kilo" [(ngModel)]="defultpricing">Php per pack
+        </h1>
+        <button class="btn btn-primary" type="button" (click)="updatepricing()">Update</button>
+        <button class="btn btn-danger" type="button" (click)="cacel()">Cancel</button>
+    </form>
+
 </div>

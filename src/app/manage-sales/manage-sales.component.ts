@@ -27,7 +27,18 @@ export class ManageSalesComponent implements OnInit {
       const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
       const pastDaysOfYear = (today.getTime() - firstDayOfYear.getTime()) / 86400000;
       const currentWeekNumber = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
-    
+   
+      const starCountRef = ref(this.database, 'sales/Pricing');
+   onValue(starCountRef, (snapshot) => {
+    const db = snapshot.val();  
+// get the value of the staff
+      this.defultpricing = db.pricing,
+      this.defultkilo = db.Kilo
+  
+    });
+
+
+
     if (sessionValue == "1" ) {
       this.daily = FireDb.list('/sales/daily').valueChanges();
       this.week = FireDb.list('/sales/week').valueChanges();
@@ -69,7 +80,29 @@ minusday(): void{
   this.currentDate.setDate(this.currentDate.getDate() - 1);
 }
 
+editshow = false
+graphshow = true
 
+edittime(){
+  this.editshow = true
+  this.graphshow = false
+}
+cacel(){
+  this.editshow = false
+  this.graphshow = true
+}
+defultpricing = 0
+defultkilo = 0
 
+updatepricing(){
+  if(this.defultkilo && this.defultpricing && this.defultkilo != 0 && this.defultpricing != 0){
+    set(ref(this.database, 'sales/Pricing/'), {
+      Kilo: this.defultkilo,
+      pricing: this.defultpricing
+     }); 
+     this.editshow = false
+  this.graphshow = true
+  }
+}
 
 }
