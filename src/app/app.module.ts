@@ -22,6 +22,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomConfirmDialogComponent } from './dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     ManageAccountsComponent,
     ManageSalesComponent,
     LaundryComponent,
-    AnnoucementComponent
+    AnnoucementComponent,
+    CustomConfirmDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -33,8 +33,8 @@
             <input ngModel name='lname' type="text" ><br>
             <label >User Name</label><br>
             <input ngModel name='username' type="text" ><br>
-            <label >Password</label><br>
-            <input ngModel name='password' type="password" class="name" readonly  [ngModel]="defultpassword"><br>    
+            <label hidden>Password</label><br>
+            <input ngModel hidden name='password' type="password" class="name" readonly  [ngModel]="defultpassword"><br>    
         </div>
         <div class="column">
             <label >Email</label><br>
@@ -179,3 +179,9 @@
               </form>
 </div>
 </div>
+
+
+<app-custom-confirm-dialog *ngIf="showDialog"
+(confirm)="onConfirmed()"
+(cancel)="onCancelled()"
+></app-custom-confirm-dialog>

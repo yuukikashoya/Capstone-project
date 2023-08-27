@@ -76,8 +76,26 @@ editcancel(){
   this.editac = false
   this.myForm.reset(); 
 }
+todelete = ""
 deletea(value:any){
-  remove(ref(this.database,   'announcements/' + value));
+  this.showDialog = true;
+  this.todelete = value
 }
-  
+onConfirmed(): void {
+ remove(ref(this.database,   'announcements/' + this.todelete));
+  this.showDialog = false;
+}
+
+onCancelled(): void {
+  // User cancelled, close the dialog
+  this.todelete = ''
+  this.showDialog = false;
+}
+
+showDialog = false;
+
+openConfirmationDialog(value:any): void {
+  this.showDialog = true;
+  this.todelete = value
+}
 }
