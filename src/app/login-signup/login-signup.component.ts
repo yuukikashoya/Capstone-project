@@ -19,6 +19,20 @@ export class LoginSignupComponent implements OnInit {
   staffdata="";
 clientname = "";
 staffname="";
+
+
+
+fname=""
+lname=""
+username=""
+email=""
+phonenumber=""
+
+address=""
+ccpassword=""
+cccpassword=""
+set=""
+
 log: boolean = false;
 
 signlogin() {
