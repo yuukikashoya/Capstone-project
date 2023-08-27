@@ -31,7 +31,7 @@
 <div *ngFor="let a of (announcements | async)?.reverse()" >
     <div class="form-alerts toasts " *ngIf="a">
         <div role="alert" class="fade form-warning alert alert-warning alert-dismissible show ">
-          <button class="icon-close"  (click)="deletea(a.postid)"></button>
+          <button class="icon-close"  (click)="openConfirmationDialog(a.postid)"></button>
           <button class="icon-button" (click)="getedit(a)"></button>
 
           <div class="d-flex align-items-center  ">
@@ -62,3 +62,7 @@
         </div>
   </div>
   </div>
+  <app-custom-confirm-dialog *ngIf="showDialog"
+(confirm)="onConfirmed()"
+(cancel)="onCancelled()"
+></app-custom-confirm-dialog>

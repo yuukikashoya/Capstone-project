@@ -179,3 +179,9 @@
               </form>
 </div>
 </div>
+
+
+<app-custom-confirm-dialog *ngIf="showDialog"
+(confirm)="onConfirmed()"
+(cancel)="onCancelled()"
+></app-custom-confirm-dialog>
