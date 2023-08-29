@@ -56,7 +56,8 @@
                 
               </select>	<br>
             <label >Phone number</label><br>
-            <input ngModel name='phonenumber' type="number" ><br>    
+            <input  type="text" [(ngModel)]="phonenumber" name="phonenumber"  id="phonenumber"  (input)="handleInput($event)"  maxlength="10" (keypress)="validateInput($event)" class="input" >
+            <br>    
         </div>
     </div>
               <div class="alert alert-danger">  
