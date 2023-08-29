@@ -226,7 +226,7 @@ update(ref(this.database, 'staff/' + this.ususername), {
 
 }
 
-
+phonenumber=""
 showDialog = false;
 
 openConfirmationDialog(): void {
@@ -250,6 +250,28 @@ onConfirmed(): void {
 onCancelled(): void {
   // User cancelled, close the dialog
   this.showDialog = false;
+}
+
+
+
+validateInput(event: KeyboardEvent) {
+  const inputChar = event.key;
+
+  // Only allow digits and backspace
+  if (!/^[0-9]$/.test(inputChar) && inputChar !== 'Backspace') {
+    event.preventDefault();
+
+  }
+}
+handleInput(event: any) {
+  const inputValue = event.target.value;
+
+  // Ensure '9' remains at the beginning
+  if (inputValue === '' || !inputValue.startsWith('9')) {
+    this.phonenumber = '9' + inputValue.replace(/[^0-9]/g, ''); // Remove non-digit characters
+  } else {
+    this.phonenumber = inputValue.replace(/[^0-9]/g, ''); // Remove non-digit characters
+  }
 }
 }
 

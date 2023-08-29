@@ -1,5 +1,32 @@
-<!-- admin nav -->
+ <!-- admin nav -->
 
+
+
+  
+<span style="float: right;">
+    <a routerLink="tracking" *ngIf="typeid == '0'">
+        <i class="fa fa-book fa-2x"></i>
+        <span class="nav-text">
+            Laundry Status
+        </span>
+    </a>
+    </span>
+<span style="float: right;">
+    <a routerLink="announcement">
+        <i class="fa fa-bullhorn fa-2x"></i>
+        <span class="nav-text">
+           Announcement
+        </span>
+    </a>
+</span>
+<span style="float: right;">
+    <a routerLink="home">
+        <i class="fa fa-home fa-2x"></i>
+        <span class="nav-text">
+           Home
+        </span>
+    </a>
+</span>
 
 <div style="float: left; border-radius: 20px;"  *ngIf="this.typeid == '1'">
 <nav>
@@ -7,12 +34,6 @@
       <div></div>
     </div>
 
-            <a routerLink="home">
-                <i class="fa fa-home fa-2x"></i>
-                <span class="nav-text">
-                   Home
-                </span>
-            </a>
           
 
             <a routerLink="accounts" *ngIf="this.admin == true">
@@ -46,12 +67,6 @@
                 </span>
             </a>
  
-            <a routerLink="announcement">
-                <i class="fa fa-bullhorn fa-2x"></i>
-                <span class="nav-text">
-                   Announcement
-                </span>
-            </a>
 
             <a routerLink="chat">
                 <i class="fa fa-comments fa-2x"></i>
@@ -78,38 +93,11 @@
           <div></div>
         </div>
     
-  
-                <a routerLink="home">
-                    <i class="fa fa-home fa-2x"></i>
-                    <span class="nav-text">
-                       Home
-                    </span>
-                </a>
- 
-                <a routerLink="about">
-                    <i class="fa fa-map fa-2x"></i>
-                    <span class="nav-text">
-                       About
-                    </span>
-                </a>
-              
-                <a routerLink="announcement" >
-                    <i class="fa fa-bullhorn fa-2x"></i>
-                    <span class="nav-text">
-                       Announcement
-                    </span>
-                </a>
-                <a routerLink="tracking">
-                    <i class="fa fa-book fa-2x"></i>
-                    <span class="nav-text">
-                        Laundry Status
-                    </span>
-                </a>
 
-                <a routerLink="booking">
-                    <i class="fa fa-book fa-2x"></i>
+         <a routerLink="profile">
+                   <i class="fa fa-user fa-2x"></i>
                     <span class="nav-text">
-                        Pick up Booking
+                        Profile
                     </span>
                 </a>
  
@@ -120,10 +108,10 @@
                     </span>
                 </a>
    
-                <a routerLink="profile">
-                   <i class="fa fa-user fa-2x"></i>
+                <a routerLink="booking" *ngIf="typeid == '0'">
+                    <i class="fa fa-book fa-2x"></i>
                     <span class="nav-text">
-                        Profile
+                        Pick up Booking
                     </span>
                 </a>
  
