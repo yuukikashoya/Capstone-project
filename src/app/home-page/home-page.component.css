@@ -291,9 +291,16 @@
   }
 }
 
-.extra1{
-  margin-left: 10em;
+#ew{
+  padding-left: 20em;
+  /* margin-left: 20em; */
+  background: url('../../assets/image/bub1.png');
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  height: 100vh;
   }
+
   .title4{
     text-align: center;
     margin-right: 3em;
@@ -301,7 +308,7 @@
     font-family: Bahnschrift;
     font-size: 4em;
     color: black;
-    margin-left: 2em;
+
     margin-bottom: 1em;
   }
   .numb{
@@ -310,8 +317,8 @@
    padding-right: 5px;
   }
   .work{
-    height: 300px;
-    width: 300px; 
+    height: 250px;
+    width: 250px; 
     border-radius: 50%;
     
   }
@@ -329,8 +336,8 @@
     text-align: center;
     font-weight: bold;
     border: none;
-    height: 600px;
-    width: 300px;
+    height: 500px;
+    width: 250px;
     margin-right: 50px;
     font-family: Bahnschrift;
     border-top-left-radius: 150px;
@@ -342,14 +349,14 @@
     height: 100%;
     margin-left: 4em;
   }
-  .dropdown {
+  /* .dropdown {
     position: relative;
     display: inline-block;
-  }
+  } */
   
   .dropdown > input[type="checkbox"] {
     position: absolute;
-    left: -100vw;
+    left: -200vw;
   }
   
   .dropdown > label,
@@ -405,7 +412,7 @@
     padding: 6px 15px;
     text-decoration: none;
     color: #333;
-    font-size: 20px;
+    font-size: 10px;
   }
   
   .dropdown > ul a:hover,
@@ -433,10 +440,45 @@
     left: 0;
     top: 0;
     height: 100%;
-    width: 100%;
+
     text-indent: -100vw;
     z-index: 1000;
   }
+  .title3{
+    font-size: 4em;
+    margin-right: 2em;
+    font-family: Bahnschrift;
+    color:black;
+    padding-top: 2em;
+  }
+  .desc1{
+    font-size: 20px;
+    font-family: Bahnschrift;
+    margin-top: 1px;
+
+  }
+  .end{
+    float: left;
+    margin-top: 10px;
+    margin-left: 25em;
+  }
+  .contact{
+    background-color: rgb(0, 54, 105);
+  }
+.title5{
+  text-align: center;
+  font-size: 2em;
+  font-family: Bahnschrift;
+  padding-top: 20px;
+  color: white;
+}
+.det{
+  text-align: center;
+  font-size: 15px;
+  font-family: Bahnschrift;
+  padding-top: 20px;
+  color: white;
+}
 
 
 
