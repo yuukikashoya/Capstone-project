@@ -1,16 +1,15 @@
 
-<div class="body1">
+<div class="container">
 <div class="login-wrap">
 	<div class="login-html">		
 
-		<h2 class="mint">I.M Cafe and Laundromat</h2><hr><br>
-
+		<h1 class="title">IM CAFE AND LAUNDROMAT</h1><hr><br>
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
 
 		<div class="login-form">
 			<form class="sign-in-htm" #testLogin="ngForm" (ngSubmit)="login(testLogin.value)">
-				<div class="group">
+				<div class="group">		<br><br>
 					<label for="user" class="label">Username</label>
 					<input name="username" ngModel id="username"  type="text" class="input">
 				</div>
@@ -30,9 +29,9 @@
 				<div class="group">
                     <label for="tab-2" class="label">Don't have an Account? <a for="tab-2">Sign Up</a></label> 
 				</div>
-				<div class="group">
+
 					<input type="submit" class="button" value="Sign In">
-				</div>
+
 
 			</form>
 			<form class="sign-up-htm" #signn="ngForm" (ngSubmit)="signup(signn.value)">
@@ -103,18 +102,14 @@
 				<div class="group" *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' ">
 					<input type="submit" class="button" value="Sign Up">
 				</div>
-				<div class="group">
-					<button class="button"  type="button"  *ngIf="s1 == false && fname  !== '' && lname   !== '' && username  !==''  && phonenumber != '' " (click)="next()">next</button>
-				</div>
-				<div class="group">
-                    <label for="tab-1" class="label">Alreadr member? <a for="tab-1">Login</a></label> <br><br><br><br><br><br>
-				</div>
+                    <label for="tab-1" class="label1">Already a member? <a for="tab-1">Login</a></label> <br>
+
+					<button class="button"  type="button"  *ngIf="s1 == false && fname  !== '' && lname   !== '' && username  !==''  && phonenumber != '' " (click)="next()">Next</button>
 			</form>
 
 		</div>
 	</div>
 </div>
-<img class="log" src=".../../../../assets/image/LOGO1.png">
 </div>
 
 <!-- bug test -->

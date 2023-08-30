@@ -9,7 +9,7 @@
  
   } 
   html{
-    background-image: url("all.png");
+    background-image: url('../wallp.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
