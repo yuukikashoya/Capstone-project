@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="jumbotron  table-responsive scrollable"  >
+        <h3> <span class="">Pick up</span>  </h3>
+        <table class="table table-bordered ">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Client Username</th>  
+                <th scope="col">Client Name</th>              
+                <th scope="col">Client User ID</th>
+          
+                <th scope="col">Client Address</th>
+                <th scope="col">After washing to be</th>
+                <th scope="col">Time</th>
+                <th scope="col">Date</th>
+                <th scope="col">Pack No.</th>
+    
+                <th scope="col">Payed Amount</th>
+                               <th scope="col">Transaction ID</th>  
+                <th scope="col">Transac by</th>  
+
+              </tr>
+            </thead>
+            <tbody *ngFor="let z of logs | async;">
+              <tr  *ngIf= "z">
+                <th scope="row">{{z.transacitonid}}</th>
+                <td>{{z.username}}</td>    
+                <td>{{z.name}}</td>                            
+                <td>{{z.uid}}</td>  
+      
+                <td>{{z.deliveredTo}}</td>
+                <td>{{z.type}}</td>
+                <td>{{z.time}}</td>
+                <td>{{z.date}}</td>
+                <td>{{z.pack}}</td>
+    
+                <td>{{z.payed}}</td>
+                          <td>{{z.pastid}}</td>
+                <td>{{z.transacby}}</td>
+      
+
+              </tr>
+     
+            </tbody>
+            
+          </table>
+    </div>
+</div>
