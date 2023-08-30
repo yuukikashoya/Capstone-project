@@ -25,6 +25,7 @@
         </div>
     
 <a routerLink="/sign" *ngIf="this.username == null" class="button-28 " role="button" style="margin-top: 10px; justify-content: center; font-size: 2em;">Login</a>
+<a routerLink="/booking" *ngIf="this.username != null && sessionValue == '0'" class="button-28 " role="button" style="margin-top: 10px; justify-content: center; font-size: 2em;">Book</a>
 </div>
 <div class="about">
     <h1 style="font-size: 4em; text-align: center;">ABOUT US</h1>
@@ -60,9 +61,9 @@
                 <input type="checkbox" id="my-dropdown" value="" name="my-checkbox">
                 <label for="my-dropdown"Vdata-toggle="dropdown">WASH</label>
                 <ul>
-                  <!-- <li><a>As you step into our bright and inviting space, you'll be greeted by rows of cutting-edge washing machines, each equipped to handle various load sizes. The washing process begins by sorting your <br>
+              <li><a style="font-size: 12px;">As you step into our bright and inviting space, you'll be greeted by rows of cutting-edge washing machines, each equipped to handle various load sizes. The washing process begins by sorting your <br>
                     clothes into categories to ensure optimal cleaning results. Once the cycle begins, you'll witness the washing machine's advanced agitating and rotating motions working harmoniously to dislodge dirt and <br>
-                    stains, leaving your clothes looking fresh and revitalized.</a></li> -->
+                    stains, leaving your clothes looking fresh and revitalized.</a></li>
                 </ul>
                 
               </div> </h2> </span>  
@@ -73,7 +74,7 @@
                 <input type="checkbox" id="my-dropdown1" value="" name="my-checkbox">
                 <label for="my-dropdown1"Vdata-toggle="dropdown">DRY</label>
                 <ul>
-                  <li><a>Coffee</a></li>
+                  <li><a  style="font-size: 12px;">Embracing innovation, we've equipped our laundromat with the latest in drying technology. Our machines are engineered to cater to a diverse range of fabrics, ensuring that your clothes receive the ideal treatment they deserve. From delicate fibers to heavy-duty textiles, our dryers offer customizable settings to suit every garment's unique needs.</a></li>
                 </ul>
               </div> </h2> </span>  
            <!-- <p class="numb"><img class="work" src="https://images.vexels.com/media/users/3/213249/isolated/preview/db0a4c5e160c831c88e0e1581449a6d2-folded-clothes-laundry.png"></p> -->
@@ -82,7 +83,7 @@
                 <input type="checkbox" id="my-dropdown2" value="" name="my-checkbox">
                 <label for="my-dropdown2"Vdata-toggle="dropdown">FOLD</label>
                 <ul>
-                  <li><a>Coffee</a></li>
+                  <li><a  style="font-size: 12px;">Folding isn't just about making clothes smaller—it's about preserving their essence. Our folding process safeguards your garments from wrinkles, creases, and undue stress, ensuring they remain in impeccable condition until you're ready to wear them.</a></li>
                 </ul>
               </div> </h2> </span>  
          </main>   
