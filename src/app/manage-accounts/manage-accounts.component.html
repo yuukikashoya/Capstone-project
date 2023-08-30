@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="mint">Account Management</h1>
+  <h2>Account Management</h2>
   <nav class="nav navbar-expand-lg navbar-light">
 
      
@@ -59,19 +59,16 @@
             <input  type="text" [(ngModel)]="phonenumber" name="phonenumber"  id="phonenumber"  (input)="handleInput($event)"  maxlength="10" (keypress)="validateInput($event)" class="input" >
             <br>    
         </div>
-    </div>
-              <div class="alert alert-danger">  
-               <p>  Note!! password is always set to 1  </p>
-            </div>
+    </div><br>
                     
               
                   
                     
-                    <input type="submit" class="button" name="submit" value="ADD">
+        <input type="submit" class="button" name="submit" value="ADD">
         </form>
     </div>
 
-    <div class="jumbotron jumbotron-fluid bg-dark table-responsive scrollable" *ngIf="this.staffactive == true">
+    <div class="jumbotron jumbotron-fluid table-responsive scrollable" *ngIf="this.staffactive == true">
         <h3> <span class="lab">STAFF</span>  </h3>
         <table class="table table-bordered table-dark">
             <thead >
@@ -107,7 +104,7 @@
             </tbody>
           </table>
     </div>
-    <div class="jumbotron jumbotron-fluid bg-dark table-responsive scrollable" *ngIf="this.cleintactive == true">
+    <div class="jumbotron jumbotron-fluid table-responsive scrollable" *ngIf="this.cleintactive == true">
       <h3> <span class="lab">CLIENT</span>  </h3>
       <table class="table table-bordered table-dark">
           <thead>
@@ -141,7 +138,7 @@
           </tbody>
         </table>
   </div>
-  <div class="jumbotron jumbotron-fluid bg-dark table-responsive" *ngIf="this.editstuff == true">
+  <div class="jumbotron jumbotron-fluid table-responsive" *ngIf="this.editstuff == true">
     <h3 class="lol"> <span>Update Staff</span>  </h3>
     <!-- <span class="label label-default">{{ususername}}</span>  -->
     <form  class="left" >
