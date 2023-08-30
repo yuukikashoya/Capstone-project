@@ -1,15 +1,25 @@
-<div class="container"><div class="process-nav">
+<div class="container" style="padding-top:6em;">
+  <!-- <div class="process-nav">
   <a (click)="DeliveryPickup()">Delivery Pick up</a>
   <a (click)="processing()">Processing</a>
   <a (click)=" wasing()">Washing</a>
   <a (click)="Readydd()">Ready for Delivery</a>
   <a (click)=" Readypp() ">Ready for Pick up</a>
-</div>
+</div> -->
 <!-- pickup delivery rider -->
-<div class="jumbotron jumbotron-fluid " *ngIf="DeliveryPickupA">
-    <h3> <span class="label label-default">Delivery Pick up</span>  </h3>
-    <div *ngFor="let a of pickup | async" >
-      <details class=" " *ngIf="a && eid == a.username">  
+<div   *ngFor="let a of pickup | async">
+
+     
+    <div class="jumbotron jumbotron-fluid " *ngIf="a && eid == a.username">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
+        aria-valuemin="0" aria-valuemax="100" style="width:5%">
+       5%
+        </div>
+    
+      </div>
+       <div style="font-size: 20px;">Coming to your location for pickup</div>
+      <details class=" ">  
         <summary class="sumsum">
           Laundry Number: {{a.id}}
                   </summary>
@@ -27,10 +37,18 @@
           </div>
 </div>
 <!-- Processing tracking -->
-<div class="jumbotron jumbotron-fluid "  *ngIf="processingA">
-    <h3> <span class="label label-default">Processing</span>  </h3>
-    <div *ngFor="let b of laundry | async" >
-        <details class=" " *ngIf="b && eid == b.username && b.status == 'processing'">  
+<div  *ngFor="let b of laundry | async">
+
+    <div  class="jumbotron jumbotron-fluid " *ngIf="b && eid == b.username && b.status == 'processing'">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
+        aria-valuemin="0" aria-valuemax="100" style="width:25%">
+       25%
+        </div>
+    
+      </div>
+       <div style="font-size: 20px;">Your clothes are in the laundromat</div>
+        <details class=" ">  
           <summary class="sumsum">
             Laundry Number: {{b.id}}
                     </summary>
@@ -49,10 +67,18 @@
           </div>
 </div>
 <!-- washing tracking -->
-<div class="jumbotron jumbotron-fluid "  *ngIf="wasingA">
-  <h3> <span class="label label-default">washing</span>  </h3>
-  <div *ngFor="let b of laundry | async" >
-      <details class=" " *ngIf="b && eid == b.username && b.status == 'washing'">  
+<div *ngFor="let b of laundry | async" >
+
+  <div class="jumbotron jumbotron-fluid "  *ngIf="b && eid == b.username && b.status == 'washing'">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
+      aria-valuemin="0" aria-valuemax="100" style="width:50%">
+     50%
+      </div>
+  
+    </div>
+     <div style="font-size: 20px;">Your clothes are being washed</div>
+      <details class=" " >  
         <summary class="sumsum">
           Laundry Number: {{b.id}}
                   </summary>
@@ -71,10 +97,18 @@
         </div>
 </div>
 <!-- Ready for Delivery -->
-<div class="jumbotron jumbotron-fluid " *ngIf="ReadyD">
-  <h3> <span class="label label-default">Delivery</span>  </h3>
-  <div *ngFor="let c of delivery | async" >
-      <details class=" " *ngIf="c && eid == c.username">  
+<div  *ngFor="let c of delivery | async" >
+
+  <div class="jumbotron jumbotron-fluid "  *ngIf="c && eid == c.username">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
+      aria-valuemin="0" aria-valuemax="100" style="width:75%">
+     75%
+      </div>
+  
+    </div>
+    <div style="font-size: 20px;">  Your clothes are ready for delivery.</div>
+      <details class=" ">  
         <summary class="sumsum">
           Laundry Number: {{c.id}}
                   </summary>
@@ -93,10 +127,18 @@
         </div>
 </div>
 <!-- pickup -->
-<div class="jumbotron jumbotron-fluid " *ngIf="ReadyP">
-  <h3> <span class="label label-default">Pick Up at the Shop</span>  </h3>
-  <div *ngFor="let d of customerpickup | async" >
-      <details class=" " *ngIf="d && eid == d.username">  
+<div *ngFor="let d of customerpickup | async">
+
+  <div class="jumbotron jumbotron-fluid "   *ngIf="d && eid == d.username">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
+      aria-valuemin="0" aria-valuemax="100" style="width:75%">
+     75%
+      </div>
+  
+    </div>
+    <div style="font-size: 20px;">  Your clothes are ready for pickup</div>
+      <details class=" ">  
         <summary class="sumsum">
           Laundry Number: {{d.id}}
                   </summary>

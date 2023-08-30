@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
   username = sessionStorage.getItem('id');
-
+  sessionValue = sessionStorage.getItem('type');
   constructor() {
 
    }

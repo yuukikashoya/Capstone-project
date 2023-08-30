@@ -215,3 +215,141 @@ background-color: white;
     width: 80%;
     margin: 10px auto;
   }
+
+
+
+/* Original CSS code... */
+
+@media only screen and (max-width: 600px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #4c4c6a;
+    border-radius: 2px;
+  }
+  
+  .chatbox {
+    max-width: 100%;
+    height: 400px;
+    max-height: 450px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+    margin: 0 auto;
+    border-radius: 3%;
+  }
+  
+  .chat-window {
+    flex: auto;
+    max-height: calc(100% - 60px);
+    background-image: url("chat.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /* ...Other styles... */
+
+  .msg-box {
+    display: flex;
+    background: #014a6c;
+    padding: 10px 10px 0 10px;
+    border-radius: 0 6px 6px 0;
+    max-width: 40em;
+    width: 100%;
+    float: left;
+    box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+  }
+
+  /* ...Other styles... */
+
+  .badge {
+    font-size: 150%;
+    background-color: #893400;
+    color: white;
+    border: solid black;
+  }
+
+  .mint {
+    font-size: 3em;
+    font-family: 'Rocher';
+    font-weight: bolder;
+    flex-direction: column;
+    margin-left: 2em;
+    padding-top: 15px;
+  }
+  /* ...Other styles... */
+}
+/* Original CSS code... */
+
+@media only screen and (max-width: 600px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #4c4c6a;
+    border-radius: 2px;
+  }
+  
+  .chatbox {
+    max-width: 100%;
+    height: 400px;
+    max-height: 450px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+    margin: 0 auto;
+    border-radius: 3%;
+  }
+  
+  .chat-window {
+    flex: auto;
+    max-height: calc(100% - 60px);
+    background-image: url("chat.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /* ...Other styles... */
+
+  .msg-box {
+    display: flex;
+    background: #014a6c;
+    padding: 10px 10px 0 10px;
+    border-radius: 0 6px 6px 0;
+    max-width: 40em;
+    width: 100%;
+    float: left;
+    box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+  }
+
+  /* ...Other styles... */
+
+  .badge {
+    font-size: 150%;
+    background-color: #893400;
+    color: white;
+    border: solid black;
+  }
+
+  .mint {
+    font-size: 3em;
+    font-family: 'Rocher';
+    font-weight: bolder;
+    flex-direction: column;
+    margin-left: 2em;
+    padding-top: 15px;
+  }
+
+  /* ...Other styles... */
+}
