@@ -9,13 +9,13 @@
     cursor: pointer;
   }
   a{
-    font-size: 3em;
+    font-size: 20px;
     margin-left: 200px;
     color: white;
   }
   #nav{ 
     margin-top: 2em;
-    background-color: rgb(167, 92, 39);
+    background-color: rgba(107, 2, 2, 0.632);
     border-radius: 10px;
     padding-bottom: 1em;
     padding-top: 1em;
@@ -33,8 +33,9 @@
   .nav-link:hover{
     background-color: rgb(222, 247, 255);
     border-radius: 3px;
-    transform: scale(1.3);
+    transform: scale(1);
     font-weight: bold;
+
   }
 .jumbotron-fluid, .table-responsive{
   background-color: rgb(213, 250, 255);
@@ -47,22 +48,23 @@
 .label, .label-default{
   text-align: center;
   align-items: center;
-  color: rgb(0, 92, 167);
+  color: rgb(0, 0, 0);
   margin-left: 19em;
-  font-size: 130%;
+  font-size: 20px;
   background: transparent;
 }
 label{
-  font-size: 150%;
+  font-size: 18px;
 }
 input{
   height: 15%;
   width: 70%;
   border: none;
   border-radius: 8px;
+  font-size: 18px;
 }
 .alert, .alert-danger{
-  margin-top: 5em;
+  margin-top: 5em; 
   width: 40%;
   text-align: center;
   margin-left: 50em;
@@ -72,34 +74,33 @@ input{
 }
 .button{
   width: 10%;
-  font-size: 2em;
+  font-size: 18px;
   margin-left: 38.5em;
   background-color: rgb(0, 95, 133);
   font-weight: bold;
   color: white;
   padding: 3px;
+  margin-top: 30px;
   font-weight: 500;
 }
 .button:hover{
-  background: rgb(0, 185, 252);
-  color: black;
-  font-size: 2em;
-  padding: 3px;  
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 .lab{
-  color: white;
+  color: black;
   font-size: 2em;
   margin-left: 43%;
 }
 .table, .table-bordered, .table-dark{
-  font-size: 15px;
+  font-size: 18px;
   border: solid black;
 }
 .button3{
   border: none;
   border-radius: 10px;
   padding: 7px;
-  font-size: 15px;
+  font-size: 18px;
   margin-top: 50px;
 }
 .button3:hover{
@@ -110,7 +111,7 @@ input{
   border: none;
   border-radius: 10px;
   padding: 7px;
-  font-size: 13px; 
+  font-size: 18px; 
   margin-top: 5px;
 }
 .sm:hover{
@@ -121,7 +122,7 @@ input{
 .lol{
   text-align: center;
   color: white;
-  font-size: 40px;
+  font-size: 18px;
 }
 .lst{
   margin-left: 65em;
@@ -143,7 +144,7 @@ input{
   border: none;
   border-radius: 10px;
   padding: 7px;
-  font-size: 13px; 
+  font-size: 18px; 
   margin-top: 5px; 
   color: black;
 }
@@ -175,44 +176,14 @@ th{
   src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
 }
 
-.mint{
-  /* color: rgb(0, 78, 212); */
+
+h2{
+  font-family: Bahnschrift;;
   font-size: 4em;
-  font-family: 'Rocher';
-  font-weight: bolder;
-  margin-left: 13px;
-  flex-direction: column;
-  margin-top: 13px;
+  color: white;
+  padding-top: 15px;
 }
-
-@font-palette-values --Mint {
-  font-family: Rocher;
-  base-palette: 7;
-}
-
-.mint {
-  font-palette: --Mint;
-}
-@font-face {
-  font-family: 'Rocher';
-  src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
-}
-.mint{
-  /* color: rgb(0, 78, 212); */
-  font-size: 4em;
-  font-family: 'Rocher';
-  font-weight: bolder;
-
-  flex-direction: column;
-  margin-top: 15px;
-  
-}
-
-@font-palette-values --Mint {
-  font-family: Rocher;
-  base-palette: 7;
-}
-
-.mint {
-  font-palette: --Mint;
+.table-responsive{
+  background: rgba(124, 195, 242, 0.696);
+  border: none;
 }
