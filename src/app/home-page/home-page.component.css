@@ -48,7 +48,7 @@
 }
 .slct{
   column-count: 2;
-  column-gap: -30em;
+  column-gap: 50px;
   text-align: center;
 
 }
