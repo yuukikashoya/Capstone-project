@@ -46,18 +46,23 @@
    font-size: 1.75em;
    font-family: Bahnschrift;   
 }
-.slct{
-  column-count: 2;
-  column-gap: -30em;
-  text-align: center;
-
+.slct {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+  gap: -10000em; /* Adjust the gap between columns */
+  justify-items: center; /* Center items horizontally within each column */
+  text-align: center; /* Center text within each item */
+  margin-left: 50em;
+    margin-right: 50em;
 }
-.hays{
+
+.hays {
   font-size: 1.75em;
   color: white;
-  text-align: center;
-  font-family: Bahnschrift;   
+  font-family: Bahnschrift;
+  margin: 0; /* Reset margin to remove any unwanted spacing */
 }
+
 .logo2{
     margin-left: 18em;
     height: 20em;
