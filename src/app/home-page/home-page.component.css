@@ -329,8 +329,8 @@
     cursor: pointer;
     font-size: 4rem;
     color: rgb(255, 255, 255);
-    white-space: nowrap;
-    word-spacing: 3em;
+    /* white-space: nowrap; */
+    /* word-spacing: 3em; */
     text-align: center;
     font-weight: bold;
     border: none;
