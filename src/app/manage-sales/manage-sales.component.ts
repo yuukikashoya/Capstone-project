@@ -102,6 +102,7 @@ updatepricing(){
      }); 
      this.editshow = false
   this.graphshow = true
+  alert("Price or Kilo Updated")
   }
 }
 
