@@ -24,13 +24,14 @@
 
 /* Increase the font size for the headers and paragraphs inside the cards */
 h2 {
-    font-size: 20px;
+    font-size: 18px;
     color: white;
 }
 
 p {
-    font-size: 22px;
+    font-size: 18px;
     color: white;
+    font-family: Bahnschrift;
 }
 
 .arrow {
@@ -51,6 +52,7 @@ p {
     font-weight: bold;
     margin-left:1em ;
     margin-right: 1em;
+    font-family: Bahnschrift;
   }
 .title{
     font-family: Bahnschrift;;
@@ -59,3 +61,8 @@ p {
     padding-top: 10px;
     padding-left: 65px;
   }
+  .umm{
+    background-color: rgb(0, 32, 137);
+    font-size: 18px;
+    font-family: Bahnschrift;
+    }
