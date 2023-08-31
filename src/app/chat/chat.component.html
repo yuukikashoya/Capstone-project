@@ -68,9 +68,11 @@
         <h1  class="text-center">Users</h1>  
         <br>
   <div *ngFor="let a of chatlist | async;">
-    <div  *ngIf= "a">
-
-      <h2 (click)="getchat(a) " style="cursor: pointer;text-align: center;">{{a.username}}</h2>    
+    <div  *ngIf= "a" >
+      <div style="background-color: rgb(31, 31, 151); color: white;">
+      <h2 (click)="getchat(a) " style="cursor: pointer;text-align: center; font-weight: bold;" *ngIf="a.username == currentuserchat">{{a.username}}</h2> 
+      </div>
+      <h2 (click)="getchat(a) " style="cursor: pointer;text-align: center;"  *ngIf="a.username != currentuserchat">{{a.username}}</h2>       
       <hr class="under-h1">
      
 

@@ -1,15 +1,15 @@
 
 <div class="container">
-<h1 class="mint"> Laundry Tracker</h1>
+<h2> Laundry Tracker</h2>
 
-    <nav class="nav navbar-expand-lg navbar-light"*ngIf="nav == true">
+    <nav class="nav navbar-expand-lg navbar-light text-white"*ngIf="nav == true">
 
      
       
           <div id="nav" >
               <div class="navbar" >
          
-                  <a  (click)="showPK()" class="item" *ngIf="this.PKactive != true">Delivery Pick up</a>
+                  <a  (click)="showPK()" class="item " *ngIf="this.PKactive != true">Delivery Pick up</a>
                   <a  (click)="showPK()" class="item active" *ngIf="this.PKactive == true">Delivery Pick up</a>
                   <a  (click)="addLa()"class="item" *ngIf="this.addLactive != true"> Add laundry</a>
                   <a  (click)="addLa()"class="item active" *ngIf="this.addLactive == true">Add laundry</a>
@@ -288,17 +288,17 @@
 
 
 <div class="jumbotron jumbotron-fluid " *ngIf="addLactive">
-  <h1>Place your Booking</h1>
+  <h2 class="title2">Place your Booking</h2><hr>
 
     <form #booking="ngForm" #add="ngForm" (ngSubmit)="addlaundryy(add.value)">
 
       <label >Username</label><br>
-      <input ngModel name='username' type="text" ><br>    
+      <input ngModel name='username' type="text" placeholder="Enter your username"><br>    
         <label for="ara " >Deliver or pick up on the shop</label><br>
-        <input type="text"[ngModel]="changedd" name="changedd"readonly><button class="buttn" (click)="changedelivery()"type="button">Change</button><br>
+        <input type="text"[ngModel]="changedd" name="changedd"readonly style="margin-left: 85px;"><button class="buttn" (click)="changedelivery()"type="button">Change</button><br>
 
-        <label >clothes kilo</label><br>
-        <input ngModel name='kilo' type="number" ><br>    
+        <label >Clothes kilo</label><br>
+        <input ngModel name='kilo' type="number" placeholder="Enter the clothes weight"><br>    
 
   <input  class="butt" type="submit">
     </form>
