@@ -96,12 +96,12 @@
 
 				</div>
 
-				<div class="group">
-					<button class="button"  type="button" [hidden]="s2" (click)="back()">back</button>	
-				</div>
-				<div class="group" *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' ">
-					<input type="submit" class="button" value="Sign Up">
-				</div>
+			
+					<button class="button"  type="button" [hidden]="s2" (click)="back()">back</button>	 <br>
+
+			
+					<input type="submit"  *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' " class="button" value="Sign Up"> <br *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' " >
+		
                     <label for="tab-1" class="label1">Already a member? <a for="tab-1">Login</a></label> <br>
 
 					<button class="button"  type="button"  *ngIf="s1 == false && fname  !== '' && lname   !== '' && username  !==''  && phonenumber != '' " (click)="next()">Next</button>
