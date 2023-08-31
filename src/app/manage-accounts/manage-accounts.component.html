@@ -28,17 +28,17 @@
          <div class="column">
             
             <label >First Name</label><br>
-            <input ngModel name="fname" type="text" ><br>
+            <input ngModel name="fname" type="text" placeholder="enter your first name"><br>
             <label >Last Name</label><br>
-            <input ngModel name='lname' type="text" ><br>
+            <input ngModel name='lname' type="text" placeholder="enter your Last name"><br>
             <label >User Name</label><br>
-            <input ngModel name='username' type="text" ><br>
+            <input ngModel name='username' type="text" placeholder="enter your username"><br>
             <label hidden>Password</label><br>
-            <input ngModel hidden name='password' type="password" class="name" readonly  [ngModel]="defultpassword"><br>    
+            <input ngModel hidden name='password' type="password" class="name" readonly  [ngModel]="defultpassword" placeholder="enter your password"><br>    
         </div>
         <div class="column">
             <label >Email</label><br>
-            <input ngModel name='email' type="text" ><br>
+            <input ngModel name='email' type="text" placeholder="enter your email"><br>
             <label >Gender</label><br>
 
             <select #roles  id="set" ngModel name="set"  >
@@ -56,7 +56,7 @@
                 
               </select>	<br>
             <label >Phone number</label><br>
-            <input  type="text" [(ngModel)]="phonenumber" name="phonenumber"  id="phonenumber"  (input)="handleInput($event)"  maxlength="10" (keypress)="validateInput($event)" class="input" >
+            <input  type="text" [(ngModel)]="phonenumber" name="phonenumber"  id="phonenumber"  (input)="handleInput($event)"  maxlength="10" (keypress)="validateInput($event)" class="input" placeholder="enter your Phone Number">
             <br>    
         </div>
     </div><br>

@@ -80,12 +80,13 @@ background-color: white;
 .jumbotron{
   background-color: rgb(213, 250, 255);
   text-align: center;
+  font-size: 13px;
 }
 h3{
   font-size: 3em;
 }
 tr{
-  font-size: 13px;
+  font-size: 15px;
 }
 h2{
   font-family: Bahnschrift;;
@@ -144,4 +145,7 @@ input{
 }
 .td{
   font-size: 18px;
+}
+.btn-primary{
+  font-size: 15px;
 }
