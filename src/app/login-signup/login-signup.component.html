@@ -97,13 +97,12 @@
 				</div>
 
 			
-					<button class="button"  type="button" [hidden]="s2" (click)="back()">back</button>	 <br>
+					<button class="button"  type="button" [hidden]="s2" (click)="back()">back</button>
 
 			
 					<input type="submit"  *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' " class="button" value="Sign Up"> <br *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' " >
 		
                     <label for="tab-1" class="label1">Already a member? <a for="tab-1">Login</a></label> <br>
-
 					<button class="button"  type="button"  *ngIf="s1 == false && fname  !== '' && lname   !== '' && username  !==''  && phonenumber != '' " (click)="next()">Next</button>
 			</form>
 
@@ -111,5 +110,5 @@
 	</div>
 </div>
 </div>
-
+<img src="../../assets/image/logo2.jpg" style="border-radius: 50%; float: right; height: 330px; width: 330px; margin-top: -45em; margin-right: 15em;">
 <!-- bug test -->
