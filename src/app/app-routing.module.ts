@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutUsComponent } from './about-us/about-us.component';
+
 
 import { BookingComponent } from './booking/booking.component';
 import { ChatComponent } from './chat/chat.component';
@@ -22,7 +22,7 @@ const routes: Routes = [
     {path: '',redirectTo:'home',pathMatch:'full' },
   {path: 'home',component:HomePageComponent},
   {path: 'sign',component:LoginSignupComponent},
-  {path: 'about',component:AboutUsComponent},
+
   {path: 'booking',component:BookingComponent},
   {path: 'chat',component:ChatComponent},
   {path: 'accounts',component:ManageAccountsComponent},
@@ -42,6 +42,6 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const roott = [
-  HomePageComponent,LoginSignupComponent,AboutUsComponent,BookingComponent,ChatComponent,ManageAccountsComponent,
+  HomePageComponent,LoginSignupComponent,BookingComponent,ChatComponent,ManageAccountsComponent,
   ProfileComponent,StatusComponent,
 ]

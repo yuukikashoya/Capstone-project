@@ -14,17 +14,9 @@
 
   }
 
-  .design{
-    background-color: rgb(147, 18, 18);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 3vh;
-
-  }
 
   .back{
-    background: url(b5.png);
+    background: url(../../assets/image/back5.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -37,12 +29,12 @@
   font-family: Bahnschrift;
   font-size: 4em;
   font-weight: bold;
-  color: white;
+  color: black;
 }
 .off1{
   text-align: center;
   padding-top: 1em;
-   color: white;
+   color: black;
    font-size: 20px;
    font-family: Bahnschrift;   
 }
@@ -58,7 +50,7 @@
 
 .hays {
   font-size: 1.75em;
-  color: white;
+  color: black;
   font-family: Bahnschrift;
   margin: 0; /* Reset margin to remove any unwanted spacing */
 }
@@ -119,13 +111,10 @@
     display: inline-block;
     font-family: Bahnschrift;
     font-size: 20px;
-    font-weight: bold;
     line-height: normal;
     margin-left: 28em;
-    min-height: 60px;
-    min-width: 0;
     outline: none;
-    padding: 16px 24px;
+    padding: 11px;
     text-align: center;
     text-decoration: none;
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
@@ -146,6 +135,7 @@
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
+    font-weight: bold;
   }
   
   .button-28:active {
@@ -153,7 +143,7 @@
     transform: translateY(0);
   }
   .about{
-    background: url('newlog.png');
+    background: url('../../assets/image/asd.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -162,7 +152,7 @@
 
   }
   .extra{
-    border: solid rgb(151, 21, 21);
+    border: solid rgb(85, 153, 255);
     margin-top: 2em;
     float:right; 
     width: 550px;
@@ -210,7 +200,7 @@
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 .desc{
-  font-size: 1.75em;
+  font-size: 17px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-top: 1px;
   text-align: justify;
@@ -307,7 +297,6 @@
 
   .title4{
     text-align: center;
-    margin-right: 3em;
     padding-top: 20px;
     font-family: Bahnschrift;
     font-size: 4em;
@@ -341,13 +330,13 @@
     border-top-left-radius: 150px;
     border-top-right-radius: 150px;
     margin-bottom: 2em;
+    margin-bottom: 5em;
   }
 
   main {
     display: flex;
     height: 100%;
-    margin-left: 4em;
-    box-shadow: 10px 10px 5px rgb(68, 68, 68);
+    margin-left: 18%;
   }
   /* .dropdown {
     position: relative;
@@ -363,7 +352,7 @@
   .dropdown > a[role="button"] {
     display: inline-block;
     padding: 6px 15px;
-    color: white;
+    color: black;
     line-height: 1.5em;
     text-decoration: none;
     border: none;
@@ -447,7 +436,7 @@
   .title3{
     font-size: 4em;
     font-family: Bahnschrift;
-    color: white;
+    color: black;
     text-align: center;
     padding-top: 1em;
 
@@ -462,7 +451,7 @@
     margin-left: 25em;
     padding-left: 3em;
     padding-right: 3em;
-    color: white;
+    color: black;
     border-radius: 20px;
   }
   .end:hover{
@@ -474,7 +463,7 @@
     margin-right: 20px;
     padding-left: 3em;
     padding-right: 3em;
-    color: white;
+    color: black;
     font-size: 20px;
     text-align: center;
   }
@@ -486,23 +475,29 @@
   font-size: 2em;
   font-family: Bahnschrift;
   padding-top: 20px;
-  color: white;
+  color: black;
 }
 .det{
   text-align: center;
   font-size: 15px;
   font-family: Bahnschrift;
   padding-top: 20px;
-  color: white;
+  color: black;
 }
 .hey{
-  background: url('../../assets/image/bub2.png');
+  background: url('../../assets/image/min.png');
   background-size: cover;
   background-position: center; 
   background-repeat: no-repeat;
   height: 80vh;
 }
-
+.ew{
+  background: url('../../assets/image/bgl.png');
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  height: 80vh;
+}
 
 
 
