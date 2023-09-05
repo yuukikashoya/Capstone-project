@@ -25,11 +25,16 @@
 }
 .off{
   text-align: center;
-  padding-top: 2em;
+  padding-top: 3%;
+  padding-bottom: 3%;
   font-family: Bahnschrift;
   font-size: 4em;
   font-weight: bold;
-  color: black;
+  color: rgb(255, 255, 255);
+  border: solid white;
+  width: 40%;
+  margin-left: 30%;
+  text-shadow: 5px 5px 5px black;
 }
 .off1{
   text-align: center;
@@ -82,9 +87,8 @@
 
  h2{
     padding-top: 1%;
-    font-size: 35px;
+    font-size: 350%;
     font-family: Bahnschrift;
-    font-weight: bolder;
     text-align: left;
     flex-direction: column;
  }
@@ -304,8 +308,9 @@
   }
 
   .work{
-    height: 250px;
-    width: 250px; 
+    padding-top: 2%;
+    height: 230px;
+    width: 230px; 
     border-radius: 50%;
     
   }
@@ -360,6 +365,7 @@
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
+    font-size: 70%;
   }
   
   .dropdown > label:hover,
@@ -448,14 +454,14 @@
     float: left;
     margin-right: 20px;
     margin-top: 20px;
-    margin-left: 25em;
+    margin-left: 30em;
     padding-left: 3em;
     padding-right: 3em;
     color: black;
-    border-radius: 20px;
+    border-radius: 5px;
   }
   .end:hover{
-    background-color: rgb(137, 216, 250);
+    background-color: rgb(194, 194, 194);
     color: black;
 
   }
@@ -468,7 +474,7 @@
     text-align: center;
   }
   .contact{
-    background-color: rgb(105, 0, 0);
+    background-color: rgb(168, 168, 168);
   }
 .title5{
   text-align: center;
@@ -485,14 +491,14 @@
   color: black;
 }
 .hey{
-  background: url('../../assets/image/min.png');
+  background: url('../../assets/image/bgl.png');
   background-size: cover;
   background-position: center; 
   background-repeat: no-repeat;
   height: 80vh;
 }
 .ew{
-  background: url('../../assets/image/bgl.png');
+  background: url('../../assets/image/min.png');
   background-size: cover;
   background-position: center; 
   background-repeat: no-repeat;
