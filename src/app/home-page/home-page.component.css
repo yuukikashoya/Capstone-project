@@ -156,13 +156,17 @@
 
   }
   .extra{
-    border: solid rgb(85, 153, 255);
+    border: none;
     margin-top: 2em;
     float:right; 
-    width: 550px;
+    width: 50%;
     height: 500px;
-    margin-right: 50px;
-
+    padding-right: 5%;
+      background-color: rgb(172, 172, 172);  
+ 
+  }
+  .extra:hover{
+   background-color: rgb(134, 181, 251);
   }
   .logo{
     height: 40em;
@@ -210,6 +214,7 @@
   text-align: justify;
   margin-right: 3em;
   margin-left: 2em;
+
 }
 .title2{
   padding-top: 1em;
