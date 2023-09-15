@@ -62,10 +62,20 @@ currentDate: Date = new Date();
     return formatDate(this.currentDate, 'MM~dd~yyyy', 'en');
   }
 addweek(){
+  if(this.currentweek == 52){
+    this.currentweek = 1
+  }
+  else{
   this.currentweek = this.currentweek + 1 ;
 }
+}
 minusweek(){
+  if(this.currentweek == 1){
+    this.currentweek = 52
+  }
+  else{
   this.currentweek = this.currentweek - 1 ;
+}
 }
 addyear(){
   this.currentyear = this.currentyear + 1 ;
@@ -105,4 +115,17 @@ selectedDate: Date = new Date();
 onDateSelected() {
   return formatDate(this.currentDate, 'MM~dd~yyyy', 'en');
 }
+
+isDropdownVisible = false;
+weeks = Array.from({ length: 52 }, (_, i) => i + 1);
+
+toggleDropdown() {
+  this.isDropdownVisible = !this.isDropdownVisible;
+}
+
+selectWeek(week: number) {
+  this.currentweek = week;
+  this.isDropdownVisible = false;
+}
+
 }

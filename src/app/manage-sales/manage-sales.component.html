@@ -28,11 +28,16 @@
         </div>
     <div class="card">
         <div class="arrow">
-           
             <div class="btn" (click)="minusweek()"><img class="arrow-left" src="https://cdn-icons-png.flaticon.com/256/271/271220.png"></div>
-            <div class="number"> Week {{currentweek}}</div>
+            <div class="number"(click)="toggleDropdown()"> Week {{currentweek}}</div>
             <div class="btn"  (click)="addweek()"><img class="arrow-right" src="https://cdn-icons-png.flaticon.com/256/271/271228.png"></div>
-       
+
+            <div class="dropdown" [ngStyle]="{'display': isDropdownVisible ? 'block' : 'none'}">
+                <ul>
+                    <li *ngFor="let week of weeks" (click)="selectWeek(week)">Week {{week}}</li>
+                </ul>
+            </div>
+            
         </div>
              <h2>Weekly Income and Transact</h2>
         <div  *ngFor="let l of week | async;">

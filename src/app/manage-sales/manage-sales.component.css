@@ -81,3 +81,33 @@ color: black;
   font-size: 100%;
   font-weight: bold;
 }
+  /* Initially hide the dropdown */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 30px; /* Adjust the position as needed */
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: black;
+  max-height: 160px; /* Adjust this value as needed to display 5 items */
+  overflow-y: auto;
+
+}
+
+.dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown ul li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Style the dropdown to appear on hover */
+.number:hover + .dropdown {
+  display: block;
+  cursor: pointer;
+}
