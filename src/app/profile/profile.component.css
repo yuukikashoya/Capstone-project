@@ -2,14 +2,14 @@
 .container{
     padding-bottom: 3em;
     color: rgb(35, 73, 101);
-    border-radius: 10px;
+
     padding-top: 2px;
     height: 450px;
 }
 .kara{
   padding-top: 5em;
     margin-top:2%;
-    background:rgb(113, 191, 255)
+    background:rgb(255, 255, 255);
 
 }
 
@@ -19,9 +19,8 @@ height:300px;
 } */
 
 h3{
-    padding-bottom: 8 px;
-    font-size: 4em;
-    color: rgb(255, 255, 255);
+    font-size: 20px;
+    color: rgb(0, 0, 0);
     font-family: Bahnschrift;;
 }
 .form-horizontal{
@@ -33,7 +32,7 @@ h3{
 }
 .btn-primary{
         appearance: none;
-        background-color: white;
+        background-color:rgb(134, 181, 251);
         border: 2px solid #ffffff;
         border-radius: 15px;
         box-sizing: border-box;
@@ -55,6 +54,7 @@ h3{
         touch-action: manipulation;
         /* width: 10%; */
         will-change: transform;
+        padding: 4%;
 
       }
 
@@ -67,6 +67,7 @@ h3{
         background-color: #1A1A1A;
         box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
         transform: translateY(-2px);
+        border: none;
       }
 
       .btn-primary :active {
@@ -82,4 +83,14 @@ h2{
 }
 .form-control{
   font-size: 18px;
+  background-color: rgb(216, 216, 216);
+}
+hr{
+  border: 1px solid rgb(135, 135, 135);
+}
+label{
+  color: black;
+}
+.row{
+  padding-left: 10%;
 }

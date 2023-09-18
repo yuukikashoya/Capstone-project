@@ -1,6 +1,6 @@
 <div class="container  ">
     <h2>Profile</h2>
- 
+
   <div class="container bootstrap snippets bootdey  kara" *ngIf="type =='1'">
 
   
@@ -11,7 +11,7 @@
             <div class="col-md-9 personal-info">
 
                     <h3>Personal info</h3>
-                    
+                    <hr>
                     <form class="form-horizontal" role="form" #profileedit="ngForm" (ngSubmit)="updateprofile(profileedit.value)">
                       <div class="form-group">
                         <label class="col-lg-4 control-la">Name:</label>
@@ -72,7 +72,7 @@
                 <div class="col-md-9 personal-info">
 
                     <h3>Change Password</h3>
-                    
+                    <hr>
                     <form class="form-horizontal" role="form" #profile="ngForm" (ngSubmit)="changepassword(profile.value)">
                       <div class="form-group">
                         <label class="col-lg-4 control-label">Old password:</label>
