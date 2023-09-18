@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Database, onValue, ref, set } from '@angular/fire/database';
 import { Router } from '@angular/router';
@@ -18,7 +18,7 @@ export class ManageSalesComponent implements OnInit {
 
   constructor(public router:Router,public database:Database
     ,private FireDb: AngularFireDatabase) {
-
+      console.log(this.currentDate)
     const sessionValue = sessionStorage.getItem('type');
     const ttoday = new Date();
     let tttodate = ttoday.getFullYear();
@@ -62,22 +62,26 @@ currentDate: Date = new Date();
     return formatDate(this.currentDate, 'MM~dd~yyyy', 'en');
   }
 addweek(){
+  if(this.currentweek == 52){
+    this.currentweek = 1
+  }
+  else{
   this.currentweek = this.currentweek + 1 ;
 }
+}
 minusweek(){
+  if(this.currentweek == 1){
+    this.currentweek = 52
+  }
+  else{
   this.currentweek = this.currentweek - 1 ;
+}
 }
 addyear(){
   this.currentyear = this.currentyear + 1 ;
 }
 minusyear(){
   this.currentyear = this.currentyear - 1 ;
-}
-addday() : void{
-  this.currentDate.setDate(this.currentDate.getDate() + 1);
-}
-minusday(): void{
-  this.currentDate.setDate(this.currentDate.getDate() - 1);
 }
 
 editshow = false
@@ -104,6 +108,24 @@ updatepricing(){
   this.graphshow = true
   alert("Price or Kilo Updated")
   }
+}
+selectedDate: Date = new Date();
+@Output() dateSelected = new EventEmitter<Date>();
+
+onDateSelected() {
+  return formatDate(this.currentDate, 'MM~dd~yyyy', 'en');
+}
+
+isDropdownVisible = false;
+weeks = Array.from({ length: 52 }, (_, i) => i + 1);
+
+toggleDropdown() {
+  this.isDropdownVisible = !this.isDropdownVisible;
+}
+
+selectWeek(week: number) {
+  this.currentweek = week;
+  this.isDropdownVisible = false;
 }
 
 }

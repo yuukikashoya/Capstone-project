@@ -9,7 +9,7 @@ import { StatusComponent } from './status/status.component';
 import { ChatComponent } from './chat/chat.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { AboutUsComponent } from './about-us/about-us.component';
+
 import { ManageAccountsComponent } from './manage-accounts/manage-accounts.component';
 import { ManageSalesComponent } from './manage-sales/manage-sales.component';
 import { LaundryComponent } from './laundry/laundry.component';
@@ -38,7 +38,7 @@ import { LogsComponent } from './logs/logs.component';
     ProfileComponent,
 
     NavigationComponent,
-    AboutUsComponent,
+
 
     ManageAccountsComponent,
     ManageSalesComponent,
