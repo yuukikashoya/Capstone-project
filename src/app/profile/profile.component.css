@@ -2,14 +2,14 @@
 .container{
     padding-bottom: 3em;
     color: rgb(35, 73, 101);
-    border-radius: 10px;
+
     padding-top: 2px;
     height: 450px;
 }
 .kara{
   padding-top: 5em;
     margin-top:2%;
-background-color: rgba(69, 175, 186, 0.765);
+    background:rgb(255, 255, 255);
 
 }
 
@@ -19,27 +19,28 @@ height:300px;
 } */
 
 h3{
-    padding-bottom: 8 px;
-    font-size: 25px;
-    color: rgb(255, 255, 255);
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-family: Bahnschrift;;
 }
 .form-horizontal{
     font-size: 18px;
+    font-family: Bahnschrift;
 }
 .form-horizontal{
     color: rgb(0, 68, 120);
 }
 .btn-primary{
         appearance: none;
-        background-color: white;
+        background-color:rgb(134, 181, 251);
         border: 2px solid #ffffff;
         border-radius: 15px;
         box-sizing: border-box;
         color: #282727;
         cursor: pointer;
         display: inline-block;
-        font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-        font-size: 15px;
+        font-family: Bahnschrift;;
+        font-size: 18px;
         font-weight: bold;
         line-height: normal;
         /* min-height: 30px; */
@@ -53,6 +54,7 @@ h3{
         touch-action: manipulation;
         /* width: 10%; */
         will-change: transform;
+        padding: 4%;
 
       }
 
@@ -65,6 +67,7 @@ h3{
         background-color: #1A1A1A;
         box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
         transform: translateY(-2px);
+        border: none;
       }
 
       .btn-primary :active {
@@ -72,29 +75,22 @@ h3{
         transform: translateY(0);
       }
 
-    .form-control{
-      font-size: 15px;
-    }
-    @font-face {
-      font-family: 'Rocher';
-      src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
-    }
-    .mint{
-      /* color: rgb(0, 78, 212); */
-      font-size: 4em;
-      font-family: 'Rocher';
-      font-weight: bolder;
-      margin-left: 1em;
-      flex-direction: column;
-      margin-top: 15px;
-      
-    }
-    
-    @font-palette-values --Mint {
-      font-family: Rocher;
-      base-palette: 7;
-    }
-    
-    .mint {
-      font-palette: --Mint;
-    }
+h2{
+  font-family: Bahnschrift;;
+  font-size: 4em;
+  color: white;
+  padding-top: 15px;
+}
+.form-control{
+  font-size: 18px;
+  background-color: rgb(216, 216, 216);
+}
+hr{
+  border: 1px solid rgb(135, 135, 135);
+}
+label{
+  color: black;
+}
+.row{
+  padding-left: 10%;
+}

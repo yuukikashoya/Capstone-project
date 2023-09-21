@@ -136,8 +136,7 @@ alert('wrong credential! or slow internet connection');
 
     if (  value.username == null || value.username == "" || value.password == null || value.password == "" 
     ||  value.cpassword == null || value.cpassword == "" ||  value.fname == null || value.fname == ""
-    ||  value.lname == null || value.lname == "" ||  value.email == null || value.email == ""
-    ||  value.set == null || value.set == "" ||  value.address == null || value.address == ""
+    ||  value.lname == null || value.lname == "" ||   value.set == null || value.set == "" ||  value.address == null || value.address == ""
     ||  value.phonenumber == null || value.phonenumber == ""
     ){
       alert('Fill the form');

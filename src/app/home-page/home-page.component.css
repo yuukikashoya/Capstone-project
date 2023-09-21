@@ -14,17 +14,9 @@
 
   }
 
-  .design{
-    background-color: rgb(147, 18, 18);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 3vh;
-
-  }
 
   .back{
-    background: url(b5.png);
+    background: url(../../assets/image/back5.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -33,17 +25,22 @@
 }
 .off{
   text-align: center;
-  padding-top: 2em;
+  padding-top: 3%;
+  padding-bottom: 3%;
   font-family: Bahnschrift;
   font-size: 4em;
   font-weight: bold;
-  color: white;
+  color: rgb(255, 255, 255);
+  border: solid white;
+  width: 40%;
+  margin-left: 30%;
+  text-shadow: 5px 5px 5px black;
 }
 .off1{
   text-align: center;
   padding-top: 1em;
-   color: white;
-   font-size: 1.75em;
+   color: black;
+   font-size: 20px;
    font-family: Bahnschrift;   
 }
 .slct {
@@ -58,7 +55,7 @@
 
 .hays {
   font-size: 1.75em;
-  color: white;
+  color: black;
   font-family: Bahnschrift;
   margin: 0; /* Reset margin to remove any unwanted spacing */
 }
@@ -90,9 +87,8 @@
 
  h2{
     padding-top: 1%;
-    font-size: 35px;
+    font-size: 350%;
     font-family: Bahnschrift;
-    font-weight: bolder;
     text-align: left;
     flex-direction: column;
  }
@@ -119,13 +115,10 @@
     display: inline-block;
     font-family: Bahnschrift;
     font-size: 20px;
-    font-weight: bold;
     line-height: normal;
     margin-left: 28em;
-    min-height: 60px;
-    min-width: 0;
     outline: none;
-    padding: 16px 24px;
+    padding: 11px;
     text-align: center;
     text-decoration: none;
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
@@ -146,6 +139,7 @@
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
+    font-weight: bold;
   }
   
   .button-28:active {
@@ -153,7 +147,7 @@
     transform: translateY(0);
   }
   .about{
-    background: url('newlog.png');
+    background: url('../../assets/image/asd.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -162,13 +156,17 @@
 
   }
   .extra{
-    border: solid rgb(151, 21, 21);
+    border: none;
     margin-top: 2em;
     float:right; 
-    width: 550px;
+    width: 50%;
     height: 500px;
-    margin-right: 50px;
-
+    padding-right: 5%;
+      background-color: rgb(172, 172, 172);  
+ 
+  }
+  .extra:hover{
+   background-color: rgb(134, 181, 251);
   }
   .logo{
     height: 40em;
@@ -210,12 +208,13 @@
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 .desc{
-  font-size: 1.75em;
+  font-size: 17px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-top: 1px;
   text-align: justify;
   margin-right: 3em;
   margin-left: 2em;
+
 }
 .title2{
   padding-top: 1em;
@@ -307,21 +306,16 @@
 
   .title4{
     text-align: center;
-    margin-right: 3em;
     padding-top: 20px;
     font-family: Bahnschrift;
     font-size: 4em;
     color: black;
-    margin-bottom: 1em;
   }
-  .numb{
-    font-size: 5em;
-   margin-left: 30px;
-   padding-right: 5px;
-  }
+
   .work{
-    height: 250px;
-    width: 250px; 
+    padding-top: 2%;
+    height: 230px;
+    width: 230px; 
     border-radius: 50%;
     
   }
@@ -346,13 +340,13 @@
     border-top-left-radius: 150px;
     border-top-right-radius: 150px;
     margin-bottom: 2em;
+    margin-bottom: 5em;
   }
 
   main {
     display: flex;
     height: 100%;
-    margin-left: 4em;
-    box-shadow: 10px 10px 5px rgb(68, 68, 68);
+    margin-left: 18%;
   }
   /* .dropdown {
     position: relative;
@@ -368,7 +362,7 @@
   .dropdown > a[role="button"] {
     display: inline-block;
     padding: 6px 15px;
-    color: white;
+    color: black;
     line-height: 1.5em;
     text-decoration: none;
     border: none;
@@ -376,6 +370,7 @@
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
+    font-size: 70%;
   }
   
   .dropdown > label:hover,
@@ -452,7 +447,7 @@
   .title3{
     font-size: 4em;
     font-family: Bahnschrift;
-    color: white;
+    color: black;
     text-align: center;
     padding-top: 1em;
 
@@ -464,14 +459,14 @@
     float: left;
     margin-right: 20px;
     margin-top: 20px;
-    margin-left: 25em;
+    margin-left: 30em;
     padding-left: 3em;
     padding-right: 3em;
-    color: white;
-    border-radius: 20px;
+    color: black;
+    border-radius: 5px;
   }
   .end:hover{
-    background-color: rgb(137, 216, 250);
+    background-color: rgb(194, 194, 194);
     color: black;
 
   }
@@ -479,35 +474,41 @@
     margin-right: 20px;
     padding-left: 3em;
     padding-right: 3em;
-    color: white;
+    color: black;
     font-size: 20px;
     text-align: center;
   }
   .contact{
-    background-color: rgb(0, 54, 105);
+    background-color: rgb(168, 168, 168);
   }
 .title5{
   text-align: center;
   font-size: 2em;
   font-family: Bahnschrift;
   padding-top: 20px;
-  color: white;
+  color: black;
 }
 .det{
   text-align: center;
   font-size: 15px;
   font-family: Bahnschrift;
   padding-top: 20px;
-  color: white;
+  color: black;
 }
 .hey{
-  background: url('../../assets/image/bub2.png');
+  background: url('../../assets/image/bgl.png');
   background-size: cover;
   background-position: center; 
   background-repeat: no-repeat;
   height: 80vh;
 }
-
+.ew{
+  background: url('../../assets/image/min.png');
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  height: 80vh;
+}
 
 
 

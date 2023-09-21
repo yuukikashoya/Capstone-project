@@ -1,6 +1,5 @@
 /* Set the container to occupy the full height of the viewport */
 .container {
-    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,25 +13,25 @@
 
 }
 
-/* Apply styles to the cards */
 .card {
-    background-color: #005d6b;
-    padding: 40px; /* Increase the padding to make the box even bigger */
-    margin: 30px; /* Increase the margin for more space between cards */
-    border-radius: 15px; /* Increase the border radius for more rounded corners */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Adjust the box shadow for a more prominent effect */
+  background: rgba(124, 195, 242, 0.696);
+    padding: 40px; 
+    margin: 10px 30px 30px 30px; 
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
 
 }
 
 /* Increase the font size for the headers and paragraphs inside the cards */
 h2 {
-    font-size: 28px;
+    font-size: 18px;
     color: white;
 }
 
 p {
-    font-size: 22px;
+    font-size: 18px;
     color: white;
+    font-family: Bahnschrift;
 }
 
 .arrow {
@@ -53,26 +52,62 @@ p {
     font-weight: bold;
     margin-left:1em ;
     margin-right: 1em;
+    font-family: Bahnschrift;
   }
-  @font-face {
-    font-family: 'Rocher';
-    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
-  }
-  .mint{
-    /* color: rgb(0, 78, 212); */
+.title{
+    font-family: Bahnschrift;;
     font-size: 4em;
-    font-family: 'Rocher';
-    font-weight: bolder;
-    margin-left: 90px;
-    flex-direction: column;
-    padding-top: 15px;
+    color: white;
+    padding-top: 10px;
+    padding-left: 65px;
   }
-  
-  @font-palette-values --Mint {
-    font-family: Rocher;
-    base-palette: 7;
-  }
-  
-  .mint {
-    font-palette: --Mint;
-  }
+  .umm{
+    background-color: rgb(0, 32, 137);
+    font-size: 18px;
+    font-family: Bahnschrift;
+    }
+/* styles.css */
+.custom-date-input {
+  appearance: textfield;
+  -webkit-appearance: textfield; /* For Safari */
+  -moz-appearance: textfield; /* For Firefox */
+  width: 200px; /* Adjust the width as needed */
+  padding: 5px; /* Adjust padding as needed */
+  border: 1px solid #ccc; /* Add a border if desired */
+  border-radius: 5px; /* Add border-radius for rounded corners */
+  cursor: pointer; /* Show pointer cursor on hover */
+color: black;
+  font-family: Bahnschrift;
+  font-size: 100%;
+  font-weight: bold;
+}
+  /* Initially hide the dropdown */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 30px; /* Adjust the position as needed */
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: black;
+  max-height: 160px; /* Adjust this value as needed to display 5 items */
+  overflow-y: auto;
+
+}
+
+.dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown ul li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Style the dropdown to appear on hover */
+.number:hover + .dropdown {
+  display: block;
+  cursor: pointer;
+}

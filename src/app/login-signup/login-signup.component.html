@@ -11,13 +11,13 @@
 			<form class="sign-in-htm" #testLogin="ngForm" (ngSubmit)="login(testLogin.value)">
 				<div class="group">		<br><br>
 					<label for="user" class="label">Username</label>
-					<input name="username" ngModel id="username"  type="text" class="input">
+					<input name="username" ngModel id="username"  type="text" class="input" placeholder="Enter your username">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
 					<div class="input-container">
 				
-					<input  type="password" class="input" 
+					<input  type="password" class="input" placeholder="Enter your password"
                     [type]="show ? 'text' : 'password'" name="password" ngModel id="password">
 						<button class="passwordbutton" type="button" (click)="showpassword()">
                         <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
@@ -39,18 +39,18 @@
 
 					<div [hidden]="s1">
 					<label for="fname" class="label" >First name</label>
-					<input name="fname" ngModel id="fname" type="text" class="input" [(ngModel)]="fname">
+					<input name="fname" ngModel id="fname" type="text" class="input" [(ngModel)]="fname" placeholder="Enter your firstname">
 					<label for="lname" class="label">last name</label>
-					<input name="lname" ngModel id="lname" type="text" class="input" [(ngModel)]="lname">
+					<input name="lname" ngModel id="lname" type="text" class="input" [(ngModel)]="lname" placeholder="Enter your lastname">
 			
 					<label for="username" class="label">Username</label>
-					<input name="username" ngModel id="username" type="text" class="input" [(ngModel)]="username">
+					<input name="username" ngModel id="username" type="text" class="input" [(ngModel)]="username" placeholder="Enter your username">
 			
 					<label for="email" class="label">Email Address (Optional)</label>
-					<input name="email" ngModel id="email" type="text" class="input" [(ngModel)]="email">
+					<input name="email" ngModel id="email" type="text" class="input" [(ngModel)]="email" placeholder="Enter your email(optional)">
 			
 					<label for="phonenumber" class="label">phone number</label>
-					<input  type="text" [(ngModel)]="phonenumber" name="phonenumber"  id="phonenumber"  (input)="handleInput($event)"  maxlength="10" (keypress)="validateInput($event)" class="input" >
+					<input  type="text" [(ngModel)]="phonenumber" name="phonenumber"  id="phonenumber"  (input)="handleInput($event)"  maxlength="10" (keypress)="validateInput($event)" class="input"  placeholder="Enter your phonenumber start at 9 max of 10 character">
 			
 							</div>
 
@@ -63,7 +63,7 @@
 						<div class="input-container">
                          
 					
-					<input  [type]="show ? 'text' : 'password'" name="password" ngModel id="password" [(ngModel)]="ccpassword" type="password" class="input">
+					<input  [type]="show ? 'text' : 'password'" name="password" ngModel id="password" [(ngModel)]="ccpassword" type="password" class="input"  placeholder="Enter your password">
 			   <button class="passwordbutton" type="button" (click)="showpassword()">
                     <i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
                     <i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
@@ -75,7 +75,7 @@
 					<label for="cpassword" class="label">Confirm Password</label>
 					<div class="input-container">
 				
-					<input  [type]="show ? 'text' : 'password'" name="cpassword" ngModel id="cpassword" [(ngModel)]="cccpassword" class="input">
+					<input  [type]="show ? 'text' : 'password'" name="cpassword" ngModel id="cpassword" [(ngModel)]="cccpassword" class="input"  placeholder="Re-enter your password">
                  	<button class="passwordbutton" type="button" (click)="showpassword()">
 					<i class='	fa fa-eye ' *ngIf="show == true" style="font-size: 2em;"></i>
 					<i class='	fa fa-eye-slash ' *ngIf="show == false"  style="font-size: 2em;"></i>
@@ -96,14 +96,13 @@
 
 				</div>
 
-				<div class="group">
-					<button class="button"  type="button" [hidden]="s2" (click)="back()">back</button>	
-				</div>
-				<div class="group" *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' ">
-					<input type="submit" class="button" value="Sign Up">
-				</div>
-                    <label for="tab-1" class="label1">Already a member? <a for="tab-1">Login</a></label> <br>
+			
+					<button class="button"  type="button" [hidden]="s2" (click)="back()">back</button>
 
+			
+					<input type="submit"  *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' " class="button" value="Sign Up"> <br *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' " >
+		
+                    <label for="tab-1" class="label1">Already a member? <a for="tab-1">Login</a></label> <br>
 					<button class="button"  type="button"  *ngIf="s1 == false && fname  !== '' && lname   !== '' && username  !==''  && phonenumber != '' " (click)="next()">Next</button>
 			</form>
 
@@ -111,5 +110,6 @@
 	</div>
 </div>
 </div>
-
+<img src="../../assets/image/logo2.jpg" style="border-radius: 50%; float: right; height: 330px; width: 330px; margin-top: -50em; margin-right: 15em;">
+<h2 style="float: right;  margin-right: 180px; margin-top: -4em; font-size: 4em;">Wash Dry Fold</h2>
 <!-- bug test -->
