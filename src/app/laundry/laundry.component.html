@@ -1,22 +1,22 @@
 
-<div class="container">
-<h2> Laundry Tracker</h2>
+<div class="container1">
+<h2 class="qq"> Laundry Tracker</h2>
 
-    <nav class="nav navbar-expand-lg navbar-light text-white"*ngIf="nav == true">
+    <nav class="nav navbar-expand-lg navbar-light "*ngIf="nav == true">
 
      
       
           <div id="nav" >
               <div class="navbar" >
          
-                  <a  (click)="showPK()" class="item " *ngIf="this.PKactive != true">Delivery Pick up</a>
-                  <a  (click)="showPK()" class="item active" *ngIf="this.PKactive == true">Delivery Pick up</a>
+                  <a  (click)="showPK()" class=" item " *ngIf="this.PKactive != true">Delivery Pick up</a>
+                  <a  (click)="showPK()" class="item active " *ngIf="this.PKactive == true">Delivery Pick up</a>
                   <a  (click)="addLa()"class="item" *ngIf="this.addLactive != true"> Add laundry</a>
                   <a  (click)="addLa()"class="item active" *ngIf="this.addLactive == true">Add laundry</a>
-                  <a  (click)="showW()" class="item" *ngIf="this.Wactive != true">Wash</a>
-                  <a  (click)="showW()" class="item" *ngIf="this.Wactive == true">Wash</a>
-                  <a  (click)="showD()"class="item" *ngIf="this.Dactive != true">Delivery</a>
-                  <a  (click)="showD()"class="item active" *ngIf="this.Dactive == true">Delivery</a>
+                  <a  (click)="showW()" class="item item2" *ngIf="this.Wactive != true">Wash</a>
+                  <a  (click)="showW()" class="item item2" *ngIf="this.Wactive == true">Wash</a>
+                  <a  (click)="showD()"class="item item3" *ngIf="this.Dactive != true">Delivery</a>
+                  <a  (click)="showD()"class="item item3 active" *ngIf="this.Dactive == true">Delivery</a>
                   <a  (click)="showpick()"class="item" *ngIf="this.Pickupactive != true"> Client Pick up</a>
                   <a  (click)="showpick()"class="item active" *ngIf="this.Pickupactive == true">Client Pick up</a>
 
@@ -28,7 +28,7 @@
   </nav>
 
 
-    <div class="jumbotron  table-responsive scrollable"  *ngIf="this.PKactive == true">
+    <div class="jump table-responsive scrollable"  *ngIf="this.PKactive == true">
         <h3> <span class="">Pick up</span>  </h3>
         <table class="table table-bordered table-dark">
             <thead>
@@ -47,13 +47,13 @@
             <tbody *ngFor="let z of pickup | async;">
               <tr  *ngIf= "z">
                 <th scope="row">{{z.id}}</th>
-                <td>{{z.username}}</td>    
+                <td style="background-color: rgb(212, 212, 212);">{{z.username}}</td>    
                 <td>{{z.name}}</td>                            
-                <td>{{z.uid}}</td>  
+                <td style="background-color: rgb(212, 212, 212);">{{z.uid}}</td>  
                 <td>{{z.phonenumber}}</td>
-                <td>{{z.address}}</td>
+                <td style="background-color: rgb(212, 212, 212);">{{z.address}}</td>
                 <td>{{z.for}}</td>
-                <td><button class="btn btn-primary" (click)="getupdate(z)">update</button></td>
+                <td style="background-color: rgb(212, 212, 212);"><button class="btn btn-primary" (click)="getupdate(z)">update</button></td>
 
               </tr>
      
@@ -62,7 +62,7 @@
           </table>
     </div>
 
-    <div class="jumbotron table-responsive scrollable"*ngIf="this.Wactive == true">
+    <div class="jump table-responsive scrollable"*ngIf="this.Wactive == true">
         <h3> <span class="">Wash</span>  </h3>
         <table class="table table-bordered table-dark">
             <thead>
@@ -84,17 +84,17 @@
             <tbody *ngFor="let q of laundry | async;">
               <tr  *ngIf= "q">
                 <th scope="row">{{q.id}}</th>
-                <td>{{q.username}}</td>    
+                <td style="background-color: rgb(212, 212, 212);">{{q.username}}</td>    
                 <td>{{q.name}}</td>                            
-                <td>{{q.uid}}</td>  
+                <td style="background-color: rgb(212, 212, 212);">{{q.uid}}</td>  
                 <td>{{q.phonenumber}}</td>
-                <td>{{q.address}}</td>
+                <td style="background-color: rgb(212, 212, 212);">{{q.address}}</td>
                 <td>{{q.for}}</td>
-                <td>{{q.status}}</td>
+                <td style="background-color: rgb(212, 212, 212);">{{q.status}}</td>
                 <td>{{q.kilo}}</td>
-                <td>{{q.pack}}</td>
+                <td style="background-color: rgb(212, 212, 212);">{{q.pack}}</td>
                 <td>₱{{q.total}}.00</td>
-                <td><button class="btn btn-primary" (click)="getLaundry(q)">update</button></td>
+                <td style="background-color: rgb(212, 212, 212);"><button class="btn btn-primary" (click)="getLaundry(q)">update</button></td>
               </tr>
      
             </tbody>
@@ -103,7 +103,7 @@
     </div>
 
 
-    <div class="jumbotron table-responsive scrollable" *ngIf="this.Dactive == true">
+    <div class="jump table-responsive scrollable" *ngIf="this.Dactive == true">
       <h3> <span class="">Delivery</span>  </h3>
       <table class="table table-bordered table-dark">
           <thead>
@@ -124,15 +124,15 @@
           <tbody *ngFor="let d of deliverylist | async;let i = index">
             <tr  *ngIf= "d">
               <th scope="row">{{d.id}}</th>
-              <td>{{d.username}}</td>    
+              <td style="background-color: rgb(212, 212, 212);">{{d.username}}</td>    
               <td>{{d.name}}</td>                            
-              <td>{{d.uid}}</td>  
+              <td style="background-color: rgb(212, 212, 212);">{{d.uid}}</td>  
               <td>{{d.phonenumber}}</td>
-              <td>{{d.address}}</td>
+              <td style="background-color: rgb(212, 212, 212);">{{d.address}}</td>
               <td>{{d.status}}</td>
-              <td>{{d.kilo}}</td>
+              <td style="background-color: rgb(212, 212, 212);">{{d.kilo}}</td>
               <td>{{d.pack}}</td>
-              <td>{{d.total}}</td>
+              <td style="background-color: rgb(212, 212, 212);">{{d.total}}</td>
               <td><button class="btn btn-primary" (click)="cdedivered(d)">Delivered</button></td>
             </tr>
    
@@ -141,86 +141,88 @@
         </table>
   </div>
 
-  <div class="jumbotron " *ngIf="this.PUactive == true">
-    <button class="cancelbtn btn btn-danger" (click)="cancelupdate()">Cancel</button>
-    <h3> <span class="">Update</span>  </h3>
+  <div class="jump " *ngIf="this.PUactive == true">
 
+    <h3> <span class="">Update</span>  </h3>
+    <hr>
     <form  class="left"#addadmin="ngForm" (ngSubmit)="update(addadmin.value)" >
         <div class="row">
      <div class="column">
         
-        <label class="text-white">Pick Up ID#</label><br>
-        <input ngModel name="pickupid" type="text" readonly [ngModel]="upid"><br>
-        <label class="text-white">Username</label><br>
-        <input ngModel name='username' type="text" readonly [ngModel]="upusername"><br>
-        <label class="text-white">Customer Name</label><br>
-        <input ngModel name='name' type="text" readonly [ngModel]="upname"><br>
-        <label class="text-white">User ID</label><br>
-        <input ngModel name='userid' type="text" readonly [ngModel]="upuid"><br>    
+        <label>Pick Up ID#</label><br>
+        <input class="mm" ngModel name="pickupid" type="text" readonly [ngModel]="upid"><br>
+        <label>Username</label><br>
+        <input class="mm" ngModel name='username' type="text" readonly [ngModel]="upusername"><br>
+        <label>Customer Name</label><br>
+        <input class="mm" ngModel name='name' type="text" readonly [ngModel]="upname"><br>
+        <label>User ID</label><br>
+        <input class="mm" ngModel name='userid' type="text" readonly [ngModel]="upuid"><br>    
     </div>
     <div class="column">
-        <label class="text-white">Phone  Number</label><br>
-        <input ngModel name='phonenumber' type="number" readonly [ngModel]="upphonenumber"><br>
-        <label class="text-white">Address</label><br>
-        <input ngModel name='address' type="text" readonly [ngModel]="upadress"><br>
-        <label class="text-white">After washing to be</label><br>
-        <input ngModel name='to' type="text" readonly [ngModel]="upfor"><br>
-        <label class="text-white">clothes kilo</label><br>
-        <input ngModel name='kilo' type="number" ><br>    
+        <label>Phone  Number</label><br>
+        <input class="mm" ngModel name='phonenumber' type="number" readonly [ngModel]="upphonenumber"><br>
+        <label>Address</label><br>
+        <input class="mm" ngModel name='address' type="text" readonly [ngModel]="upadress"><br>
+        <label>After washing to be</label><br>
+        <input class="mm" ngModel name='to' type="text" readonly [ngModel]="upfor"><br>
+        <label>clothes kilo</label><br>
+        <input class="mm" ngModel name='kilo' type="number" ><br>    
     </div>
 </div>
         
           
               
-                
-                <input type="submit" class="btn btn-primary" name="submit" value="Update">
-    </form>
+     <div class="btn3">           
+                <input type="submit" class="btn btn-primary" name="submit" value="Update"><button class="cancelbtn btn btn-danger" (click)="cancelupdate()">Cancel</button>
+     </div>
+              </form>
 </div>
 
 
 
 
-<div class="jumbotron " *ngIf="this.WUactive == true">
-  <button class="cancelbtn btn btn-danger" (click)="cancellaupdate()">Cancel</button>
-  <h3> <span class="">Update</span>  </h3>
+<div class="jump " *ngIf="this.WUactive == true">
 
+  <h3> <span class="">Update</span>  </h3>
+  <hr>
   <form  class="left">
       <div class="row">
    <div class="column">
       
-      <label class="text-white">Pick Up ID#</label><br>
-      <input ngModel name="pickupid" type="text" readonly [ngModel]="laid"><br>
-      <label class="text-white">Username</label><br>
-      <input ngModel name='username' type="text" readonly [ngModel]="lausername"><br>
-      <label class="text-white">Customer Name</label><br>
-      <input ngModel name='name' type="text" readonly [ngModel]="laname"><br>
-      <label class="text-white">User ID</label><br>
-      <input ngModel name='userid' type="text" readonly [ngModel]="lauid"><br>    
+      <label>Pick Up ID#</label><br>
+      <input class="mm" ngModel name="pickupid" type="text" readonly [ngModel]="laid"><br>
+      <label>Username</label><br>
+      <input class="mm" ngModel name='username' type="text" readonly [ngModel]="lausername"><br>
+      <label>Customer Name</label><br>
+      <input class="mm" ngModel name='name' type="text" readonly [ngModel]="laname"><br>
+      <label>User ID</label><br>
+      <input class="mm" ngModel name='userid' type="text" readonly [ngModel]="lauid"><br>    
   </div>
   <div class="column">
       <label class="text-white">Status</label><br>
-      <input ngModel name='phonenumber' type="text" readonly [ngModel]="lastatus"><br>
+      <input class="mm" ngModel name='phonenumber' type="text" readonly [ngModel]="lastatus"><br>
       <label class="text-white">number of packs</label><br>
-      <input ngModel name='address' type="text" readonly [ngModel]="lapack"><br>
+      <input class="mm" ngModel name='address' type="text" readonly [ngModel]="lapack"><br>
       <label class="text-white">Kilo of clothes</label><br>
-      <input ngModel name='to' type="text" readonly [ngModel]="lakilo"><br>
+      <input class="mm" ngModel name='to' type="text" readonly [ngModel]="lakilo"><br>
       <label class="text-white">Total price</label><br>
-      <input ngModel name='kilo' type="text" readonly [ngModel]="laprice"><br>    
+      <input class="mm" ngModel name='kilo' type="text" readonly [ngModel]="laprice"><br>    
   </div>
 </div>
       
         
             
-              
-
-<input type="submit" class="btn btn-primary balancer" name="submit" value="Washing" (click)="updatewashing()" *ngIf='lastatus == "processing"'>
-<input type="submit" class="btn btn-success balancer" name="submit" value="Ready for Pick up" *ngIf='lafor == "Pick up at the shop"' (click)="readyforpickup()">
-<input type="submit" class="btn btn-success balancer" name="submit" value="Ready for Deliviry"*ngIf='lafor == "Delivery to Address"' (click)="readyfordelivery()">
-  </form>
+<div class="btn3">            
+<button class="cancelbtn btn btn-danger" (click)="cancellaupdate()">Cancel</button>
+<input type="submit" class="btn btn-primary " name="submit" value="Washing" (click)="updatewashing()" *ngIf='lastatus == "processing"'>
+<input type="submit" class="btn btn-success " name="submit" value="Pick-up" *ngIf='lafor == "Pick up at the shop"' (click)="readyforpickup()">
+<input type="submit" class="btn btn-success " name="submit" value="Deliver"*ngIf='lafor == "Delivery to Address"' (click)="readyfordelivery()">
+</div>    
+</form>
 </div>
 
 
-<div class="jumbotron table-responsive scrollable"*ngIf="this.Pickupactive == true">
+<div class="jump table-responsive scrollable"*ngIf="this.Pickupactive == true">
   <h3> <span class="">Customer Pickup</span>  </h3>
   <table class="table table-bordered table-dark">
       <thead>
@@ -240,15 +242,15 @@
       <tbody *ngFor="let l of customerpickuplist | async;">
         <tr  *ngIf= "l">
           <th scope="row">{{l.id}}</th>
-          <td>{{l.username}}</td>    
+          <td style="background-color: rgb(212, 212, 212);">{{l.username}}</td>    
           <td>{{l.name}}</td>                            
-          <td>{{l.uid}}</td>  
+          <td style="background-color: rgb(212, 212, 212);">{{l.uid}}</td>  
           <td>{{l.phonenumber}}</td>
-          <td>{{l.status}}</td>
+          <td style="background-color: rgb(212, 212, 212);">{{l.status}}</td>
           <td>{{l.kilo}}</td>
-          <td>{{l.pack}}</td>
+          <td style="background-color: rgb(212, 212, 212);">{{l.pack}}</td>
           <td>{{l.total}}</td>
-          <td><button class="btn btn-primary" (click)="cpickup(l)">Picked up</button></td>
+          <td style="background-color: rgb(212, 212, 212);"><button class="btn btn-primary" (click)="cpickup(l)">Picked up</button></td>
         </tr>
 
       </tbody>
@@ -262,43 +264,42 @@
 
 
 <div class="confirmation-box" *ngIf="pickedactive == true">
-  <div class="sideclass">
-  <h3> Name:<b>{{confirmname}}</b> </h3>
-  <h3> Usernmae: <b>{{confirmusername}}</b></h3>
-  <h3> Number of packs: <b>{{confirmpack}}</b></h3>
-  <h3> Total amount due:<b>{{confirmpayed}}</b> </h3>
- </div>
-  <h2 >Are you sure is this picked up and paid??</h2>
+  <p class="nn"> Name:<b>{{confirmname}}</b> </p>
+  <p class="nn"> Usernmae: <b>{{confirmusername}}</b></p>
+  <p class="nn"> Number of packs: <b>{{confirmpack}}</b></p>
+  <p class="nn"> Total amount due:<b>{{confirmpayed}}</b> </p>
+  <h4>Are you sure is this picked up and paid??</h4>
 
 <button class="btn btn-primary lala " (click)="pickedupyes()">Yes</button>
 <button  class="btn btn-danger lala " (click)="pickedupno()">No</button>
 
 </div>
 <div class="confirmation-box" *ngIf="deliveredavtive == true">
-  <h3> Name: <b>{{confirmname}}</b></h3>
-  <h3> Usernmae:<b>{{confirmusername}}</b> </h3>
-  <h3> Address:<b>{{confirmaddress}}</b> </h3>
-  <h3> Number of packs:<b>{{confirmpack}}</b> </h3>
-  <h3> Total amount due:<b>{{confirmpayed}}</b> </h3>
-  <h2>Are you sure is this Delivered up and paid?</h2>
+  <p style="font-size: 18px; font-weight: bold; color: rgb(92, 155, 250);">ORDER CONFIMRATION</p><hr>
+  <p class="nn"> Name: <b>{{confirmname}}</b></p>
+  <p class="nn"> Usernmae:<b>{{confirmusername}}</b> </p>
+  <p class="nn"> Address:<b>{{confirmaddress}}</b> </p>
+  <p class="nn"> Number of packs:<b>{{confirmpack}}</b> </p>
+  <p class="nn"> Total amount due:<b>{{confirmpayed}}</b> </p>
+  <h4>Are you sure is this Delivered up and paid?</h4>
   
-<button class="btn btn-primary lala"(click)="deliveryyes()">Yes</button>
+<button class="btn btn-primary1 lala"(click)="deliveryyes()">Yes</button>
 <button  class="btn btn-danger lala" (click)="deliveryno()">No</button>
 </div>
 
 
-<div class="jumbotron jumbotron-fluid " *ngIf="addLactive">
+<div class="jumbotron jumbotron2 jumbotron-fluid " *ngIf="addLactive">
   <h2 class="title2">Place your Booking</h2><hr>
 
     <form #booking="ngForm" #add="ngForm" (ngSubmit)="addlaundryy(add.value)">
 
       <label >Username</label><br>
-      <input ngModel name='username' type="text" placeholder="Enter your username"><br>    
+      <input class="mm" ngModel name='username' type="text" placeholder="Enter your username"><br>    
         <label for="ara " >Deliver or pick up on the shop</label><br>
-        <input type="text"[ngModel]="changedd" name="changedd"readonly style="margin-left: 85px;"><button class="buttn" (click)="changedelivery()"type="button">Change</button><br>
+        <input class="mm" type="text"[ngModel]="changedd" name="changedd"readonly ><button class="buttn" (click)="changedelivery()"type="button">Change</button><br>
 
         <label >Clothes kilo</label><br>
-        <input ngModel name='kilo' type="number" placeholder="Enter the clothes weight"><br>    
+        <input class="mm" ngModel name='kilo' type="number" placeholder="Enter the clothes weight"><br>    
 
   <input  class="butt" type="submit">
     </form>
