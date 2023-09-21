@@ -24,6 +24,7 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomConfirmDialogComponent } from './dialog.component';
 import { LogsComponent } from './logs/logs.component';
+import { SalesGraphComponent } from './sales-graph/sales-graph.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { LogsComponent } from './logs/logs.component';
     LaundryComponent,
     AnnoucementComponent,
     CustomConfirmDialogComponent,
-    LogsComponent
+    LogsComponent,
+    SalesGraphComponent
   ],
   imports: [
     BrowserModule,
