@@ -20,25 +20,26 @@
 
 </div>
 </nav>
-    <div class="jumbotron jumbotron-fluid table-responsive" *ngIf="this.ADDactive == true">
+    <div class=" jumbotron-fluid table-responsive" *ngIf="this.ADDactive == true">
         <h3> <span class="label label-default">ADD STAFF</span>  </h3>
+        <hr>
  
         <form  class="left"#addadmin="ngForm" (ngSubmit)="admin(addadmin.value)" >
             <div class="row">
          <div class="column">
             
             <label >First Name</label><br>
-            <input ngModel name="fname" type="text" ><br>
+            <input ngModel name="fname" type="text" placeholder="enter your first name"><br>
             <label >Last Name</label><br>
-            <input ngModel name='lname' type="text" ><br>
+            <input ngModel name='lname' type="text" placeholder="enter your Last name"><br>
             <label >User Name</label><br>
-            <input ngModel name='username' type="text" ><br>
+            <input ngModel name='username' type="text" placeholder="enter your username"><br>
             <label hidden>Password</label><br>
-            <input ngModel hidden name='password' type="password" class="name" readonly  [ngModel]="defultpassword"><br>    
+            <input ngModel hidden name='password' type="password" class="name" readonly  [ngModel]="defultpassword" placeholder="enter your password"><br>    
         </div>
         <div class="column">
             <label >Email</label><br>
-            <input ngModel name='email' type="text" ><br>
+            <input ngModel name='email' type="text" placeholder="enter your email"><br>
             <label >Gender</label><br>
 
             <select #roles  id="set" ngModel name="set"  >
@@ -56,7 +57,7 @@
                 
               </select>	<br>
             <label >Phone number</label><br>
-            <input  type="text" [(ngModel)]="phonenumber" name="phonenumber"  id="phonenumber"  (input)="handleInput($event)"  maxlength="10" (keypress)="validateInput($event)" class="input" >
+            <input  type="text" [(ngModel)]="phonenumber" name="phonenumber"  id="phonenumber"  (input)="handleInput($event)"  maxlength="10" (keypress)="validateInput($event)" class="input" placeholder="enter your Phone Number">
             <br>    
         </div>
     </div><br>
@@ -68,7 +69,7 @@
         </form>
     </div>
 
-    <div class="jumbotron jumbotron-fluid table-responsive scrollable" *ngIf="this.staffactive == true">
+    <div class=" jumbotron-fluid table-responsive scrollable" *ngIf="this.staffactive == true">
         <h3> <span class="lab">STAFF</span>  </h3>
         <table class="table table-bordered table-dark">
             <thead >
@@ -90,21 +91,21 @@
               <tr  *ngIf= "z">
                 <th scope="row">{{z.id}}</th>
                 <td >{{z.username}}</td>                
-                <td >{{z.firstname}}</td>
+                <td style="background-color: rgb(212, 212, 212);">{{z.firstname}}</td>
                 <td >{{z.lastname}}</td>
-                <td >{{z.gender}}</td>                
+                <td style="background-color: rgb(212, 212, 212);">{{z.gender}}</td>                
                 <td >{{z.Email}}</td>
-                <td >{{z.phonenumber}}</td>
+                <td style="background-color: rgb(212, 212, 212);">{{z.phonenumber}}</td>
                 <td *ngIf="z.activity == true">online</td>
                 <td *ngIf="z.activity != true">offline</td> 
-                <td >{{z.jobtitle}}</td>
+                <td style="background-color: rgb(212, 212, 212);">{{z.jobtitle}}</td>
                 <td ><button class="button4" (click)="getstuff(z)" *ngIf="z.username != this.iid">Update</button></td>
               </tr>
 
             </tbody>
           </table>
     </div>
-    <div class="jumbotron jumbotron-fluid table-responsive scrollable" *ngIf="this.cleintactive == true">
+    <div class=" jumbotron-fluid table-responsive scrollable" *ngIf="this.cleintactive == true">
       <h3> <span class="lab">CLIENT</span>  </h3>
       <table class="table table-bordered table-dark">
           <thead>
@@ -125,21 +126,22 @@
             <tr  *ngIf= "y">
               <th scope="row">{{y.id}}</th>
               <td>{{y.username}}</td>                
-              <td>{{y.firstname}}</td>
+              <td style="background-color: rgb(212, 212, 212);">{{y.firstname}}</td>
               <td>{{y.lastname}}</td>
-              <td>{{y.gender}}</td>                
+              <td style="background-color: rgb(212, 212, 212);">{{y.gender}}</td>                
               <td>{{y.Email}}</td>
-              <td>{{y.phonenumber}}</td>
+              <td style="background-color: rgb(212, 212, 212);">{{y.phonenumber}}</td>
               <td *ngIf="y.activity == true">online</td>
               <td *ngIf="y.activity != true">offline</td> 
-              <td>{{y.address}}</td>
+              <td style="background-color: rgb(212, 212, 212);">{{y.address}}</td>
             </tr>
 
           </tbody>
         </table>
   </div>
-  <div class="jumbotron jumbotron-fluid table-responsive" *ngIf="this.editstuff == true">
+  <div class=" jumbotron-fluid table-responsive" *ngIf="this.editstuff == true">
     <h3 class="lol"> <span>Update Staff</span>  </h3>
+    <hr>
     <!-- <span class="label label-default">{{ususername}}</span>  -->
     <form  class="left" >
         <div class="row">

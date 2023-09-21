@@ -14,13 +14,9 @@
     color: white;
   }
   #nav{ 
-    margin-top: 2em;
-    background-color: rgba(107, 2, 2, 0.632);
-    border-radius: 10px;
-    padding-bottom: 1em;
-    padding-top: 1em;
+    background-color: rgb(255, 255, 255);
+    padding-bottom: 1%;
     min-width: 100%;
-    border: solid black;
  
 
   }
@@ -28,17 +24,19 @@
     color: black;
   }
   .navbar-light .navbar-nav .nav-link {
-    color: white;
+    color: black;
+    background-color: rgb(134, 181, 251);
+    text-align: center;
+    padding: 3%;
+
   }
-  .nav-link:hover{
-    background-color: rgb(222, 247, 255);
-    border-radius: 3px;
-    transform: scale(1);
-    font-weight: bold;
+  .navbar-light .navbar-nav .nav-link:hover{
+    background-color: rgb(104, 104, 104);
+    color: white;
 
   }
 .jumbotron-fluid, .table-responsive{
-  background-color: rgb(213, 250, 255);
+  background-color: rgb(255, 255, 255);
   margin-bottom: 1%;
 
 }
@@ -46,10 +44,8 @@
     min-height: 100%;  
 }
 .label, .label-default{
-  text-align: center;
-  align-items: center;
   color: rgb(0, 0, 0);
-  margin-left: 19em;
+  margin-left: 43%;
   font-size: 20px;
   background: transparent;
 }
@@ -61,27 +57,20 @@ input{
   width: 70%;
   border: none;
   border-radius: 8px;
-  font-size: 18px;
-}
-.alert, .alert-danger{
-  margin-top: 5em; 
-  width: 40%;
-  text-align: center;
-  margin-left: 50em;
-  background: rgb(255, 101, 101);
-  border-radius: 10px;
-  border: solid rgb(111, 0, 0);
+  font-size: 18px; 
+  background-color: rgb(226, 225, 225);
 }
 .button{
   width: 10%;
   font-size: 18px;
-  margin-left: 38.5em;
-  background-color: rgb(0, 95, 133);
+  margin-left: 75%;
+  background-color: rgb(134, 181, 251);
   font-weight: bold;
-  color: white;
+  color: black;
   padding: 3px;
   margin-top: 30px;
   font-weight: 500;
+  margin-bottom: 2%;
 }
 .button:hover{
   background: rgb(0, 0, 0);
@@ -89,11 +78,12 @@ input{
 }
 .lab{
   color: black;
-  font-size: 2em;
-  margin-left: 43%;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 45%;
 }
 .table, .table-bordered, .table-dark{
-  font-size: 18px;
+  font-size: 15px;
   border: solid black;
 }
 .button3{
@@ -102,10 +92,12 @@ input{
   padding: 7px;
   font-size: 18px;
   margin-top: 50px;
+  margin-bottom: 3%;
+  background-color: rgb(205, 204, 204);
 }
 .button3:hover{
-  background: rgb(0, 174, 255);
-  font-weight: bold;  
+  background: rgb(0, 0, 0);
+  color: white; 
 }
 .sm{
   border: none;
@@ -113,22 +105,24 @@ input{
   padding: 7px;
   font-size: 18px; 
   margin-top: 5px;
+  background-color: rgb(134, 181, 251);
 }
 .sm:hover{
-  background: rgb(0, 174, 255);
+  background: rgb(0, 0, 0);
   border: solid white;
-  font-weight: bold;  
+  color: white;
 }
 .lol{
   text-align: center;
-  color: white;
-  font-size: 18px;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
 }
 .lst{
   margin-left: 65em;
 }
 .hi{
-  color: white;
+  color: black;
   font-size: 18px;
 }
 .left{
@@ -147,9 +141,11 @@ input{
   font-size: 18px; 
   margin-top: 5px; 
   color: black;
+  background-color: rgb(134, 181, 251);
 }
 .button4:hover{
-  background: rgb(0, 174, 255);
+  background: rgb(0, 0, 0);
+  color: white
 }
 #roles{
   border: none;
@@ -159,13 +155,17 @@ select{
   border-radius: 5px;
   border: none;
   font-size: 18px;
+  background-color: rgb(226, 225, 225);
 }
 .table, .table-bordered, .table-dark, .table-responsive{
-  border: none;
+  padding-left: 4%;
+  padding-right: 4%;
   border: solid black;
 }
 th{
   border: none;  
+  background-color:  rgb(84, 84, 84);
+  color: white;
 }
 .thead{
   border: 1px white;
@@ -175,15 +175,24 @@ th{
   font-family: 'Rocher';
   src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
 }
-
+td{
+  background-color: white;
+  color: black;
+}
 
 h2{
-  font-family: Bahnschrift;;
+  font-family: Bahnschrift;
   font-size: 4em;
   color: white;
   padding-top: 15px;
 }
 .table-responsive{
-  background: rgba(124, 195, 242, 0.696);
+  background: rgb(255, 255, 255);
   border: none;
+}
+option{
+  background-color: rgb(255, 255, 255);
+}
+hr{
+  border: 1px solid rgb(135, 135, 135);
 }

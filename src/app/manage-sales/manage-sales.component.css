@@ -66,3 +66,48 @@ p {
     font-size: 18px;
     font-family: Bahnschrift;
     }
+/* styles.css */
+.custom-date-input {
+  appearance: textfield;
+  -webkit-appearance: textfield; /* For Safari */
+  -moz-appearance: textfield; /* For Firefox */
+  width: 200px; /* Adjust the width as needed */
+  padding: 5px; /* Adjust padding as needed */
+  border: 1px solid #ccc; /* Add a border if desired */
+  border-radius: 5px; /* Add border-radius for rounded corners */
+  cursor: pointer; /* Show pointer cursor on hover */
+color: black;
+  font-family: Bahnschrift;
+  font-size: 100%;
+  font-weight: bold;
+}
+  /* Initially hide the dropdown */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 30px; /* Adjust the position as needed */
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: black;
+  max-height: 160px; /* Adjust this value as needed to display 5 items */
+  overflow-y: auto;
+
+}
+
+.dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown ul li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Style the dropdown to appear on hover */
+.number:hover + .dropdown {
+  display: block;
+  cursor: pointer;
+}

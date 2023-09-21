@@ -50,7 +50,7 @@
       float: right;
       outline: 0 none;
       border: solid rgb(168, 168, 168);
-      background-color: rgb(156, 211, 247);
+      background-color: rgb(155, 1, 1);
       height: 40px;
       width: 40px;
       border-radius: 50%;
@@ -106,7 +106,7 @@
   }
   .msg {
       display: inline-block;
-      font-size: 11pt;
+      font-size: 18px;
       line-height: 13pt;
       color: rgba(255, 255, 255, 0.982);
       margin: 0 0 4px 0;
@@ -127,8 +127,9 @@
   }
   .msg-self .msg-box {
       border-radius: 6px 0 0 6px;
-      background: #d78914;
+      background: #0fa3ff;
       float: right;
+
   }
   .msg-self .user-img {
       margin: 0 0 10px 10px;
@@ -145,60 +146,38 @@
   }
   .badge{
     font-size: 200%;
-    background-color: #893400;
+    background-color: #880000;
     color: white;
     border: solid black;
 
   }
-  @font-face {
-    font-family: 'Rocher';
-    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
-  }
+
+
 
   .mint{
-    /* color: rgb(0, 78, 212); */
-    font-size: 5em;
-    font-family: 'Rocher';
-    font-weight: bolder;
-    flex-direction: column;
-    margin-left: 2em;
-    padding-top: 15px;
+    font-family: Bahnschrift;;
+    font-size: 4em;
+    color: white;
+    padding-top:10px;
+    padding-left: 65px;
   }
-  .paddinnator{
+  .usern{
+    font-size: 2.5em;
+    margin-left: 2em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .ayokona{
+    background-color: rgba(46, 113, 134, 0.642);
+  }
+  
+  .usern{
+    font-size: 2.5em;
+    margin-left: 2em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
-    padding:-15px;
-  }
-  
-  @font-palette-values --Mint {
-    font-family: Rocher;
-    base-palette: 7;
-  }
-  
-  .mint {
-    font-palette: --Mint;
-  }
-  .usern{
-    font-size: 2.5em;
-    margin-left: 2em;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  .ayokona{
-    background-color: rgba(46, 113, 134, 0.642);
-  }
-  
-  .mint {
-    font-palette: --Mint;
-  }
-  .usern{
-    font-size: 2.5em;
-    margin-left: 2em;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  .ayokona{
-    background-color: rgba(46, 113, 134, 0.642);
-  }
   .adminchatlist{
 width: 30em;
 max-height: calc(100% - 60px);
@@ -257,20 +236,21 @@ background-color: white;
 
   .msg-box {
     display: flex;
-    background: #014a6c;
+    background: #012c6c;
     padding: 10px 10px 0 10px;
     border-radius: 0 6px 6px 0;
     max-width: 40em;
     width: 100%;
     float: left;
     box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+    font-size: 18px;
   }
 
   /* ...Other styles... */
 
   .badge {
     font-size: 150%;
-    background-color: #893400;
+    background-color: #6e0000;
     color: white;
     border: solid black;
   }
@@ -322,34 +302,13 @@ background-color: white;
   
   /* ...Other styles... */
 
-  .msg-box {
-    display: flex;
-    background: #014a6c;
-    padding: 10px 10px 0 10px;
-    border-radius: 0 6px 6px 0;
-    max-width: 40em;
-    width: 100%;
-    float: left;
-    box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
-  }
-
-  /* ...Other styles... */
-
-  .badge {
-    font-size: 150%;
-    background-color: #893400;
-    color: white;
-    border: solid black;
-  }
 
   .mint {
     font-size: 3em;
-    font-family: 'Rocher';
+    font-family: 'Bahnschrift';
     font-weight: bolder;
     flex-direction: column;
     margin-left: 2em;
     padding-top: 15px;
   }
-
-  /* ...Other styles... */
 }

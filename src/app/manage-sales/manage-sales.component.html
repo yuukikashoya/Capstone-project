@@ -11,11 +11,11 @@
     <div class="d-flex cc">
         <div class="card">
             <div class="arrow">
+               <!-- date-picker.component.html -->
+
+
+                <div class="number"> <input type="date" [(ngModel)]="currentDate" (change)="onDateSelected()" class="custom-date-input"></div>
                
-                <div class="btn" (click)="minusday()"><img class="arrow-left" src="https://cdn-icons-png.flaticon.com/256/271/271220.png"></div>
-                <div class="number">  {{getFormattedDate()}}</div>
-                <div class="btn"  (click)="addday()"><img class="arrow-right" src="https://cdn-icons-png.flaticon.com/256/271/271228.png"></div>
-           
             </div>
                  <h2>Daily Income and Transact</h2>
             <div  *ngFor="let q of daily | async;">
@@ -28,11 +28,16 @@
         </div>
     <div class="card">
         <div class="arrow">
-           
             <div class="btn" (click)="minusweek()"><img class="arrow-left" src="https://cdn-icons-png.flaticon.com/256/271/271220.png"></div>
-            <div class="number"> Week {{currentweek}}</div>
+            <div class="number"(click)="toggleDropdown()"> Week {{currentweek}}</div>
             <div class="btn"  (click)="addweek()"><img class="arrow-right" src="https://cdn-icons-png.flaticon.com/256/271/271228.png"></div>
-       
+
+            <div class="dropdown" [ngStyle]="{'display': isDropdownVisible ? 'block' : 'none'}">
+                <ul>
+                    <li *ngFor="let week of weeks" (click)="selectWeek(week)">Week {{week}}</li>
+                </ul>
+            </div>
+            
         </div>
              <h2>Weekly Income and Transact</h2>
         <div  *ngFor="let l of week | async;">
@@ -58,6 +63,10 @@
     </div>
     </div>
 </div>
+
+</div>
+<div class="container">
+    <app-sales-graph></app-sales-graph>
 </div>
 <div class="container text-dark"  *ngIf="editshow">
 
