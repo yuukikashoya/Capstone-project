@@ -205,8 +205,8 @@ this.pack = this.decimal1 + 1
 
   this.total = this.pack * this.defultpricing;
 // adding to the database
-let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
-this.uuid =  "laundry"+myDate+ Math.floor(100 + Math.random() * 900000);
+let myDate = formatDate(new Date(), 'mmss', 'en')
+this.uuid =  "l"+myDate+ Math.floor(100 + Math.random() * 99);
 set(ref(this.database, 'laundry/' + this.uuid), {
     id: this.uuid,
     username: value.username,
@@ -423,10 +423,10 @@ transacitonid = ""
 pickedupyes(){
 // temporarty funtion for now
 const iaid = sessionStorage.getItem('id');
-let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
+let myDate = formatDate(new Date(), 'mmss', 'en')
 let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
 let realtime = formatDate(new Date(), 'hh:mma', 'en')
-this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 900000);
+this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 90);
 set(ref(this.database, 'logs/' + this.transacitonid), {
   transacitonid: this.transacitonid,
   pastid: this.confirmid,
@@ -524,7 +524,7 @@ this.deliveredavtive = false
 }
 deliveryyes(){
   const iaid = sessionStorage.getItem('id');
-  let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
+  let myDate = formatDate(new Date(), 'mmss', 'en')
   let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
   let realtime = formatDate(new Date(), 'hh:mma', 'en')
   this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 900000);
@@ -647,8 +647,8 @@ this.username = value.username
 
 
 
-     let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
-     this.uuid =  "laundry"+myDate+ Math.floor(100 + Math.random() * 900000);
+     let myDate = formatDate(new Date(), 'mmss', 'en')
+     this.uuid =  "l"+myDate+ Math.floor(100 + Math.random() * 99);
   set(ref(this.database, 'laundry/' + this.uuid), {
       id: this.uuid,
       username: this.username,
