@@ -229,4 +229,38 @@ hr{
 }
 h3{
   margin-top: 2%;
+}.icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  background-color: #f00; /* Set your desired background color for the icon */
+  color: #fff; /* Set your desired text color for the icon */
+  text-align: center;
+  line-height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  top: 0; /* Adjust the distance between the icon and tooltip as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333; /* Set your desired background color for the tooltip */
+  color: #fff; /* Set your desired text color for the tooltip */
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  text-align: center; 
+  width: 200px;
+}
+
+.icon-container:hover .tooltip {
+  opacity: 1;
 }
