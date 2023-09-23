@@ -48,7 +48,7 @@ export class LaundryComponent implements OnInit {
     // Convert to an integer
     this.amountInInteger = parseInt(amountWithoutCurrency);
 
-      console.log(this.amountInInteger)
+  
 
 
       const ttoday = new Date();
@@ -103,7 +103,7 @@ upuid = ""
 upphonenumber = ""
 upadress= ""
 upfor = ""
-
+uppacks = 0
 
   getupdate(value:any){
     // getting the value
@@ -114,8 +114,16 @@ upfor = ""
     this.upphonenumber = value.phonenumber
     this.upadress= value.address
     this.upfor = value.for
+
     this.PKactive =  false;
     this.PUactive = true;
+    if(value.cpack){
+      this.uppacks = value.cpack
+      
+    }else{
+      this.uppacks = 0
+    }
+   
   }
   cancelupdate(){
     // clear the value
@@ -126,6 +134,7 @@ upfor = ""
     this.upphonenumber = ""
     this.upadress= ""
     this.upfor = ""
+    this.uppacks = 0
     this.PKactive =  true;
     this.PUactive = false;
   }
@@ -204,6 +213,10 @@ this.pack = this.decimal1 + 1
 }
 
   this.total = this.pack * this.defultpricing;
+
+  if(this.uppacks !== 0){
+    this.pack = this.uppacks
+  }
 // adding to the database
 let myDate = formatDate(new Date(), 'mmss', 'en')
 this.uuid =  "l"+myDate+ Math.floor(100 + Math.random() * 99);
