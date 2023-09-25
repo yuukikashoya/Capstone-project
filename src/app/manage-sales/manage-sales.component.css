@@ -1,113 +1,91 @@
 /* Set the container to occupy the full height of the viewport */
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 20px; /* Add some padding for better mobile viewing */
 }
 
 /* Center the cards within the container */
 .d-flex.cc {
-    display: flex;
-    justify-content: center;
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
   background: rgba(124, 195, 242, 0.696);
-    padding: 40px; 
-    margin: 10px 30px 30px 30px; 
-    border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
-
+  padding: 20px; /* Reduce padding for better mobile viewing */
+  margin: 10px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  flex: 1; /* Make the cards flexible to fit the screen */
+  max-width: 400px; /* Limit the maximum width for larger screens */
 }
 
 /* Increase the font size for the headers and paragraphs inside the cards */
-h2 {
-    font-size: 18px;
-    color: white;
+h2, p {
+  font-size: 16px; /* Adjust font size for better mobile viewing */
 }
 
-p {
-    font-size: 18px;
-    color: white;
-    font-family: Bahnschrift;
-}
-
+/* Adjust the arrow and number styles */
 .arrow {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-  }
-  .arrow-left {
-    height: 2em;
-    width: 2em;
-  }
-  .arrow-right {
- height: 2em;
- width: 2em;
-  }
-  .number {
-    font-size: 18px;
-    font-weight: bold;
-    margin-left:1em ;
-    margin-right: 1em;
-    font-family: Bahnschrift;
-  }
-.title{
-    font-family: Bahnschrift;;
-    font-size: 4em;
-    color: white;
-    padding-top: 10px;
-    padding-left: 65px;
-  }
-  .umm{
-    background-color: rgb(0, 32, 137);
-    font-size: 18px;
-    font-family: Bahnschrift;
-    }
-/* styles.css */
-.custom-date-input {
-  appearance: textfield;
-  -webkit-appearance: textfield; /* For Safari */
-  -moz-appearance: textfield; /* For Firefox */
-  width: 200px; /* Adjust the width as needed */
-  padding: 5px; /* Adjust padding as needed */
-  border: 1px solid #ccc; /* Add a border if desired */
-  border-radius: 5px; /* Add border-radius for rounded corners */
-  cursor: pointer; /* Show pointer cursor on hover */
-color: black;
-  font-family: Bahnschrift;
-  font-size: 100%;
-  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
-  /* Initially hide the dropdown */
+
+.arrow-left, .arrow-right {
+  height: 1.5em; /* Adjust arrow size for better mobile viewing */
+  width: 1.5em;
+}
+
+.number {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0.5em;
+  font-family: Bahnschrift;
+}
+
+/* Adjust the title style */
+.title {
+  font-size: 2em; /* Adjust font size for better mobile viewing */
+  padding-top: 10px;
+  padding-left: 10px; /* Adjust padding for better mobile viewing */
+}
+
+/* Adjust the custom date input style */
+.custom-date-input {
+  width: 100%; /* Make the input full width on mobile screens */
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Adjust the dropdown style */
 .dropdown {
   display: none;
   position: absolute;
-  top: 30px; /* Adjust the position as needed */
+  top: 30px;
   left: 0;
   background-color: #fff;
   border: 1px solid #ccc;
   color: black;
-  max-height: 160px; /* Adjust this value as needed to display 5 items */
+  max-height: 160px;
   overflow-y: auto;
-
-}
-
-.dropdown ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.dropdown ul li {
-  padding: 5px 10px;
-  cursor: pointer;
+  width: 100%; /* Make the dropdown full width on mobile screens */
 }
 
 /* Style the dropdown to appear on hover */
-.number:hover + .dropdown {
+.number:hover + .dropdown,
+.dropdown:hover {
   display: block;
   cursor: pointer;
+}
+@media (max-width: 768px) {
+  .d-flex.cc {
+      flex-direction: column;
+  }
 }
