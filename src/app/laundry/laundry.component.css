@@ -264,3 +264,131 @@ h3{
 .icon-container:hover .tooltip {
   opacity: 1;
 }
+/* Default styles */
+.container1 {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  .container1 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .column {
+    padding-left: 0;
+    column-count: 1;
+    column-gap: 0;
+  }
+  .jump {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+
+/* Media query for screens smaller than 576px */
+@media (max-width: 576px) {
+  .qq {
+    font-size: 3em;
+  }
+  .title2 {
+    font-size: 16px;
+  }
+  label {
+    font-size: 14px;
+  }
+  .mm {
+    width: 100%;
+  }
+  .buttn {
+    font-size: 16px;
+  }
+  .butt {
+    font-size: 16px;
+    margin: 10px;
+  }
+  .jumbotron2 {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+  h3 {
+    font-size: 18px;
+    margin-top: 5%;
+  }
+  .nn {
+    font-size: 18px;
+  }
+  tr {
+    font-size: 14px;
+  }
+  .th {
+    font-size: 14px;
+  }
+  .td {
+    font-size: 14px;
+  }
+  hr {
+    border: 1px solid rgb(135, 135, 135);
+    margin: 5% 0;
+  }
+  .icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+  .tooltip {
+    top: 30px;
+    font-size: 12px;
+    padding: 3px 6px;
+    width: auto;
+  }
+  .btn3 {
+    margin-right: 0;
+    padding-bottom: 5%;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 20px; /* Add some padding for better mobile viewing */
+}
+#nav {
+  background-color: white;
+  min-width: 100%;
+  border: none;
+  font-size: 18px;
+  height: 70px;
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: space-around; /* Spread the items evenly */
+  align-items: center; /* Center items vertically */
+}
+
+/* Adjust the item styles */
+.item {
+  border: none;
+  background-color: rgb(134, 181, 251);
+  text-align: center;
+  color: white;
+  padding: 2.5%;
+  flex-grow: 1; /* Allow items to grow equally */
+  text-decoration: none; /* Remove underlines */
+}
+
+.item:hover {
+  background-color: rgb(104, 104, 104);
+}
+
+.item2 {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.item3 {
+  padding-left: 4%;
+  padding-right: 4%;
+}
