@@ -4,7 +4,12 @@
     <br>
     <div class="text-center" *ngIf="graphshow">
           <button class="btn btn-primary umm" (click)="edittime()">Update Pricing</button>
-    </div>
+    </div> <div class="text-center" *ngIf="graphshow">
+        <button class="btn btn-primary umm" (click)="tabletime()">Show sales history</button>
+  </div>
+  <div class="text-center" *ngIf="table">
+    <button class="btn btn-primary umm" (click)="closetable()">Show sales history</button>
+  </div><br>
     <h2 style="text-align: center; font-size: 2em;"> Good day, <br>Here are your Point of Sales</h2><br>
 <div class="container" *ngIf="graphshow">
 
@@ -65,7 +70,7 @@
 </div>
 
 </div>
-<div class="container">
+<div class="container"  *ngIf="graphshow">
     <app-sales-graph></app-sales-graph>
 </div>
 <div class="container text-dark"  *ngIf="editshow">
@@ -81,4 +86,52 @@
         <button class="btn btn-danger" type="button" (click)="cacel()">Cancel</button>
     </form>
 
+</div>
+
+<div class="container" *ngIf="table">
+
+    <div class="jumbotron  table-responsive scrollable"  >
+        <h3> <span class="">Logs</span>  </h3>
+        <table class="table table-bordered ">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Client Username</th>  
+           
+
+          
+
+                <th scope="col">Time & Date</th>
+
+
+         <th scope="col">Transac by</th>  
+                <th scope="col">Payed Amount</th>
+                               
+           
+
+              </tr>
+            </thead>
+            <tbody *ngFor="let z of logs | async;">
+              <tr  *ngIf= "z">
+                <th scope="row">{{z.transacitonid}}</th>
+                <td>{{z.username}}</td>    
+                         
+
+      
+
+                <td>{{z.time +" "+ z.date}}</td>
+
+
+    
+            
+
+                <td>{{z.transacby}}</td>
+          <td>{{"+"+z.payed}}</td>
+
+              </tr>
+     
+            </tbody>
+            
+          </table>
+    </div>
 </div>

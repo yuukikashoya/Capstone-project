@@ -15,10 +15,11 @@ export class ManageSalesComponent implements OnInit {
   daily!: Observable<any[]>;
   week!: Observable<any[]>;
   year!: Observable<any[]>;
-
+  logs!: Observable<any[]>;
   constructor(public router:Router,public database:Database
     ,private FireDb: AngularFireDatabase) {
-      console.log(this.currentDate)
+      this.logs = FireDb.list('/logs').valueChanges();
+     
     const sessionValue = sessionStorage.getItem('type');
     const ttoday = new Date();
     let tttodate = ttoday.getFullYear();
@@ -86,7 +87,7 @@ minusyear(){
 
 editshow = false
 graphshow = true
-
+table =false
 edittime(){
   this.editshow = true
   this.graphshow = false
@@ -97,7 +98,14 @@ cacel(){
 }
 defultpricing = 0
 defultkilo = 0
-
+tabletime(){
+  this.table = true
+  this.graphshow = false
+}
+closetable(){
+  this.table = false
+  this.graphshow = true
+}
 updatepricing(){
   if(this.defultkilo && this.defultpricing && this.defultkilo != 0 && this.defultpricing != 0){
     set(ref(this.database, 'sales/Pricing/'), {

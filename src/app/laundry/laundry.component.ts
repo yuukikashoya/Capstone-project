@@ -540,7 +540,7 @@ deliveryyes(){
   let myDate = formatDate(new Date(), 'mmss', 'en')
   let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
   let realtime = formatDate(new Date(), 'hh:mma', 'en')
-  this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 900000);
+  this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 90);
   set(ref(this.database, 'logs/' + this.transacitonid), {
     transacitonid: this.transacitonid,
     pastid: this.confirmid,
