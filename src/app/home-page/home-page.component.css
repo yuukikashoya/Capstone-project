@@ -702,7 +702,7 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
       margin-left: 23%;
       margin-right: 3%;
 
-  
+  }
         .title3 {
           font-size: 4em;
           font-family: Bahnschrift;
@@ -711,7 +711,7 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
           padding-top: 1em;
         }
       
-  }
+  
 }
 
 /* Mobile styles */
