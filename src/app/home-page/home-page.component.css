@@ -642,7 +642,7 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 
 
 /* Common styles for both laptop and mobile */
-.contact {
+#contact {
   background-color: rgb(168, 168, 168);
 }
 
