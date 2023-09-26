@@ -118,9 +118,7 @@ input{
   font-size: 20px;
   font-weight: bold;
 }
-.lst{
-  margin-left: 65em;
-}
+
 .hi{
   color: black;
   font-size: 18px;
@@ -196,3 +194,90 @@ option{
 hr{
   border: 1px solid rgb(135, 135, 135);
 }
+/* Mobile-first design: Default styles for small screens */
+@media screen and (max-width: 768px) {
+  /* Adjust navigation menu */
+  .navbar-nav {
+    flex-direction: column;
+  }
+
+  .nav-item {
+    text-align: center;
+    margin: 5px 0;
+  }
+
+  /* Adjust column layout */
+  .column {
+    flex: 100%;
+  }
+
+  /* Adjust font sizes and margins */
+  a {
+    font-size: 16px;
+    margin-left: 0;
+  }
+
+  label {
+    font-size: 16px;
+    margin-left: 0;
+  }
+
+  input,
+  select {
+    width: 100%;
+  }
+
+  /* Adjust other elements as needed */
+  .button {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .button4 {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 20px; /* Add some padding for better mobile viewing */
+  }
+}
+
+/* Larger screens */
+@media screen and (min-width: 769px) {
+  /* Reset any mobile-specific styles */
+
+
+  /* Adjust font sizes and margins */
+  a {
+    font-size: 20px;
+
+  }
+
+  label {
+    font-size: 18px;
+
+  }
+
+  /* Reset input width for larger screens */
+  input,
+  select {
+    width: 70%;
+  }
+
+  /* Reset button width for larger screens */
+  .button {
+    width: 10%;
+
+  }
+
+  .button4 {
+    width: auto;
+  }
+}
+

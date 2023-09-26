@@ -20,7 +20,7 @@
   .chat-window {
       flex: auto;
       max-height: calc(100% - 60px);
-      background-image: url("chat.png");
+      background-image: url("../../assets/image/bnw.png");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -50,7 +50,7 @@
       float: right;
       outline: 0 none;
       border: solid rgb(168, 168, 168);
-      background-color: rgb(155, 1, 1);
+      background-color: rgb(134, 181, 251);
       height: 40px;
       width: 40px;
       border-radius: 50%;
@@ -60,7 +60,7 @@
   }
   .chat-input input[good] + button {
       box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
-      background: #2671ff;
+      background: #94b9ff;
   }
   .chat-input input[good] + button:hover {
       box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -79,7 +79,7 @@
   }
   .msg-box {
       display: flex;
-      background: #014a6c;
+      background: #5b5b5b;
       padding: 10px 10px 0 10px;
       border-radius: 0 6px 6px 0;
       max-width: 50em;
@@ -121,14 +121,17 @@
   }
   .username {
       margin-right: 3px;
+      color: rgb(190, 190, 190);
   }
   .posttime {
       margin-left: 3px;
+      color: rgb(0, 0, 0);
   }
   .msg-self .msg-box {
       border-radius: 6px 0 0 6px;
-      background: #0fa3ff;
+      background: rgb(173, 173, 173);
       float: right;
+
 
   }
   .msg-self .user-img {
@@ -136,6 +139,7 @@
   }
   .msg-self .msg {
       text-align: right;
+      color: black;
   }
   .msg-self .timestamp {
       text-align: right;
@@ -146,9 +150,9 @@
   }
   .badge{
     font-size: 200%;
-    background-color: #880000;
-    color: white;
-    border: solid black;
+    background-color: rgb(134, 181, 251);
+    color: black;
+    border: none;
 
   }
 
@@ -188,11 +192,17 @@ background-color: white;
     margin: 0;
     padding: 0;
   }
+  .marginator:hover{
+    box-shadow: 5px 5px 5px black;
+    transform: scale(1.2);
+    transition: transform .2s;
+  }
   .under-h1 {
     border: none;
-    border-top: 2px solid;
+    border-top: 2px solid rgb(187, 187, 187);
     width: 80%;
     margin: 10px auto;
+
   }
 
 
@@ -236,7 +246,7 @@ background-color: white;
 
   .msg-box {
     display: flex;
-    background: #012c6c;
+    background: #7b7b7b;
     padding: 10px 10px 0 10px;
     border-radius: 0 6px 6px 0;
     max-width: 40em;
@@ -311,4 +321,10 @@ background-color: white;
     margin-left: 2em;
     padding-top: 15px;
   }
+}
+h2:hover{
+  color: white;
+  background-color: rgb(90, 90, 90);
+ 
+
 }
