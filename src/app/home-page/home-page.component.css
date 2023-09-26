@@ -642,7 +642,7 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 
 
 /* Common styles for both laptop and mobile */
-#contact {
+.contact {
   background-color: rgb(168, 168, 168);
 }
 
@@ -702,8 +702,7 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
       margin-left: 23%;
       margin-right: 3%;
 
-      .contact {
-        background-color: rgb(168, 168, 168);
+  
         .title3 {
           font-size: 4em;
           font-family: Bahnschrift;
@@ -711,7 +710,7 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
           text-align: center;
           padding-top: 1em;
         }
-      }
+      
   }
 }
 
