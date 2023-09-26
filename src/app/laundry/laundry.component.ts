@@ -48,7 +48,7 @@ export class LaundryComponent implements OnInit {
     // Convert to an integer
     this.amountInInteger = parseInt(amountWithoutCurrency);
 
-      console.log(this.amountInInteger)
+  
 
 
       const ttoday = new Date();
@@ -103,7 +103,7 @@ upuid = ""
 upphonenumber = ""
 upadress= ""
 upfor = ""
-
+uppacks = 0
 
   getupdate(value:any){
     // getting the value
@@ -114,8 +114,16 @@ upfor = ""
     this.upphonenumber = value.phonenumber
     this.upadress= value.address
     this.upfor = value.for
+
     this.PKactive =  false;
     this.PUactive = true;
+    if(value.cpack){
+      this.uppacks = value.cpack
+      
+    }else{
+      this.uppacks = 0
+    }
+   
   }
   cancelupdate(){
     // clear the value
@@ -126,6 +134,7 @@ upfor = ""
     this.upphonenumber = ""
     this.upadress= ""
     this.upfor = ""
+    this.uppacks = 0
     this.PKactive =  true;
     this.PUactive = false;
   }
@@ -204,9 +213,13 @@ this.pack = this.decimal1 + 1
 }
 
   this.total = this.pack * this.defultpricing;
+
+  if(this.uppacks !== 0){
+    this.pack = this.uppacks
+  }
 // adding to the database
-let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
-this.uuid =  "laundry"+myDate+ Math.floor(100 + Math.random() * 900000);
+let myDate = formatDate(new Date(), 'mmss', 'en')
+this.uuid =  "l"+myDate+ Math.floor(100 + Math.random() * 99);
 set(ref(this.database, 'laundry/' + this.uuid), {
     id: this.uuid,
     username: value.username,
@@ -423,10 +436,10 @@ transacitonid = ""
 pickedupyes(){
 // temporarty funtion for now
 const iaid = sessionStorage.getItem('id');
-let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
+let myDate = formatDate(new Date(), 'mmss', 'en')
 let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
 let realtime = formatDate(new Date(), 'hh:mma', 'en')
-this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 900000);
+this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 90);
 set(ref(this.database, 'logs/' + this.transacitonid), {
   transacitonid: this.transacitonid,
   pastid: this.confirmid,
@@ -524,10 +537,10 @@ this.deliveredavtive = false
 }
 deliveryyes(){
   const iaid = sessionStorage.getItem('id');
-  let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
+  let myDate = formatDate(new Date(), 'mmss', 'en')
   let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
   let realtime = formatDate(new Date(), 'hh:mma', 'en')
-  this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 900000);
+  this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 90);
   set(ref(this.database, 'logs/' + this.transacitonid), {
     transacitonid: this.transacitonid,
     pastid: this.confirmid,
@@ -613,7 +626,9 @@ this.deliveredavtive = false
   name=""
   username=""
   uid= ""
+  cpacks= 0
   async addlaundryy(value:any){
+
 this.username = value.username
     const starCountRef = ref(this.database, 'client/' + this.username);
     onValue(starCountRef, (snapshot) => {
@@ -623,7 +638,7 @@ this.username = value.username
       this.uid = db.id;
       this.phonenumber = db.phonenumber
       this.username = db.username
-
+  
      });
      await this.delay(1000);
 
@@ -645,10 +660,14 @@ this.username = value.username
    this.total = this.pack * this.defultpricing;
 
 
-
-
-     let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
-     this.uuid =  "laundry"+myDate+ Math.floor(100 + Math.random() * 900000);
+   this.cpacks = value.packs
+if(this.cpacks == 0 || this.cpacks ==  undefined){
+  
+}else{
+  this.pack = this.cpacks
+}
+     let myDate = formatDate(new Date(), 'mmss', 'en')
+     this.uuid =  "l"+myDate+ Math.floor(100 + Math.random() * 99);
   set(ref(this.database, 'laundry/' + this.uuid), {
       id: this.uuid,
       username: this.username,
