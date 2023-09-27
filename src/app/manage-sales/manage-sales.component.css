@@ -4,8 +4,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: black;
   padding: 20px; /* Add some padding for better mobile viewing */
+
 }
 
 /* Center the cards within the container */
@@ -16,7 +17,7 @@
 }
 
 .card {
-  background: rgba(124, 195, 242, 0.696);
+  background: rgb(134, 180, 255);
   padding: 20px; /* Reduce padding for better mobile viewing */
   margin: 10px;
   border-radius: 15px;
@@ -87,5 +88,26 @@ h2, p {
 @media (max-width: 768px) {
   .d-flex.cc {
       flex-direction: column;
+  }
+}
+.btn{
+font-size: 200%;
+}
+.title1{
+text-align: center; 
+font-size: 250%; 
+color: white;
+}
+hr{
+  border-top: 2px solid white; 
+  margin-right: 3%; 
+  margin-left: 3%;
+}
+@media (max-width: 768px) {
+  .title1 {
+      color: black;
+  }
+  hr{
+    border-top: 1px solid black;
   }
 }

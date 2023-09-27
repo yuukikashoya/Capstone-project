@@ -4,14 +4,18 @@
     <br>
     <div class="text-center" *ngIf="graphshow">
           <button class="btn btn-primary umm" (click)="edittime()">Update Pricing</button>
-    </div> <div class="text-center" *ngIf="graphshow">
+    </div> 
+    <br>
+    <div class="text-center" *ngIf="graphshow">
         <button class="btn btn-primary umm" (click)="tabletime()">Show sales history</button>
   </div>
   <div class="text-center" *ngIf="table">
     <button class="btn btn-primary umm" (click)="closetable()">Show sales history</button>
-  </div><br>
-    <h2 style="text-align: center; font-size: 2em;"> Good day, <br>Here are your Point of Sales</h2><br>
-<div class="container" *ngIf="graphshow">
+  </div><hr><br>
+
+    <h2 class="title1"> Good day, <br>Here are your Point of Sales</h2><br>
+
+    <div class="container" *ngIf="graphshow">
 
     <div class="d-flex cc">
         <div class="card">
@@ -70,6 +74,7 @@
 </div>
 
 </div>
+<hr>
 <div class="container"  *ngIf="graphshow">
     <app-sales-graph></app-sales-graph>
 </div>
