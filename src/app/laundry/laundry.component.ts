@@ -683,5 +683,18 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
      }); 
 
      alert('Booked!');
+     const screenWidth = window.screen.width;
+     const screenHeight = window.screen.height;
+     const printWindow = window.open('', '', `width=${screenWidth},height=${screenHeight}`);
+     if (printWindow) {
+       printWindow.document.open();
+       printWindow.document.write('<html><head><title>Print Number</title></head><body>>');
+       printWindow.document.write('<div style="font-size: 5em; text-align: center;">' + "IM CAFE & LAUNDROMAT" + '</div>');
+       printWindow.document.write('<div style="font-size: 20em; text-align: center;margin-top:0.5em">' + this.uuid + '</div>');
+       printWindow.document.write('</body></html>');
+       printWindow.document.close();
+       printWindow.print();
+       printWindow.close();
+     }
    }
 }
