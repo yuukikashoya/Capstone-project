@@ -209,6 +209,7 @@ margin-right: 4%;
 .jumbotron2{
   padding-left: 7%;
   padding-right: 7%;
+
 }
 .container1{
   margin-left: 2%;
@@ -365,7 +366,9 @@ h3{
     display: flex; /* Use flexbox to align items horizontally */
     justify-content: space-around; /* Spread the items evenly */
     align-items: center; /* Center items vertically */
+ 
   }
+
   
   /* Adjust the item styles */
   .item {
