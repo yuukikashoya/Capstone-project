@@ -219,7 +219,7 @@ this.pack = this.decimal1 + 1
   }
 // adding to the database
 let myDate = formatDate(new Date(), 'mmss', 'en')
-this.uuid =  "l"+myDate+ Math.floor(100 + Math.random() * 99);
+this.uuid =  "L"+myDate+ Math.floor(100 + Math.random() * 99);
 set(ref(this.database, 'laundry/' + this.uuid), {
     id: this.uuid,
     username: value.username,
@@ -667,7 +667,7 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
   this.pack = this.cpacks
 }
      let myDate = formatDate(new Date(), 'mmss', 'en')
-     this.uuid =  "l"+myDate+ Math.floor(100 + Math.random() * 99);
+     this.uuid =  "L"+myDate+ Math.floor(100 + Math.random() * 99);
   set(ref(this.database, 'laundry/' + this.uuid), {
       id: this.uuid,
       username: this.username,
@@ -683,5 +683,37 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
      }); 
 
      alert('Booked!');
+     const screenWidth = window.screen.width;
+     const screenHeight = window.screen.height;
+ 
+     // Create content for the print window
+     const printContent = `
+       <html>
+         <head>
+           <title>Print Number</title>
+         </head>
+         <body>
+           <div style="font-size: 5em; text-align: center;">IM CAFE & LAUNDROMAT</div>
+           <div style="font-size: 20em; text-align: center; margin-top: 0.5em;">${this.uuid}</div>
+         </body>
+       </html>
+     `;
+ 
+     // Open the print window
+     const printWindow = window.open('', 'PrintWindow', `width=${screenWidth},height=${screenHeight}`);
+     if (printWindow) {
+       printWindow.document.open();
+       printWindow.document.write(printContent);
+       printWindow.document.close();
+ 
+       // Print the content
+       printWindow.print();
+       setTimeout(() => {
+        printWindow.close();
+      }, 1000); // Adjust the delay time as needed
+    
+ 
+     }
+   
    }
 }

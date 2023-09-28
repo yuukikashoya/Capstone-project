@@ -12,17 +12,34 @@
     background:rgb(255, 255, 255);
 
 }
-
+@media screen and (max-width: 768px) {
+  /* Adjust navigation menu */
+  .kara {
+    height: 240%;
+  }
+  h2{
+    text-align: center;
+  }
+  h3{
+    font-size: 20px;
+  }
+}
 /* .avatar{
 width:300px;
 height:300px;
 } */
 
 h3{
-    font-size: 20px;
+    font-size: 300%;
     color: rgb(0, 0, 0);
     font-family: Bahnschrift;;
 }
+/* @media screen and (max-width: 768px) {
+
+  h3{
+    font-size: 20px;
+  }
+} */
 .form-horizontal{
     font-size: 18px;
     font-family: Bahnschrift;
@@ -78,7 +95,7 @@ h3{
 h2{
   font-family: Bahnschrift;;
   font-size: 4em;
-  color: white;
+  color: rgb(49, 49, 49);
   padding-top: 15px;
 }
 .form-control{
