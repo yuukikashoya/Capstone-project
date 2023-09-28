@@ -19,6 +19,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: scroll;
   height: 100vh;
 }
 
@@ -554,7 +555,7 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
+    background-attachment: fixed;
 
   }
 

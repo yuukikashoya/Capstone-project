@@ -4,10 +4,31 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: black;
+  padding: 20px; /* Add some padding for better mobile viewing */
+}
+.containe1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: white;
   padding: 20px; /* Add some padding for better mobile viewing */
 }
-
+.textt{
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+}
+input{
+  font-size: 20px;
+}
+form{
+    background-color: rgba(255, 255, 255, 0.874);
+  padding: 5%;
+  border-radius: 2%;
+  
+}
 /* Center the cards within the container */
 .d-flex.cc {
   display: flex;
@@ -16,7 +37,7 @@
 }
 
 .card {
-  background: rgba(124, 195, 242, 0.696);
+  background: rgb(134, 180, 255);
   padding: 20px; /* Reduce padding for better mobile viewing */
   margin: 10px;
   border-radius: 15px;
@@ -52,11 +73,17 @@ h2, p {
 
 /* Adjust the title style */
 .title {
-  font-size: 2em; /* Adjust font size for better mobile viewing */
-  padding-top: 10px;
-  padding-left: 10px; /* Adjust padding for better mobile viewing */
+  font-size: 4em; /* Adjust font size for better mobile viewing */
+  padding-top: 7px;
+  padding-left: 60px; /* Adjust padding for better mobile viewing */  
 }
-
+@media (max-width: 768px) {
+  .title {
+      font-size: 3em;
+      text-align: center;
+      padding-left: 5px;
+  }
+}
 /* Adjust the custom date input style */
 .custom-date-input {
   width: 100%; /* Make the input full width on mobile screens */
@@ -88,4 +115,39 @@ h2, p {
   .d-flex.cc {
       flex-direction: column;
   }
+}
+.btn{
+font-size: 200%;
+color: black;
+}
+.btn-primary{
+  background-color: rgb(209, 209, 209);
+  border: none;
+}
+.btn-primary:hover{
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+.title1{
+text-align: center; 
+font-size: 250%; 
+color: white;
+background-color: rgba(49, 49, 49, 0.874);
+}
+hr{
+  border-top: 2px solid white; 
+  margin-right: 3%; 
+  margin-left: 3%;
+}
+@media (max-width: 768px) {
+  .title1 {
+      color: black;
+      background-color: rgb(238, 238, 238);
+  }
+  hr{
+    border-top: 1px solid black;
+  }
+}
+.kk{
+  background-color: rgba(255, 255, 255, 0.459);
 }
