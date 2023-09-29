@@ -2,12 +2,12 @@
 
    .body1{
     font:600 16px/18px 'Open Sans',sans-serif;
-    column-count: 2;
+
    }
   .log{
     border-radius: 50%;
     height: 400px;
-    width: 400px;
+    width: 100px;
     margin-left: 7em;
     margin-top: 7em;
   }
@@ -16,25 +16,41 @@
   .clearfix:after{clear:both;display:block}
   a{color:black;text-decoration:none}
   
-  .login-wrap{
-    border-radius: 50px;
-    width: 100%;
-    margin-left: 8em;
-    max-width:500px;
-    min-height:85vh;
-    position:relative;
-    /* background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center; */
-    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+/* Default styles for larger screens */
+.login-wrap {
+  margin-top: 2%;
+  border-radius: 5px;
+  display: contents;
+  min-width: 10%;
+  min-height: 50%;
+  position: relative;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+}
+
+.login-html {
+  width: 40%;
+  height: 90%;
+  padding: 15px 70px 60px 40px;
+  background: url('../../assets/image/drop.png');
+  background-size: cover;
+  border-radius: 5px;
+  margin-top: 5%;
+}
+
+/* Media query for screens with a maximum width of 768px (typical for mobile devices) */
+@media screen and (max-width: 768px) {
+  .login-wrap {
+    width: 90%; /* Adjust the width to fit smaller screens */
+    margin-top: 10px; /* Add space at the top for better spacing */
   }
-  .login-html{
-    width:100%;
-    height:100%;
-    padding:50px 70px 90px 70px;
-    background: url('../../assets/image/drop.png');
-background-size: cover;
-    border-radius: 50px;
-   margin-top: 3em; 
+
+  .login-html {
+    width: 103%; /* Make it full width on smaller screens */
+    padding: 15px; /* Adjust padding for smaller screens */padding: 15px 15px 55px 10px;
+    margin-top: 0; /* Remove top margin on smaller screens */
   }
+}
+
   .login-html .sign-in-htm,
   .login-html .sign-up-htm{
     top:0;
@@ -237,3 +253,4 @@ background-size: cover;
 .fa{
   color: black;
 }
+

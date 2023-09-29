@@ -1,0 +1,15 @@
+/* Adjust the canvas container for responsiveness */
+.canvas-container {
+    width: 100%;
+    max-width: 600px; /* Set a maximum width to prevent excessive scaling on large screens */
+    margin: 0 auto; /* Center the canvas container */
+    overflow-x: auto; /* Add horizontal scrolling if needed on smaller screens */
+}
+
+/* Ensure that the canvas scales with its container */
+canvas {
+    max-width: 100%; /* Ensure the canvas width doesn't exceed its container */
+    height: auto; /* Allow the canvas height to adjust proportionally */
+    display: block; /* Remove any extra space below the canvas */
+    margin: 0 auto; /* Center the canvas horizontally */
+}

@@ -1,9 +1,10 @@
-
-<div class="container">
+<div class="container">	
+	<div class="container1">	
 <div class="login-wrap">
 	<div class="login-html">		
-
+		<img src="../../assets/image/logo2.jpg" style="border-radius: 50%;  height: 20%; width: 20%; margin-left: 40%;">
 		<h1 class="title">IM CAFE AND LAUNDROMAT</h1><hr><br>
+
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
 
@@ -50,7 +51,7 @@
 					<input name="email" ngModel id="email" type="text" class="input" [(ngModel)]="email" placeholder="Enter your email(optional)">
 			
 					<label for="phonenumber" class="label">phone number</label>
-					<input  type="text" [(ngModel)]="phonenumber" name="phonenumber"  id="phonenumber"  (input)="handleInput($event)"  maxlength="10" (keypress)="validateInput($event)" class="input"  placeholder="Enter your phonenumber start at 9 max of 10 character">
+					<input  type="text" [(ngModel)]="phonenumber" name="phonenumber"  id="phonenumber"  (input)="handleInput($event)"  maxlength="12" (keypress)="validateInput($event)" class="input"  placeholder="Enter your phonenumber start at 9 max of 10 character">
 			
 							</div>
 
@@ -110,6 +111,6 @@
 	</div>
 </div>
 </div>
-<img src="../../assets/image/logo2.jpg" style="border-radius: 50%; float: right; height: 330px; width: 330px; margin-top: -50em; margin-right: 15em;">
-<h2 style="float: right;  margin-right: 180px; margin-top: -4em; font-size: 4em;">Wash Dry Fold</h2>
+</div>
+
 <!-- bug test -->

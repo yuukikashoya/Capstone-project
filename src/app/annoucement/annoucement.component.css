@@ -8,8 +8,8 @@ text-align: justify;
 
 .mint{
   font-family: Bahnschrift;;
-  font-size: 4em;
-  color: white;
+  font-size: 3em;
+  color: rgb(53, 53, 53);
   padding-top: 15px;
 }
 .letter pre {
@@ -90,11 +90,12 @@ margin-top: 5em;
   padding: 10px;
 }
 .jumbotron{
-  background-color: rgb(92, 2, 2);
+  background-color: rgb(56, 56, 56);
   text-align: justify;
   margin-top: 1px;
   height: 23em;
   border: solid rgb(128, 128, 128);
+  box-shadow: 5px 5px 10px black;
 }
 .butt{
   background-color: white;
@@ -111,13 +112,14 @@ margin-top: 5em;
   font-weight: bold;
 }
 .alert-warning{
-  background-color: rgb(109, 194, 255);
+  background-color: rgb(137, 137, 137);
   border: none;
 }
 .scrollable-div{
   border: solid black;
   border-radius:  8px;
-  background-color: rgba(11, 77, 99, 0.361);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 5px 5px 10px black;
 }
 .headinput{
   border: none;
@@ -165,4 +167,22 @@ margin-top: 5em;
   background-color: rgb(0, 89, 104);
   color: white;
   font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .pad{
+    font-size: 15px;
+  }
+  .mint{
+    text-align: center;
+  }
+  .title {
+    font-size: 15px;
+  }
+  .butt{
+    margin-left: 250px;
+    margin-top: 20px;
+  }
+  .jumbotron{
+    height: 25em;
+  }
 }

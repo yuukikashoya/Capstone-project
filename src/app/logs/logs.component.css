@@ -1,0 +1,51 @@
+h2{
+font-family: Bahnschrift;;
+font-size: 4em;
+color: rgb(36, 36, 36);
+padding-top: 11px;
+padding-left: 7%;
+}
+h3{
+    font-size: 30px;
+    text-align: center;
+}
+th{
+background-color: rgb(83, 82, 82);
+color: white;
+font-size: 14px;
+}
+td{
+font-size: 14px;
+}
+.container{
+ max-width: 1250px;
+
+}
+.container .jumbotron, .container-fluid .jumbotron {
+    padding-right: 13px;
+    padding-left: 13px;
+    max-height: 200%;
+    height: 550px;
+    box-shadow: 5px 5px 10px black;
+}
+@media screen and (max-width: 768px) {
+    .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: rgb(202, 201, 201);
+    padding: 15px; /* Add some padding for better mobile viewing */
+}
+    h3{
+        font-size: 25px;
+        color: black;
+    }
+    h2{
+        text-align: center;
+        font-size: 3em;
+
+    }
+
+}

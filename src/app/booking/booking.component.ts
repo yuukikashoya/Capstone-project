@@ -76,12 +76,15 @@ min="2"
   }
   checker=""
   uuid=""
- 
+ packs = 0
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
 }
   async book(value:any){
-
+   if(value.packs){
+    this.packs = value.packs
+   }
+    
   const starCountRef = ref(this.database, 'pickup/' + this.iid);
   onValue(starCountRef, (snapshot) => {
    const ad = snapshot.val();  
@@ -99,8 +102,8 @@ console.log(this.checker)
       
     else {
     
-      let myDate = formatDate(new Date(), 'yyyyMMddhhmmss', 'en')
-      this.uuid =  "laundry"+myDate+ Math.floor(100 + Math.random() * 900000);
+      let myDate = formatDate(new Date(), 'mmss', 'en')
+      this.uuid =  "p"+myDate+ Math.floor(100 + Math.random() * 90);
    set(ref(this.database, 'pickup/' + this.uuid), {
        id: this.uuid,
        username: this.username,
@@ -108,13 +111,14 @@ console.log(this.checker)
        address:value.location,
        for:value.changedd,
        phonenumber:value.phonenumber,
-      uid: this.uid
+      uid: this.uid,
+      cpack:this.packs
 
 
 
       }); 
       this.checker = "";
-    
+    this.packs = 0
      
       alert('Booked!');
  

@@ -1,38 +1,46 @@
-@import url("https://fonts.googleapis.com/css?family=Modak");
+
 .row {
     display: flex;
   }
   
   .column {
     flex: 50%;
+
   } .nor{
     cursor: pointer;
   }
   a{
     font-size: 20px;
     margin-left: 200px;
-    color: white;
+
   }
   #nav{ 
     background-color: rgb(255, 255, 255);
     padding-bottom: 1%;
     min-width: 100%;
- 
+    border-top-right-radius: 10px 10px;
+    border-top-left-radius: 10px 10px;
 
   }
   .navbar-light .navbar-nav .nav-link:hover{
     color: black;
   }
   .navbar-light .navbar-nav .nav-link {
-    color: black;
-    background-color: rgb(134, 181, 251);
+    color: white;
+    background-color: rgb(0, 0, 0);
     text-align: center;
     padding: 3%;
-
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
   }
   .navbar-light .navbar-nav .nav-link:hover{
-    background-color: rgb(104, 104, 104);
+    background-color: rgb(89, 89, 89);
     color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
 
   }
 .jumbotron-fluid, .table-responsive{
@@ -45,7 +53,7 @@
 }
 .label, .label-default{
   color: rgb(0, 0, 0);
-  margin-left: 43%;
+  margin-left: 40%;
   font-size: 20px;
   background: transparent;
 }
@@ -53,6 +61,7 @@ label{
   font-size: 18px;
 }
 input{
+  padding-left: 2%;
   height: 15%;
   width: 70%;
   border: none;
@@ -63,7 +72,7 @@ input{
 .button{
   width: 10%;
   font-size: 18px;
-  margin-left: 75%;
+  margin-left: 73%;
   background-color: rgb(134, 181, 251);
   font-weight: bold;
   color: black;
@@ -71,10 +80,17 @@ input{
   margin-top: 30px;
   font-weight: 500;
   margin-bottom: 2%;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
 }
 .button:hover{
   background: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
+  transform: translateY(-2px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
 }
 .lab{
   color: black;
@@ -118,9 +134,7 @@ input{
   font-size: 20px;
   font-weight: bold;
 }
-.lst{
-  margin-left: 65em;
-}
+
 .hi{
   color: black;
   font-size: 18px;
@@ -183,12 +197,16 @@ td{
 h2{
   font-family: Bahnschrift;
   font-size: 4em;
-  color: white;
-  padding-top: 15px;
+  color: rgb(49, 49, 49);
+  padding-top: 10px;
+  padding-bottom: 2%;
 }
 .table-responsive{
   background: rgb(255, 255, 255);
   border: none;
+  border-bottom-right-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
+  box-shadow: 5px 5px 10px black;
 }
 option{
   background-color: rgb(255, 255, 255);
@@ -196,3 +214,105 @@ option{
 hr{
   border: 1px solid rgb(135, 135, 135);
 }
+/* Mobile-first design: Default styles for small screens */
+@media screen and (max-width: 768px) {
+  /* Adjust navigation menu */
+  .navbar-nav {
+    flex-direction: column;
+  }
+  #nav{
+    width: 280px;
+  }
+  .navbar-light .navbar-nav .nav-link {
+    column-count: 3;
+  }
+  .table-responsive{
+    padding-right: 10%;
+  }
+  .label{
+    margin-left: 30%;
+  }
+  h2{
+    font-size: 30px;
+  }
+  .nav-item {
+    text-align: center;
+    margin: 5px 0;
+  }
+
+  /* Adjust column layout */
+  .column {
+    flex: 100%;
+    margin-left: -19%;
+  }
+
+  /* Adjust font sizes and margins */
+  a {
+    font-size: 16px;
+    margin-left: 0;
+  }
+
+  label {
+    font-size: 16px;
+    margin-left: 0;
+  }
+
+  input,
+  select {
+    width: 100%;
+  }
+
+  /* Adjust other elements as needed */
+  .button {
+    width: 50%;
+    margin-left: 10%;
+    margin-top: 10px;
+  }
+
+  .button4 {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 20px; /* Add some padding for better mobile viewing */
+  }
+}
+
+/* Larger screens */
+@media screen and (min-width: 769px) {
+  /* Reset any mobile-specific styles */
+
+
+  /* Adjust font sizes and margins */
+  a {
+    font-size: 20px;
+
+  }
+
+  label {
+    font-size: 18px;
+
+  }
+
+  /* Reset input width for larger screens */
+  input,
+  select {
+    width: 70%;
+  }
+
+  /* Reset button width for larger screens */
+  .button {
+    width: 10%;
+
+  }
+
+  .button4 {
+    width: auto;
+  }
+}
+

@@ -2,7 +2,7 @@
 <div class="container1">
 <h2 class="qq"> Laundry Tracker</h2>
 
-    <nav class="nav navbar-expand-lg navbar-light "*ngIf="nav == true">
+    <nav class="nav navbar-expand-lg navbar-light text-white" style="margin-top: -1em;" *ngIf="nav == true">
 
      
       
@@ -300,7 +300,12 @@
 
         <label >Clothes kilo</label><br>
         <input class="mm" ngModel name='kilo' type="number" placeholder="Enter the clothes weight"><br>    
-
+        <label >Number of packs Client want <div class="icon-container">
+          <div class="icon" id="info-icon">!</div>
+          <div class="tooltip" id="info-tooltip">The price still relies on how many kilos. if they want the defult packs just leave it blank</div>
+        </div>
+        </label><br>
+        <input class="mm" ngModel name='packs' type="number" placeholder="Enter the packs"><br>    
   <input  class="butt" type="submit">
     </form>
 
