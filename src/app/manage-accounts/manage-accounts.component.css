@@ -1,17 +1,18 @@
-@import url("https://fonts.googleapis.com/css?family=Modak");
+
 .row {
     display: flex;
   }
   
   .column {
     flex: 50%;
+
   } .nor{
     cursor: pointer;
   }
   a{
     font-size: 20px;
     margin-left: 200px;
-    color: white;
+
   }
   #nav{ 
     background-color: rgb(255, 255, 255);
@@ -29,11 +30,17 @@
     background-color: rgb(0, 0, 0);
     text-align: center;
     padding: 3%;
-
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
   }
   .navbar-light .navbar-nav .nav-link:hover{
     background-color: rgb(89, 89, 89);
     color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
 
   }
 .jumbotron-fluid, .table-responsive{
@@ -73,10 +80,17 @@ input{
   margin-top: 30px;
   font-weight: 500;
   margin-bottom: 2%;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
 }
 .button:hover{
   background: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
+  transform: translateY(-2px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
 }
 .lab{
   color: black;
@@ -184,13 +198,15 @@ h2{
   font-family: Bahnschrift;
   font-size: 4em;
   color: rgb(49, 49, 49);
-  padding-top: 15px;
+  padding-top: 10px;
+  padding-bottom: 2%;
 }
 .table-responsive{
   background: rgb(255, 255, 255);
   border: none;
   border-bottom-right-radius: 10px 10px;
   border-bottom-left-radius: 10px 10px;
+  box-shadow: 5px 5px 10px black;
 }
 option{
   background-color: rgb(255, 255, 255);
@@ -203,6 +219,9 @@ hr{
   /* Adjust navigation menu */
   .navbar-nav {
     flex-direction: column;
+  }
+  #nav{
+    width: 280px;
   }
   .navbar-light .navbar-nav .nav-link {
     column-count: 3;
@@ -224,6 +243,7 @@ hr{
   /* Adjust column layout */
   .column {
     flex: 100%;
+    margin-left: -19%;
   }
 
   /* Adjust font sizes and margins */
@@ -244,8 +264,8 @@ hr{
 
   /* Adjust other elements as needed */
   .button {
-    width: 100%;
-    margin-left: 0;
+    width: 50%;
+    margin-left: 10%;
     margin-top: 10px;
   }
 

@@ -55,7 +55,8 @@
   padding-left: 1em;
   font-size: 18px;
   height: 70px;
-
+  border-top-right-radius: 10px 10px;
+  border-top-left-radius: 10px 10px;
 }
 .navbar{
   padding: 0;
@@ -63,14 +64,14 @@
 
 .item{
   border: none;
-  background-color: rgb(134, 181, 251);
+  background-color: rgb(0, 0, 0);
   text-align: center;
   color: white;  
   padding: 2.5%;
 }
 .item:hover{
-  background-color: rgb(104, 104, 104);
-
+  background-color: rgb(89, 89, 89);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
 }
 .item2{
   padding-left: 5%; 
@@ -88,9 +89,11 @@
   font-size: 15px;
   padding-left: 3%;
   padding-right: 3%;
+  border-bottom-right-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
 }
 h3{
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
 }
 .nn{
@@ -103,9 +106,9 @@ tr{
 .qq{
   font-family: Bahnschrift;;
   font-size: 4em;
-  color: white;
+  color: rgb(36, 36, 36);
   padding-top: 14px;
-  padding-left: 3%;
+  padding-left: 5%;
 }
 h4{
   font-family: Bahnschrift;;
@@ -132,29 +135,45 @@ label{
 }
 .buttn{
   border: none;
-  font-size: 20px;
-  margin-left: 20px;
+  font-size: 15px;
+  margin-left: 8px;
   padding: 1%;
   background-color: rgb(134, 180, 255);
   color: black;
   border-radius: 5px;
+  font-weight: 500;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
 }
 .buttn:hover{
   background-color: rgb(0, 0, 0);
-  color: white 
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
 }
 .butt{
   border: none;
-  font-size: 20px;
-  margin: 20px;
+  font-size: 15px;
+  margin-top: 13px;
   background-color: rgb(134, 180, 255);
   color: black;
   border-radius: 5px;
   padding: 1%;
+  font-weight: 500;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
 }
 .butt:hover{
   background-color: rgb(0, 0, 0);
-  color: white 
+  color: white; 
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);  
 }
 
 .th{
@@ -205,11 +224,13 @@ margin-right: 4%;
 .jumbotron{
   background-color: white;
   border: none;
+  padding: 1rem 2rem;
 }
 .jumbotron2{
   padding-left: 7%;
   padding-right: 7%;
-
+  border-bottom-right-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
 }
 .container1{
   margin-left: 2%;
@@ -217,6 +238,7 @@ margin-right: 4%;
 }
 .table-responsive{
   background-color: white;
+  box-shadow: 5px 5px 10px black;
 }
 td{
   background-color: white;
@@ -314,8 +336,9 @@ h3{
     padding-right: 3%;
   }
   h3 {
-    font-size: 18px;
+    font-size: 25px;
     margin-top: 5%;
+    text-align: center;
   }
   .nn {
     font-size: 18px;
@@ -369,20 +392,29 @@ h3{
  
   }
 
-  
+  .qq{
+    text-align: center;
+  }
   /* Adjust the item styles */
   .item {
+    margin-left: -18px;
     border: none;
-    background-color: rgb(134, 181, 251);
+    background-color: rgb(0, 0, 0);
     text-align: center;
     color: white;
-    padding: 2.5%;
-    flex-grow: 1; /* Allow items to grow equally */
+    padding: 2%;
     text-decoration: none; /* Remove underlines */
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
   }
   
   .item:hover {
     background-color: rgb(104, 104, 104);
+    box-shadow: rgb(0, 0, 0) 5px 8px 10px;
+    transform: translateY(-2px);  
   }
   
   .item2 {
@@ -391,6 +423,7 @@ h3{
   }
   
   .item3 {
+    margin-left: 1%;
     padding-left: 4%;
     padding-right: 4%;
   }
