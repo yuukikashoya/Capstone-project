@@ -690,11 +690,31 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
      const printContent = `
        <html>
          <head>
+         <style>
+         @page{
+          size:50mm 70mm;
+          
+         }
+         body{
+       
+      margin:0;
+          size:50mm 70mm;
+          text-align:center;
+          height: 50mm;
+          padding:5;
+          page-break-after:always;
+         }
+         h3,h1{
+          magrin-top:-10mm;
+          margin-botton:-5mm;
+         }
+
+         </style>
            <title>Print Number</title>
          </head>
          <body>
-           <div style="font-size: 5em; text-align: center;">IM CAFE & LAUNDROMAT</div>
-           <div style="font-size: 20em; text-align: center; margin-top: 0.5em;">${this.uuid}</div>
+           <h3>IM CAFE & LAUNDROMAT</h1>
+           <h1>${this.uuid}</h1>
          </body>
        </html>
      `;
