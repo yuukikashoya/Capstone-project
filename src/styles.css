@@ -20,7 +20,7 @@
 
   .scrollable {
 
-    max-height: 52em;
+    max-height: 30em;
     overflow: auto;
     border: 1px solid #ccc;
     
@@ -60,7 +60,7 @@
   }
 
   .scrollable {
-    max-height: 35em; /* Adjust max-height for smaller screens */
+    max-height: 30em; /* Adjust max-height for smaller screens */
   }
 
   /* Adjust scrollbar styles for smaller screens */
