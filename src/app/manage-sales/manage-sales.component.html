@@ -3,20 +3,19 @@
    <h2 class="title">Sales Management</h2>
     <br>
     <div class="text-center" *ngIf="graphshow">
-          <button class="btn btn-primary umm" (click)="edittime()">Update Pricing</button>
+          <button class="btn btn-primary umm" style="margin-right: 28px;" (click)="edittime()">Update Pricing</button>
+         <button class="btn btn-primary umm" (click)="tabletime()">Show sales history</button>         
     </div> 
-    <br>
-    <div class="text-center" *ngIf="graphshow">
-        <button class="btn btn-primary umm" (click)="tabletime()">Show sales history</button>
-  </div>
+  
   <div class="text-center" *ngIf="table">
     <button class="btn btn-primary umm" (click)="closetable()">Show sales history</button>
   </div>
+  
   <div class="kk">
   <hr>
-<br>
 
-    <h2 class="title1"> Good day, <br>Here are your Point of Sales</h2><br>
+
+    <h2 class="title1"> Here are your Point of Sales</h2><br>
 
     <div class="container" *ngIf="graphshow">
 

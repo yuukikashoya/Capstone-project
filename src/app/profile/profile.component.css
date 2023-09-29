@@ -10,6 +10,7 @@
   padding-top: 5em;
     margin-top:2%;
     background:rgb(255, 255, 255);
+    border-radius: 10px;
 
 }
 @media screen and (max-width: 768px) {
@@ -96,7 +97,7 @@ h2{
   font-family: Bahnschrift;;
   font-size: 4em;
   color: rgb(49, 49, 49);
-  padding-top: 15px;
+  padding-top: 10px;
 }
 .form-control{
   font-size: 18px;

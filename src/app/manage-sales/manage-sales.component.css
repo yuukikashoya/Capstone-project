@@ -44,6 +44,11 @@ form{
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   flex: 1; /* Make the cards flexible to fit the screen */
   max-width: 400px; /* Limit the maximum width for larger screens */
+  box-shadow: 5px 5px 10px ;
+  transition: transform .2s;
+}
+.card:hover{
+  transform: scale(1.1);
 }
 
 /* Increase the font size for the headers and paragraphs inside the cards */
@@ -75,7 +80,7 @@ h2, p {
 .title {
   font-size: 4em; /* Adjust font size for better mobile viewing */
   padding-top: 7px;
-  padding-left: 60px; /* Adjust padding for better mobile viewing */  
+  padding-left: 80px; /* Adjust padding for better mobile viewing */  
 }
 @media (max-width: 768px) {
   .title {
@@ -121,7 +126,7 @@ font-size: 200%;
 color: black;
 }
 .btn-primary{
-  background-color: rgb(209, 209, 209);
+  background-color: rgb(255, 255, 255);
   border: none;
 }
 .btn-primary:hover{
@@ -132,7 +137,8 @@ color: black;
 text-align: center; 
 font-size: 250%; 
 color: white;
-background-color: rgba(49, 49, 49, 0.874);
+background-color: rgb(49, 49, 49);
+padding: 1%;
 }
 hr{
   border-top: 2px solid white; 
@@ -143,6 +149,10 @@ hr{
   .title1 {
       color: black;
       background-color: rgb(238, 238, 238);
+  }
+  .btn-primary{
+    background-color: black;
+    color: white;
   }
   hr{
     border-top: 1px solid black;
