@@ -25,14 +25,11 @@ changedd="Delivery to Address"
 changemode=false
 max="11"
 min="2"
-  heroForm: any;
-   iid= sessionStorage.getItem('id');
-
-
-
-
-
-   
+heroForm: any;
+iid= sessionStorage.getItem('id');
+  checker=""
+  uuid=""
+ packs = 0  
   constructor(public database:Database,public router:Router) {
 
     const sessionValue = sessionStorage.getItem('type');
@@ -54,15 +51,16 @@ min="2"
       this.username = db.username
 
      });
-   
    }
 
   ngOnInit(): void {
 
   }
+  //allowing to edit location
   changelocation(){
     this.readlocation = !this.readlocation;
   }
+    //allowing to edit phonenumber
   changephonenumber(){
     this.readphonenumber = !this.readphonenumber;
   }
@@ -74,34 +72,26 @@ min="2"
       this.changedd = "Pick up at the shop"
     }
   }
-  checker=""
-  uuid=""
- packs = 0
+//deleying the funtion
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
 }
+//booking
   async book(value:any){
    if(value.packs){
     this.packs = value.packs
-   }
-    
+   }  
   const starCountRef = ref(this.database, 'pickup/' + this.iid);
   onValue(starCountRef, (snapshot) => {
-   const ad = snapshot.val();  
-this.checker = ad.username
-
+    const ad = snapshot.val();  
+    this.checker = ad.username
    }); 
      await this.delay(1000);
-console.log(this.checker)
-   
+console.log(this.checker)  
     if(this.checker == this.iid  ){
-     alert('You already booked!'); 
-   
-    }
-
-      
-    else {
-    
+     alert('You already booked!');  
+    }     
+    else {  
       let myDate = formatDate(new Date(), 'mmss', 'en')
       this.uuid =  "p"+myDate+ Math.floor(100 + Math.random() * 90);
    set(ref(this.database, 'pickup/' + this.uuid), {
@@ -113,20 +103,11 @@ console.log(this.checker)
        phonenumber:value.phonenumber,
       uid: this.uid,
       cpack:this.packs
-
-
-
       }); 
       this.checker = "";
     this.packs = 0
-     
       alert('Booked!');
- 
-
     }
-   
-   
-
   }
   
 }

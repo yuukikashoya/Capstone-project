@@ -5,7 +5,6 @@ import { Database, onValue, ref, set } from '@angular/fire/database';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-
 @Component({
   selector: 'app-manage-sales',
   templateUrl: './manage-sales.component.html',
@@ -16,6 +15,17 @@ export class ManageSalesComponent implements OnInit {
   week!: Observable<any[]>;
   year!: Observable<any[]>;
   logs!: Observable<any[]>;
+  currentweek = 0
+  currentyear = 0
+  currentDate: Date = new Date();
+  currentday = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+  editshow = false
+  graphshow = true
+  table =false
+  defultpricing = 0
+  defultkilo = 0
+
+
   constructor(public router:Router,public database:Database
     ,private FireDb: AngularFireDatabase) {
       this.logs = FireDb.list('/logs').valueChanges();
@@ -35,18 +45,12 @@ export class ManageSalesComponent implements OnInit {
 // get the value of the staff
       this.defultpricing = db.pricing,
       this.defultkilo = db.Kilo
-  
     });
-
-
-
     if (sessionValue == "1" ) {
       this.daily = FireDb.list('/sales/daily').valueChanges();
       this.week = FireDb.list('/sales/week').valueChanges();
       this.year = FireDb.list('/sales/year').valueChanges();
       this.currentweek =  currentWeekNumber ;
-    
-  
     } else {
       this.router.navigate(['/sign'])
     }
@@ -54,14 +58,11 @@ export class ManageSalesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-currentweek = 0
-currentyear = 0
 
-currentDate: Date = new Date();
-  currentday = formatDate(new Date(), 'MM~dd~yyyy', 'en')
   getFormattedDate(): string {
     return formatDate(this.currentDate, 'MM~dd~yyyy', 'en');
   }
+
 addweek(){
   if(this.currentweek == 52){
     this.currentweek = 1
@@ -70,6 +71,7 @@ addweek(){
   this.currentweek = this.currentweek + 1 ;
 }
 }
+
 minusweek(){
   if(this.currentweek == 1){
     this.currentweek = 52
@@ -78,34 +80,36 @@ minusweek(){
   this.currentweek = this.currentweek - 1 ;
 }
 }
+
 addyear(){
   this.currentyear = this.currentyear + 1 ;
 }
+
 minusyear(){
   this.currentyear = this.currentyear - 1 ;
 }
 
-editshow = false
-graphshow = true
-table =false
+
 edittime(){
   this.editshow = true
   this.graphshow = false
 }
+
 cacel(){
   this.editshow = false
   this.graphshow = true
 }
-defultpricing = 0
-defultkilo = 0
+
 tabletime(){
   this.table = true
   this.graphshow = false
 }
+
 closetable(){
   this.table = false
   this.graphshow = true
 }
+
 updatepricing(){
   if(this.defultkilo && this.defultpricing && this.defultkilo != 0 && this.defultpricing != 0){
     set(ref(this.database, 'sales/Pricing/'), {
