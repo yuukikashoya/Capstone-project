@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CustomConfirmDialogComponent } from './dialog.component';
 import { LogsComponent } from './logs/logs.component';
 import { SalesGraphComponent } from './sales-graph/sales-graph.component';
+import { termsclass } from './tdialog.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SalesGraphComponent } from './sales-graph/sales-graph.component';
     AnnoucementComponent,
     CustomConfirmDialogComponent,
     LogsComponent,
-    SalesGraphComponent
+    SalesGraphComponent,
+    termsclass
   ],
   imports: [
     BrowserModule,

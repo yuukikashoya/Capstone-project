@@ -201,4 +201,13 @@ back(){
   this.s1 = false
   this.s2 = true
 }
+showDialog = false; 
+opentdialog(){
+  this.showDialog = true;
+
+}
+onCancelled(): void {
+  this.showDialog = false;
+}
+
 }

@@ -244,8 +244,8 @@ validateInput(event: KeyboardEvent) {
 handleInput(event: any) {
   const inputValue = event.target.value;
   // Ensure '9' remains at the beginning
-  if (inputValue === '' || !inputValue.startsWith('9')) {
-    this.phonenumber = '9' + inputValue.replace(/[^0-9]/g, ''); // Remove non-digit characters
+  if (inputValue === '' || !inputValue.startsWith('63')) {
+    this.phonenumber = '63' + inputValue.replace(/[^0-9]/g, ''); // Remove non-digit characters
   } else {
     this.phonenumber = inputValue.replace(/[^0-9]/g, ''); // Remove non-digit characters
   }

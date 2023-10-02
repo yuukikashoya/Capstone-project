@@ -92,6 +92,9 @@
                         <option value="female">Female</option>
                         
                       </select>	
+					  <br>
+					  <label  class="label1"(click)="opentdialog()">By creating your account you agree in<p style="color: rgb(68, 68, 190);">Terms & Condition</p></label> <br>
+					
 				</div>
 
 
@@ -112,5 +115,9 @@
 </div>
 </div>
 </div>
+ 
+<app-term-confirm-dialog *ngIf="showDialog"
+(cancel)="onCancelled()"
 
+></app-term-confirm-dialog>
 <!-- bug test -->
