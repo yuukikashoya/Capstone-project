@@ -51,7 +51,6 @@ export class SalesGraphComponent implements OnInit, AfterViewInit {
     this.ye4 = formatDate(this.yes4, 'MM~dd~yyyy', 'en');
     this.ye5 = formatDate(this.yes5, 'MM~dd~yyyy', 'en');
     this.ye6 = formatDate(this.yes6, 'MM~dd~yyyy', 'en');
-
     const starCountRef = ref(this.database, '/sales/daily/'+ this.currentday);
     onValue(starCountRef, (snapshot) => {
      const db = snapshot.val();  
@@ -122,14 +121,8 @@ export class SalesGraphComponent implements OnInit, AfterViewInit {
            this.l6 = 0;
          }
           });
-
-          this.customLabels = [this.ye6, this.ye5, this.ye4, this.ye3, this.ye2, this.ye1,this.ye];
-    
+          this.customLabels = [this.ye6, this.ye5, this.ye4, this.ye3, this.ye2, this.ye1,this.ye]; 
    }
-
-
-
-
   ngOnInit() {
   }
 
@@ -158,41 +151,32 @@ private drawChart() {
   const maxValue = Math.max(...this.salesData);
   const xStep = (width - 5 * padding) / (this.salesData.length - 1);
   const yStep = (height - 5 * padding) / maxValue;
-
   // Clear the canvas
   ctx.clearRect(0, 0, width, height);
-
   // Draw axes
   ctx.beginPath();
   ctx.moveTo(padding, padding);
   ctx.lineTo(padding, height - padding);
   ctx.lineTo(width - padding, height - padding);
   ctx.stroke();
-
-  
   // Draw data points and lines
   ctx.beginPath();
   ctx.strokeStyle = '	#f97c7c';
   ctx.lineWidth = 8;
-
   for (let i = 0; i < this.salesData.length; i++) {
     const x = padding + i * xStep + 50; // Add an offset of 50 to move to the right
     const y = height - padding - this.salesData[i] * yStep;
-
     // Draw data point
     ctx.arc(x, y, 0, 0, Math.PI * 2);
-
     // Draw data value
     ctx.fillStyle = 'black';
     ctx.font = 'bold 12px Arial';
     ctx.fillText(this.salesData[i].toString(), x - ctx.measureText(this.salesData[i].toString()).width / 2, y - 20);
-
     // Draw custom label below the graph
     const label = this.customLabels[i];
     ctx.fillStyle = 'black';
     ctx.fillText(label, x - ctx.measureText(label).width / 2, height - 5);
   }
-
   ctx.stroke();
   ctx.closePath();
 }

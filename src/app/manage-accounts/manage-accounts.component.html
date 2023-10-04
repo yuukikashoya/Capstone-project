@@ -34,7 +34,12 @@
             <label >Last Name</label><br>
             <input ngModel name='lname' type="text" placeholder="enter your Last name"><br>
             <label >User Name</label><br>
-            <input ngModel name='username' type="text" placeholder="enter your username"><br>
+            <input ngModel name='username' type="text" placeholder="enter your username"><br><br>
+
+            <div class="icon-container">
+              <div class="icon" id="info-icon">!</div>
+              <div class="tooltip" id="info-tooltip">password always set to 1</div>
+            </div>
             <label hidden>Password</label><br>
             <input ngModel hidden name='password' type="password" class="name" readonly  [ngModel]="defultpassword" placeholder="enter your password"><br>    
         </div>

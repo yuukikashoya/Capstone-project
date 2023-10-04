@@ -14,11 +14,11 @@ admin = false;
 session= false;
 staff = false;
 typeid :any;
+navData: any;
 delay(ms: number) {
   return new Promise( resolve => setTimeout(resolve, ms) );
 }
 
-navData: any;
 reloadNavComponent() {
   const id= sessionStorage.getItem('id');
   const ara = sessionStorage.getItem('type');
@@ -31,17 +31,12 @@ this.admin = db.admin;
 
  });
 }
-
   constructor(private router:Router,public database:Database, public navService:NavService) {
   const id= sessionStorage.getItem('id');
- 
 
-  
     const sessionValue = sessionStorage.getItem('type');
     this.typeid = sessionValue
-
-    if (sessionValue == "1") {
-    
+    if (sessionValue == "1") {  
          const starCountRef = ref(this.database, 'staff/' + id);
     onValue(starCountRef, (snapshot) => {
      const db = snapshot.val();  
@@ -49,10 +44,7 @@ this.admin = db.admin;
  this.admin = db.admin;
 
      });
-
-
     }else if(sessionValue == "0"){
- 
   const starCountRef1 = ref(this.database, 'client/' + id);
          onValue(starCountRef1, (snapshot) => {
           const cd = snapshot.val();  
@@ -62,22 +54,17 @@ this.admin = db.admin;
           });
 
     }
-    
     else {
     
     } 
- 
-     
 
     this.navService.reloadNav$.subscribe(() => {
       this.reloadNavComponent();
     });
- 
 
    }
 
   ngOnInit(): void {
-
 
   }
   async logout(){
@@ -98,7 +85,6 @@ update(ref(this.database, 'staff/' + id),{
 // await this.delay(1000);
 this.admin = false;
 this.staff = false;
-
 sessionStorage.clear();
 this.router.navigate(['/sign'])
 this.navService.reloadNav();

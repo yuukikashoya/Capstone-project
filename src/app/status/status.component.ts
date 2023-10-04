@@ -14,10 +14,13 @@ pickup!: Observable<any[]>;
 laundry!: Observable<any[]>;
 delivery!: Observable<any[]>;
 customerpickup!: Observable<any[]>;
+  DeliveryPickupA = true
+  processingA = false
+  wasingA = false
+  ReadyD = false
+  ReadyP = false
   constructor(public router:Router,private FireDb: AngularFireDatabase) {
-
-    const sessionValue = sessionStorage.getItem('type');
-   
+    const sessionValue = sessionStorage.getItem('type');   
     if (sessionValue ) {
       this.pickup = FireDb.list('/pickup').valueChanges();
       this.laundry = FireDb.list('/laundry').valueChanges();
@@ -30,11 +33,6 @@ customerpickup!: Observable<any[]>;
 
   ngOnInit(): void {
   }
-  DeliveryPickupA = true
-  processingA = false
-  wasingA = false
-  ReadyD = false
-  ReadyP = false
 
   DeliveryPickup() {
     this.DeliveryPickupA = true
