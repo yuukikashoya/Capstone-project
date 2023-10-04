@@ -12,19 +12,12 @@ export class LogsComponent implements OnInit {
   logs!: Observable<any[]>;
   
   constructor(private FireDb: AngularFireDatabase,public router:Router) { 
-
-
     const sessionValue = sessionStorage.getItem('type');
     const sid = sessionStorage.getItem('id');
-
     if (sessionValue == "1" && sid == "admin" || sid == "owner") {
-
     } else {
       this.router.navigate(['/sign'])
     }
-
-
-
     this.logs = FireDb.list('/logs').valueChanges();
   }
 

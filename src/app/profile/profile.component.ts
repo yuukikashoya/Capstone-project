@@ -8,20 +8,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+    namef!:string;
+    namel!:string;
+    location!:string;
+    uid!:string;
+    time!:string;
+    phonenumber!:string;
+    username!:string;
+    email!:string;
+    gender!:string;
+    jobtitle!:string;
+  masterkey = false
+    eid= sessionStorage.getItem('id');
+    type = sessionStorage.getItem('type');
+  oldpassword!: string;
+  newpasword!: string;
+  confirmpassword!:string;
 
-  namef!:string;
-  namel!:string;
-  location!:string;
-  uid!:string;
-  time!:string;
-  phonenumber!:string;
-  username!:string;
-  email!:string;
-  gender!:string;
-  jobtitle!:string;
-masterkey = false
-   eid= sessionStorage.getItem('id');
-   type = sessionStorage.getItem('type');
   constructor(public router:Router ,public database:Database) {
     
     const id= sessionStorage.getItem('id');
@@ -62,8 +65,6 @@ this.location = cd.address
 
    }
    
-
-
     } else {
       this.router.navigate(['/sign'])
     } 
@@ -71,17 +72,11 @@ this.location = cd.address
   ngOnInit(): void {
   }
 
-
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
 }
 
 
-
-
-oldpassword!: string;
-newpasword!: string;
-confirmpassword!:string;
   // change password
    changepassword(value:any){
     if(this.oldpassword && this.newpasword && this.confirmpassword){
@@ -120,8 +115,6 @@ confirmpassword!:string;
   oldpassword = db.password
 
   });
-
-
 if(oldpassword == value.oldpassword){
    if(value.newpassword == value.confirmpassword){
      update(ref(this.database, 'client/' + this.eid),{
@@ -158,9 +151,6 @@ changegender() {
  }
 }
 
-
-
-
 updateprofile(value:any){
   if (this.type == "1") {
 // admin
@@ -169,7 +159,6 @@ update(ref(this.database, 'staff/' + this.eid),{
   lastname:this.namel,
   Email:this.email,
   phonenumber:this.phonenumber
-  
 
   } );
   alert("Prodile updated")
@@ -182,12 +171,8 @@ update(ref(this.database, 'client/' + this.eid),{
   phonenumber:this.phonenumber,
   gender:this.gender,
   address:this.location
-  
-
   } );
   alert("Prodile updated")
   }
 }
-
-
 }

@@ -15,7 +15,7 @@
 
 
 .back {
-  background: url(../../assets/image/back5.png);
+  background: url(../../assets/image/zzz.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -24,40 +24,65 @@
 }
 
 .off {
-  text-align: center;
+  text-align: left;
+  padding-left: 1%;
   padding-top: 3%;
-  padding-bottom: 3%;
   font-family: Bahnschrift;
-  font-size: 4rem; /* Use relative units for font size */
+  font-size: 6rem; /* Use relative units for font size */
   font-weight: bold;
   color: rgb(255, 255, 255);
-  border: solid white;
-  width: 90%;
-  margin: 0 auto; /* Center the element horizontally */
+  width: 43%;
+  margin-left: 8%; /* Center the element horizontally */
   text-shadow: 5px 5px 5px black;
 }
 
 .off1 {
-  text-align: center;
-  padding-top: 1em;
-  color: black;
-  font-size: 150%; /* Use relative units for font size */
+  color: white;
+  text-align: left;
+  padding-top: 1%;
+  margin-left: 10%;
+  font-size: 250%; /* Use relative units for font size */
   font-family: Bahnschrift;
 }
 
 .slct {
   text-align: center;
 }
+.map-container {
+  position: relative;
+  width: 35%;
+  height: 40vh;
+  overflow: hidden;
+  border: 5%;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 5%;   
+}
+
+.aaa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+
+}
 
 /* Media query for screens with a maximum width of 768px (typical mobile devices) */
 @media (max-width: 768px) {
   .off {
-    font-size: 2rem; /* Reduce font size for mobile */
+    font-size: 3rem; /* Reduce font size for mobile */
+    margin-top: -22%;
   }
 
   .off1 {
-    font-size: 0.875rem; /* Reduce font size for mobile */
+    font-size: 120%; /* Reduce font size for mobile */
   }
+  .map-container {
+    width: 90%; /* Adjust the width for mobile screens */
+    margin-left: 5%;
+  }
+
 }
 
 .hays {
@@ -114,16 +139,16 @@ h2{
 
 .button-28 {
   appearance: none;
-  background-color: #3B3B3B;
+  background-color: #ffffff;
   border-radius: 15px;
   box-sizing: border-box;
-  color: white;
+  color: black;
   cursor: pointer;
   display: inline-block;
   font-family: Bahnschrift;
   font-size: 20px;
   line-height: normal;
-  margin-left: 28em;
+  margin-left: 10%;
   outline: none;
   padding: 11px;
   text-align: center;
@@ -142,8 +167,8 @@ h2{
 }
 
 .button-28:hover {
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: rgb(0, 0, 0);
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
   font-weight: bold;
@@ -161,13 +186,7 @@ h2{
   height: 100vh;
   padding-top: 1em;
 }
-hr{
-  border: 1px solid rgb(135, 135, 135);
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 1%;
-  margin-bottom: 2%;   
-}
+
 .extra {
   border: none;
   margin-top: 8%;
@@ -222,6 +241,7 @@ hr{
     width: 100%; /* Make it full width on mobile */
     float: none; /* Remove float on mobile */
     padding-right: 0; /* Remove right padding on mobile */
+    background-color: white;
   }
 
   .title2 {
@@ -271,7 +291,20 @@ height: 3em;
 box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
+.hh{
+  font-size: 4em; 
+  text-align: center;
+}
 
+.kk{
+  float: left; 
+  height: 65%; 
+  width: 35%; 
+  border-radius: 50%; 
+  border: solid grey; 
+  margin-left: 10%; 
+  margin-top: 5%;
+}
 /* Add this CSS at the end of your existing CSS code */
 /* Media queries for responsive design */
 
@@ -291,11 +324,30 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 
 /* Adjust width and margin for smaller screens */
 .button-28 {
-  width: 80%;
-  margin-left: 2em;
+  background-color: black;
+  width: 20%;
+  margin-left: 9%;
+  padding: 0;
+  color: white;
+}
+.kk{
+  margin-bottom: -15%;
+  height: 15%;
+  width: 25%;
+  border-radius: 50%;
+  border: solid grey;
+  margin-left: 38%;
+  margin-top: 1%;
+  float: none;
 }
 
-/* Adjust font size, margin, and padding for smaller screens */
+.hh{
+  font-size: 3em;
+}
+
+.about{
+  height: 70vh;
+}
 .desc {
   font-size: 1.25em;
   margin-right: 1em;
@@ -309,10 +361,27 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
   margin-left: 1em;
   margin-top: 10px;
 }
+.flip-box-front{
+  margin-left: 5%;
+  background-color: #bbb;
+  color: black;
+  margin-top: 5%;
+  width: 70%;
+  height: 70%;
+}
+.lol{
+  height: 90%;
+}
+.flip-box-inner {
 
+  width: 100%;
+  height: 100%;
+
+}
 /* Adjust padding for smaller screens */
 .back {
   padding: 1em;
+  height: 40vh;
 }
 
 /* Adjust margin for smaller screens */
@@ -321,17 +390,18 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
 .desc {
-  font-size: 1em;
-  margin-right: 0.5em;
-  margin-left: 0.5em;
+
+  font-size: 120%;
+  margin-right: 2em;
+  margin-left: 2em;
   padding-bottom: 1em;
 }
 
 /* Adjust font size and margin for even smaller screens */
 .title2 {
-  font-size: 2.5em;
+  font-size: 3em;
   margin-left: 0.5em;
-  text-align: right;
+  text-align: center;
 }
 
 /* Adjust margin for even smaller screens */
@@ -500,7 +570,7 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
   background-color: transparent;
   width: 300px;
   height: 200px;
-  border: 1px solid #f1f1f1;
+  border: none;
   perspective: 1000px;
 }
 
@@ -551,24 +621,25 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
   }
 
   .back2 {
-    background: url('../../assets/image/min.png');
+    background: url('../../assets/image/minnn.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
+    height: 60vh;
   }
 
-  @media screen and (min-width: 768px) {
-    .back2 {
-        height: 66vh; /* Adjust height for laptops */
-    }
-}
 
 /* Mobile styles */
 @media screen and (max-width: 767px) {
     .back2 {
-        height: auto; /* Adjust height for mobile phones */
+        height: 125vh; /* Adjust height for mobile phones */
+    }
+    .flip-box-back{
+      margin-left: -5%;
+    }
+    .column{
+      margin-bottom: 5%;
     }
 }
 
@@ -579,6 +650,7 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
     flex-wrap: wrap;
     justify-content: center;
     padding: 0 8px;
+    margin-top: 2%;
   }
   
   /* Create four equal columns that sits next to each other */
@@ -590,7 +662,7 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
   }
   
   .column img {
-    margin-top: 20px;
+
     vertical-align: middle;
     width: 100%;
   }
@@ -620,15 +692,15 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
       -ms-flex-wrap: wrap; /* IE10 */
       flex-wrap: wrap;
       justify-content: center;
-      padding: 0 8px;
-  
+ 
+      margin-top: -25px ;
     }
 
     .end{
-      text-align: justify;
+      text-align: left;
         float: left;
         margin-left: 0%;
-        font-size: 180%;
+        font-size: 16px;
         color: black;
         border-radius: 5px;
       }
@@ -637,14 +709,14 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
   .lol{
     width: 20%;
     height: 120%;
-
+    margin-top: -5%;
   }
 
 
 
 /* Common styles for both laptop and mobile */
 .contact {
-  background-color: rgb(168, 168, 168);
+  background-color: rgb(208, 208, 208);
 }
 
 .title5 {
@@ -659,22 +731,18 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
   text-align: center;
   font-size: 15px;
   font-family: Bahnschrift;
-  padding-top: 20px;
   color: black;
 }
 
 .hey {
-  background: url('../../assets/image/bgl.png');
+  background: url('../../assets/image/mmm.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 75vh;
 }
 
-.cc {
-  justify-content: center;
-  align-items: center;
-}
+
 
 .title3 {
   font-size: 4em;
@@ -685,8 +753,8 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
 .end {
-  text-align: justify;
-  font-size: 180%;
+  text-align: left;
+  font-size: 16px;
   color: black;
   border-radius: 5px;
 }
@@ -719,22 +787,26 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 @media screen and (max-width: 767px) {
   .contact {
     background-color: rgb(168, 168, 168);
-    margin-top: 90%;
+    margin-top: 5%;
   }
 
   .end {
       float: none; /* Remove the float for mobile phones */
-      margin-left: 10px; /* Adjust margin for mobile phones */
+      margin-left: 75px; /* Adjust margin for mobile phones */
       margin-right: 10px; /* Adjust margin for mobile phones */
-      text-align: center;
+      text-align: left;
   }
   .title3 {
-    font-size: 4em;
+    font-size: 3em;
     font-family: Bahnschrift;
     color: black;
     text-align: center;
-    padding-top: 20%;
-  }
+    padding-top: 10%;
+   }   
+    .hey{
+      height: 110vh;
+    }
+
 }
 
 .desc2 {
@@ -742,7 +814,8 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
   padding-left: 3em;
   padding-right: 3em;
   color: black;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
   text-align: center;
 }
 

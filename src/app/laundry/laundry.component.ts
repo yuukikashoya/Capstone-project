@@ -24,33 +24,76 @@ export class LaundryComponent implements OnInit {
   currentsaleweek = 0
   currentincomeyear = 0
   currentsaleyear = 0
-
-
   currencyAmount = '₱150.00';
   amountInInteger!: number;
+  upid = ""
+  upusername = ""
+  upname = ""
+  upuid = ""
+  upphonenumber = ""
+  upadress= ""
+  upfor = ""
+  uppacks = 0
+  laid = ""
+  lausername = ""
+  laname = ""
+  lauid = ""
+  laphonenumber = ""
+  laadress = ""
+  lafor = ""
+  lakilo = ""
+  lapack = ""
+  laprice = ""
+  lastatus = ""
+  defultkilo = 7
+  defultpricing = 150
+  decimal = 0
+  pack = 0
+  total = 0
+  remover = 0
+  decimal1 = 0
+  uuid = ""
+  PKactive = true;
+  Dactive = false;
+  Wactive = false;
+  Pickupactive = false;
+  PUactive = false;
+  WUactive = false;
+  CPKactive = false;
+  addLactive = false
+  confirmid = ""
+  confirmname = ""
+  confirmusername = ""
+  confirmuid = ""
+  confirmpayed = ""
+  confirmpack = ""
+  confirmaddress = ""
+  nav = true
+  pickedactive = false
+  deliveredavtive = false
+  changedd="Pick up at the shop"
+  changemode=false
+  phonenumber= ""
+  location= ""
+  name=""
+  username=""
+  uid= ""
+  cpacks= 0
   constructor(private FireDb: AngularFireDatabase,
      public database:Database,public router:Router,
      private smsService: SmsService) { 
-
       const qwer = ref(this.database, 'sales/Pricing');
       onValue(qwer, (snapshot) => {
        const qw = snapshot.val();  
    // get the value of the staff
          this.defultpricing = qw.pricing,
          this.defultkilo = qw.Kilo
-     
        });
-
       let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
     // Remove the currency symbol '₱' and the decimal point '.'
     const amountWithoutCurrency = this.currencyAmount.substring(1);
-    
     // Convert to an integer
     this.amountInInteger = parseInt(amountWithoutCurrency);
-
-  
-
-
       const ttoday = new Date();
       let tttodate = ttoday.getFullYear();
       this.currentyear = tttodate + 0
@@ -58,9 +101,7 @@ export class LaundryComponent implements OnInit {
         const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
         const pastDaysOfYear = (today.getTime() - firstDayOfYear.getTime()) / 86400000;
         const currentWeekNumber = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
-      
-    const sessionValue = sessionStorage.getItem('type');
-   
+        const sessionValue = sessionStorage.getItem('type');
     if (sessionValue == "1" ) {
       this.currentweek =  currentWeekNumber ;
       const starCountRef2 = ref(this.database, 'sales/daily/' + dailysalee);
@@ -90,20 +131,9 @@ export class LaundryComponent implements OnInit {
     } else {
       this.router.navigate(['/sign'])
     }
-
-
   }
-
   ngOnInit(): void {
   }
-upid = ""
-upusername = ""
-upname = ""
-upuid = ""
-upphonenumber = ""
-upadress= ""
-upfor = ""
-uppacks = 0
 
   getupdate(value:any){
     // getting the value
@@ -123,8 +153,8 @@ uppacks = 0
     }else{
       this.uppacks = 0
     }
-   
   }
+
   cancelupdate(){
     // clear the value
     this.upid = ""
@@ -139,17 +169,6 @@ uppacks = 0
     this.PUactive = false;
   }
 
-laid = ""
-lausername = ""
-laname = ""
-lauid = ""
-laphonenumber = ""
-laadress = ""
-lafor = ""
-lakilo = ""
-lapack = ""
-laprice = ""
-lastatus = ""
   getLaundry(value:any){
     // getting the value
     this.laid = value.id
@@ -183,27 +202,17 @@ lastatus = ""
     this.Wactive =  true;
     this.WUactive = false;
   }
-  defultkilo = 7
-  defultpricing = 150
-  decimal = 0
-  pack = 0
-  total = 0
-  remover = 0
-  decimal1 = 0
-  uuid = ""
+
  
 update(value:any){
-
   if(value.kilo == "" || value.kilo == null){
   alert("Put the Kilo")
-
 }else{
    // calculation of pricing
   this.decimal = value.kilo/ this.defultkilo;
   if(this.decimal < 1){
     this.decimal = 1
   }
-
   this.decimal1 = Math.trunc(this.decimal);
   this.remover = this.decimal -  this.decimal1 
 if(this.remover != 0){
@@ -232,41 +241,20 @@ set(ref(this.database, 'laundry/' + this.uuid), {
    pack: this.pack,
    kilo: value.kilo,
    status: "processing"
-
-
-
    }); 
 
     remove(ref(this.database, 'pickup/' + value.pickupid));
-
-
-   this.upid = ""
-   this.upusername = ""
-   this.upname = ""
-   this.upuid = ""
-   this.upphonenumber = ""
-   this.upadress= ""
-   this.upfor = ""
-
-
+        this.upid = ""
+        this.upusername = ""
+        this.upname = ""
+        this.upuid = ""
+        this.upphonenumber = ""
+        this.upadress= ""
+        this.upfor = ""
 }
-
 this.PKactive =  true;
 this.PUactive = false;
 }
-
-
-
-
-PKactive = true;
-Dactive = false;
-Wactive = false;
-Pickupactive = false;
-PUactive = false;
-WUactive = false;
-CPKactive = false;
-addLactive = false
-
 
 showPK(){
   this.PKactive =  true;
@@ -322,20 +310,14 @@ addLa(){
 
 updatewashing(){
   update(ref(this.database, 'laundry/' + this.laid), {
-
    status: "washing"
-
-
-
    }); 
    this.Wactive =  true;
    this.WUactive = false;
-
 }
 
 readyfordelivery(){
   remove(ref(this.database, 'laundry/' + this.laid));
-
   set(ref(this.database, 'delivery/' + this.laid), {
     id: this.laid,
     username: this.lausername,
@@ -347,14 +329,8 @@ readyfordelivery(){
    pack: this.lapack,
    kilo: this.lakilo,
    status: "On the Delivery"
-
-
-
    }); 
- 
    const message = "Hello "+ this.laname +", Exciting news! Your fresh laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is on its way. Payment amount: "+ this.laprice +". We value your trust and look forward to serving you again.  -I.M CAFE AND LAUNDROMAT";
-
-     
      this.smsService.sendSMS(this.laphonenumber, message)
        .subscribe(
          (response) => {
@@ -364,16 +340,12 @@ readyfordelivery(){
            console.error('Failed to send SMS:', error);
          }
        );
-   
-
    this.Wactive =  true;
    this.WUactive = false;
-
-
 }
+
 readyforpickup(){
   remove(ref(this.database, 'laundry/' + this.laid));
-
   set(ref(this.database, 'customerpickup/' + this.laid), {
     id: this.laid,
     username: this.lausername,
@@ -386,10 +358,7 @@ readyforpickup(){
    kilo: this.lakilo,
    status: "Ready for Pick up"
    }); 
-
-   const message = "Hello "+ this.laname +", Your laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is ready for pick up. Payment amount: "+ this.laprice +". Thank you for choosing us. We look forward to serving you again. -I.M CAFE AND LAUNDROMAT";
-
-     
+   const message = "Hello "+ this.laname +", Your laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is ready for pick up. Payment amount: "+ this.laprice +". Thank you for choosing us. We look forward to serving you again. -I.M CAFE AND LAUNDROMAT";  
      this.smsService.sendSMS(this.laphonenumber, message)
        .subscribe(
          (response) => {
@@ -399,26 +368,12 @@ readyforpickup(){
            console.error('Failed to send SMS:', error);
          }
        );
-   
-
    this.Wactive =  true;
    this.WUactive = false;
-
 }
 
-// finish  or delete
-confirmid = ""
-confirmname = ""
-confirmusername = ""
-confirmuid = ""
-confirmpayed = ""
-confirmpack = ""
-confirmaddress = ""
 
 
-nav = true
-pickedactive = false
-deliveredavtive = false
 cpickup(l:any){
   this.confirmid = l.id
   this.confirmname = l.name
@@ -426,7 +381,6 @@ cpickup(l:any){
   this.confirmuid = l.uid
   this.confirmpayed = l.total
   this.confirmpack = l.pack
-
   this.pickedactive = true
   this.nav = false
 this.Pickupactive = false
@@ -474,7 +428,6 @@ set(ref(this.database, 'logs/' + this.transacitonid), {
          
           }); 
 
-
  this.currentweek =  currentWeekNumber ;
  set(ref(this.database, 'sales/week/' + currentWeekNumber), {
 income: this.currentincomeweek + this.amountInInteger,
@@ -501,18 +454,12 @@ this.pickedactive = false
 
 }
 
-
 pickedupno(){
   this.nav = true
 this.Pickupactive = true
 this.pickedactive = false
 
 }
-
-
-
-
-
 
 cdedivered(d:any){
 
@@ -619,17 +566,9 @@ this.deliveredavtive = false
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
 }
-  changedd="Pick up at the shop"
-  changemode=false
-  phonenumber= ""
-  location= ""
-  name=""
-  username=""
-  uid= ""
-  cpacks= 0
-  async addlaundryy(value:any){
 
-this.username = value.username
+  async addlaundryy(value:any){
+    this.username = value.username
     const starCountRef = ref(this.database, 'client/' + this.username);
     onValue(starCountRef, (snapshot) => {
      const db = snapshot.val();  
@@ -641,14 +580,11 @@ this.username = value.username
   
      });
      await this.delay(1000);
-
-
    // calculation of pricing
    this.decimal = value.kilo/ this.defultkilo;
    if(this.decimal < 1){
      this.decimal = 1
    }
- 
    this.decimal1 = Math.trunc(this.decimal);
    this.remover = this.decimal -  this.decimal1 
  if(this.remover != 0){
@@ -656,10 +592,7 @@ this.username = value.username
  }else{
    this.pack = this.decimal1
  }
- 
    this.total = this.pack * this.defultpricing;
-
-
    this.cpacks = value.packs
 if(this.cpacks == 0 || this.cpacks ==  undefined){
   
@@ -731,9 +664,6 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
        setTimeout(() => {
         printWindow.close();
       }, 1000); // Adjust the delay time as needed
-    
- 
-     }
-   
+     } 
    }
 }

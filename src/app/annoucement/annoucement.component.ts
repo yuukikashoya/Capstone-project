@@ -31,6 +31,11 @@ typeid = sessionStorage.getItem('type');
 postid= ""
 header= ""
 body= ""
+todelete = ""
+showDialog = false; 
+editid=""
+editac = false
+//posting the announcement
   postna(any:any){
     this.header = any.header
     this.body = any.body
@@ -44,22 +49,21 @@ if(any.header && any.body){
  body : this.body,
  timedate: timedate,
  postid:this.postid
-
     }); 
     alert("posted")
     this.myForm.reset(); 
-}
   }
+}
   ngOnInit(): void {
   }
-  editid=""
-  editac = false
+//getting the id of the posted content
 getedit(value:any){
 this.editac = true
 this.editid = value.postid
 this.body = value.body
 this.header = value.title
 }
+//editing the posted content
 edit(){
   if(this.header && this.body){
   update(ref(this.database, 'announcements/' + this.editid), {
@@ -72,28 +76,28 @@ edit(){
   this.editac = false
       }
 }
+//cancel or backing to the contents
 editcancel(){
   this.editac = false
   this.myForm.reset(); 
 }
-todelete = ""
+//showing the confimation
 deletea(value:any){
   this.showDialog = true;
   this.todelete = value
 }
+//deleting the content
 onConfirmed(): void {
  remove(ref(this.database,   'announcements/' + this.todelete));
   this.showDialog = false;
 }
-
+//closing the dialog
 onCancelled(): void {
-  // User cancelled, close the dialog
+ 
   this.todelete = ''
   this.showDialog = false;
 }
-
-showDialog = false;
-
+//showing the confimation
 openConfirmationDialog(value:any): void {
   this.showDialog = true;
   this.todelete = value

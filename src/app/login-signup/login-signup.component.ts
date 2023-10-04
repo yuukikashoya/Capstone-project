@@ -17,25 +17,19 @@ export class LoginSignupComponent implements OnInit {
   show: boolean = false;
   clientdata = "";
   staffdata="";
-clientname = "";
-staffname="";
-
-
-
-fname=""
-lname=""
-username=""
-email=""
-phonenumber="63"
-
-address=""
-ccpassword=""
-cccpassword=""
-set=""
-
-
-
-
+  clientname = "";
+  staffname="";
+  fname=""
+  lname=""
+  username=""
+  email=""
+  phonenumber="63"
+  address=""
+  ccpassword=""
+  cccpassword=""
+  set=""
+  s1 = false
+  s2 = true
 validateInput(event: KeyboardEvent) {
   const inputChar = event.key;
 
@@ -131,7 +125,6 @@ alert('wrong credential! or slow internet connection');
 }
 
 }
-
   async signup(value:any){
 
     if (  value.username == null || value.username == "" || value.password == null || value.password == "" 
@@ -199,16 +192,7 @@ this.checker = ad.username
    
 }
 }
-
-
-
-
 // hide and show sign up
-
-
-s1 = false
-s2 = true
-
 next(){
 this.s1 = true
 this.s2 = false
@@ -217,4 +201,13 @@ back(){
   this.s1 = false
   this.s2 = true
 }
+showDialog = false; 
+opentdialog(){
+  this.showDialog = true;
+
+}
+onCancelled(): void {
+  this.showDialog = false;
+}
+
 }
