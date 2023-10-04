@@ -1,9 +1,10 @@
 
-<div class="container">
+
+
+
+<div class="vv">
     <h1 >Booking</h1>
-
-<div class="">
-
+  </div>
     <div class="jumbotron jumbotron-fluid ">
   <h4>Place your Booking</h4>
     <form #booking="ngForm" (ngSubmit)="book(booking.value)">
@@ -15,7 +16,7 @@
         <label for="ara " >Deliver or pick up on the shop</label><br>
         <input type="text"[ngModel]="changedd" name="changedd"readonly><button class="buttn" (click)="changedelivery()"type="button">Change</button><br>
         <label >Phone Number </label><br>
-        <input type="number" min="10" max="11"  id="contact"[ngModel]="phonenumber"    name="phonenumber" [readOnly]="this.readphonenumber"><br>
+        <input type="number" min="10" max="11"  id="contact"[ngModel]="phonenumber"    name="phonenumber" [readOnly]="this.readphonenumber">  
         <button class="butt" type="button" (click)="changephonenumber()" class="butt">{{readphonenumber ? 'Edit' : 'lock'}}</button><br>
         <label >Number of packs you want(optional) <div class="icon-container">
           <div class="icon" id="info-icon">!</div>
@@ -29,6 +30,5 @@
     </div>
 
 
-  </div>
 
-</div>
+

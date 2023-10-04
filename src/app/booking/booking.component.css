@@ -1,32 +1,37 @@
 
 .jumbotron-fluid{
-    background-color: rgba(175, 89, 2, 0.824);
-    width: 60em;
-padding-bottom: 0;
+    background-color: rgba(255, 255, 255, 0.824);
+    width: 30em;
+    margin-top: 2em;
     padding-top: 1em;
     height: 95%;
-    color: rgba(255, 255, 255, 0.694);
-    margin-bottom: 2em;
-  ;
-    
+    color: rgb(44, 44, 44);
+    font-size: 16px;
+    margin-bottom: 2em;    
+    padding-left: 4%;
+    margin-left: 5%;
+    border-radius: 5%;
 }
 .log{
   height: 400px;
   width: 400px;
   border-radius: 50%;
   margin-left: 15em;
-
-
+}
+h4{
+  font-size: 18px;
+  font-weight: bold;
 }
 label{
-    font-size: 1.5em;
-    color: rgb(212, 212, 212);
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
 }
 input{
     border-radius: 5px;
-    border-color: white;
+    border-color: rgb(43, 43, 43);
     height: 40px;
-    width: 450px;
+    width: 300px;
     font-size: 15px;
     color: black;
     background-color: rgb(255, 255, 255);
@@ -85,7 +90,7 @@ input{
         touch-action: manipulation;
         width: 20%;
         will-change: transform;
-        margin-left: 24em;
+        margin-left: 5px;
       }
       
       .butt:disabled {
@@ -110,31 +115,10 @@ column-count: 2;
 }
 h1{
   font-size: 5em;
-  color: white;
-}
-@font-face {
-  font-family: 'Rocher';
-  src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
-}
-.mint{
-  /* color: rgb(0, 78, 212); */
-  font-size: 5em;
-  font-family: 'Rocher';
-  font-weight: bolder;
-  margin-left: 2em;
-  flex-direction: column;
-  margin-top: 15px;
-  
+  color: black;
+  padding-left: 56px;
 }
 
-@font-palette-values --Mint {
-  font-family: Rocher;
-  base-palette: 7;
-}
-
-.mint {
-  font-palette: --Mint;
-}
 
 .icon-container {
   position: relative;
