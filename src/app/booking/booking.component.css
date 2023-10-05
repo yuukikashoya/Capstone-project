@@ -1,16 +1,16 @@
 
 .jumbotron-fluid{
-    background-color: rgba(255, 255, 255, 0.824);
-    width: 30em;
-    margin-top: 2em;
-    padding-top: 1em;
-    height: 95%;
-    color: rgb(44, 44, 44);
-    font-size: 16px;
-    margin-bottom: 2em;    
-    padding-left: 4%;
-    margin-left: 5%;
-    border-radius: 5%;
+  background-color: rgb(255, 255, 255);
+  width: 30em;
+  margin-top: 2em;
+  padding-top: 1em;
+  height: 75%;
+  color: rgb(44, 44, 44);
+  font-size: 16px;
+  margin-bottom: 2em;    
+  padding-left: 4%;
+  margin-left: 360px;
+  border-radius: 10px;
 }
 .log{
   height: 400px;
@@ -23,108 +23,98 @@ h4{
   font-weight: bold;
 }
 label{
-    font-size: 16px;
-    color: rgb(0, 0, 0);
-    font-weight: 500;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
 }
 input{
-    border-radius: 5px;
-    border-color: rgb(43, 43, 43);
-    height: 40px;
-    width: 300px;
-    font-size: 15px;
-    color: black;
-    background-color: rgb(255, 255, 255);
-    
-
+  border-radius: 5px;
+  border-color: rgb(43, 43, 43);
+  height: 40px;
+  width: 300px;
+  font-size: 15px;
+  color: black;
+  background-color: rgb(255, 255, 255);
 }
 .buttn{
-    margin-top: 5px;
-    margin-left: 5px;
-    border-color: white;   
-        appearance: none;
-        background-color: white;
-        border-radius: 8px;
-        box-sizing: border-box;
-        color: #000000;
-        cursor: pointer;
-        display: inline-block;
-        font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-        font-size: 15px;
-        font-weight: bold;
-        min-height: 30px;
-        min-width: 0;
-        outline: none;
-        text-align: center;
-        text-decoration: none;
-        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        width: 20%;
-        will-change: transform;
-
+  margin-top: 5px;
+  margin-left: 5px;
+  border-color: white;   
+  appearance: none;
+  background-color: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 15px;
+  font-weight: bold;
+  min-height: 30px;
+  min-width: 0;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 20%;
+  will-change: transform;
 }
 .butt{
-    border-color: white;   
-    margin-top: 5px;
-        appearance: none;
-        background-color: white;
-        border-radius: 8px;
-        box-sizing: border-box;
-        color: #3B3B3B;
-        cursor: pointer;
-        display: inline-block;
-        font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-        font-size: 15px;
-        font-weight: bold;
-        line-height: normal;
-        min-height: 30px;
-        min-width: 0;
-        outline: none;
-        text-align: center;
-        text-decoration: none;
-        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        width: 20%;
-        will-change: transform;
-        margin-left: 5px;
-      }
-      
-      .butt:disabled {
-        pointer-events: none;
-      }
-      
-      .butt:hover {
-        color: #fff;
-        background-color: #1A1A1A;
-        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-        transform: translateY(-2px);
-        border: solid black
-      }
-      
-      .butt:active {
-        box-shadow: none;
-        transform: translateY(0);
-      }
-.bod1{
-column-count: 2;
-
+  border-color: white;   
+  margin-top: 5px;
+  appearance: none;  
+  background-color: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 15px;
+  font-weight: bold;
+  line-height: normal;
+  min-height: 30px;
+  min-width: 0;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 20%;
+  will-change: transform;
+  margin-left: 5px;
+}      
+.butt:disabled {
+  pointer-events: none;
+}      
+.butt:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+  border: solid black
+}      
+.butt:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 h1{
   font-size: 5em;
   color: black;
-  padding-left: 56px;
+  padding-left: 70px;
 }
-
-
+.bod1{
+  column-count: 2;
+}
 .icon-container {
   position: relative;
   display: inline-block;
 }
-
 .icon {
   font-size: 24px;
   width: 24px;
@@ -136,7 +126,6 @@ h1{
   border-radius: 50%;
   cursor: pointer;
 }
-
 .tooltip {
   position: absolute;
   top: 0; /* Adjust the distance between the icon and tooltip as needed */
@@ -149,41 +138,56 @@ h1{
   opacity: 0;
   transition: opacity 0.5s;
   text-align: center; 
-  width: 200px;
 }
 
 .icon-container:hover .tooltip {
   opacity: 1;
 }
 .container{
-margin-bottom: 0;
-padding-bottom: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.vv{
+  background-color: rgb(137, 137, 137);
+  height: 100vh;
 }
 @media screen and (max-width: 768px) {
-  
+  .jumbotron-fluid{
+    height: 60%;
+  }
+  h4{
+    text-align: center;
+    padding: 0;
+  }
+  .buttn{
+    margin-left: 6%;
+  }
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
-}
-
-.jumbotron {
-    width: 100%;
-    margin-left: 0;
-}
-
-.butt {
-    margin-left: 0;
-}
-
-label {
-    text-align: center; /* Center-align labels */
-}
-
-input[type="text"],
-input[type="number"] {
-    width: 100%; /* Make input fields full width */
-}
   }
+  h1{
+    text-align: center;
+    padding: 0;
+  }
+  .jumbotron {
+  width: 95%;
+  margin-left: 3%;
+  }
+  .butt {
+  margin-left: 6%;
+  }
+  label {
+  text-align: center; /* Center-align labels */
+  }
+  input{
+  width: 200px
+  }
+  .vv{
+    height: 115vh;
+   }
+  }
+

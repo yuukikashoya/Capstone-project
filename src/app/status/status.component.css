@@ -1,26 +1,61 @@
 .process-nav {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
-
 .process-nav a {
-    display: inline-block;
-    padding: 10px;
-    background-color: #f2f2f2;
-    color: #333;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    text-align: center;
+  display: inline-block;
+  padding: 10px;
+  background-color: #f2f2f2;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-align: center;
 }
-
 .process-nav a:hover {
-    background-color: #ddd;
+  background-color: #ddd;
+} 
+.progress-bar{
+  height: 20px;
+}
+.progress{
+  height: 20px;
 }
 .sumsum{
-    font-size: 2em;
-    font-weight: bold;
+  font-size: 2em;
+  font-weight: bold;
+}
+.scrollable{
+  background-color: white;
+  padding: 2%;
+  margin-bottom: 2%;
+  border-radius: 8px;
+}
+td{
+  color: black;
+  background-color: rgb(203, 203, 203);
+}
+h1{
+  margin-left: 5%;
+  font-size: 43px;
+  color: #201f1f;
+  padding-top: 2px;
+}
+.table{
+  font-size: 16px;
+}
+.container{
+  margin-top: -50px;
+}
+.ww{
+  background-color: rgb(137, 137, 137);
+  height: 190vh;
+}
+@media screen and (max-width: 768px) {
+.ww{
+  height: 180vh;
+ }
 }

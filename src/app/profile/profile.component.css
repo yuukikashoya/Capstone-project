@@ -1,8 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Modak");
 .container{
     padding-bottom: 3em;
-    color: rgb(35, 73, 101);
-
     padding-top: 2px;
     height: 450px;
 }
@@ -11,87 +8,69 @@
     margin-top:2%;
     background:rgb(255, 255, 255);
     border-radius: 10px;
-
+}
+h3{
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  font-family: Bahnschrift;;
 }
 @media screen and (max-width: 768px) {
   /* Adjust navigation menu */
-  .kara {
-    height: 240%;
+.kara{
+  height: 240%;
   }
-  h2{
-    text-align: center;
+h2{
+  text-align: center;
   }
-  h3{
-    font-size: 20px;
-  }
-}
-/* .avatar{
-width:300px;
-height:300px;
-} */
-
 h3{
-    font-size: 300%;
-    color: rgb(0, 0, 0);
-    font-family: Bahnschrift;;
-}
-/* @media screen and (max-width: 768px) {
-
-  h3{
-    font-size: 20px;
+  font-size: 20px;
   }
-} */
-.form-horizontal{
-    font-size: 18px;
-    font-family: Bahnschrift;
 }
 .form-horizontal{
-    color: rgb(0, 68, 120);
+  font-size: 16px;
+  font-family: Bahnschrift;
+}
+.form-horizontal{
+  color: rgb(0, 68, 120);
 }
 .btn-primary{
-        appearance: none;
-        background-color:rgb(134, 181, 251);
-        border: 2px solid #ffffff;
-        border-radius: 15px;
-        box-sizing: border-box;
-        color: #282727;
-        cursor: pointer;
-        display: inline-block;
-        font-family: Bahnschrift;;
-        font-size: 18px;
-        font-weight: bold;
-        line-height: normal;
-        /* min-height: 30px; */
-        min-width: 9em;
-        outline: none;
-        text-align: center;
-        text-decoration: none;
-        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        /* width: 10%; */
-        will-change: transform;
-        padding: 4%;
-
-      }
-
-      .btn-primary:disabled {
-        pointer-events: none;
-      }
-
-      .btn-primary:hover {
-        color: #fff;
-        background-color: #1A1A1A;
-        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-        transform: translateY(-2px);
-        border: none;
-      }
-
-      .btn-primary :active {
-        box-shadow: none;
-        transform: translateY(0);
-      }
+  appearance: none;
+  background-color:rgb(134, 181, 251);
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #282727;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Bahnschrift;;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: normal;
+  min-width: 9em;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+  padding: 4%;
+}
+.btn-primary:disabled {
+  pointer-events: none;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+  border: none;
+}
+.btn-primary :active {
+  box-shadow: none;
+  transform: translateY(0);
+}
 
 h2{
   font-family: Bahnschrift;;
@@ -100,7 +79,7 @@ h2{
   padding-top: 10px;
 }
 .form-control{
-  font-size: 18px;
+  font-size: 16px;
   background-color: rgb(216, 216, 216);
 }
 hr{
@@ -111,4 +90,13 @@ label{
 }
 .row{
   padding-left: 10%;
+}
+.ww{
+  background-color: rgb(137, 137, 137);
+  height: 100vh;
+}
+@media screen and (max-width: 768px) {
+  .ww{
+    height: 180vh;
+  }
 }
