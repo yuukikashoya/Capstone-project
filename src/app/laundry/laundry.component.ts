@@ -663,7 +663,7 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
        printWindow.print();
        setTimeout(() => {
         printWindow.close();
-      }, 1000); // Adjust the delay time as needed
+      }, 5000); // Adjust the delay time as needed
      } 
    }
 }
