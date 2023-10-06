@@ -59,6 +59,8 @@ h1{
   height: 180vh;
  }
 h1{
+  padding-top: 4%;
   text-align: center;
+  font-size: 30px;
 }
 }
