@@ -231,10 +231,11 @@ h2{
   font-family: Bahnschrift;
   margin-right: 2em;
   margin-left: 1em;
-  color: black;
   text-align: right;
 }
-
+.title2:hover{
+  color: white;
+}
 .logo {
   float: left;
   max-height: 65%; /* Limit the maximum height for responsiveness */
@@ -781,11 +782,6 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
   font-size: 16px;
   color: black;
   border-radius: 5px;
-}
-
-.end:hover {
-  background-color: rgb(194, 194, 194);
-  color: black;
 }
 
 /* Laptop styles */
