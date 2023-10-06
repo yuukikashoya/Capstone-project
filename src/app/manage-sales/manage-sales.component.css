@@ -84,7 +84,7 @@ h2, p {
 }
 .vv{
   background-color: rgb(137, 137, 137);
-  height: 150vh;
+  height: 140vh;
 }
 
 @media (max-width: 768px) {
@@ -96,7 +96,7 @@ h2, p {
 
   }
   .vv{
-    height: 170vh;
+    height: 150vh;
 }
 }
 /* Adjust the custom date input style */
