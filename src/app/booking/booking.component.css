@@ -104,7 +104,8 @@ input{
   transform: translateY(0);
 }
 h1{
-  font-size: 5em;
+  padding-top: 7px;
+  font-size: 4em;
   color: black;
   padding-left: 70px;
 }

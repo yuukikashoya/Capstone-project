@@ -8,13 +8,15 @@ text-align: justify;
 
 .mint{
   font-family: Bahnschrift;;
-  font-size: 3em;
-  color: rgb(53, 53, 53);
-  padding-top: 15px;
+  font-size: 4em;
+  color: rgb(36, 36, 36);
+  padding-top: 13px;
+
 }
 .letter pre {
   margin: 0;
   white-space: pre-wrap;
+  font-size: 16px;
 }
 .pad{
   text-align: center;
@@ -112,7 +114,7 @@ margin-top: 5em;
   font-weight: bold;
 }
 .alert-warning{
-  background-color: rgb(137, 137, 137);
+  background-color: rgb(231, 230, 230);
   border: none;
 }
 .scrollable-div{
@@ -168,6 +170,10 @@ margin-top: 5em;
   color: white;
   font-weight: bold;
 }
+.vv{
+  background-color: rgb(137, 137, 137);
+  height: 100vh;
+}
 @media screen and (max-width: 768px) {
   .pad{
     font-size: 15px;
@@ -184,5 +190,8 @@ margin-top: 5em;
   }
   .jumbotron{
     height: 25em;
+  }
+    .vv{
+      height: 115vh;
   }
 }
