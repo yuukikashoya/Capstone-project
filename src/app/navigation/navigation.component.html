@@ -2,31 +2,7 @@
 
 
 
-  
-<span style="float: right;">
-    <a routerLink="tracking" *ngIf="typeid == '0'">
-        <i class="fa fa-book fa-2x"></i>
-        <span class="nav-text">
-            Laundry Status
-        </span>
-    </a>
-    </span>
-<span style="float: right; ">
-    <a routerLink="announcement">
-        <i class="fa fa-bullhorn fa-2x"></i>
-        <span class="nav-text">
-           Announcement
-        </span>
-    </a>
-</span>
-<span style="float: right;">
-    <a routerLink="home">
-        <i class="fa fa-home fa-2x"></i>
-        <span class="nav-text">
-           Home
-        </span>
-    </a>
-</span>
+
 
 <div style="float: left; border-radius: 20px;"  *ngIf="this.typeid == '1'">
 <nav>
@@ -34,7 +10,19 @@
       <div></div>
     </div>
 
-          
+    <a routerLink="home">
+        <i class="fa fa-home fa-2x"></i>
+        <span class="nav-text">
+           Home
+        </span>
+    </a>
+    <a routerLink="announcement">
+        <i class="fa fa-bullhorn fa-2x"></i>
+        <span class="nav-text">
+           Announcement
+        </span>
+    </a>
+
 
             <a routerLink="accounts" *ngIf="this.admin == true">
                 <i class="fa fa-users fa-2x"></i>
@@ -99,7 +87,24 @@
           <div></div>
         </div>
     
-
+        <a routerLink="home">
+            <i class="fa fa-home fa-2x"></i>
+            <span class="nav-text">
+               Home
+            </span>
+        </a>
+        <a routerLink="announcement">
+            <i class="fa fa-bullhorn fa-2x"></i>
+            <span class="nav-text">
+               Announcement
+            </span>
+        </a>
+        <a routerLink="tracking" >
+            <i class="fa fa-book fa-2x"></i>
+            <span class="nav-text">
+                Laundry Status
+            </span>
+        </a>
          <a routerLink="profile">
                    <i class="fa fa-user fa-2x"></i>
                     <span class="nav-text">
@@ -123,7 +128,8 @@
  
    
     
-                <a  (click)="logout()" >
+
+                <a  class="logout" (click)="logout()" >
                     <i class="fa fa-power-off fa-2x"></i>
                    <span class="nav-text">
                        Logout
@@ -135,7 +141,30 @@
     </div>
     
     
-    
+    <div style="float: left;" *ngIf="!this.typeid">
+        <nav>
+            <div class="navicon">
+              <div></div>
+            </div>
+        
+            <a routerLink="home">
+                <i class="fa fa-home fa-2x"></i>
+                <span class="nav-text">
+                   Home
+                </span>
+            </a>
+            <a routerLink="sign">
+                <i class="fa fa-bullhorn fa-2x"></i>
+                <span class="nav-text">
+                   Login
+                </span>
+            </a>
+
+          
+          </nav>
+        </div>
+        
+         
 
 
 <!-- admin nav 
