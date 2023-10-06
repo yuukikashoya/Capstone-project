@@ -9,6 +9,7 @@
   .chatbox {
      max-width: calc(100% - 60px);
       height: 550px;
+      background-color: white;
       max-height: 600px;
       display: flex;
       flex-direction: column;

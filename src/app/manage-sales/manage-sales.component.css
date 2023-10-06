@@ -82,12 +82,20 @@ h2, p {
   padding-top: 7px;
   padding-left: 80px; /* Adjust padding for better mobile viewing */  
 }
+.vv{
+  background-color: rgb(137, 137, 137);
+  height: 150vh;
+}
+
 @media (max-width: 768px) {
   .title {
       font-size: 3em;
       text-align: center;
       padding-left: 5px;
   }
+  .vv{
+    height: 170vh;
+}
 }
 /* Adjust the custom date input style */
 .custom-date-input {
