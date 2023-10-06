@@ -22,7 +22,7 @@ nav:hover {
   -webkit-transition-duration: 0.75s;
   transition-duration: 0.75s;
   border-radius: 10px;
-  clip-path: circle(480px at 150px 24px);
+  clip-path: circle(550px at 150px 24px);
   text-decoration: none;
 }
 

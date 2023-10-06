@@ -615,7 +615,7 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
      status: "processing"
      }); 
 
-     alert('Booked!');
+
      const screenWidth = window.screen.width;
      const screenHeight = window.screen.height;
  
