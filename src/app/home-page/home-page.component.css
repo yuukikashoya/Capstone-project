@@ -37,11 +37,11 @@
 }
 
 .off1 {
-  color: white;
+  color: rgb(43, 43, 43);
   text-align: left;
   padding-top: 1%;
   margin-left: 10%;
-  font-size: 16px; /* Use relative units for font size */
+  font-size: 20px; /* Use relative units for font size */
   font-family: Bahnschrift;
 }
 
@@ -77,6 +77,7 @@
 
   .off1 {
     font-size: 16px; /* Reduce font size for mobile */
+
   }
   .map-container {
     width: 90%; /* Adjust the width for mobile screens */
@@ -115,14 +116,22 @@ margin: 0; /* Reset margin to remove any unwanted spacing */
   }
 }
 
+h1{
+  font-size: 28px;
+  font-family: Bahnschrift;
+  flex-direction: column; 
+  padding-top: 20px;
+  text-align: right;
+  padding-right: 2%;
 
+}
 
 h2{
   padding-top: 1%;
   font-size: 350%;
   font-family: Bahnschrift;
-  text-align: left;
   flex-direction: column;
+  text-align: center;
 }
 
 .text-3{
@@ -288,6 +297,16 @@ h2{
   .desc {
     font-size: 1rem; /* Reduce font size for mobile */
     margin: 0.5em; /* Adjust margin for mobile */
+  }
+  h2{
+    font-size: 3em;
+    text-align: center;
+    margin-right: 10%;
+  }
+  h1{
+    font-size: 3em;
+    text-align: center;
+    margin-right: 10%;
   }
 }
 .button-35 {

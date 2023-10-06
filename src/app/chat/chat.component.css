@@ -39,9 +39,7 @@
       background-size: cover;
       background-position: center;
     }
-      .vv{
-        height: 115vh;
-    }
+
   }
 
   .chat-input {
@@ -218,7 +216,7 @@ box-shadow: 5px 5px 10px black;
   @media only screen and (max-width: 600px) {
     .marginator{
       width: 100px;
-      height: 413px;
+      height: 60vh;
     }
 
     .text-center{
@@ -327,8 +325,8 @@ box-shadow: 5px 5px 10px black;
   .chatbox {
     max-width: 150%;
     width: 210px;
-    height: 400px;
-    max-height: 450px;
+    height: 101vh;
+    max-height: 436px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
