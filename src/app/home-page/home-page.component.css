@@ -202,7 +202,7 @@ h2{
 }
 .bg_slider {
   --initialTextColor: #323131;
-  --slideTextColor: #272838;
+  --slideTextColor: #ffffff;
 
   --initialBgColor: #ffffff;
   --slideBgColor: #787878;
