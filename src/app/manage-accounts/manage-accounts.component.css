@@ -240,7 +240,9 @@ hr{
     margin-left: 30%;
   }
   h2{
-    font-size: 30px;
+    font-size: 25px;
+    padding-top: 0;
+    padding-left: 7%;
   }
   .nav-item {
     text-align: center;

@@ -58,9 +58,7 @@
   border-top-right-radius: 10px 10px;
   border-top-left-radius: 10px 10px;
 }
-.navbar{
-  padding: 0;
-}
+
 
 .item{
   border: none;
@@ -316,12 +314,12 @@ h3{
     column-gap: 0;
   }
   .jump {
-    margin-top: 45%;
+    padding-top: 10%;
     padding-left: 2%;
     padding-right: 2%;
   }
   .vv{
-    height: 145vh;
+    height: 100vh;
 }
 }
 
@@ -331,7 +329,7 @@ h3{
     font-size: 3em;
   }
   .title2 {
-    font-size: 16px;
+    font-size: 20px;
   }
   label {
     font-size: 14px;
@@ -347,7 +345,7 @@ h3{
     margin: 10px;
   }
   .jumbotron2 {
-    margin-top: 45%;
+    padding-top: 12%;
     padding-left: 3%;
     padding-right: 3%;
   }
@@ -414,9 +412,8 @@ h3{
   }
   /* Adjust the item styles */
   .item {
-    width: 50vh;
     margin-bottom: 2px;
-    margin-right: 20px;
+
     border: none;
     text-align: center;
     color: white;
@@ -447,7 +444,9 @@ h3{
 
   }
   .navbar{
-    margin-top: 40%;
+    margin-top: 25%;
+    margin-left: -30px;
+    padding: 0;
   }
 }
 

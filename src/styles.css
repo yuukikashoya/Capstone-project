@@ -55,9 +55,7 @@
     background-color: #f0f0f0; /* Set a background color instead */
   }
 
-  body {
-    padding: 10px; /* Add some padding to the body for smaller screens */
-  }
+
 
   .scrollable {
     max-height: 30em; /* Adjust max-height for smaller screens */
