@@ -84,17 +84,19 @@ h2, p {
 }
 .vv{
   background-color: rgb(137, 137, 137);
-  height: 150vh;
+  height: 140vh;
 }
 
 @media (max-width: 768px) {
   .title {
-      font-size: 3em;
-      text-align: center;
-      padding-left: 5px;
+    font-size: 28px;
+    padding-top: 15px;
+    text-align: center;
+    padding-left: 40px;
+
   }
   .vv{
-    height: 170vh;
+    height: 150vh;
 }
 }
 /* Adjust the custom date input style */
