@@ -625,29 +625,27 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
          <head>
          <style>
          @page{
-          size:50mm 70mm;
+          size:45mm 50mm;
           
          }
          body{
        
-      margin:0;
-          size:50mm 70mm;
+          margin-left: -10px;
+          size:45mm 50mm;
           text-align:center;
-          height: 50mm;
-          padding:5;
+          height: 45mm;
+          padding:10px;
           page-break-after:always;
-         }
-         h3,h1{
-          magrin-top:-10mm;
-          margin-botton:-5mm;
          }
 
          </style>
            <title>Print Number</title>
          </head>
          <body>
-           <h3>IM CAFE & LAUNDROMAT</h1>
+         <br><br><hr style="border-top:1px white;"><br>
+           <h3 class="to">IM CAFE & LAUNDROMAT</h1><br><br><hr><br>
            <h1>${this.uuid}</h1>
+           <br><br><hr><br>
          </body>
        </html>
      `;
@@ -662,7 +660,7 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
        // Print the content
        printWindow.print();
        setTimeout(() => {
-        printWindow.close();
+         printWindow.close();
       }, 1000); // Adjust the delay time as needed
      } 
    }

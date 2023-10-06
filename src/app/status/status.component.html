@@ -1,75 +1,93 @@
+<div class="ww">
+<h1>Laundry Status</h1>
 <div class="container" style="padding-top:6em;">
-  <!-- <div class="process-nav">
-  <a (click)="DeliveryPickup()">Delivery Pick up</a>
-  <a (click)="processing()">Processing</a>
-  <a (click)=" wasing()">Washing</a>
-  <a (click)="Readydd()">Ready for Delivery</a>
-  <a (click)=" Readypp() ">Ready for Pick up</a>
-</div> -->
-<!-- pickup delivery rider -->
-<div   *ngFor="let a of pickup | async">
 
-     
-    <div class="jumbotron jumbotron-fluid " *ngIf="a && eid == a.username">
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
-        aria-valuemin="0" aria-valuemax="100" style="width:5%">
-       5%
-        </div>
-    
+<!-- pickup delivery rider -->
+
+<div   *ngFor="let a of pickup | async">
+  <div class=" jumbotron-fluid table-responsive scrollable"*ngIf="a && eid == a.username">
+    <h3> <span class="lab">Coming to your location for pickup</span>  </h3>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
+      aria-valuemin="0" aria-valuemax="100" style="width:5%">
+     5%
       </div>
-       <div style="font-size: 20px;">Coming to your location for pickup</div>
-      <details class=" ">  
-        <summary class="sumsum">
-          Laundry Number: {{a.id}}
-                  </summary>
-                  <h2><strong>Pickup Location:</strong> {{a.address}}</h2>
-       
-                  <h2><strong>Contact Information:</strong></h2>
-                  <ul>
-                      <li><h2>Name:</h2> <h3>{{a.name}}</h3></li>
-                      <li><h2>Phone Number:</h2> <h3>{{a.phonenumber}}</h3></li>
-                      <li><h2>Instructions:</h2> <h3>{{a.for}}</h3></li>
-                  </ul>
-                
-                  <h2><strong>Laundry Number:</strong> {{a.id}}</h2>
-        </details>   
-          </div>
+  
+    </div>
+    <table class="table table-bordered table-dark">
+        <thead >
+          <tr>
+            <th scope="col">Laundry Number</th>
+            <th scope="col">Instructions</th>                
+            <th scope="col">Name</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Address</th>
+
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            <th scope="row">{{a.id}}</th>
+            <td >{{a.for}}</td>                
+            <td >{{a.name}}</td>  
+            <td >{{a.phonenumber}}</td>  
+            <td >{{a.address}}</td>  
+          </tr>
+
+        </tbody>
+      </table>
+</div>
+
+   
 </div>
 <!-- Processing tracking -->
 <div  *ngFor="let b of laundry | async">
-
-    <div  class="jumbotron jumbotron-fluid " *ngIf="b && eid == b.username && b.status == 'processing'">
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
-        aria-valuemin="0" aria-valuemax="100" style="width:25%">
-       25%
-        </div>
-    
+  <div class=" jumbotron-fluid table-responsive scrollable" *ngIf="b && eid == b.username && b.status == 'processing'">
+    <h3> <span class="lab">Your clothes are in the laundromat</span>  </h3>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
+      aria-valuemin="0" aria-valuemax="100" style="width:25%">
+     25%
       </div>
-       <div style="font-size: 20px;">Your clothes are in the laundromat</div>
-        <details class=" ">  
-          <summary class="sumsum">
-            Laundry Number: {{b.id}}
-                    </summary>
-                    <h2><strong>Pickup Location:</strong> {{b.address}}</h2>
-                    <h2><strong>Item Details:</strong>Kilo: {{b.kilo}}, pack:{{b.pack}}</h2>
-                    <h2><strong>Contact Information:</strong></h2>
-                    <ul>
-                        <li><h2>Name:</h2><h3> {{b.name}}</h3></li>
-                        <li><h2>Phone Number:</h2> <h3>{{b.phonenumber}}</h3></li>
-                        <li><h2>Instructions:</h2><h3> {{b.for}}</h3></li>
-                    </ul>
-                    <h2><strong>Total amout to pay:</strong>₱{{b.total}}</h2>
-                    <h2><strong>Status:</strong>{{b.status}}</h2>
-                    <h2><strong>Laundry Number:</strong> {{b.id}}</h2>
-          </details>    
-          </div>
+  
+    </div>
+    <table class="table table-bordered table-dark">
+        <thead >
+          <tr>
+            <th scope="col">Laundry Number</th>
+            <th scope="col">Instructions</th>                
+            <th scope="col">status</th>
+            <th scope="col">kilo</th>
+            <th scope="col">packs</th>
+            <th scope="col">total</th>
+            <th scope="col">Name</th>
+
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            <th scope="row">{{b.id}}</th>
+            <td >{{b.for}}</td>                
+            <td >{{b.status}}</td>  
+            <td >{{b.kilo}}</td>  
+            <td >{{b.pack}}</td>  
+            <td >{{b.total}}</td>  
+            <td >{{b.name}}</td>  
+          </tr>
+
+        </tbody>
+      </table>
+</div>
+  
 </div>
 <!-- washing tracking -->
 <div *ngFor="let b of laundry | async" >
-
-  <div class="jumbotron jumbotron-fluid "  *ngIf="b && eid == b.username && b.status == 'washing'">
+  <div class=" jumbotron-fluid table-responsive scrollable"*ngIf="b && eid == b.username && b.status == 'washing'">
+    <h3> <span class="lab">Your clothes are being washed</span>  </h3>
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
       aria-valuemin="0" aria-valuemax="100" style="width:50%">
@@ -77,29 +95,41 @@
       </div>
   
     </div>
-     <div style="font-size: 20px;">Your clothes are being washed</div>
-      <details class=" " >  
-        <summary class="sumsum">
-          Laundry Number: {{b.id}}
-                  </summary>
-                  <h2><strong>Pickup Location:</strong> {{b.address}}</h2>
-                  <h2><strong>Item Details:</strong>Kilo: {{b.kilo}}, pack:{{b.pack}}</h2>
-                  <h2><strong>Contact Information:</strong></h2>
-                  <ul>
-                      <li><h2>Name:</h2> <h3>{{b.name}}</h3></li>
-                      <li><h2>Phone Number:</h2> <h3>{{b.phonenumber}}</h3></li>
-                      <li><h2>Instructions:</h2> <h3>{{b.for}}</h3></li>
-                  </ul>
-                     <h2><strong>Total amout to pay:</strong>₱{{b.total}}</h2>
-                  <h2><strong>Status:</strong>{{b.status}}</h2>
-                  <h2><strong>Laundry Number:</strong> {{b.id}}</h2>
-        </details>    
-        </div>
+    <table class="table table-bordered table-dark">
+        <thead >
+          <tr>
+            <th scope="col">Laundry Number</th>
+            <th scope="col">Instructions</th>                
+            <th scope="col">status</th>
+            <th scope="col">kilo</th>
+            <th scope="col">packs</th>
+            <th scope="col">total</th>
+            <th scope="col">Name</th>
+
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            <th scope="row">{{b.id}}</th>
+            <td >{{b.for}}</td>                
+            <td >{{b.status}}</td>  
+            <td >{{b.kilo}}</td>  
+            <td >{{b.pack}}</td>  
+            <td >{{b.total}}</td>  
+            <td >{{b.name}}</td>  
+          </tr>
+
+        </tbody>
+      </table>
+</div>
+
 </div>
 <!-- Ready for Delivery -->
 <div  *ngFor="let c of delivery | async" >
-
-  <div class="jumbotron jumbotron-fluid "  *ngIf="c && eid == c.username">
+  <div class=" jumbotron-fluid table-responsive scrollable"*ngIf="c && eid == c.username">
+    <h3> <span class="lab">Your clothes are ready to be deliver to your area.</span>  </h3>
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
       aria-valuemin="0" aria-valuemax="100" style="width:75%">
@@ -107,29 +137,41 @@
       </div>
   
     </div>
-    <div style="font-size: 20px;">  Your clothes are ready for delivery.</div>
-      <details class=" ">  
-        <summary class="sumsum">
-          Laundry Number: {{c.id}}
-                  </summary>
-                  <h2><strong>Pickup Location:</strong> {{c.address}}</h2>
-                  <h2><strong>Item Details:</strong>Kilo: {{c.kilo}}, pack:{{c.pack}}</h2>
-                  <h2><strong>Contact Information:</strong></h2>
-                  <ul>
-                      <li><h2>Name:</h2><h3>{{c.name}}</h3> </li>
-                      <li><h2>Phone Number:</h2><h3>{{c.phonenumber}}</h3> </li>
-                    
-                  </ul>
-                     <h2><strong>Total amout to pay:</strong>{{c.total}}</h2>
-                  <h2><strong>Status:</strong>{{c.status}}</h2>
-                  <h2><strong>Laundry Number:</strong> {{c.id}}</h2>
-        </details>    
-        </div>
+    <table class="table table-bordered table-dark">
+        <thead >
+          <tr>
+            <th scope="col">Laundry Number</th>
+            <th scope="col">Instructions</th>                
+            <th scope="col">status</th>
+            <th scope="col">kilo</th>
+            <th scope="col">packs</th>
+            <th scope="col">total</th>
+            <th scope="col">Name</th>
+
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            <th scope="row">{{c.id}}</th>
+            <td >{{c.for}}</td>                
+            <td >{{c.status}}</td>  
+            <td >{{c.kilo}}</td>  
+            <td >{{c.pack}}</td>  
+            <td >{{c.total}}</td>  
+            <td >{{c.name}}</td>  
+          </tr>
+
+        </tbody>
+      </table>
+</div>
+ 
 </div>
 <!-- pickup -->
 <div *ngFor="let d of customerpickup | async">
-
-  <div class="jumbotron jumbotron-fluid "   *ngIf="d && eid == d.username">
+  <div class=" jumbotron-fluid table-responsive scrollable" *ngIf="d && eid == d.username">
+    <h3> <span class="lab">Your clothes are ready for pickup.</span>  </h3>
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
       aria-valuemin="0" aria-valuemax="100" style="width:75%">
@@ -137,23 +179,35 @@
       </div>
   
     </div>
-    <div style="font-size: 20px;">  Your clothes are ready for pickup</div>
-      <details class=" ">  
-        <summary class="sumsum">
-          Laundry Number: {{d.id}}
-                  </summary>
-                  <h2><strong>Pickup Location:</strong> {{d.address}}</h2>
-                  <h2><strong>Item Details:</strong>Kilo: {{d.kilo}}, pack:{{d.pack}}</h2>
-                  <h2><strong>Contact Information:</strong></h2>
-                  <ul>
-                      <li><h2>Name:</h2><h3>{{d.name}}</h3> </li>
-                      <li><h2>Phone Number:</h2><h3>{{d.phonenumber}}</h3> </li>
-                    
-                  </ul>
-                     <h2><strong>Total amout to pay:</strong>{{d.total}}</h2>
-                  <h2><strong>Status:</strong>{{d.status}}</h2>
-                  <h2><strong>Laundry Number:</strong> {{d.id}}</h2>
-        </details>    
-        </div>
+    <table class="table table-bordered table-dark">
+        <thead >
+          <tr>
+            <th scope="col">Laundry Number</th>
+            <th scope="col">Instructions</th>                
+            <th scope="col">status</th>
+            <th scope="col">kilo</th>
+            <th scope="col">packs</th>
+            <th scope="col">total</th>
+            <th scope="col">Name</th>
+
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            <th scope="row">{{d.id}}</th>
+            <td >{{d.for}}</td>                
+            <td >{{d.status}}</td>  
+            <td >{{d.kilo}}</td>  
+            <td >{{d.pack}}</td>  
+            <td >{{d.total}}</td>  
+            <td >{{d.name}}</td>  
+          </tr>
+
+        </tbody>
+      </table>
+</div>
+</div>
 </div>
 </div>

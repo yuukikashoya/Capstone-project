@@ -9,6 +9,7 @@
   .chatbox {
      max-width: calc(100% - 60px);
       height: 550px;
+      background-color: white;
       max-height: 600px;
       display: flex;
       flex-direction: column;
@@ -27,12 +28,19 @@
       height: 100%;
       overflow: auto;
   }
+  .vv{
+    background-color: rgb(137, 137, 137);
+    height: 100vh;
+  }
   @media only screen and (max-width: 600px) {
     .chat-window{
       background-image: url("../../assets/image/bnw.png");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
+    }
+      .vv{
+        height: 115vh;
     }
   }
 
@@ -170,9 +178,9 @@
   .mint{
     font-family: Bahnschrift;;
     font-size: 4em;
-    color: rgb(54, 54, 54);
+    color: rgb(41, 41, 41);
     padding-top:11px;
-    padding-left: 7%;
+    padding-left: 6%;
   }
   .usern{
     font-size: 2.5em;
@@ -297,12 +305,9 @@ box-shadow: 5px 5px 10px black;
 
   .mint {
     font-size: 3em;
-    font-family: 'Rocher';
-    font-weight: bolder;
     flex-direction: column;
     margin-left: 2em;
     padding-top: 15px;
-    color: rgb(89, 89, 89);
     padding-left: 25%;
   }
   /* ...Other styles... */
@@ -346,12 +351,4 @@ box-shadow: 5px 5px 10px black;
   /* ...Other styles... */
 
 
-  .mint {
-    font-size: 3em;
-    font-family: 'Bahnschrift';
-    font-weight: bolder;
-    flex-direction: column;
-    margin-left: 2em;
-    padding-top: 15px;
-  }
 }

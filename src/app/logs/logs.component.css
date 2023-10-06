@@ -3,7 +3,7 @@ font-family: Bahnschrift;;
 font-size: 4em;
 color: rgb(36, 36, 36);
 padding-top: 11px;
-padding-left: 7%;
+padding-left: 6%;
 }
 h3{
     font-size: 30px;
@@ -28,6 +28,10 @@ font-size: 14px;
     height: 550px;
     box-shadow: 5px 5px 10px black;
 }
+.vv{
+    background-color: rgb(137, 137, 137);
+    height: 100vh;
+  }
 @media screen and (max-width: 768px) {
     .container {
     display: flex;
@@ -37,6 +41,9 @@ font-size: 14px;
     color: white;
     background-color: rgb(202, 201, 201);
     padding: 15px; /* Add some padding for better mobile viewing */
+}
+.vv{
+    height: 115vh;
 }
     h3{
         font-size: 25px;
