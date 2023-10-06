@@ -41,7 +41,7 @@
   text-align: left;
   padding-top: 1%;
   margin-left: 10%;
-  font-size: 250%; /* Use relative units for font size */
+  font-size: 16px; /* Use relative units for font size */
   font-family: Bahnschrift;
 }
 
@@ -72,11 +72,11 @@
 @media (max-width: 768px) {
   .off {
     font-size: 3rem; /* Reduce font size for mobile */
-    margin-top: -22%;
+    margin-top: -17%;
   }
 
   .off1 {
-    font-size: 120%; /* Reduce font size for mobile */
+    font-size: 16px; /* Reduce font size for mobile */
   }
   .map-container {
     width: 90%; /* Adjust the width for mobile screens */
@@ -200,7 +200,31 @@ h2{
 .extra:hover {
   background-color: rgb(134, 181, 251);
 }
+.bg_slider {
+  --initialTextColor: #323131;
+  --slideTextColor: #272838;
 
+  --initialBgColor: #ffffff;
+  --slideBgColor: #787878;
+
+  color: var(--initialTextColor);
+
+  background-image: linear-gradient(90deg,
+      var(--initialBgColor) 0%,
+      var(--initialBgColor) 50%,
+      var(--slideBgColor) 50%,
+      var(--slideBgColor) 100%);
+  background-size: 400%;
+  transition: background-position .3s cubic-bezier(.47, .1, 1, .63),
+    color .2s linear;
+  transition-delay: 0.0s, 0.15s;
+}
+
+.bg_slider:hover {
+  color: var(--slideTextColor);
+  cursor: pointer;
+  background-position: -50% 100%;
+}
 .title2 {
   padding-top: 1em;
   font-size: 300%; /* Use relative units for font size */
@@ -346,10 +370,10 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
 .about{
-  height: 70vh;
+  height: 100vh;
 }
 .desc {
-  font-size: 1.25em;
+  font-size: 16px;
   margin-right: 1em;
   margin-left: 1em;
   padding-bottom: 2em;
@@ -381,7 +405,7 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 /* Adjust padding for smaller screens */
 .back {
   padding: 1em;
-  height: 40vh;
+  height: 60vh;
 }
 
 /* Adjust margin for smaller screens */
@@ -391,7 +415,7 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 
 .desc {
 
-  font-size: 120%;
+  font-size: 16px;
   margin-right: 2em;
   margin-left: 2em;
   padding-bottom: 1em;
@@ -614,7 +638,7 @@ box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
   }
  
   .ww{
-    font-size: 130%;
+    font-size: 14px;
     text-align: justify;
     padding-left: 5%;
     padding-right: 5%;    
