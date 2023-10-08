@@ -12,7 +12,7 @@
 		<div class="login-form">
 			<form class="sign-in-htm" #testLogin="ngForm" (ngSubmit)="login(testLogin.value)">
 				<div class="group">		<br><br>
-					<label for="user" class="label">Username</label>
+					<label for="user" class="label lb">Username</label>
 					<input name="username" ngModel id="username"  type="text" class="input" placeholder="Enter your username">
 				</div>
 				<div class="group">
@@ -29,7 +29,7 @@
                   </div>
 				</div>
 				<div class="group">
-                    <label for="tab-2" class="label">Don't have an Account? <a for="tab-2">Sign Up</a></label> 
+                    <label for="tab-2" class="label1">Don't have an Account? <a for="tab-2">Sign Up</a></label> 
 				</div>
 
 					<input type="submit" class="button" value="Sign In">
@@ -94,20 +94,18 @@
                         
                       </select>	
 					  <br>
-					  <label  class="label1"(click)="opentdialog()">By creating your account you agree in<p style="color: rgb(68, 68, 190);">Terms & Condition</p></label> <br>
+					  <label (click)="opentdialog()">By creating your account you agree in<p style="color: rgb(68, 68, 190);">Terms & Condition</p></label>
 					
 				</div>
 
 
 				</div>
 
-			
-					<button class="button"  type="button" [hidden]="s2" (click)="back()">back</button>
-
-			
-					<input type="submit"  *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' " class="button" value="Sign Up"> <br *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' " >
-		
-                    <label for="tab-1" class="label1">Already a member? <a for="tab-1">Login</a></label> <br>
+				<label for="tab-1" class="label1">Already a member? <a for="tab-1">Login</a></label>
+					<div class="ss">
+					<button class="button2"  type="button" [hidden]="s2" (click)="back()">back</button>
+					<input type="submit"  *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' " class="button2" value="Sign Up"> <br *ngIf="s2 == false && fname  !== '' && lname   !== '' && username  !==''    && phonenumber != '' && address != '' && ccpassword != '' && cccpassword != '' && set != '' " >
+					</div>
 					<button class="button"  type="button"  *ngIf="s1 == false && fname  !== '' && lname   !== '' && username  !==''  && phonenumber != '' " (click)="next()">Next</button>
 			</form>
 
