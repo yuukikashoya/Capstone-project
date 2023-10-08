@@ -99,4 +99,7 @@ label{
   .ww{
     height: 180vh;
   }
+  .row{
+    padding-left: 0;
+  }
 }

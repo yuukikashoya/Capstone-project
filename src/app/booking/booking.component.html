@@ -11,12 +11,12 @@
    <label >Customer name </label><br>
         <input type="text"  [ngModel]="name" name="name" readonly><br>
         <label >Location of pick up </label><br>
-        <input type="text" [ngModel]="location" name="location" [readOnly]="this.readlocation"><button class="buttn" type="button" (click)="changelocation()">{{readlocation ? 'Edit' : 'lock'}}</button><br>
+        <input type="text" [ngModel]="location" name="location" [readOnly]="this.readlocation"><button class="buttn" type="button" (click)="changelocation()">{{readlocation ? 'Edit' : 'Save'}}</button><br>
         <label for="ara " >Deliver or pick up on the shop</label><br>
         <input type="text"[ngModel]="changedd" name="changedd"readonly><button class="buttn" (click)="changedelivery()"type="button">Change</button><br>
         <label >Phone Number </label><br>
         <input type="number" min="10" max="11"  id="contact"[ngModel]="phonenumber"    name="phonenumber" [readOnly]="this.readphonenumber">  
-        <button class="butt" type="button" (click)="changephonenumber()" class="butt">{{readphonenumber ? 'Edit' : 'lock'}}</button><br>
+        <button class="buttn" type="button" (click)="changephonenumber()" class="buttn">{{readphonenumber ? 'Edit' : 'Save'}}</button><br>
         <label >Number of packs you want(optional) <div class="icon-container">
           <div class="icon" id="info-icon">!</div>
           <div class="tooltip" id="info-tooltip">The price still relies on how many kilos. if you want the defult packs just leave it blank</div>
