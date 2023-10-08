@@ -28,6 +28,7 @@ label{
   font-weight: 500;
 }
 input{
+  padding-left: 1%;
   border-radius: 5px;
   border-color: rgb(43, 43, 43);
   height: 40px;
@@ -62,11 +63,15 @@ input{
   width: 20%;
   will-change: transform;
 }
+.buttn:hover{
+  background-color: black;
+  color: white;
+}
 .butt{
   border-color: white;   
   margin-top: 5px;
   appearance: none;  
-  background-color: white;
+  background-color: rgb(111, 190, 255);
   border-radius: 8px;
   box-sizing: border-box;
   color: #000000;
@@ -149,7 +154,10 @@ h1{
   padding-bottom: 0;
 }
 .vv{
-  background-color: rgb(137, 137, 137);
+  background: url(../../assets/image/cc.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
 }
 @media screen and (max-width: 768px) {
@@ -163,6 +171,7 @@ h1{
   .buttn{
     margin-left: 6%;
   }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -187,6 +196,7 @@ h1{
   text-align: center; /* Center-align labels */
   }
   input{
+    padding-left: 1%;
   width: 200px;
   background-color: rgb(236, 236, 236);
   }

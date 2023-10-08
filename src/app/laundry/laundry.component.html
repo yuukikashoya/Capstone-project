@@ -39,7 +39,7 @@
                 <th scope="col">User ID</th>
                 <th scope="col">Phone number</th>           
                 <th scope="col">Address</th>
-                <th scope="col">After washing to be</th>
+                <th scope="col">Mode of distribution</th>
                 <th scope="col">update</th>
 
               </tr>
@@ -73,7 +73,7 @@
                 <th scope="col">User ID</th>
                 <th scope="col">Phone number</th>           
                 <th scope="col">Address</th>
-                <th scope="col">After washing to be</th>
+                <th scope="col">Mode of distribution</th>
                 <th scope="col">Status</th>
                 <th scope="col">Kilo/s</th>
                 <th scope="col">Number of pack/s</th>
@@ -163,7 +163,7 @@
         <input class="mm" ngModel name='phonenumber' type="number" readonly [ngModel]="upphonenumber"><br>
         <label>Address</label><br>
         <input class="mm" ngModel name='address' type="text" readonly [ngModel]="upadress"><br>
-        <label>After washing to be</label><br>
+        <label>Mode of distribution </label><br>
         <input class="mm" ngModel name='to' type="text" readonly [ngModel]="upfor"><br>
         <label>clothes kilo</label><br>
         <input class="mm" ngModel name='kilo' type="number" ><br>    
@@ -199,13 +199,13 @@
       <input class="mm" ngModel name='userid' type="text" readonly [ngModel]="lauid"><br>    
   </div>
   <div class="column">
-      <label class="text-white">Status</label><br>
+      <label >Status</label><br>
       <input class="mm" ngModel name='phonenumber' type="text" readonly [ngModel]="lastatus"><br>
-      <label class="text-white">number of packs</label><br>
+      <label >number of packs</label><br>
       <input class="mm" ngModel name='address' type="text" readonly [ngModel]="lapack"><br>
-      <label class="text-white">Kilo of clothes</label><br>
+      <label >Kilo of clothes</label><br>
       <input class="mm" ngModel name='to' type="text" readonly [ngModel]="lakilo"><br>
-      <label class="text-white">Total price</label><br>
+      <label >Total price</label><br>
       <input class="mm" ngModel name='kilo' type="text" readonly [ngModel]="laprice"><br>    
   </div>
 </div>
@@ -264,14 +264,14 @@
 
 
 <div class="confirmation-box" *ngIf="pickedactive == true">
-  <p>ORDER CONFIRMATION</p><hr>
+  <p style="color: rgb(88, 166, 255); font-size: 16px;font-weight: 500;">ORDER CONFIRMATION</p><hr>
   <p class="nn"> Name:<b>{{confirmname}}</b> </p>
   <p class="nn"> Usernmae: <b>{{confirmusername}}</b></p>
   <p class="nn"> Number of packs: <b>{{confirmpack}}</b></p>
   <p class="nn"> Total amount due:<b>{{confirmpayed}}</b> </p>
-  <h4>Are you sure is this picked up and paid??</h4>
+  <h4 style="color: rgb(88, 166, 255);">Are you sure is this picked up and paid??</h4>
 
-<button class="btn btn-primary lala " (click)="pickedupyes()">Yes</button>
+<button class="btn btn-primary lala " style="background-color: rgb(2, 253, 2);" (click)="pickedupyes()">Yes</button>
 <button  class="btn btn-danger lala " (click)="pickedupno()">No</button>
 
 </div>
@@ -294,19 +294,19 @@
 <div class="fck">
     <form #booking="ngForm" #add="ngForm" (ngSubmit)="addlaundryy(add.value)">
 
-      <label >Username</label><br>
-      <input class="mm" ngModel name='username' type="text" placeholder="Enter your username"><br>    
-        <label for="ara " >Deliver or pick up on the shop</label><br>
-        <input class="mm" type="text"[ngModel]="changedd" name="changedd"readonly ><button class="buttn" (click)="changedelivery()"type="button">Change</button><br>
+      <label class="bb">Username</label><br>
+      <input class="mm1" ngModel name='username' type="text" placeholder="Enter your username"><br>    
+        <label class="bb" for="ara " >Deliver or pick up on the shop</label><br>
+        <input class="mm1" type="text"[ngModel]="changedd" name="changedd"readonly ><button class="buttn" (click)="changedelivery()"type="button">Change</button><br>
 
-        <label >Clothes kilo</label><br>
-        <input class="mm" ngModel name='kilo' type="number" placeholder="Enter the clothes weight"><br>    
-        <label >Number of packs Client want <div class="icon-container">
+        <label class="bb">Clothes kilo</label><br>
+        <input class="mm1" ngModel name='kilo' type="number" placeholder="Enter the clothes weight"><br>    
+        <label class="bb">Number of packs Client want <div class="icon-container">
           <div class="icon" id="info-icon">!</div>
           <div class="tooltip" id="info-tooltip">The price still relies on how many kilos. if they want the defult packs just leave it blank</div>
         </div>
         </label><br>
-        <input class="mm" ngModel name='packs' type="number" placeholder="Enter the packs"><br>    
+        <input class="mm1" ngModel name='packs' type="number" placeholder="Enter the packs"><br>    
   <input  class="butt" type="submit">
     </form>
   </div>
