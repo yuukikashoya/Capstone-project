@@ -70,7 +70,8 @@
                 <th scope="col">#</th>
                 <th scope="col">Username</th>  
                 <th scope="col">Name</th>              
-                <th scope="col">User ID</th>
+                <th scope="col">Payment Status</th>
+                <th scope="col">Payment Method</th>
                 <th scope="col">Phone number</th>           
                 <th scope="col">Address</th>
                 <th scope="col">Mode of distribution</th>
@@ -84,9 +85,10 @@
             <tbody *ngFor="let q of laundry | async;">
               <tr  *ngIf= "q">
                 <th scope="row">{{q.id}}</th>
-                <td style="background-color: rgb(212, 212, 212);">{{q.username}}</td>    
-                <td>{{q.name}}</td>                            
-                <td style="background-color: rgb(212, 212, 212);">{{q.uid}}</td>  
+                <td>{{q.username}}</td>    
+                <td  style="background-color: rgb(212, 212, 212);">{{q.name}}</td>                            
+                <td >{{q.paymentStatus}}</td>  
+                <td style="background-color: rgb(212, 212, 212);">{{q.paymentMethod}}</td>
                 <td>{{q.phonenumber}}</td>
                 <td style="background-color: rgb(212, 212, 212);">{{q.address}}</td>
                 <td>{{q.for}}</td>
@@ -166,7 +168,11 @@
         <label>Mode of distribution </label><br>
         <input class="mm" ngModel name='to' type="text" readonly [ngModel]="upfor"><br>
         <label>clothes kilo</label><br>
-        <input class="mm" ngModel name='kilo' type="number" ><br>    
+        <input class="mm" ngModel name='kilo' type="number" ><br>  
+        <label>Payment Status and Method</label><br>
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="unpaid">Unpaid &nbsp;</label><br> 
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="gcash">Paid - Gcash</label><br> 
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="cash">Paid - Cash</label><br>  
     </div>
 </div>
         
@@ -206,7 +212,11 @@
       <label >Kilo of clothes</label><br>
       <input class="mm" ngModel name='to' type="text" readonly [ngModel]="lakilo"><br>
       <label >Total price</label><br>
-      <input class="mm" ngModel name='kilo' type="text" readonly [ngModel]="laprice"><br>    
+      <input class="mm" ngModel name='kilo' type="text" readonly [ngModel]="laprice"><br>  
+      <label>Payment Status and Method</label><br>
+      <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="unpaid">Unpaid &nbsp;</label><br> 
+      <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="gcash">Paid - Gcash</label><br> 
+      <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="cash">Paid - Cash</label><br>   
   </div>
 </div>
       
@@ -306,7 +316,11 @@
           <div class="tooltip" id="info-tooltip">The price still relies on how many kilos. if they want the defult packs just leave it blank</div>
         </div>
         </label><br>
-        <input class="mm1" ngModel name='packs' type="number" placeholder="Enter the packs"><br>    
+        <input class="mm1" ngModel name='packs' type="number" placeholder="Enter the packs"><br>    yuukikashoyadfcgvhjkl
+        <label>Payment Status and Method</label><br>
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="unpaid">Unpaid &nbsp;</label><br> 
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="gcash">Paid - Gcash</label><br> 
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="cash">Paid - Cash</label><br>  
   <input  class="butt" type="submit">
     </form>
   </div>

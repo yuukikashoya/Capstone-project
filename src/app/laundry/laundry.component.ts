@@ -79,9 +79,12 @@ export class LaundryComponent implements OnInit {
   username=""
   uid= ""
   cpacks= 0
+
+  paymentMethod= "unpaid"
   constructor(private FireDb: AngularFireDatabase,
      public database:Database,public router:Router,
      private smsService: SmsService) { 
+
       const qwer = ref(this.database, 'sales/Pricing');
       onValue(qwer, (snapshot) => {
        const qw = snapshot.val();  
@@ -184,6 +187,13 @@ export class LaundryComponent implements OnInit {
     this.lapack = value.pack;  
     this.Wactive =  false;
     this.WUactive = true;
+    if(value.paymentStatus == "unpaid"){
+      this.paymentMethod = "unpaid"
+    }else if(value.paymentStatus == "paid" && value.paymentMethod == "gcash"){
+      this.paymentMethod = "gcash"
+    }else if(value.paymentStatus == "paid" && value.paymentMethod == "cash"){
+      this.paymentMethod = "cash"
+    }
 
   }
   cancellaupdate(){
@@ -226,11 +236,23 @@ this.pack = this.decimal1 + 1
   if(this.uppacks !== 0){
     this.pack = this.uppacks
   }
+  let pstatus 
+  let pmethod
+  if(this.paymentMethod == "unpaid"){
+     pstatus = "unpaid"
+     pmethod = "unpaid"
+  }else if(this.paymentMethod == "gcash"){
+     pstatus = "paid"
+     pmethod = "gcash"
+  }else if(this.paymentMethod == "cash"){
+     pstatus = "paid"
+     pmethod = "cash"
+  }
 // adding to the database
 let myDate = formatDate(new Date(), 'mmss', 'en')
 this.uuid =  "L"+myDate+ Math.floor(100 + Math.random() * 99);
 set(ref(this.database, 'laundry/' + this.uuid), {
-    id: this.uuid,
+    id: value.pickupid,
     username: value.username,
     name: value.name,
     address:value.address,
@@ -240,7 +262,9 @@ set(ref(this.database, 'laundry/' + this.uuid), {
    total: this.total,
    pack: this.pack,
    kilo: value.kilo,
-   status: "processing"
+   status: "processing",
+paymentMethod:pmethod,
+paymentStatus:pstatus
    }); 
 
     remove(ref(this.database, 'pickup/' + value.pickupid));
@@ -568,6 +592,18 @@ this.deliveredavtive = false
 }
 
   async addlaundryy(value:any){
+    let pstatus 
+    let pmethod
+    if(this.paymentMethod == "unpaid"){
+       pstatus = "unpaid"
+       pmethod = "unpaid"
+    }else if(this.paymentMethod == "gcash"){
+       pstatus = "paid"
+       pmethod = "gcash"
+    }else if(this.paymentMethod == "cash"){
+       pstatus = "paid"
+       pmethod = "cash"
+    }
     this.username = value.username
     const starCountRef = ref(this.database, 'client/' + this.username);
     onValue(starCountRef, (snapshot) => {
@@ -599,6 +635,10 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
 }else{
   this.pack = this.cpacks
 }
+if(!value.kilo){
+  alert("Put kilo")
+}else{
+
      let myDate = formatDate(new Date(), 'mmss', 'en')
      this.uuid =  "L"+myDate+ Math.floor(100 + Math.random() * 99);
   set(ref(this.database, 'laundry/' + this.uuid), {
@@ -612,7 +652,9 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
      total: this.total,
      pack: this.pack,
      kilo: value.kilo,
-     status: "processing"
+     status: "processing",
+     paymentMethod:pmethod,
+paymentStatus:pstatus
      }); 
 
 
@@ -664,4 +706,5 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
       }, 1000); // Adjust the delay time as needed
      } 
    }
+  }
 }
