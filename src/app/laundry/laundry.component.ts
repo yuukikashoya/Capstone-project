@@ -818,7 +818,19 @@ paymentStatus:pstatus
           padding:10px;
           page-break-after:always;
          }
-
+         .container {
+          display: flex;
+          justify-content: space-between;
+        
+      }
+  
+      .left {
+          text-align: left;
+      }
+  
+      .right {
+          text-align: right;
+      }
          </style>
            <title>Print Number</title>
          </head>
@@ -827,6 +839,22 @@ paymentStatus:pstatus
            <h3 class="to">IM CAFE & LAUNDROMAT</h1><br><br><hr><br>
            <h1>${this.uuid}</h1>
            <br><br><hr><br>
+           <div class="container">
+           <div class="left">
+               <p>Name:</p>
+               <p>Time:</p>
+               <p>Date:</p>
+               <p>Payment:</p>
+               <p>Total:</p>
+           </div>
+           <div class="right">
+               <p>John Lloyd</p>
+               <p>3:04</p>
+               <p>10~19~2023</p>
+               <p>paid</p>
+               <p>4k</p>
+           </div>
+       </div>
          </body>
        </html>
      `;
