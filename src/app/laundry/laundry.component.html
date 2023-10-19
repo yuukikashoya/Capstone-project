@@ -113,7 +113,8 @@
               <th scope="col">#</th>
               <th scope="col">Username</th>  
               <th scope="col">Name</th>              
-              <th scope="col">User ID</th>
+              <th scope="col">Payment Status</th>
+              <th scope="col">Payment Method</th>
               <th scope="col">Phone number</th>           
               <th scope="col">Address</th> 
               <th scope="col">Status</th>
@@ -126,9 +127,10 @@
           <tbody *ngFor="let d of deliverylist | async;let i = index">
             <tr  *ngIf= "d">
               <th scope="row">{{d.id}}</th>
-              <td style="background-color: rgb(212, 212, 212);">{{d.username}}</td>    
-              <td>{{d.name}}</td>                            
-              <td style="background-color: rgb(212, 212, 212);">{{d.uid}}</td>  
+              <td >{{d.username}}</td>    
+              <td style="background-color: rgb(212, 212, 212);">{{d.name}}</td>                            
+              <td>{{d.paymentStatus}}</td>  
+              <td style="background-color: rgb(212, 212, 212);">{{d.paymentMethod}}</td> 
               <td>{{d.phonenumber}}</td>
               <td style="background-color: rgb(212, 212, 212);">{{d.address}}</td>
               <td>{{d.status}}</td>
@@ -240,7 +242,8 @@
           <th scope="col">#</th>
           <th scope="col">Username</th>  
           <th scope="col">Name</th>              
-          <th scope="col">User ID</th>
+          <th scope="col">Payment Status</th>
+          <th scope="col">Payment Method</th>
           <th scope="col">Phone number</th>           
           <th scope="col">status</th>
           <th scope="col">kilo/s</th>
@@ -252,9 +255,10 @@
       <tbody *ngFor="let l of customerpickuplist | async;">
         <tr  *ngIf= "l">
           <th scope="row">{{l.id}}</th>
-          <td style="background-color: rgb(212, 212, 212);">{{l.username}}</td>    
-          <td>{{l.name}}</td>                            
-          <td style="background-color: rgb(212, 212, 212);">{{l.uid}}</td>  
+          <td >{{l.username}}</td>    
+          <td style="background-color: rgb(212, 212, 212);">{{l.name}}</td>                            
+          <td>{{l.paymentStatus}}</td>  
+          <td style="background-color: rgb(212, 212, 212);">{{l.paymentMethod}}</td> 
           <td>{{l.phonenumber}}</td>
           <td style="background-color: rgb(212, 212, 212);">{{l.status}}</td>
           <td>{{l.kilo}}</td>
@@ -279,9 +283,11 @@
   <p class="nn"> Usernmae: <b>{{confirmusername}}</b></p>
   <p class="nn"> Number of packs: <b>{{confirmpack}}</b></p>
   <p class="nn"> Total amount due:<b>{{confirmpayed}}</b> </p>
-  <h4 style="color: rgb(88, 166, 255);">Are you sure is this picked up and paid??</h4>
-
-<button class="btn btn-primary lala " style="background-color: rgb(2, 253, 2);" (click)="pickedupyes()">Yes</button>
+  <h4 style="color: rgb(88, 166, 255);" *ngIf="paymentMethod == 'gcash' ||paymentMethod == 'cash'">Are you sure is this picked up? </h4>
+  <h4 style="color: rgb(88, 166, 255);" *ngIf="paymentMethod == 'unpaid'">Are you sure is this picked up and paid using?</h4>
+  <button class="btn btn-primary  " *ngIf="paymentMethod == 'unpaid'" (click)="pickedupyes()">Yes - Gcash</button>
+  <button class="btn btn-primary lala "  *ngIf="paymentMethod == 'unpaid'"   style="background-color: rgb(2, 253, 2);" (click)="pickedupyes()">Yes - Cash</button>
+<button class="btn btn-primary lala " *ngIf="paymentMethod == 'gcash' ||paymentMethod == 'cash'" style="background-color: rgb(2, 253, 2);" (click)="pickedupyes()">Yes</button>
 <button  class="btn btn-danger lala " (click)="pickedupno()">No</button>
 
 </div>
@@ -292,10 +298,13 @@
   <p class="nn"> Address:<b>{{confirmaddress}}</b> </p>
   <p class="nn"> Number of packs:<b>{{confirmpack}}</b> </p>
   <p class="nn"> Total amount due:<b>{{confirmpayed}}</b> </p>
-  <h4>Are you sure is this Delivered up and paid?</h4>
-  
-<button class="btn btn-primary1 lala"(click)="deliveryyes()">Yes</button>
-<button  class="btn btn-danger lala" (click)="deliveryno()">No</button>
+
+  <h4 style="color: rgb(88, 166, 255);" *ngIf="paymentMethod == 'gcash' ||paymentMethod == 'cash'">Are you sure is this Delivered? </h4>
+  <h4 style="color: rgb(88, 166, 255);" *ngIf="paymentMethod == 'unpaid'" >Are you sure is this Delivered and paid using?</h4>
+  <button class="btn btn-primary  " *ngIf="paymentMethod == 'unpaid'" (click)="pickedupyes()">Yes - Gcash</button>
+  <button class="btn btn-primary lala "  *ngIf="paymentMethod == 'unpaid'"   style="background-color: rgb(2, 253, 2);" (click)="pickedupyes()">Yes - Cash</button>
+<button class="btn btn-primary lala " *ngIf="paymentMethod == 'gcash' ||paymentMethod == 'cash'" style="background-color: rgb(2, 253, 2);" (click)="pickedupyes()">Yes</button>
+<button  class="btn btn-danger lala " (click)="deliveryno()">No</button>
 </div>
 
 
@@ -316,7 +325,7 @@
           <div class="tooltip" id="info-tooltip">The price still relies on how many kilos. if they want the defult packs just leave it blank</div>
         </div>
         </label><br>
-        <input class="mm1" ngModel name='packs' type="number" placeholder="Enter the packs"><br>    yuukikashoyadfcgvhjkl
+        <input class="mm1" ngModel name='packs' type="number" placeholder="Enter the packs"><br>  
         <label>Payment Status and Method</label><br>
         <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="unpaid">Unpaid &nbsp;</label><br> 
         <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="gcash">Paid - Gcash</label><br> 
@@ -324,6 +333,7 @@
   <input  class="butt" type="submit">
     </form>
   </div>
+
     </div>
 </div>
 </div>

@@ -79,6 +79,12 @@ export class LaundryComponent implements OnInit {
   username=""
   uid= ""
   cpacks= 0
+  ccash = 0
+  cgcash = 0
+  wcash = 0
+  wgcash = 0
+  ycash = 0 
+  ygcash = 0
 
   paymentMethod= "unpaid"
   constructor(private FireDb: AngularFireDatabase,
@@ -112,21 +118,48 @@ export class LaundryComponent implements OnInit {
        const db4 = snapshot.val();  
        this.currentincomedaily = db4.income
        this.currentsaledaily = db4.sales
+       this.ccash = db4.cash
+       this.cgcash = db4.gcash
+             if(this.ccash == undefined){
+        this.ccash = 0
+       }
+       if(this.cgcash == undefined){
+        this.cgcash = 0
+       } 
        });
+
       this.currentweek =  currentWeekNumber ;
       const starCountRef = ref(this.database, 'sales/week/' + currentWeekNumber);
       onValue(starCountRef, (snapshot) => {
        const db = snapshot.val();  
        this.currentincomeweek = db.income
        this.currentsaleweek = db.sales
+       this.wcash = db.cash
+       this.wgcash = db.gcash
+                if(this.wcash == undefined){
+        this.wcash = 0
+       }
+       if(this.wgcash == undefined){
+        this.wgcash = 0
+       }
        });
+
        this.currentweek =  currentWeekNumber ;
        const starCountRef1 = ref(this.database, 'sales/year/' + this.currentyear);
        onValue(starCountRef1, (snapshot) => {
         const db1 = snapshot.val();  
         this.currentincomeyear = db1.income
         this.currentsaleyear = db1.sales
+        this.ycash = db1.cash
+        this.ygcash = db1.gcash
+        if(this.ycash == undefined){
+          this.ycash = 0
+         }
+         if(this.ygcash == undefined){
+          this.ygcash = 0
+         }
         });
+
               this.pickup = FireDb.list('/pickup').valueChanges();
       this.laundry = FireDb.list('/laundry').valueChanges();
       this.deliverylist = FireDb.list('/delivery').valueChanges();
@@ -341,6 +374,19 @@ updatewashing(){
 }
 
 readyfordelivery(){
+  
+  let pstatus 
+  let pmethod
+  if(this.paymentMethod == "unpaid"){
+     pstatus = "unpaid"
+     pmethod = "unpaid"
+  }else if(this.paymentMethod == "gcash"){
+     pstatus = "paid"
+     pmethod = "gcash"
+  }else if(this.paymentMethod == "cash"){
+     pstatus = "paid"
+     pmethod = "cash"
+  }
   remove(ref(this.database, 'laundry/' + this.laid));
   set(ref(this.database, 'delivery/' + this.laid), {
     id: this.laid,
@@ -352,7 +398,9 @@ readyfordelivery(){
    total: this.laprice,
    pack: this.lapack,
    kilo: this.lakilo,
-   status: "On the Delivery"
+   status: "On the Delivery",
+   paymentMethod:pmethod,
+   paymentStatus:pstatus
    }); 
    const message = "Hello "+ this.laname +", Exciting news! Your fresh laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is on its way. Payment amount: "+ this.laprice +". We value your trust and look forward to serving you again.  -I.M CAFE AND LAUNDROMAT";
      this.smsService.sendSMS(this.laphonenumber, message)
@@ -369,6 +417,18 @@ readyfordelivery(){
 }
 
 readyforpickup(){
+  let pstatus 
+  let pmethod
+  if(this.paymentMethod == "unpaid"){
+     pstatus = "unpaid"
+     pmethod = "unpaid"
+  }else if(this.paymentMethod == "gcash"){
+     pstatus = "paid"
+     pmethod = "gcash"
+  }else if(this.paymentMethod == "cash"){
+     pstatus = "paid"
+     pmethod = "cash"
+  }
   remove(ref(this.database, 'laundry/' + this.laid));
   set(ref(this.database, 'customerpickup/' + this.laid), {
     id: this.laid,
@@ -380,7 +440,9 @@ readyforpickup(){
    total: this.laprice,
    pack: this.lapack,
    kilo: this.lakilo,
-   status: "Ready for Pick up"
+   status: "Ready for Pick up",
+   paymentMethod:pmethod,
+   paymentStatus:pstatus
    }); 
    const message = "Hello "+ this.laname +", Your laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is ready for pick up. Payment amount: "+ this.laprice +". Thank you for choosing us. We look forward to serving you again. -I.M CAFE AND LAUNDROMAT";  
      this.smsService.sendSMS(this.laphonenumber, message)
@@ -408,10 +470,30 @@ cpickup(l:any){
   this.pickedactive = true
   this.nav = false
 this.Pickupactive = false
+if(l.paymentStatus == "unpaid"){
+  this.paymentMethod = "unpaid"
+}else if(l.paymentStatus == "paid" && l.paymentMethod == "gcash"){
+  this.paymentMethod = "gcash"
+}else if(l.paymentStatus == "paid" && l.paymentMethod == "cash"){
+  this.paymentMethod = "cash"
+}
+
 
 }
 transacitonid = ""
 pickedupyes(){
+  let pstatus 
+  let pmethod
+  if(this.paymentMethod == "unpaid"){
+     pstatus = "unpaid"
+     pmethod = "unpaid"
+  }else if(this.paymentMethod == "gcash"){
+     pstatus = "paid"
+     pmethod = "gcash"
+  }else if(this.paymentMethod == "cash"){
+     pstatus = "paid"
+     pmethod = "cash"
+  }
 // temporarty funtion for now
 const iaid = sessionStorage.getItem('id');
 let myDate = formatDate(new Date(), 'mmss', 'en')
@@ -429,7 +511,8 @@ set(ref(this.database, 'logs/' + this.transacitonid), {
  transacby: iaid,
  time: realtime,
  date:realdate,
- type: "picked up"
+ type: "picked up",
+ paymentMethod:pmethod
 
  }); 
  const today = new Date();
@@ -443,21 +526,24 @@ set(ref(this.database, 'logs/' + this.transacitonid), {
        this.amountInInteger = parseInt(amountWithoutCurrency);
 
       //  daily 
+
+      if(pmethod == "cash"){
       let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
       set(ref(this.database, 'sales/daily/' + dailysalee), {
        income: this.currentincomedaily + this.amountInInteger,
        sales:  this.currentsaledaily + 1,
-       currentday: dailysalee
-       
-         
+       currentday: dailysalee,
+       cash:this.ccash + 1,
+        gcash:this.ccash
           }); 
 
  this.currentweek =  currentWeekNumber ;
  set(ref(this.database, 'sales/week/' + currentWeekNumber), {
 income: this.currentincomeweek + this.amountInInteger,
 sales:  this.currentsaleweek + 1,
-currentWeekNumber: currentWeekNumber
-
+currentWeekNumber: currentWeekNumber,
+cash:this.wcash + 1,
+gcash:this.wgcash
  
   }); 
   const ttoday = new Date();
@@ -466,15 +552,60 @@ currentWeekNumber: currentWeekNumber
   set(ref(this.database, 'sales/year/' + this.currentyear), {
    income: this.currentincomeyear + this.amountInInteger,
    sales:  this.currentsaleyear + 1,
-   currentyear: this.currentyear
+   currentyear: this.currentyear,
+cash:this.ycash + 1,
+gcash:this.ygcash
    
      
       }); 
-remove(ref(this.database, 'customerpickup/' + this.confirmid));
+      remove(ref(this.database, 'customerpickup/' + this.confirmid));
 alert('done')
 this.nav = true
 this.Pickupactive = true
 this.pickedactive = false
+      }else if (pmethod == "gcash"){
+        console.log(this.wgcash)
+        let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+        set(ref(this.database, 'sales/daily/' + dailysalee), {
+         income: this.currentincomedaily + this.amountInInteger,
+         sales:  this.currentsaledaily + 1,
+        gcash:this.cgcash + 1,
+         currentday: dailysalee,
+         cash:this.ccash
+       
+         
+           
+            }); 
+  
+   this.currentweek =  currentWeekNumber ;
+   set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+  income: this.currentincomeweek + this.amountInInteger,
+  sales:  this.currentsaleweek + 1,
+  currentWeekNumber: currentWeekNumber,
+  gcash:this.wgcash + 1,
+  cash:this.wcash
+   
+    }); 
+    const ttoday = new Date();
+    let tttodate = ttoday.getFullYear();
+    this.currentyear = tttodate + 0
+    set(ref(this.database, 'sales/year/' + this.currentyear), {
+     income: this.currentincomeyear + this.amountInInteger,
+     sales:  this.currentsaleyear + 1,
+     currentyear: this.currentyear,
+  gcash:this.ygcash + 1,
+  cash:this.ycash
+     
+       
+        }); 
+        remove(ref(this.database, 'customerpickup/' + this.confirmid));
+alert('done')
+this.nav = true
+this.Pickupactive = true
+this.pickedactive = false
+      }
+
+
 
 }
 
@@ -494,6 +625,13 @@ cdedivered(d:any){
   this.confirmpayed = d.total
   this.confirmpack = d.pack
   this.confirmaddress = d.address
+  if(d.paymentStatus == "unpaid"){
+    this.paymentMethod = "unpaid"
+  }else if(d.paymentStatus == "paid" && d.paymentMethod == "gcash"){
+    this.paymentMethod = "gcash"
+  }else if(d.paymentStatus == "paid" && d.paymentMethod == "cash"){
+    this.paymentMethod = "cash"
+  }
 
   this.deliveredavtive = true
   this.nav = false
@@ -655,6 +793,7 @@ if(!value.kilo){
      status: "processing",
      paymentMethod:pmethod,
 paymentStatus:pstatus
+
      }); 
 
 
