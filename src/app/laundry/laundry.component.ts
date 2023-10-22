@@ -90,7 +90,7 @@ export class LaundryComponent implements OnInit {
   constructor(private FireDb: AngularFireDatabase,
      public database:Database,public router:Router,
      private smsService: SmsService) { 
-
+      this.userlist = FireDb.list('/client').valueChanges();
       const qwer = ref(this.database, 'sales/Pricing');
       onValue(qwer, (snapshot) => {
        const qw = snapshot.val();  
@@ -874,4 +874,23 @@ paymentStatus:pstatus
      } 
    }
   }
+
+
+
+
+
+
+searchs = true
+seachname = ""
+userlist!: Observable<any[]>;
+onsearch(){
+  this.searchs = true
+}
+offsearch(value: any){
+  this.searchs = false
+  this.seachname = value
+}
+
+
+
 }

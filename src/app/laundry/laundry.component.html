@@ -314,7 +314,17 @@
     <form #booking="ngForm" #add="ngForm" (ngSubmit)="addlaundryy(add.value)">
 
       <label class="bb">Username</label><br>
-      <input class="mm1" ngModel name='username' type="text" placeholder="Enter your username"><br>    
+      <input (click)="onsearch()" class="mm1" [(ngModel)]="seachname" name='username' type="text" placeholder="Enter your username"><br>  
+
+      <div class="list-container" *ngIf="seachname !== '' && searchs">
+        <ul class="list" *ngFor="let user of userlist | async">
+          <li *ngIf="user.username.includes(seachname)" (click)="offsearch(user.username)">
+           <h5 style="font-weight: bold;">{{ user.username }}</h5> 
+          </li>
+        </ul>
+      </div>
+
+      <br>
         <label class="bb" for="ara " >Deliver or pick up on the shop</label><br>
         <input class="mm1" type="text"[ngModel]="changedd" name="changedd"readonly ><button class="buttn" (click)="changedelivery()"type="button">Change</button><br>
 
@@ -327,9 +337,10 @@
         </label><br>
         <input class="mm1" ngModel name='packs' type="number" placeholder="Enter the packs"><br>  
         <label>Payment Status and Method</label><br>
-        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="unpaid">Unpaid &nbsp;</label><br> 
-        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="gcash">Paid - Gcash</label><br> 
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="gcash">Paid - Gcash &nbsp;  &nbsp; &nbsp; &nbsp; </label> 
         <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="cash">Paid - Cash</label><br>  
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="unpaid">Unpaid &nbsp;</label><br> 
+
   <input  class="butt" type="submit">
     </form>
   </div>
