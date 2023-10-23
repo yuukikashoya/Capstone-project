@@ -170,7 +170,8 @@ export class LaundryComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-
+gettime = ""
+getdate = ""
   getupdate(value:any){
     // getting the value
     this.upid = value.id
@@ -183,6 +184,8 @@ export class LaundryComponent implements OnInit {
 
     this.PKactive =  false;
     this.PUactive = true;
+    this.gettime = value.time
+    this.getdate = value.date
     if(value.cpack){
       this.uppacks = value.cpack
       
@@ -220,6 +223,8 @@ export class LaundryComponent implements OnInit {
     this.lapack = value.pack;  
     this.Wactive =  false;
     this.WUactive = true;
+    this.getdate = value.date
+    this.gettime = value.time
     if(value.paymentStatus == "unpaid"){
       this.paymentMethod = "unpaid"
     }else if(value.paymentStatus == "paid" && value.paymentMethod == "gcash"){
@@ -282,6 +287,7 @@ this.pack = this.decimal1 + 1
      pmethod = "cash"
   }
 // adding to the database
+console.log(value.date)
 let myDate = formatDate(new Date(), 'mmss', 'en')
 this.uuid =  "L"+myDate+ Math.floor(100 + Math.random() * 99);
 set(ref(this.database, 'laundry/' + this.uuid), {
@@ -297,7 +303,9 @@ set(ref(this.database, 'laundry/' + this.uuid), {
    kilo: value.kilo,
    status: "processing",
 paymentMethod:pmethod,
-paymentStatus:pstatus
+paymentStatus:pstatus,
+time:this.gettime,
+date:this.getdate
    }); 
 
     remove(ref(this.database, 'pickup/' + value.pickupid));
@@ -400,7 +408,9 @@ readyfordelivery(){
    kilo: this.lakilo,
    status: "On the Delivery",
    paymentMethod:pmethod,
-   paymentStatus:pstatus
+   paymentStatus:pstatus,
+   time:this.gettime,
+   date:this.getdate
    }); 
    const message = "Hello "+ this.laname +", Exciting news! Your fresh laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is on its way. Payment amount: "+ this.laprice +". We value your trust and look forward to serving you again.  -I.M CAFE AND LAUNDROMAT";
      this.smsService.sendSMS(this.laphonenumber, message)
@@ -442,7 +452,9 @@ readyforpickup(){
    kilo: this.lakilo,
    status: "Ready for Pick up",
    paymentMethod:pmethod,
-   paymentStatus:pstatus
+   paymentStatus:pstatus,
+   time:this.gettime,
+   date:this.getdate
    }); 
    const message = "Hello "+ this.laname +", Your laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is ready for pick up. Payment amount: "+ this.laprice +". Thank you for choosing us. We look forward to serving you again. -I.M CAFE AND LAUNDROMAT";  
      this.smsService.sendSMS(this.laphonenumber, message)
@@ -625,6 +637,8 @@ cdedivered(d:any){
   this.confirmpayed = d.total
   this.confirmpack = d.pack
   this.confirmaddress = d.address
+  this.gettime = d.time
+  this.getdate = d.date
   if(d.paymentStatus == "unpaid"){
     this.paymentMethod = "unpaid"
   }else if(d.paymentStatus == "paid" && d.paymentMethod == "gcash"){
@@ -776,6 +790,8 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
 if(!value.kilo){
   alert("Put kilo")
 }else{
+  let times = formatDate(new Date(), 'hh:mma', 'en')
+  let dates = formatDate(new Date(), 'MM~dd~yyyy', 'en')
 
      let myDate = formatDate(new Date(), 'mmss', 'en')
      this.uuid =  "L"+myDate+ Math.floor(100 + Math.random() * 99);
@@ -792,7 +808,9 @@ if(!value.kilo){
      kilo: value.kilo,
      status: "processing",
      paymentMethod:pmethod,
-paymentStatus:pstatus
+paymentStatus:pstatus,
+time:times,
+date: dates
 
      }); 
 

@@ -36,7 +36,8 @@
                 <th scope="col">#</th>
                 <th scope="col">Username</th>  
                 <th scope="col">Name</th>              
-                <th scope="col">User ID</th>
+                <th scope="col">Booked Time</th>
+                <th scope="col">Booked Date</th>
                 <th scope="col">Phone number</th>           
                 <th scope="col">Address</th>
                 <th scope="col">Mode of distribution</th>
@@ -47,9 +48,10 @@
             <tbody *ngFor="let z of pickup | async;">
               <tr  *ngIf= "z">
                 <th scope="row">{{z.id}}</th>
-                <td style="background-color: rgb(212, 212, 212);">{{z.username}}</td>    
-                <td>{{z.name}}</td>                            
-                <td style="background-color: rgb(212, 212, 212);">{{z.uid}}</td>  
+                <td>{{z.username}}</td>    
+                <td style="background-color: rgb(212, 212, 212);">{{z.name}}</td>                            
+                <td>{{z.time}}</td>  
+                <td style="background-color: rgb(212, 212, 212);">{{z.date}}</td> 
                 <td>{{z.phonenumber}}</td>
                 <td style="background-color: rgb(212, 212, 212);">{{z.address}}</td>
                 <td>{{z.for}}</td>
@@ -70,10 +72,9 @@
                 <th scope="col">#</th>
                 <th scope="col">Username</th>  
                 <th scope="col">Name</th>              
-                <th scope="col">Payment Status</th>
-                <th scope="col">Payment Method</th>
-                <th scope="col">Phone number</th>           
-                <th scope="col">Address</th>
+                <th scope="col">Payment Status and Method</th>
+                <th scope="col">Booked Time</th>
+                <th scope="col">Booked Date</th>
                 <th scope="col">Mode of distribution</th>
                 <th scope="col">Status</th>
                 <th scope="col">Kilo/s</th>
@@ -87,16 +88,16 @@
                 <th scope="row">{{q.id}}</th>
                 <td>{{q.username}}</td>    
                 <td  style="background-color: rgb(212, 212, 212);">{{q.name}}</td>                            
-                <td >{{q.paymentStatus}}</td>  
-                <td style="background-color: rgb(212, 212, 212);">{{q.paymentMethod}}</td>
-                <td>{{q.phonenumber}}</td>
-                <td style="background-color: rgb(212, 212, 212);">{{q.address}}</td>
-                <td>{{q.for}}</td>
-                <td style="background-color: rgb(212, 212, 212);">{{q.status}}</td>
-                <td>{{q.kilo}}</td>
-                <td style="background-color: rgb(212, 212, 212);">{{q.pack}}</td>
-                <td>₱{{q.total}}.00</td>
-                <td style="background-color: rgb(212, 212, 212);"><button class="btn btn-primary" (click)="getLaundry(q)">update</button></td>
+                <td *ngIf="q.paymentStatus != q.paymentMethod">{{q.paymentStatus}}-{{q.paymentMethod}}</td>  
+                <td *ngIf="q.paymentStatus == q.paymentMethod">{{q.paymentStatus}}</td>  
+                <td style="background-color: rgb(212, 212, 212);">{{q.time}}</td>
+                <td>{{q.date}}</td>
+                <td style="background-color: rgb(212, 212, 212);">{{q.for}}</td>
+                <td>{{q.status}}</td>
+                <td  style="background-color: rgb(212, 212, 212);">{{q.kilo}}</td>
+                <td >{{q.pack}}</td>
+                <td  style="background-color: rgb(212, 212, 212);">₱{{q.total}}.00</td>
+                <td ><button class="btn btn-primary" (click)="getLaundry(q)">update</button></td>
               </tr>
      
             </tbody>
@@ -113,11 +114,11 @@
               <th scope="col">#</th>
               <th scope="col">Username</th>  
               <th scope="col">Name</th>              
-              <th scope="col">Payment Status</th>
-              <th scope="col">Payment Method</th>
-              <th scope="col">Phone number</th>           
-              <th scope="col">Address</th> 
-              <th scope="col">Status</th>
+              <th scope="col">Payment Status and Method</th>
+              <th scope="col">Booked Time</th>
+              <th scope="col">Booked Date</th>           
+              <th scope="col">Phone number</th> 
+              <th scope="col">Address</th>
               <th scope="col">Kilo/s</th>
               <th scope="col">Number of pack/s</th>
               <th scope="col">Notal due</th>
@@ -129,11 +130,12 @@
               <th scope="row">{{d.id}}</th>
               <td >{{d.username}}</td>    
               <td style="background-color: rgb(212, 212, 212);">{{d.name}}</td>                            
-              <td>{{d.paymentStatus}}</td>  
-              <td style="background-color: rgb(212, 212, 212);">{{d.paymentMethod}}</td> 
-              <td>{{d.phonenumber}}</td>
-              <td style="background-color: rgb(212, 212, 212);">{{d.address}}</td>
-              <td>{{d.status}}</td>
+              <td *ngIf="d.paymentStatus != d.paymentMethod">{{d.paymentStatus}}-{{d.paymentMethod}}</td>  
+              <td  *ngIf="d.paymentStatus == d.paymentMethod">{{d.paymentStatus}}</td>  
+              <td style="background-color: rgb(212, 212, 212);">{{d.time}}</td> 
+              <td>{{d.date}}</td>
+              <td style="background-color: rgb(212, 212, 212);">{{d.phonenumber}}</td>
+              <td>{{d.address}}</td>
               <td style="background-color: rgb(212, 212, 212);">{{d.kilo}}</td>
               <td>{{d.pack}}</td>
               <td style="background-color: rgb(212, 212, 212);">{{d.total}}</td>
@@ -242,10 +244,10 @@
           <th scope="col">#</th>
           <th scope="col">Username</th>  
           <th scope="col">Name</th>              
-          <th scope="col">Payment Status</th>
-          <th scope="col">Payment Method</th>
-          <th scope="col">Phone number</th>           
-          <th scope="col">status</th>
+          <th scope="col">Payment Status and Methods</th>
+          <th scope="col">Phone number</th>
+          <th scope="col">Booked Time</th>           
+          <th scope="col">Booked Date</th>
           <th scope="col">kilo/s</th>
           <th scope="col">number of pack/s</th>
           <th scope="col">total due</th>
@@ -257,10 +259,11 @@
           <th scope="row">{{l.id}}</th>
           <td >{{l.username}}</td>    
           <td style="background-color: rgb(212, 212, 212);">{{l.name}}</td>                            
-          <td>{{l.paymentStatus}}</td>  
-          <td style="background-color: rgb(212, 212, 212);">{{l.paymentMethod}}</td> 
-          <td>{{l.phonenumber}}</td>
-          <td style="background-color: rgb(212, 212, 212);">{{l.status}}</td>
+          <td *ngIf="l.paymentStatus == l.paymentMethod ">{{l.paymentStatus}}</td>  
+          <td *ngIf="l.paymentStatus != l.paymentMethod " >{{l.paymentStatus}}-{{l.paymentMethod}}</td> 
+          <td style="background-color: rgb(212, 212, 212);">{{l.phonenumber}}</td> 
+          <td>{{l.time}}</td>
+          <td style="background-color: rgb(212, 212, 212);">{{l.date}}</td>
           <td>{{l.kilo}}</td>
           <td style="background-color: rgb(212, 212, 212);">{{l.pack}}</td>
           <td>{{l.total}}</td>

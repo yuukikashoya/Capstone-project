@@ -481,7 +481,7 @@ h3{
 
 
 .list-container {
-  max-height: 50px; /* Set the maximum height for the list */
+  max-height: 10  0px; /* Set the maximum height for the list */
   overflow-y: auto; /* Enable vertical scrollbar if the content overflows */
   border: 1px solid #ccc; /* Optional: Add border for better visualization */
   width: 19%;
