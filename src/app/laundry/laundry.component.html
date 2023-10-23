@@ -288,13 +288,13 @@
   <p class="nn"> Total amount due:<b>{{confirmpayed}}</b> </p>
   <h4 style="color: rgb(88, 166, 255);" *ngIf="paymentMethod == 'gcash' ||paymentMethod == 'cash'">Are you sure is this picked up? </h4>
   <h4 style="color: rgb(88, 166, 255);" *ngIf="paymentMethod == 'unpaid'">Are you sure is this picked up and paid using?</h4>
-  <button class="btn btn-primary  " *ngIf="paymentMethod == 'unpaid'" (click)="pickedupyes()">Yes - Gcash</button>
-  <button class="btn btn-primary lala "  *ngIf="paymentMethod == 'unpaid'"   style="background-color: rgb(2, 253, 2);" (click)="pickedupyes()">Yes - Cash</button>
+  <button class="btn btn-primary  " *ngIf="paymentMethod == 'unpaid'" (click)="pickedupgcash()">Yes - Gcash</button>
+  <button class="btn btn-primary lala "  *ngIf="paymentMethod == 'unpaid'"   style="background-color: rgb(2, 253, 2);" (click)="pickedupcash()">Yes - Cash</button>
 <button class="btn btn-primary lala " *ngIf="paymentMethod == 'gcash' ||paymentMethod == 'cash'" style="background-color: rgb(2, 253, 2);" (click)="pickedupyes()">Yes</button>
 <button  class="btn btn-danger lala " (click)="pickedupno()">No</button>
 
 </div>
-<div class="confirmation-box" *ngIf="deliveredavtive == true">
+<div class="confirmation-box" *ngIf="deliveredavtive  ">
   <p style="font-size: 18px; font-weight: bold; color: rgb(92, 155, 250);">ORDER CONFIMRATION</p><hr>
   <p class="nn"> Name: <b>{{confirmname}}</b></p>
   <p class="nn"> Usernmae:<b>{{confirmusername}}</b> </p>
@@ -304,9 +304,9 @@
 
   <h4 style="color: rgb(88, 166, 255);" *ngIf="paymentMethod == 'gcash' ||paymentMethod == 'cash'">Are you sure is this Delivered? </h4>
   <h4 style="color: rgb(88, 166, 255);" *ngIf="paymentMethod == 'unpaid'" >Are you sure is this Delivered and paid using?</h4>
-  <button class="btn btn-primary  " *ngIf="paymentMethod == 'unpaid'" (click)="pickedupyes()">Yes - Gcash</button>
-  <button class="btn btn-primary lala "  *ngIf="paymentMethod == 'unpaid'"   style="background-color: rgb(2, 253, 2);" (click)="pickedupyes()">Yes - Cash</button>
-<button class="btn btn-primary lala " *ngIf="paymentMethod == 'gcash' ||paymentMethod == 'cash'" style="background-color: rgb(2, 253, 2);" (click)="pickedupyes()">Yes</button>
+  <button class="btn btn-primary  " *ngIf="paymentMethod == 'unpaid'" (click)="deliverygcash()">Yes - Gcash</button>
+  <button class="btn btn-primary lala "  *ngIf="paymentMethod == 'unpaid'"   style="background-color: rgb(2, 253, 2);" (click)="dcash()">Yes - Cash</button>
+<button class="btn btn-primary lala " *ngIf="paymentMethod == 'gcash' ||paymentMethod == 'cash'" style="background-color: rgb(2, 253, 2);" (click)="deliveryyes()">Yes</button>
 <button  class="btn btn-danger lala " (click)="deliveryno()">No</button>
 </div>
 
