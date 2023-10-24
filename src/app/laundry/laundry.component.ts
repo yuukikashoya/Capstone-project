@@ -290,7 +290,7 @@ this.pack = this.decimal1 + 1
 console.log(value.date)
 let myDate = formatDate(new Date(), 'mmss', 'en')
 this.uuid =  "L"+myDate+ Math.floor(100 + Math.random() * 99);
-set(ref(this.database, 'laundry/' + this.uuid), {
+set(ref(this.database, 'laundry/' + value.pickupid), {
     id: value.pickupid,
     username: value.username,
     name: value.name,
@@ -382,7 +382,8 @@ updatewashing(){
 }
 
 readyfordelivery(){
-  
+  console.log(this.laid)
+    remove(ref(this.database, 'laundry/' + this.laid));
   let pstatus 
   let pmethod
   if(this.paymentMethod == "unpaid"){
@@ -395,7 +396,7 @@ readyfordelivery(){
      pstatus = "paid"
      pmethod = "cash"
   }
-  remove(ref(this.database, 'laundry/' + this.laid));
+
   set(ref(this.database, 'delivery/' + this.laid), {
     id: this.laid,
     username: this.lausername,
