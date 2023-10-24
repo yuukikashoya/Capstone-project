@@ -92,8 +92,10 @@ console.log(this.checker)
      alert('You already booked!');  
     }     
     else {  
+      let timet = formatDate(new Date(), 'hh:mma', 'en')
+let dated = formatDate(new Date(), 'MM~dd~yyyy', 'en')
       let myDate = formatDate(new Date(), 'mmss', 'en')
-      this.uuid =  "p"+myDate+ Math.floor(10 + Math.random() * 90);
+      this.uuid =  "L"+myDate+ Math.floor(100 + Math.random() * 99);
    set(ref(this.database, 'pickup/' + this.uuid), {
        id: this.uuid,
        username: this.username,
@@ -102,7 +104,9 @@ console.log(this.checker)
        for:value.changedd,
        phonenumber:value.phonenumber,
       uid: this.uid,
-      cpack:this.packs
+      cpack:this.packs,
+      time:timet,
+      date:dated
       }); 
       this.checker = "";
     this.packs = 0

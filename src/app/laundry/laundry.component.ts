@@ -79,9 +79,18 @@ export class LaundryComponent implements OnInit {
   username=""
   uid= ""
   cpacks= 0
+  ccash = 0
+  cgcash = 0
+  wcash = 0
+  wgcash = 0
+  ycash = 0 
+  ygcash = 0
+
+  paymentMethod= "unpaid"
   constructor(private FireDb: AngularFireDatabase,
      public database:Database,public router:Router,
      private smsService: SmsService) { 
+      this.userlist = FireDb.list('/client').valueChanges();
       const qwer = ref(this.database, 'sales/Pricing');
       onValue(qwer, (snapshot) => {
        const qw = snapshot.val();  
@@ -109,21 +118,48 @@ export class LaundryComponent implements OnInit {
        const db4 = snapshot.val();  
        this.currentincomedaily = db4.income
        this.currentsaledaily = db4.sales
+       this.ccash = db4.cash
+       this.cgcash = db4.gcash
+             if(this.ccash == undefined){
+        this.ccash = 0
+       }
+       if(this.cgcash == undefined){
+        this.cgcash = 0
+       } 
        });
+
       this.currentweek =  currentWeekNumber ;
       const starCountRef = ref(this.database, 'sales/week/' + currentWeekNumber);
       onValue(starCountRef, (snapshot) => {
        const db = snapshot.val();  
        this.currentincomeweek = db.income
        this.currentsaleweek = db.sales
+       this.wcash = db.cash
+       this.wgcash = db.gcash
+                if(this.wcash == undefined){
+        this.wcash = 0
+       }
+       if(this.wgcash == undefined){
+        this.wgcash = 0
+       }
        });
+
        this.currentweek =  currentWeekNumber ;
        const starCountRef1 = ref(this.database, 'sales/year/' + this.currentyear);
        onValue(starCountRef1, (snapshot) => {
         const db1 = snapshot.val();  
         this.currentincomeyear = db1.income
         this.currentsaleyear = db1.sales
+        this.ycash = db1.cash
+        this.ygcash = db1.gcash
+        if(this.ycash == undefined){
+          this.ycash = 0
+         }
+         if(this.ygcash == undefined){
+          this.ygcash = 0
+         }
         });
+
               this.pickup = FireDb.list('/pickup').valueChanges();
       this.laundry = FireDb.list('/laundry').valueChanges();
       this.deliverylist = FireDb.list('/delivery').valueChanges();
@@ -134,7 +170,8 @@ export class LaundryComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-
+gettime = ""
+getdate = ""
   getupdate(value:any){
     // getting the value
     this.upid = value.id
@@ -147,6 +184,8 @@ export class LaundryComponent implements OnInit {
 
     this.PKactive =  false;
     this.PUactive = true;
+    this.gettime = value.time
+    this.getdate = value.date
     if(value.cpack){
       this.uppacks = value.cpack
       
@@ -184,6 +223,15 @@ export class LaundryComponent implements OnInit {
     this.lapack = value.pack;  
     this.Wactive =  false;
     this.WUactive = true;
+    this.getdate = value.date
+    this.gettime = value.time
+    if(value.paymentStatus == "unpaid"){
+      this.paymentMethod = "unpaid"
+    }else if(value.paymentStatus == "paid" && value.paymentMethod == "gcash"){
+      this.paymentMethod = "gcash"
+    }else if(value.paymentStatus == "paid" && value.paymentMethod == "cash"){
+      this.paymentMethod = "cash"
+    }
 
   }
   cancellaupdate(){
@@ -226,11 +274,24 @@ this.pack = this.decimal1 + 1
   if(this.uppacks !== 0){
     this.pack = this.uppacks
   }
+  let pstatus 
+  let pmethod
+  if(this.paymentMethod == "unpaid"){
+     pstatus = "unpaid"
+     pmethod = "unpaid"
+  }else if(this.paymentMethod == "gcash"){
+     pstatus = "paid"
+     pmethod = "gcash"
+  }else if(this.paymentMethod == "cash"){
+     pstatus = "paid"
+     pmethod = "cash"
+  }
 // adding to the database
+console.log(value.date)
 let myDate = formatDate(new Date(), 'mmss', 'en')
 this.uuid =  "L"+myDate+ Math.floor(100 + Math.random() * 99);
-set(ref(this.database, 'laundry/' + this.uuid), {
-    id: this.uuid,
+set(ref(this.database, 'laundry/' + value.pickupid), {
+    id: value.pickupid,
     username: value.username,
     name: value.name,
     address:value.address,
@@ -240,7 +301,11 @@ set(ref(this.database, 'laundry/' + this.uuid), {
    total: this.total,
    pack: this.pack,
    kilo: value.kilo,
-   status: "processing"
+   status: "processing",
+paymentMethod:pmethod,
+paymentStatus:pstatus,
+time:this.gettime,
+date:this.getdate
    }); 
 
     remove(ref(this.database, 'pickup/' + value.pickupid));
@@ -317,7 +382,21 @@ updatewashing(){
 }
 
 readyfordelivery(){
-  remove(ref(this.database, 'laundry/' + this.laid));
+  console.log(this.laid)
+    remove(ref(this.database, 'laundry/' + this.laid));
+  let pstatus 
+  let pmethod
+  if(this.paymentMethod == "unpaid"){
+     pstatus = "unpaid"
+     pmethod = "unpaid"
+  }else if(this.paymentMethod == "gcash"){
+     pstatus = "paid"
+     pmethod = "gcash"
+  }else if(this.paymentMethod == "cash"){
+     pstatus = "paid"
+     pmethod = "cash"
+  }
+
   set(ref(this.database, 'delivery/' + this.laid), {
     id: this.laid,
     username: this.lausername,
@@ -328,7 +407,11 @@ readyfordelivery(){
    total: this.laprice,
    pack: this.lapack,
    kilo: this.lakilo,
-   status: "On the Delivery"
+   status: "On the Delivery",
+   paymentMethod:pmethod,
+   paymentStatus:pstatus,
+   time:this.gettime,
+   date:this.getdate
    }); 
    const message = "Hello "+ this.laname +", Exciting news! Your fresh laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is on its way. Payment amount: "+ this.laprice +". We value your trust and look forward to serving you again.  -I.M CAFE AND LAUNDROMAT";
      this.smsService.sendSMS(this.laphonenumber, message)
@@ -345,6 +428,18 @@ readyfordelivery(){
 }
 
 readyforpickup(){
+  let pstatus 
+  let pmethod
+  if(this.paymentMethod == "unpaid"){
+     pstatus = "unpaid"
+     pmethod = "unpaid"
+  }else if(this.paymentMethod == "gcash"){
+     pstatus = "paid"
+     pmethod = "gcash"
+  }else if(this.paymentMethod == "cash"){
+     pstatus = "paid"
+     pmethod = "cash"
+  }
   remove(ref(this.database, 'laundry/' + this.laid));
   set(ref(this.database, 'customerpickup/' + this.laid), {
     id: this.laid,
@@ -356,7 +451,11 @@ readyforpickup(){
    total: this.laprice,
    pack: this.lapack,
    kilo: this.lakilo,
-   status: "Ready for Pick up"
+   status: "Ready for Pick up",
+   paymentMethod:pmethod,
+   paymentStatus:pstatus,
+   time:this.gettime,
+   date:this.getdate
    }); 
    const message = "Hello "+ this.laname +", Your laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is ready for pick up. Payment amount: "+ this.laprice +". Thank you for choosing us. We look forward to serving you again. -I.M CAFE AND LAUNDROMAT";  
      this.smsService.sendSMS(this.laphonenumber, message)
@@ -384,10 +483,30 @@ cpickup(l:any){
   this.pickedactive = true
   this.nav = false
 this.Pickupactive = false
+if(l.paymentStatus == "unpaid"){
+  this.paymentMethod = "unpaid"
+}else if(l.paymentStatus == "paid" && l.paymentMethod == "gcash"){
+  this.paymentMethod = "gcash"
+}else if(l.paymentStatus == "paid" && l.paymentMethod == "cash"){
+  this.paymentMethod = "cash"
+}
+
 
 }
 transacitonid = ""
 pickedupyes(){
+  let pstatus 
+  let pmethod
+  if(this.paymentMethod == "unpaid"){
+     pstatus = "unpaid"
+     pmethod = "unpaid"
+  }else if(this.paymentMethod == "gcash"){
+     pstatus = "paid"
+     pmethod = "gcash"
+  }else if(this.paymentMethod == "cash"){
+     pstatus = "paid"
+     pmethod = "cash"
+  }
 // temporarty funtion for now
 const iaid = sessionStorage.getItem('id');
 let myDate = formatDate(new Date(), 'mmss', 'en')
@@ -405,7 +524,8 @@ set(ref(this.database, 'logs/' + this.transacitonid), {
  transacby: iaid,
  time: realtime,
  date:realdate,
- type: "picked up"
+ type: "picked up",
+ paymentMethod:pmethod
 
  }); 
  const today = new Date();
@@ -419,21 +539,24 @@ set(ref(this.database, 'logs/' + this.transacitonid), {
        this.amountInInteger = parseInt(amountWithoutCurrency);
 
       //  daily 
+
+      if(pmethod == "cash"){
       let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
       set(ref(this.database, 'sales/daily/' + dailysalee), {
        income: this.currentincomedaily + this.amountInInteger,
        sales:  this.currentsaledaily + 1,
-       currentday: dailysalee
-       
-         
+       currentday: dailysalee,
+       cash:this.ccash + 1,
+        gcash:this.ccash
           }); 
 
  this.currentweek =  currentWeekNumber ;
  set(ref(this.database, 'sales/week/' + currentWeekNumber), {
 income: this.currentincomeweek + this.amountInInteger,
 sales:  this.currentsaleweek + 1,
-currentWeekNumber: currentWeekNumber
-
+currentWeekNumber: currentWeekNumber,
+cash:this.wcash + 1,
+gcash:this.wgcash
  
   }); 
   const ttoday = new Date();
@@ -442,15 +565,60 @@ currentWeekNumber: currentWeekNumber
   set(ref(this.database, 'sales/year/' + this.currentyear), {
    income: this.currentincomeyear + this.amountInInteger,
    sales:  this.currentsaleyear + 1,
-   currentyear: this.currentyear
+   currentyear: this.currentyear,
+cash:this.ycash + 1,
+gcash:this.ygcash
    
      
       }); 
-remove(ref(this.database, 'customerpickup/' + this.confirmid));
+      remove(ref(this.database, 'customerpickup/' + this.confirmid));
 alert('done')
 this.nav = true
 this.Pickupactive = true
 this.pickedactive = false
+      }else if (pmethod == "gcash"){
+        console.log(this.wgcash)
+        let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+        set(ref(this.database, 'sales/daily/' + dailysalee), {
+         income: this.currentincomedaily + this.amountInInteger,
+         sales:  this.currentsaledaily + 1,
+        gcash:this.cgcash + 1,
+         currentday: dailysalee,
+         cash:this.ccash
+       
+         
+           
+            }); 
+  
+   this.currentweek =  currentWeekNumber ;
+   set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+  income: this.currentincomeweek + this.amountInInteger,
+  sales:  this.currentsaleweek + 1,
+  currentWeekNumber: currentWeekNumber,
+  gcash:this.wgcash + 1,
+  cash:this.wcash
+   
+    }); 
+    const ttoday = new Date();
+    let tttodate = ttoday.getFullYear();
+    this.currentyear = tttodate + 0
+    set(ref(this.database, 'sales/year/' + this.currentyear), {
+     income: this.currentincomeyear + this.amountInInteger,
+     sales:  this.currentsaleyear + 1,
+     currentyear: this.currentyear,
+  gcash:this.ygcash + 1,
+  cash:this.ycash
+     
+       
+        }); 
+        remove(ref(this.database, 'customerpickup/' + this.confirmid));
+alert('done')
+this.nav = true
+this.Pickupactive = true
+this.pickedactive = false
+      }
+
+
 
 }
 
@@ -470,6 +638,15 @@ cdedivered(d:any){
   this.confirmpayed = d.total
   this.confirmpack = d.pack
   this.confirmaddress = d.address
+  this.gettime = d.time
+  this.getdate = d.date
+  if(d.paymentStatus == "unpaid"){
+    this.paymentMethod = "unpaid"
+  }else if(d.paymentStatus == "paid" && d.paymentMethod == "gcash"){
+    this.paymentMethod = "gcash"
+  }else if(d.paymentStatus == "paid" && d.paymentMethod == "cash"){
+    this.paymentMethod = "cash"
+  }
 
   this.deliveredavtive = true
   this.nav = false
@@ -483,6 +660,18 @@ this.deliveredavtive = false
 
 }
 deliveryyes(){
+  let pstatus 
+  let pmethod
+  if(this.paymentMethod == "unpaid"){
+     pstatus = "unpaid"
+     pmethod = "unpaid"
+  }else if(this.paymentMethod == "gcash"){
+     pstatus = "paid"
+     pmethod = "gcash"
+  }else if(this.paymentMethod == "cash"){
+     pstatus = "paid"
+     pmethod = "cash"
+  }
   const iaid = sessionStorage.getItem('id');
   let myDate = formatDate(new Date(), 'mmss', 'en')
   let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
@@ -500,7 +689,8 @@ deliveryyes(){
    time: realtime,
    date:realdate,
    type: "delivered",
-   deliveredTo:this.confirmaddress
+   deliveredTo:this.confirmaddress,
+   paymentMethod:pmethod
 
   
    }); 
@@ -517,21 +707,63 @@ deliveryyes(){
        this.amountInInteger = parseInt(amountWithoutCurrency);
    
     //  daily 
-    let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
-       set(ref(this.database, 'sales/daily/' + dailysalee), {
-        income: this.currentincomedaily + this.amountInInteger,
-        sales:  this.currentsaledaily + 1,
-        currentday: dailysalee
-        
-          
-           }); 
+    if(pmethod == "cash"){
+      let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+      set(ref(this.database, 'sales/daily/' + dailysalee), {
+       income: this.currentincomedaily + this.amountInInteger,
+       sales:  this.currentsaledaily + 1,
+       currentday: dailysalee,
+       cash:this.ccash + 1,
+        gcash:this.ccash
+          }); 
 
-// weekly
-   set(ref(this.database, 'sales/week/' + currentWeekNumber), {
- income: this.currentincomeweek + this.amountInInteger,
- sales:  this.currentsaleweek + 1,
- currentWeekNumber: currentWeekNumber
+ this.currentweek =  currentWeekNumber ;
+ set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+income: this.currentincomeweek + this.amountInInteger,
+sales:  this.currentsaleweek + 1,
+currentWeekNumber: currentWeekNumber,
+cash:this.wcash + 1,
+gcash:this.wgcash
  
+  }); 
+  const ttoday = new Date();
+  let tttodate = ttoday.getFullYear();
+  this.currentyear = tttodate + 0
+  set(ref(this.database, 'sales/year/' + this.currentyear), {
+   income: this.currentincomeyear + this.amountInInteger,
+   sales:  this.currentsaleyear + 1,
+   currentyear: this.currentyear,
+cash:this.ycash + 1,
+gcash:this.ygcash
+   
+     
+      }); 
+      remove(ref(this.database, 'delivery/' + this.confirmid));
+alert('done')
+this.nav = true
+this.Dactive = true
+this.deliveredavtive = false
+      }else if (pmethod == "gcash"){
+        console.log(this.wgcash)
+        let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+        set(ref(this.database, 'sales/daily/' + dailysalee), {
+         income: this.currentincomedaily + this.amountInInteger,
+         sales:  this.currentsaledaily + 1,
+        gcash:this.cgcash + 1,
+         currentday: dailysalee,
+         cash:this.ccash
+       
+         
+           
+            }); 
+  
+   this.currentweek =  currentWeekNumber ;
+   set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+  income: this.currentincomeweek + this.amountInInteger,
+  sales:  this.currentsaleweek + 1,
+  currentWeekNumber: currentWeekNumber,
+  gcash:this.wgcash + 1,
+  cash:this.wcash
    
     }); 
     const ttoday = new Date();
@@ -540,17 +772,18 @@ deliveryyes(){
     set(ref(this.database, 'sales/year/' + this.currentyear), {
      income: this.currentincomeyear + this.amountInInteger,
      sales:  this.currentsaleyear + 1,
-     currentyear:  this.currentyear
+     currentyear: this.currentyear,
+  gcash:this.ygcash + 1,
+  cash:this.ycash
      
        
         }); 
-   
-  remove(ref(this.database, 'delivery/' + this.confirmid));
-  alert('Done')
-  this.nav = true
+        remove(ref(this.database, 'delivery/' + this.confirmid));
+alert('done')
+this.nav = true
 this.Dactive = true
 this.deliveredavtive = false
-  
+      }
   }
   
 
@@ -568,6 +801,18 @@ this.deliveredavtive = false
 }
 
   async addlaundryy(value:any){
+    let pstatus 
+    let pmethod
+    if(this.paymentMethod == "unpaid"){
+       pstatus = "unpaid"
+       pmethod = "unpaid"
+    }else if(this.paymentMethod == "gcash"){
+       pstatus = "paid"
+       pmethod = "gcash"
+    }else if(this.paymentMethod == "cash"){
+       pstatus = "paid"
+       pmethod = "cash"
+    }
     this.username = value.username
     const starCountRef = ref(this.database, 'client/' + this.username);
     onValue(starCountRef, (snapshot) => {
@@ -597,8 +842,24 @@ this.deliveredavtive = false
 if(this.cpacks == 0 || this.cpacks ==  undefined){
   
 }else{
-  this.pack = this.cpacks
+  if(this.pack > this.cpacks){
+  
+    let cuco = Math.floor(value.kilo / 10)
+    if(cuco <= this.cpacks){
+ this.pack = this.cpacks
+
+    }else{
+
+    }
+  }
+ 
 }
+if(!value.kilo){
+  alert("Put kilo")
+}else{
+  let times = formatDate(new Date(), 'hh:mma', 'en')
+  let dates = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+
      let myDate = formatDate(new Date(), 'mmss', 'en')
      this.uuid =  "L"+myDate+ Math.floor(100 + Math.random() * 99);
   set(ref(this.database, 'laundry/' + this.uuid), {
@@ -612,7 +873,12 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
      total: this.total,
      pack: this.pack,
      kilo: value.kilo,
-     status: "processing"
+     status: "processing",
+     paymentMethod:pmethod,
+paymentStatus:pstatus,
+time:times,
+date: dates
+
      }); 
 
 
@@ -637,7 +903,19 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
           padding:10px;
           page-break-after:always;
          }
-
+         .container {
+          display: flex;
+          justify-content: space-between;
+        
+      }
+  
+      .left {
+          text-align: left;
+      }
+  
+      .right {
+          text-align: right;
+      }
          </style>
            <title>Print Number</title>
          </head>
@@ -646,6 +924,22 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
            <h3 class="to">IM CAFE & LAUNDROMAT</h1><br><br><hr><br>
            <h1>${this.uuid}</h1>
            <br><br><hr><br>
+           <div class="container">
+           <div class="left">
+               <p>Name:</p>
+               <p>Time:</p>
+               <p>Date:</p>
+               <p>Payment:</p>
+               <p>Total:</p>
+           </div>
+           <div class="right">
+               <p>John Lloyd</p>
+               <p>3:04</p>
+               <p>10~19~2023</p>
+               <p>paid</p>
+               <p>4k</p>
+           </div>
+       </div>
          </body>
        </html>
      `;
@@ -664,4 +958,619 @@ if(this.cpacks == 0 || this.cpacks ==  undefined){
       }, 1000); // Adjust the delay time as needed
      } 
    }
+  }
+
+
+
+
+
+
+searchs = true
+seachname = ""
+userlist!: Observable<any[]>;
+onsearch(){
+  this.searchs = true
+}
+offsearch(value: any){
+  this.searchs = false
+  this.seachname = value
+}
+
+
+pickedupgcash(){
+
+  let pmethod = "gcash"
+
+// temporarty funtion for now
+const iaid = sessionStorage.getItem('id');
+let myDate = formatDate(new Date(), 'mmss', 'en')
+let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
+let realtime = formatDate(new Date(), 'hh:mma', 'en')
+this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 90);
+set(ref(this.database, 'logs/' + this.transacitonid), {
+  transacitonid: this.transacitonid,
+  pastid: this.confirmid,
+  username: this.confirmusername,
+  name: this.confirmname,
+ uid: this.confirmuid,
+ payed: this.confirmpayed,
+ pack: this.confirmpack,
+ transacby: iaid,
+ time: realtime,
+ date:realdate,
+ type: "picked up",
+ paymentMethod:"gcash"
+
+ }); 
+ const today = new Date();
+ const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
+ const pastDaysOfYear = (today.getTime() - firstDayOfYear.getTime()) / 86400000;
+ const currentWeekNumber = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+       // Remove the currency symbol '₱' and the decimal point '.'
+       const amountWithoutCurrency = this.confirmpayed.substring(1);
+    
+       // Convert to an integer
+       this.amountInInteger = parseInt(amountWithoutCurrency);
+
+      //  daily 
+
+      if(pmethod == "cash"){
+      let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+      set(ref(this.database, 'sales/daily/' + dailysalee), {
+       income: this.currentincomedaily + this.amountInInteger,
+       sales:  this.currentsaledaily + 1,
+       currentday: dailysalee,
+       cash:this.ccash + 1,
+        gcash:this.ccash
+          }); 
+
+ this.currentweek =  currentWeekNumber ;
+ set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+income: this.currentincomeweek + this.amountInInteger,
+sales:  this.currentsaleweek + 1,
+currentWeekNumber: currentWeekNumber,
+cash:this.wcash + 1,
+gcash:this.wgcash
+ 
+  }); 
+  const ttoday = new Date();
+  let tttodate = ttoday.getFullYear();
+  this.currentyear = tttodate + 0
+  set(ref(this.database, 'sales/year/' + this.currentyear), {
+   income: this.currentincomeyear + this.amountInInteger,
+   sales:  this.currentsaleyear + 1,
+   currentyear: this.currentyear,
+cash:this.ycash + 1,
+gcash:this.ygcash
+   
+     
+      }); 
+      remove(ref(this.database, 'customerpickup/' + this.confirmid));
+alert('done')
+this.nav = true
+this.Pickupactive = true
+this.pickedactive = false
+      }else if (pmethod == "gcash"){
+        console.log(this.wgcash)
+        let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+        set(ref(this.database, 'sales/daily/' + dailysalee), {
+         income: this.currentincomedaily + this.amountInInteger,
+         sales:  this.currentsaledaily + 1,
+        gcash:this.cgcash + 1,
+         currentday: dailysalee,
+         cash:this.ccash
+       
+         
+           
+            }); 
+  
+   this.currentweek =  currentWeekNumber ;
+   set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+  income: this.currentincomeweek + this.amountInInteger,
+  sales:  this.currentsaleweek + 1,
+  currentWeekNumber: currentWeekNumber,
+  gcash:this.wgcash + 1,
+  cash:this.wcash
+   
+    }); 
+    const ttoday = new Date();
+    let tttodate = ttoday.getFullYear();
+    this.currentyear = tttodate + 0
+    set(ref(this.database, 'sales/year/' + this.currentyear), {
+     income: this.currentincomeyear + this.amountInInteger,
+     sales:  this.currentsaleyear + 1,
+     currentyear: this.currentyear,
+  gcash:this.ygcash + 1,
+  cash:this.ycash
+     
+       
+        }); 
+        remove(ref(this.database, 'customerpickup/' + this.confirmid));
+alert('done')
+this.nav = true
+this.Pickupactive = true
+this.pickedactive = false
+      }
+
+
+
+}
+pickedupcash(){
+
+  let pmethod = "cash"
+
+// temporarty funtion for now
+const iaid = sessionStorage.getItem('id');
+let myDate = formatDate(new Date(), 'mmss', 'en')
+let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
+let realtime = formatDate(new Date(), 'hh:mma', 'en')
+this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 90);
+set(ref(this.database, 'logs/' + this.transacitonid), {
+  transacitonid: this.transacitonid,
+  pastid: this.confirmid,
+  username: this.confirmusername,
+  name: this.confirmname,
+ uid: this.confirmuid,
+ payed: this.confirmpayed,
+ pack: this.confirmpack,
+ transacby: iaid,
+ time: realtime,
+ date:realdate,
+ type: "picked up",
+ paymentMethod:"cash"
+
+ }); 
+ const today = new Date();
+ const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
+ const pastDaysOfYear = (today.getTime() - firstDayOfYear.getTime()) / 86400000;
+ const currentWeekNumber = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+       // Remove the currency symbol '₱' and the decimal point '.'
+       const amountWithoutCurrency = this.confirmpayed.substring(1);
+    
+       // Convert to an integer
+       this.amountInInteger = parseInt(amountWithoutCurrency);
+
+      //  daily 
+
+      if(pmethod == "cash"){
+      let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+      set(ref(this.database, 'sales/daily/' + dailysalee), {
+       income: this.currentincomedaily + this.amountInInteger,
+       sales:  this.currentsaledaily + 1,
+       currentday: dailysalee,
+       cash:this.ccash + 1,
+        gcash:this.ccash
+          }); 
+
+ this.currentweek =  currentWeekNumber ;
+ set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+income: this.currentincomeweek + this.amountInInteger,
+sales:  this.currentsaleweek + 1,
+currentWeekNumber: currentWeekNumber,
+cash:this.wcash + 1,
+gcash:this.wgcash
+ 
+  }); 
+  const ttoday = new Date();
+  let tttodate = ttoday.getFullYear();
+  this.currentyear = tttodate + 0
+  set(ref(this.database, 'sales/year/' + this.currentyear), {
+   income: this.currentincomeyear + this.amountInInteger,
+   sales:  this.currentsaleyear + 1,
+   currentyear: this.currentyear,
+cash:this.ycash + 1,
+gcash:this.ygcash
+   
+     
+      }); 
+      remove(ref(this.database, 'customerpickup/' + this.confirmid));
+alert('done')
+this.nav = true
+this.Pickupactive = true
+this.pickedactive = false
+      }else if (pmethod == "gcash"){
+        console.log(this.wgcash)
+        let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+        set(ref(this.database, 'sales/daily/' + dailysalee), {
+         income: this.currentincomedaily + this.amountInInteger,
+         sales:  this.currentsaledaily + 1,
+        gcash:this.cgcash + 1,
+         currentday: dailysalee,
+         cash:this.ccash
+       
+         
+           
+            }); 
+  
+   this.currentweek =  currentWeekNumber ;
+   set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+  income: this.currentincomeweek + this.amountInInteger,
+  sales:  this.currentsaleweek + 1,
+  currentWeekNumber: currentWeekNumber,
+  gcash:this.wgcash + 1,
+  cash:this.wcash
+   
+    }); 
+    const ttoday = new Date();
+    let tttodate = ttoday.getFullYear();
+    this.currentyear = tttodate + 0
+    set(ref(this.database, 'sales/year/' + this.currentyear), {
+     income: this.currentincomeyear + this.amountInInteger,
+     sales:  this.currentsaleyear + 1,
+     currentyear: this.currentyear,
+  gcash:this.ygcash + 1,
+  cash:this.ycash
+     
+       
+        }); 
+        remove(ref(this.database, 'customerpickup/' + this.confirmid));
+alert('done')
+this.nav = true
+this.Pickupactive = true
+this.pickedactive = false
+      }
+
+
+
+}
+deliverycash(){
+
+  let pmethod = "cash"
+   
+  const iaid = sessionStorage.getItem('id');
+  let myDate = formatDate(new Date(), 'mmss', 'en')
+  let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
+  let realtime = formatDate(new Date(), 'hh:mma', 'en')
+  this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 90);
+  set(ref(this.database, 'logs/' + this.transacitonid), {
+    transacitonid: this.transacitonid,
+    pastid: this.confirmid,
+    username: this.confirmusername,
+    name: this.confirmname,
+   uid: this.confirmuid,
+   payed: this.confirmpayed,
+   pack: this.confirmpack,
+   transacby: iaid,
+   time: realtime,
+   date:realdate,
+   type: "delivered",
+   deliveredTo:this.confirmaddress,
+   paymentMethod:pmethod
+
+  
+   }); 
+   const today = new Date();
+   const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
+   const pastDaysOfYear = (today.getTime() - firstDayOfYear.getTime()) / 86400000;
+   const currentWeekNumber = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+ 
+   this.currentweek =  currentWeekNumber ;
+       // Remove the currency symbol '₱' and the decimal point '.'
+       const amountWithoutCurrency = this.confirmpayed.substring(1);
+    
+       // Convert to an integer
+       this.amountInInteger = parseInt(amountWithoutCurrency);
+   
+    //  daily 
+    if(pmethod == "cash"){
+      let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+      set(ref(this.database, 'sales/daily/' + dailysalee), {
+       income: this.currentincomedaily + this.amountInInteger,
+       sales:  this.currentsaledaily + 1,
+       currentday: dailysalee,
+       cash:this.ccash + 1,
+        gcash:this.ccash
+          }); 
+
+ this.currentweek =  currentWeekNumber ;
+ set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+income: this.currentincomeweek + this.amountInInteger,
+sales:  this.currentsaleweek + 1,
+currentWeekNumber: currentWeekNumber,
+cash:this.wcash + 1,
+gcash:this.wgcash
+ 
+  }); 
+  const ttoday = new Date();
+  let tttodate = ttoday.getFullYear();
+  this.currentyear = tttodate + 0
+  set(ref(this.database, 'sales/year/' + this.currentyear), {
+   income: this.currentincomeyear + this.amountInInteger,
+   sales:  this.currentsaleyear + 1,
+   currentyear: this.currentyear,
+cash:this.ycash + 1,
+gcash:this.ygcash
+   
+     
+      }); 
+      remove(ref(this.database, 'delivery/' + this.confirmid));
+alert('done')
+this.nav = true
+this.Pickupactive = true
+this.pickedactive = false
+      }else if (pmethod == "gcash"){
+        console.log(this.wgcash)
+        let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+        set(ref(this.database, 'sales/daily/' + dailysalee), {
+         income: this.currentincomedaily + this.amountInInteger,
+         sales:  this.currentsaledaily + 1,
+        gcash:this.cgcash + 1,
+         currentday: dailysalee,
+         cash:this.ccash
+       
+         
+           
+            }); 
+  
+   this.currentweek =  currentWeekNumber ;
+   set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+  income: this.currentincomeweek + this.amountInInteger,
+  sales:  this.currentsaleweek + 1,
+  currentWeekNumber: currentWeekNumber,
+  gcash:this.wgcash + 1,
+  cash:this.wcash
+   
+    }); 
+    const ttoday = new Date();
+    let tttodate = ttoday.getFullYear();
+    this.currentyear = tttodate + 0
+    set(ref(this.database, 'sales/year/' + this.currentyear), {
+     income: this.currentincomeyear + this.amountInInteger,
+     sales:  this.currentsaleyear + 1,
+     currentyear: this.currentyear,
+  gcash:this.ygcash + 1,
+  cash:this.ycash
+     
+       
+        }); 
+        remove(ref(this.database, 'delivery/' + this.confirmid));
+alert('done')
+this.nav = true
+this.Dactive = true
+this.deliveredavtive = false
+      }
+  }
+  dcash(){
+
+    let pmethod = "cash"
+   
+    const iaid = sessionStorage.getItem('id');
+    let myDate = formatDate(new Date(), 'mmss', 'en')
+    let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
+    let realtime = formatDate(new Date(), 'hh:mma', 'en')
+    this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 90);
+    set(ref(this.database, 'logs/' + this.transacitonid), {
+      transacitonid: this.transacitonid,
+      pastid: this.confirmid,
+      username: this.confirmusername,
+      name: this.confirmname,
+     uid: this.confirmuid,
+     payed: this.confirmpayed,
+     pack: this.confirmpack,
+     transacby: iaid,
+     time: realtime,
+     date:realdate,
+     type: "delivered",
+     deliveredTo:this.confirmaddress,
+     paymentMethod:pmethod
+  
+    
+     }); 
+     const today = new Date();
+     const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
+     const pastDaysOfYear = (today.getTime() - firstDayOfYear.getTime()) / 86400000;
+     const currentWeekNumber = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+   
+     this.currentweek =  currentWeekNumber ;
+         // Remove the currency symbol '₱' and the decimal point '.'
+         const amountWithoutCurrency = this.confirmpayed.substring(1);
+      
+         // Convert to an integer
+         this.amountInInteger = parseInt(amountWithoutCurrency);
+     
+      //  daily 
+      if(pmethod == "cash"){
+        let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+        set(ref(this.database, 'sales/daily/' + dailysalee), {
+         income: this.currentincomedaily + this.amountInInteger,
+         sales:  this.currentsaledaily + 1,
+         currentday: dailysalee,
+         cash:this.ccash + 1,
+          gcash:this.ccash
+            }); 
+  
+   this.currentweek =  currentWeekNumber ;
+   set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+  income: this.currentincomeweek + this.amountInInteger,
+  sales:  this.currentsaleweek + 1,
+  currentWeekNumber: currentWeekNumber,
+  cash:this.wcash + 1,
+  gcash:this.wgcash
+   
+    }); 
+    const ttoday = new Date();
+    let tttodate = ttoday.getFullYear();
+    this.currentyear = tttodate + 0
+    set(ref(this.database, 'sales/year/' + this.currentyear), {
+     income: this.currentincomeyear + this.amountInInteger,
+     sales:  this.currentsaleyear + 1,
+     currentyear: this.currentyear,
+  cash:this.ycash + 1,
+  gcash:this.ygcash
+     
+       
+        }); 
+        remove(ref(this.database, 'delivery/' + this.confirmid));
+  alert('done')
+  this.nav = true
+  this.Dactive = true
+  this.deliveredavtive = false
+        }else if (pmethod == "gcash"){
+          console.log(this.wgcash)
+          let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+          set(ref(this.database, 'sales/daily/' + dailysalee), {
+           income: this.currentincomedaily + this.amountInInteger,
+           sales:  this.currentsaledaily + 1,
+          gcash:this.cgcash + 1,
+           currentday: dailysalee,
+           cash:this.ccash
+         
+           
+             
+              }); 
+    
+     this.currentweek =  currentWeekNumber ;
+     set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+    income: this.currentincomeweek + this.amountInInteger,
+    sales:  this.currentsaleweek + 1,
+    currentWeekNumber: currentWeekNumber,
+    gcash:this.wgcash + 1,
+    cash:this.wcash
+     
+      }); 
+      const ttoday = new Date();
+      let tttodate = ttoday.getFullYear();
+      this.currentyear = tttodate + 0
+      set(ref(this.database, 'sales/year/' + this.currentyear), {
+       income: this.currentincomeyear + this.amountInInteger,
+       sales:  this.currentsaleyear + 1,
+       currentyear: this.currentyear,
+    gcash:this.ygcash + 1,
+    cash:this.ycash
+       
+         
+          }); 
+          remove(ref(this.database, 'delivery/' + this.confirmid));
+  alert('done')
+
+    this.nav = true
+    this.Dactive = true
+    this.deliveredavtive = false
+
+        }
+    }
+    deliverygcash(){
+
+      let pmethod = "gcash"
+     
+      const iaid = sessionStorage.getItem('id');
+      let myDate = formatDate(new Date(), 'mmss', 'en')
+      let realdate = formatDate(new Date(), 'MM/dd/yyyy', 'en')
+      let realtime = formatDate(new Date(), 'hh:mma', 'en')
+      this.transacitonid =  "log"+myDate+ Math.floor(100 + Math.random() * 90);
+      set(ref(this.database, 'logs/' + this.transacitonid), {
+        transacitonid: this.transacitonid,
+        pastid: this.confirmid,
+        username: this.confirmusername,
+        name: this.confirmname,
+       uid: this.confirmuid,
+       payed: this.confirmpayed,
+       pack: this.confirmpack,
+       transacby: iaid,
+       time: realtime,
+       date:realdate,
+       type: "delivered",
+       deliveredTo:this.confirmaddress,
+       paymentMethod:pmethod
+    
+      
+       }); 
+       const today = new Date();
+       const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
+       const pastDaysOfYear = (today.getTime() - firstDayOfYear.getTime()) / 86400000;
+       const currentWeekNumber = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+     
+       this.currentweek =  currentWeekNumber ;
+           // Remove the currency symbol '₱' and the decimal point '.'
+           const amountWithoutCurrency = this.confirmpayed.substring(1);
+        
+           // Convert to an integer
+           this.amountInInteger = parseInt(amountWithoutCurrency);
+       
+        //  daily 
+        if(pmethod == "cash"){
+          let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+          set(ref(this.database, 'sales/daily/' + dailysalee), {
+           income: this.currentincomedaily + this.amountInInteger,
+           sales:  this.currentsaledaily + 1,
+           currentday: dailysalee,
+           cash:this.ccash + 1,
+            gcash:this.ccash
+              }); 
+    
+     this.currentweek =  currentWeekNumber ;
+     set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+    income: this.currentincomeweek + this.amountInInteger,
+    sales:  this.currentsaleweek + 1,
+    currentWeekNumber: currentWeekNumber,
+    cash:this.wcash + 1,
+    gcash:this.wgcash
+     
+      }); 
+      const ttoday = new Date();
+      let tttodate = ttoday.getFullYear();
+      this.currentyear = tttodate + 0
+      set(ref(this.database, 'sales/year/' + this.currentyear), {
+       income: this.currentincomeyear + this.amountInInteger,
+       sales:  this.currentsaleyear + 1,
+       currentyear: this.currentyear,
+    cash:this.ycash + 1,
+    gcash:this.ygcash
+       
+         
+          }); 
+          remove(ref(this.database, 'delivery/' + this.confirmid));
+    alert('done')
+    this.nav = true
+    this.Dactive = true
+    this.deliveredavtive = false
+          }else if (pmethod == "gcash"){
+            console.log(this.wgcash)
+            let dailysalee = formatDate(new Date(), 'MM~dd~yyyy', 'en')
+            set(ref(this.database, 'sales/daily/' + dailysalee), {
+             income: this.currentincomedaily + this.amountInInteger,
+             sales:  this.currentsaledaily + 1,
+            gcash:this.cgcash + 1,
+             currentday: dailysalee,
+             cash:this.ccash
+           
+             
+               
+                }); 
+      
+       this.currentweek =  currentWeekNumber ;
+       set(ref(this.database, 'sales/week/' + currentWeekNumber), {
+      income: this.currentincomeweek + this.amountInInteger,
+      sales:  this.currentsaleweek + 1,
+      currentWeekNumber: currentWeekNumber,
+      gcash:this.wgcash + 1,
+      cash:this.wcash
+       
+        }); 
+        const ttoday = new Date();
+        let tttodate = ttoday.getFullYear();
+        this.currentyear = tttodate + 0
+        set(ref(this.database, 'sales/year/' + this.currentyear), {
+         income: this.currentincomeyear + this.amountInInteger,
+         sales:  this.currentsaleyear + 1,
+         currentyear: this.currentyear,
+      gcash:this.ygcash + 1,
+      cash:this.ycash
+         
+           
+            }); 
+            remove(ref(this.database, 'delivery/' + this.confirmid));
+    alert('done')
+  
+    this.nav = true
+    this.Dactive = true
+    this.deliveredavtive = false
+  
+          }
+      }
+      clearseachname(){
+        this.seachname = ""
+        this.searchs = false
+      }
+
 }
