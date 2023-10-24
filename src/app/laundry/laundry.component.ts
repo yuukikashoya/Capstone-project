@@ -1557,6 +1557,9 @@ this.deliveredavtive = false
   
           }
       }
-      
+      clearseachname(){
+        this.seachname = ""
+        this.searchs = false
+      }
 
 }

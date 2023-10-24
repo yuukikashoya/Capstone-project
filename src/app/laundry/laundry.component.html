@@ -30,6 +30,21 @@
 
     <div class="jump table-responsive scrollable"  *ngIf="this.PKactive == true">
         <h3> <span class="">Pick up</span>  </h3>
+        <div>
+        <label for="searchInput">Search:</label> 
+        
+    <input (click)="onsearch()" [(ngModel)]="seachname" type="text">
+    <button id="clearButton" (click)="clearseachname()">Clear</button>
+    <div class="list-container" style="margin-left: 35%;" *ngIf="seachname !== '' && searchs">
+      <ul class="list" *ngFor="let user of userlist | async">
+        <li *ngIf="user.username.includes(seachname)" (click)="offsearch(user.username)">
+         <h5 style="font-weight: bold;">{{ user.username }}</h5> 
+        </li>
+      </ul>
+
+    </div>
+    </div>
+   
         <table class="table table-bordered table-dark">
             <thead>
               <tr>
@@ -46,7 +61,7 @@
               </tr>
             </thead>
             <tbody *ngFor="let z of pickup | async;">
-              <tr  *ngIf= "z">
+              <tr  *ngIf= "z && z.username.includes(seachname)">
                 <th scope="row">{{z.id}}</th>
                 <td>{{z.username}}</td>    
                 <td style="background-color: rgb(212, 212, 212);">{{z.name}}</td>                            
@@ -66,6 +81,20 @@
 
     <div class="jump table-responsive scrollable"*ngIf="this.Wactive == true">
         <h3> <span class="">Wash</span>  </h3>
+        <div>
+          <label for="searchInput">Search:</label> 
+          
+      <input (click)="onsearch()" [(ngModel)]="seachname" type="text">
+      <button id="clearButton" (click)="clearseachname()">Clear</button>
+      <div class="list-container" style="margin-left: 35%;" *ngIf="seachname !== '' && searchs">
+        <ul class="list" *ngFor="let user of userlist | async">
+          <li *ngIf="user.username.includes(seachname)" (click)="offsearch(user.username)">
+           <h5 style="font-weight: bold;">{{ user.username }}</h5> 
+          </li>
+        </ul>
+  
+      </div>
+      </div>
         <table class="table table-bordered table-dark">
             <thead>
               <tr>
@@ -84,7 +113,7 @@
               </tr>
             </thead>
             <tbody *ngFor="let q of laundry | async;">
-              <tr  *ngIf= "q">
+              <tr  *ngIf= "q && q.username.includes(seachname)">
                 <th scope="row">{{q.id}}</th>
                 <td>{{q.username}}</td>    
                 <td  style="background-color: rgb(212, 212, 212);">{{q.name}}</td>                            
@@ -108,6 +137,20 @@
 
     <div class="jump table-responsive scrollable" *ngIf="this.Dactive == true">
       <h3> <span class="">Delivery</span>  </h3>
+      <div>
+        <label for="searchInput">Search:</label> 
+        
+    <input (click)="onsearch()" [(ngModel)]="seachname" type="text">
+    <button id="clearButton" (click)="clearseachname()">Clear</button>
+    <div class="list-container" style="margin-left: 35%;" *ngIf="seachname !== '' && searchs">
+      <ul class="list" *ngFor="let user of userlist | async">
+        <li *ngIf="user.username.includes(seachname)" (click)="offsearch(user.username)">
+         <h5 style="font-weight: bold;">{{ user.username }}</h5> 
+        </li>
+      </ul>
+
+    </div>
+    </div>
       <table class="table table-bordered table-dark">
           <thead>
             <tr>
@@ -126,7 +169,7 @@
             </tr>
           </thead>
           <tbody *ngFor="let d of deliverylist | async;let i = index">
-            <tr  *ngIf= "d">
+            <tr  *ngIf= "d && d.username.includes(seachname)">
               <th scope="row">{{d.id}}</th>
               <td >{{d.username}}</td>    
               <td style="background-color: rgb(212, 212, 212);">{{d.name}}</td>                            
@@ -238,6 +281,20 @@
 
 <div class="jump table-responsive scrollable"*ngIf="this.Pickupactive == true">
   <h3> <span class="">Customer Pickup</span>  </h3>
+  <div>
+    <label for="searchInput">Search:</label> 
+    
+<input (click)="onsearch()" [(ngModel)]="seachname" type="text">
+<button id="clearButton" (click)="clearseachname()">Clear</button>
+<div class="list-container" style="margin-left: 35%;" *ngIf="seachname !== '' && searchs">
+  <ul class="list" *ngFor="let user of userlist | async">
+    <li *ngIf="user.username.includes(seachname)" (click)="offsearch(user.username)">
+     <h5 style="font-weight: bold;">{{ user.username }}</h5> 
+    </li>
+  </ul>
+
+</div>
+</div>
   <table class="table table-bordered table-dark">
       <thead>
         <tr>
@@ -255,7 +312,7 @@
         </tr>
       </thead>
       <tbody *ngFor="let l of customerpickuplist | async;">
-        <tr  *ngIf= "l">
+        <tr  *ngIf= "l && l.username.includes(seachname)">
           <th scope="row">{{l.id}}</th>
           <td >{{l.username}}</td>    
           <td style="background-color: rgb(212, 212, 212);">{{l.name}}</td>                            
