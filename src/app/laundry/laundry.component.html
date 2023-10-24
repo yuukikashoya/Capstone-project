@@ -30,13 +30,29 @@
 
     <div class="jump table-responsive scrollable"  *ngIf="this.PKactive == true">
         <h3> <span class="">Pick up</span>  </h3>
+        <div>
+        <label for="searchInput">Search:</label> 
+        
+    <input (click)="onsearch()" [(ngModel)]="seachname" type="text">
+    <button id="clearButton" (click)="clearseachname()">Clear</button>
+    <div class="list-container" style="margin-left: 35%;" *ngIf="seachname !== '' && searchs">
+      <ul class="list" *ngFor="let user of userlist | async">
+        <li *ngIf="user.username.includes(seachname)" (click)="offsearch(user.username)">
+         <h5 style="font-weight: bold;">{{ user.username }}</h5> 
+        </li>
+      </ul>
+
+    </div>
+    </div>
+   
         <table class="table table-bordered table-dark">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Username</th>  
                 <th scope="col">Name</th>              
-                <th scope="col">User ID</th>
+                <th scope="col">Booked Time</th>
+                <th scope="col">Booked Date</th>
                 <th scope="col">Phone number</th>           
                 <th scope="col">Address</th>
                 <th scope="col">Mode of distribution</th>
@@ -45,11 +61,12 @@
               </tr>
             </thead>
             <tbody *ngFor="let z of pickup | async;">
-              <tr  *ngIf= "z">
+              <tr  *ngIf= "z && z.username.includes(seachname)">
                 <th scope="row">{{z.id}}</th>
-                <td style="background-color: rgb(212, 212, 212);">{{z.username}}</td>    
-                <td>{{z.name}}</td>                            
-                <td style="background-color: rgb(212, 212, 212);">{{z.uid}}</td>  
+                <td>{{z.username}}</td>    
+                <td style="background-color: rgb(212, 212, 212);">{{z.name}}</td>                            
+                <td>{{z.time}}</td>  
+                <td style="background-color: rgb(212, 212, 212);">{{z.date}}</td> 
                 <td>{{z.phonenumber}}</td>
                 <td style="background-color: rgb(212, 212, 212);">{{z.address}}</td>
                 <td>{{z.for}}</td>
@@ -64,15 +81,29 @@
 
     <div class="jump table-responsive scrollable"*ngIf="this.Wactive == true">
         <h3> <span class="">Wash</span>  </h3>
+        <div>
+          <label for="searchInput">Search:</label> 
+          
+      <input (click)="onsearch()" [(ngModel)]="seachname" type="text">
+      <button id="clearButton" (click)="clearseachname()">Clear</button>
+      <div class="list-container" style="margin-left: 35%;" *ngIf="seachname !== '' && searchs">
+        <ul class="list" *ngFor="let user of userlist | async">
+          <li *ngIf="user.username.includes(seachname)" (click)="offsearch(user.username)">
+           <h5 style="font-weight: bold;">{{ user.username }}</h5> 
+          </li>
+        </ul>
+  
+      </div>
+      </div>
         <table class="table table-bordered table-dark">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Username</th>  
                 <th scope="col">Name</th>              
-                <th scope="col">User ID</th>
-                <th scope="col">Phone number</th>           
-                <th scope="col">Address</th>
+                <th scope="col">Payment Status and Method</th>
+                <th scope="col">Booked Time</th>
+                <th scope="col">Booked Date</th>
                 <th scope="col">Mode of distribution</th>
                 <th scope="col">Status</th>
                 <th scope="col">Kilo/s</th>
@@ -82,19 +113,20 @@
               </tr>
             </thead>
             <tbody *ngFor="let q of laundry | async;">
-              <tr  *ngIf= "q">
+              <tr  *ngIf= "q && q.username.includes(seachname)">
                 <th scope="row">{{q.id}}</th>
-                <td style="background-color: rgb(212, 212, 212);">{{q.username}}</td>    
-                <td>{{q.name}}</td>                            
-                <td style="background-color: rgb(212, 212, 212);">{{q.uid}}</td>  
-                <td>{{q.phonenumber}}</td>
-                <td style="background-color: rgb(212, 212, 212);">{{q.address}}</td>
-                <td>{{q.for}}</td>
-                <td style="background-color: rgb(212, 212, 212);">{{q.status}}</td>
-                <td>{{q.kilo}}</td>
-                <td style="background-color: rgb(212, 212, 212);">{{q.pack}}</td>
-                <td>₱{{q.total}}.00</td>
-                <td style="background-color: rgb(212, 212, 212);"><button class="btn btn-primary" (click)="getLaundry(q)">update</button></td>
+                <td>{{q.username}}</td>    
+                <td  style="background-color: rgb(212, 212, 212);">{{q.name}}</td>                            
+                <td *ngIf="q.paymentStatus != q.paymentMethod">{{q.paymentStatus}}-{{q.paymentMethod}}</td>  
+                <td *ngIf="q.paymentStatus == q.paymentMethod">{{q.paymentStatus}}</td>  
+                <td style="background-color: rgb(212, 212, 212);">{{q.time}}</td>
+                <td>{{q.date}}</td>
+                <td style="background-color: rgb(212, 212, 212);">{{q.for}}</td>
+                <td>{{q.status}}</td>
+                <td  style="background-color: rgb(212, 212, 212);">{{q.kilo}}</td>
+                <td >{{q.pack}}</td>
+                <td  style="background-color: rgb(212, 212, 212);">₱{{q.total}}.00</td>
+                <td ><button class="btn btn-primary" (click)="getLaundry(q)">update</button></td>
               </tr>
      
             </tbody>
@@ -105,16 +137,31 @@
 
     <div class="jump table-responsive scrollable" *ngIf="this.Dactive == true">
       <h3> <span class="">Delivery</span>  </h3>
+      <div>
+        <label for="searchInput">Search:</label> 
+        
+    <input (click)="onsearch()" [(ngModel)]="seachname" type="text">
+    <button id="clearButton" (click)="clearseachname()">Clear</button>
+    <div class="list-container" style="margin-left: 35%;" *ngIf="seachname !== '' && searchs">
+      <ul class="list" *ngFor="let user of userlist | async">
+        <li *ngIf="user.username.includes(seachname)" (click)="offsearch(user.username)">
+         <h5 style="font-weight: bold;">{{ user.username }}</h5> 
+        </li>
+      </ul>
+
+    </div>
+    </div>
       <table class="table table-bordered table-dark">
           <thead>
             <tr>
               <th scope="col">#</th>
               <th scope="col">Username</th>  
               <th scope="col">Name</th>              
-              <th scope="col">User ID</th>
-              <th scope="col">Phone number</th>           
-              <th scope="col">Address</th> 
-              <th scope="col">Status</th>
+              <th scope="col">Payment Status and Method</th>
+              <th scope="col">Booked Time</th>
+              <th scope="col">Booked Date</th>           
+              <th scope="col">Phone number</th> 
+              <th scope="col">Address</th>
               <th scope="col">Kilo/s</th>
               <th scope="col">Number of pack/s</th>
               <th scope="col">Notal due</th>
@@ -122,14 +169,16 @@
             </tr>
           </thead>
           <tbody *ngFor="let d of deliverylist | async;let i = index">
-            <tr  *ngIf= "d">
+            <tr  *ngIf= "d && d.username.includes(seachname)">
               <th scope="row">{{d.id}}</th>
-              <td style="background-color: rgb(212, 212, 212);">{{d.username}}</td>    
-              <td>{{d.name}}</td>                            
-              <td style="background-color: rgb(212, 212, 212);">{{d.uid}}</td>  
-              <td>{{d.phonenumber}}</td>
-              <td style="background-color: rgb(212, 212, 212);">{{d.address}}</td>
-              <td>{{d.status}}</td>
+              <td >{{d.username}}</td>    
+              <td style="background-color: rgb(212, 212, 212);">{{d.name}}</td>                            
+              <td *ngIf="d.paymentStatus != d.paymentMethod">{{d.paymentStatus}}-{{d.paymentMethod}}</td>  
+              <td  *ngIf="d.paymentStatus == d.paymentMethod">{{d.paymentStatus}}</td>  
+              <td style="background-color: rgb(212, 212, 212);">{{d.time}}</td> 
+              <td>{{d.date}}</td>
+              <td style="background-color: rgb(212, 212, 212);">{{d.phonenumber}}</td>
+              <td>{{d.address}}</td>
               <td style="background-color: rgb(212, 212, 212);">{{d.kilo}}</td>
               <td>{{d.pack}}</td>
               <td style="background-color: rgb(212, 212, 212);">{{d.total}}</td>
@@ -166,7 +215,11 @@
         <label>Mode of distribution </label><br>
         <input class="mm" ngModel name='to' type="text" readonly [ngModel]="upfor"><br>
         <label>clothes kilo</label><br>
-        <input class="mm" ngModel name='kilo' type="number" ><br>    
+        <input class="mm" ngModel name='kilo' type="number" ><br>  
+        <label>Payment Status and Method</label><br>
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="unpaid">Unpaid &nbsp;</label><br> 
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="gcash">Paid - Gcash</label><br> 
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="cash">Paid - Cash</label><br>  
     </div>
 </div>
         
@@ -206,7 +259,11 @@
       <label >Kilo of clothes</label><br>
       <input class="mm" ngModel name='to' type="text" readonly [ngModel]="lakilo"><br>
       <label >Total price</label><br>
-      <input class="mm" ngModel name='kilo' type="text" readonly [ngModel]="laprice"><br>    
+      <input class="mm" ngModel name='kilo' type="text" readonly [ngModel]="laprice"><br>  
+      <label>Payment Status and Method</label><br>
+      <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="unpaid">Unpaid &nbsp;</label><br> 
+      <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="gcash">Paid - Gcash</label><br> 
+      <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="cash">Paid - Cash</label><br>   
   </div>
 </div>
       
@@ -224,15 +281,30 @@
 
 <div class="jump table-responsive scrollable"*ngIf="this.Pickupactive == true">
   <h3> <span class="">Customer Pickup</span>  </h3>
+  <div>
+    <label for="searchInput">Search:</label> 
+    
+<input (click)="onsearch()" [(ngModel)]="seachname" type="text">
+<button id="clearButton" (click)="clearseachname()">Clear</button>
+<div class="list-container" style="margin-left: 35%;" *ngIf="seachname !== '' && searchs">
+  <ul class="list" *ngFor="let user of userlist | async">
+    <li *ngIf="user.username.includes(seachname)" (click)="offsearch(user.username)">
+     <h5 style="font-weight: bold;">{{ user.username }}</h5> 
+    </li>
+  </ul>
+
+</div>
+</div>
   <table class="table table-bordered table-dark">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">Username</th>  
           <th scope="col">Name</th>              
-          <th scope="col">User ID</th>
-          <th scope="col">Phone number</th>           
-          <th scope="col">status</th>
+          <th scope="col">Payment Status and Methods</th>
+          <th scope="col">Phone number</th>
+          <th scope="col">Booked Time</th>           
+          <th scope="col">Booked Date</th>
           <th scope="col">kilo/s</th>
           <th scope="col">number of pack/s</th>
           <th scope="col">total due</th>
@@ -240,13 +312,15 @@
         </tr>
       </thead>
       <tbody *ngFor="let l of customerpickuplist | async;">
-        <tr  *ngIf= "l">
+        <tr  *ngIf= "l && l.username.includes(seachname)">
           <th scope="row">{{l.id}}</th>
-          <td style="background-color: rgb(212, 212, 212);">{{l.username}}</td>    
-          <td>{{l.name}}</td>                            
-          <td style="background-color: rgb(212, 212, 212);">{{l.uid}}</td>  
-          <td>{{l.phonenumber}}</td>
-          <td style="background-color: rgb(212, 212, 212);">{{l.status}}</td>
+          <td >{{l.username}}</td>    
+          <td style="background-color: rgb(212, 212, 212);">{{l.name}}</td>                            
+          <td *ngIf="l.paymentStatus == l.paymentMethod ">{{l.paymentStatus}}</td>  
+          <td *ngIf="l.paymentStatus != l.paymentMethod " >{{l.paymentStatus}}-{{l.paymentMethod}}</td> 
+          <td style="background-color: rgb(212, 212, 212);">{{l.phonenumber}}</td> 
+          <td>{{l.time}}</td>
+          <td style="background-color: rgb(212, 212, 212);">{{l.date}}</td>
           <td>{{l.kilo}}</td>
           <td style="background-color: rgb(212, 212, 212);">{{l.pack}}</td>
           <td>{{l.total}}</td>
@@ -269,23 +343,28 @@
   <p class="nn"> Usernmae: <b>{{confirmusername}}</b></p>
   <p class="nn"> Number of packs: <b>{{confirmpack}}</b></p>
   <p class="nn"> Total amount due:<b>{{confirmpayed}}</b> </p>
-  <h4 style="color: rgb(88, 166, 255);">Are you sure is this picked up and paid??</h4>
-
-<button class="btn btn-primary lala " style="background-color: rgb(2, 253, 2);" (click)="pickedupyes()">Yes</button>
+  <h4 style="color: rgb(88, 166, 255);" *ngIf="paymentMethod == 'gcash' ||paymentMethod == 'cash'">Are you sure is this picked up? </h4>
+  <h4 style="color: rgb(88, 166, 255);" *ngIf="paymentMethod == 'unpaid'">Are you sure is this picked up and paid using?</h4>
+  <button class="btn btn-primary  " *ngIf="paymentMethod == 'unpaid'" (click)="pickedupgcash()">Yes - Gcash</button>
+  <button class="btn btn-primary lala "  *ngIf="paymentMethod == 'unpaid'"   style="background-color: rgb(2, 253, 2);" (click)="pickedupcash()">Yes - Cash</button>
+<button class="btn btn-primary lala " *ngIf="paymentMethod == 'gcash' ||paymentMethod == 'cash'" style="background-color: rgb(2, 253, 2);" (click)="pickedupyes()">Yes</button>
 <button  class="btn btn-danger lala " (click)="pickedupno()">No</button>
 
 </div>
-<div class="confirmation-box" *ngIf="deliveredavtive == true">
+<div class="confirmation-box" *ngIf="deliveredavtive  ">
   <p style="font-size: 18px; font-weight: bold; color: rgb(92, 155, 250);">ORDER CONFIMRATION</p><hr>
   <p class="nn"> Name: <b>{{confirmname}}</b></p>
   <p class="nn"> Usernmae:<b>{{confirmusername}}</b> </p>
   <p class="nn"> Address:<b>{{confirmaddress}}</b> </p>
   <p class="nn"> Number of packs:<b>{{confirmpack}}</b> </p>
   <p class="nn"> Total amount due:<b>{{confirmpayed}}</b> </p>
-  <h4>Are you sure is this Delivered up and paid?</h4>
-  
-<button class="btn btn-primary1 lala"(click)="deliveryyes()">Yes</button>
-<button  class="btn btn-danger lala" (click)="deliveryno()">No</button>
+
+  <h4 style="color: rgb(88, 166, 255);" *ngIf="paymentMethod == 'gcash' ||paymentMethod == 'cash'">Are you sure is this Delivered? </h4>
+  <h4 style="color: rgb(88, 166, 255);" *ngIf="paymentMethod == 'unpaid'" >Are you sure is this Delivered and paid using?</h4>
+  <button class="btn btn-primary  " *ngIf="paymentMethod == 'unpaid'" (click)="deliverygcash()">Yes - Gcash</button>
+  <button class="btn btn-primary lala "  *ngIf="paymentMethod == 'unpaid'"   style="background-color: rgb(2, 253, 2);" (click)="dcash()">Yes - Cash</button>
+<button class="btn btn-primary lala " *ngIf="paymentMethod == 'gcash' ||paymentMethod == 'cash'" style="background-color: rgb(2, 253, 2);" (click)="deliveryyes()">Yes</button>
+<button  class="btn btn-danger lala " (click)="deliveryno()">No</button>
 </div>
 
 
@@ -295,7 +374,17 @@
     <form #booking="ngForm" #add="ngForm" (ngSubmit)="addlaundryy(add.value)">
 
       <label class="bb">Username</label><br>
-      <input class="mm1" ngModel name='username' type="text" placeholder="Enter your username"><br>    
+      <input (click)="onsearch()" class="mm1" [(ngModel)]="seachname" name='username' type="text" placeholder="Enter your username"><br>  
+
+      <div class="list-container" *ngIf="seachname !== '' && searchs">
+        <ul class="list" *ngFor="let user of userlist | async">
+          <li *ngIf="user.username.includes(seachname)" (click)="offsearch(user.username)">
+           <h5 style="font-weight: bold;">{{ user.username }}</h5> 
+          </li>
+        </ul>
+      </div>
+
+      <br>
         <label class="bb" for="ara " >Deliver or pick up on the shop</label><br>
         <input class="mm1" type="text"[ngModel]="changedd" name="changedd"readonly ><button class="buttn" (click)="changedelivery()"type="button">Change</button><br>
 
@@ -303,13 +392,19 @@
         <input class="mm1" ngModel name='kilo' type="number" placeholder="Enter the clothes weight"><br>    
         <label class="bb">Number of packs Client want <div class="icon-container">
           <div class="icon" id="info-icon">!</div>
-          <div class="tooltip" id="info-tooltip">The price still relies on how many kilos. if they want the defult packs just leave it blank</div>
+          <div class="tooltip" id="info-tooltip">The price still relies on how many kilos. if they want the defult packs just leave it blank. but if the per insert have limited kilo of 10 kilo</div>
         </div>
         </label><br>
-        <input class="mm1" ngModel name='packs' type="number" placeholder="Enter the packs"><br>    
+        <input class="mm1" ngModel name='packs' type="number" placeholder="Enter the packs"><br>  
+        <label>Payment Status and Method</label><br>
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="gcash">Paid - Gcash &nbsp;  &nbsp; &nbsp; &nbsp; </label> 
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="cash">Paid - Cash</label><br>  
+        <label><input type="radio" [(ngModel)]="paymentMethod" name="paymentMethod" value="unpaid">Unpaid &nbsp;</label><br> 
+
   <input  class="butt" type="submit">
     </form>
   </div>
+
     </div>
 </div>
 </div>

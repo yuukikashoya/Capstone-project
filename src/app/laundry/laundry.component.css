@@ -479,3 +479,22 @@ h3{
   }
 }
 
+
+.list-container {
+  max-height: 10  0px; /* Set the maximum height for the list */
+  overflow-y: auto; /* Enable vertical scrollbar if the content overflows */
+  border: 1px solid #ccc; /* Optional: Add border for better visualization */
+  width: 19%;
+position: absolute;
+    background: azure;
+}
+.list {
+  list-style: none;
+  padding: 0;
+  cursor: pointer;
+}
+.list-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* Optional: Add border between list items */
+}
+
