@@ -842,7 +842,17 @@ this.deliveredavtive = false
 if(this.cpacks == 0 || this.cpacks ==  undefined){
   
 }else{
-  this.pack = this.cpacks
+  if(this.pack > this.cpacks){
+  
+    let cuco = Math.floor(value.kilo / 10)
+    if(cuco <= this.cpacks){
+ this.pack = this.cpacks
+
+    }else{
+
+    }
+  }
+ 
 }
 if(!value.kilo){
   alert("Put kilo")
