@@ -3,9 +3,19 @@
 <div class="container" style="padding-top:6em;">
 
 <!-- pickup delivery rider -->
+<div class=" jumbotron-fluid  " *ngIf="!eid">
+  <div class="wrap">
+    <div class="search">
+       <input type="text" class="searchTerm" [(ngModel)]="seachname" placeholder="Type The Tracking No.">
+       <button  class="searchButton"(click)="clearseachname()">Clear</button>
+    </div>
+ </div>
+        
 
+
+</div>
 <div   *ngFor="let a of pickup | async">
-  <div class=" jumbotron-fluid table-responsive scrollable"*ngIf="a && eid == a.username">
+  <div class=" jumbotron-fluid table-responsive scrollable"*ngIf="a && eid == a.username || seachname == a.id ">
     <h3> <span class="lab">Coming to your location for pickup</span>  </h3>
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
@@ -44,7 +54,7 @@
 </div>
 <!-- Processing tracking -->
 <div  *ngFor="let b of laundry | async">
-  <div class=" jumbotron-fluid table-responsive scrollable" *ngIf="b && eid == b.username && b.status == 'processing'">
+  <div class=" jumbotron-fluid table-responsive scrollable" *ngIf="b && eid == b.username && b.status == 'processing' || seachname == b.id">
     <h3> <span class="lab">Your clothes are in the laundromat</span>  </h3>
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
@@ -86,7 +96,7 @@
 </div>
 <!-- washing tracking -->
 <div *ngFor="let b of laundry | async" >
-  <div class=" jumbotron-fluid table-responsive scrollable"*ngIf="b && eid == b.username && b.status == 'washing'">
+  <div class=" jumbotron-fluid table-responsive scrollable"*ngIf="b && eid == b.username && b.status == 'washing' || seachname == b.id">
     <h3> <span class="lab">Your clothes are being washed</span>  </h3>
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
@@ -128,7 +138,7 @@
 </div>
 <!-- Ready for Delivery -->
 <div  *ngFor="let c of delivery | async" >
-  <div class=" jumbotron-fluid table-responsive scrollable"*ngIf="c && eid == c.username">
+  <div class=" jumbotron-fluid table-responsive scrollable"*ngIf="c && eid == c.username || seachname == c.id">
     <h3> <span class="lab">Your clothes are ready to be deliver to your area.</span>  </h3>
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
@@ -170,7 +180,7 @@
 </div>
 <!-- pickup -->
 <div *ngFor="let d of customerpickup | async">
-  <div class=" jumbotron-fluid table-responsive scrollable" *ngIf="d && eid == d.username">
+  <div class=" jumbotron-fluid table-responsive scrollable" *ngIf="d && eid == d.username || seachname == d.id">
     <h3> <span class="lab">Your clothes are ready for pickup.</span>  </h3>
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
