@@ -803,15 +803,19 @@ this.deliveredavtive = false
   async addlaundryy(value:any){
     let pstatus 
     let pmethod
+    let ppayment
     if(this.paymentMethod == "unpaid"){
        pstatus = "unpaid"
        pmethod = "unpaid"
+       ppayment = "unpaid"
     }else if(this.paymentMethod == "gcash"){
        pstatus = "paid"
        pmethod = "gcash"
+       ppayment = "Paid - gcash"
     }else if(this.paymentMethod == "cash"){
        pstatus = "paid"
        pmethod = "cash"
+       ppayment = "Paid - cash"
     }
     this.username = value.username
     const starCountRef = ref(this.database, 'client/' + this.username);
@@ -880,7 +884,7 @@ time:times,
 date: dates
 
      }); 
-
+     const id= sessionStorage.getItem('id');
 
      const screenWidth = window.screen.width;
      const screenHeight = window.screen.height;
@@ -891,15 +895,15 @@ date: dates
          <head>
          <style>
          @page{
-          size:45mm 50mm;
+          size:47mm 60mm;
           
          }
          body{
        
           margin-left: -10px;
-          size:45mm 50mm;
+          size:47mm 60mm;
           text-align:center;
-          height: 45mm;
+         
           padding:10px;
           page-break-after:always;
          }
@@ -920,26 +924,34 @@ date: dates
            <title>Print Number</title>
          </head>
          <body>
-         <br><br><hr style="border-top:1px white;"><br>
-           <h3 class="to">IM CAFE & LAUNDROMAT</h1><br><br><hr><br>
+         <br><hr style="border-top:1px white;"><br>
+           <h3 class="to">IM CAFE & LAUNDROMAT</h1>
+              <p>Old Albay District, Legazpi City, Albay
+            </p><hr><br>
            <h1>${this.uuid}</h1>
            <br><br><hr><br>
+           <h4>Offical Receipt</h4>
            <div class="container">
            <div class="left">
-               <p>Name:</p>
+               <p>Username:</p>
                <p>Time:</p>
                <p>Date:</p>
                <p>Payment:</p>
                <p>Total:</p>
+               <p>Teller:</p>
+               <p>For:</p>
            </div>
            <div class="right">
-               <p>John Lloyd</p>
-               <p>3:04</p>
-               <p>10~19~2023</p>
-               <p>paid</p>
-               <p>4k</p>
+               <p>${this.username}</p>
+               <p>${times}</p>
+               <p>${dates}</p>
+               <p>${ppayment}</p>
+               <p>${this.total}</p>
+               <p>${id}</p>
+               <p>${this.changedd}up</p>
            </div>
        </div>
+       <br>
          </body>
        </html>
      `;
