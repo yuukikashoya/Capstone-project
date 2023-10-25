@@ -811,11 +811,11 @@ this.deliveredavtive = false
     }else if(this.paymentMethod == "gcash"){
        pstatus = "paid"
        pmethod = "gcash"
-       ppayment = "Paid - gcash"
+       ppayment = "Paid-gcash"
     }else if(this.paymentMethod == "cash"){
        pstatus = "paid"
        pmethod = "cash"
-       ppayment = "Paid - cash"
+       ppayment = "Paid-cash"
     }
     this.username = value.username
     const starCountRef = ref(this.database, 'client/' + this.username);
@@ -884,6 +884,12 @@ time:times,
 date: dates
 
      }); 
+     let go = ""
+     if(this.changedd == "Delivery to Address"){
+      go = "Delivery"
+     }else{
+      go = "Pick Up"
+     }
      const id= sessionStorage.getItem('id');
 
      const screenWidth = window.screen.width;
@@ -895,15 +901,16 @@ date: dates
          <head>
          <style>
          @page{
-          size:47mm 60mm;
+          size:50mm auto;
           
          }
+    
          body{
        
           margin-left: -10px;
-          size:47mm 60mm;
+          size:50mm auto;
           text-align:center;
-         
+          font-family: Helvetica, Sans-Serif;
           padding:10px;
           page-break-after:always;
          }
@@ -914,11 +921,14 @@ date: dates
       }
   
       .left {
+        padding:0;
           text-align: left;
       }
   
       .right {
+        padding:0;
           text-align: right;
+          margin-left:-10px
       }
          </style>
            <title>Print Number</title>
@@ -948,7 +958,7 @@ date: dates
                <p>${ppayment}</p>
                <p>${this.total}</p>
                <p>${id}</p>
-               <p>${this.changedd}up</p>
+               <p>${go}</p>
            </div>
        </div>
        <br>
