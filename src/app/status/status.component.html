@@ -54,7 +54,7 @@
 </div>
 <!-- Processing tracking -->
 <div  *ngFor="let b of laundry | async">
-  <div class=" jumbotron-fluid table-responsive scrollable" *ngIf="b && eid == b.username && b.status == 'processing' || seachname == b.id">
+  <div class=" jumbotron-fluid table-responsive scrollable" *ngIf="b && eid == b.username && b.status == 'processing' || seachname == b.id  && b.status == 'processing'">
     <h3> <span class="lab">Your clothes are in the laundromat</span>  </h3>
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
@@ -96,7 +96,7 @@
 </div>
 <!-- washing tracking -->
 <div *ngFor="let b of laundry | async" >
-  <div class=" jumbotron-fluid table-responsive scrollable"*ngIf="b && eid == b.username && b.status == 'washing' || seachname == b.id">
+  <div class=" jumbotron-fluid table-responsive scrollable"*ngIf="b && eid == b.username && b.status == 'washing' || seachname == b.id && b.status == 'washing'">
     <h3> <span class="lab">Your clothes are being washed</span>  </h3>
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="70" style="font-size: 20px;"
