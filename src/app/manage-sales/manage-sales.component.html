@@ -28,14 +28,14 @@
                 <div class="number"> <input type="date" [(ngModel)]="currentDate" (change)="onDateSelected()" class="custom-date-input"></div>
                
             </div>
-                 <h2>Daily Income and Transact</h2>
+                 <h2>Daily Sales and Transact</h2>
             <div  *ngFor="let q of daily | async;">
              <div  *ngIf= "q && getFormattedDate() == q.currentday">
        
-            <p><strong>Income:</strong> ₱{{q.income}}</p>
+            <p><strong>Sales:</strong> ₱{{q.income}}</p>
             <p><strong>Transact:</strong> {{q.sales}}</p>
-            <p><strong>Gcash:</strong> {{q.gcash}}</p>
-            <p><strong>Cash:</strong> {{q.cash}}</p>
+            <p><strong>Gcash:</strong> {{q.gcash}} -<strong>Sales:</strong> ₱{{q.gsales}}</p>
+            <p><strong>Cash:</strong> {{q.cash}} <strong>Sales:</strong> ₱{{q.csales}}</p>
               </div>
             </div>
         </div>

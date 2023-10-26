@@ -85,7 +85,8 @@ export class LaundryComponent implements OnInit {
   wgcash = 0
   ycash = 0 
   ygcash = 0
-
+  gsales = 0
+  csales = 0
   paymentMethod= "unpaid"
   constructor(private FireDb: AngularFireDatabase,
      public database:Database,public router:Router,
@@ -120,11 +121,19 @@ export class LaundryComponent implements OnInit {
        this.currentsaledaily = db4.sales
        this.ccash = db4.cash
        this.cgcash = db4.gcash
+      this.gsales = db4.gsales
+      this.csales = db4.csales
              if(this.ccash == undefined){
         this.ccash = 0
        }
        if(this.cgcash == undefined){
         this.cgcash = 0
+       } 
+       if(this.gsales == undefined){
+        this.gsales = 0
+       }
+       if(this.csales == undefined){
+        this.csales = 0
        } 
        });
 
@@ -714,7 +723,9 @@ deliveryyes(){
        sales:  this.currentsaledaily + 1,
        currentday: dailysalee,
        cash:this.ccash + 1,
-        gcash:this.ccash
+        gcash:this.ccash,
+        csales:this.csales + this.amountInInteger,
+        gsales: this.gsales
           }); 
 
  this.currentweek =  currentWeekNumber ;
@@ -751,8 +762,9 @@ this.deliveredavtive = false
          sales:  this.currentsaledaily + 1,
         gcash:this.cgcash + 1,
          currentday: dailysalee,
-         cash:this.ccash
-       
+         cash:this.ccash,
+         gsales:this.gsales + this.amountInInteger,
+         csales: this.csales
          
            
             }); 
@@ -1080,7 +1092,9 @@ this.pickedactive = false
          sales:  this.currentsaledaily + 1,
         gcash:this.cgcash + 1,
          currentday: dailysalee,
-         cash:this.ccash
+         cash:this.ccash,
+         gsales:this.gsales + this.amountInInteger,
+         csales: this.csales
        
          
            
@@ -1161,7 +1175,9 @@ set(ref(this.database, 'logs/' + this.transacitonid), {
        sales:  this.currentsaledaily + 1,
        currentday: dailysalee,
        cash:this.ccash + 1,
-        gcash:this.ccash
+        gcash:this.ccash,
+        csales:this.csales + this.amountInInteger,
+        gsales: this.gsales
           }); 
 
  this.currentweek =  currentWeekNumber ;
@@ -1198,7 +1214,9 @@ this.pickedactive = false
          sales:  this.currentsaledaily + 1,
         gcash:this.cgcash + 1,
          currentday: dailysalee,
-         cash:this.ccash
+         cash:this.ccash,
+         gsales:this.gsales + this.amountInInteger,
+         csales: this.csales
        
          
            
@@ -1281,7 +1299,9 @@ deliverycash(){
        sales:  this.currentsaledaily + 1,
        currentday: dailysalee,
        cash:this.ccash + 1,
-        gcash:this.ccash
+        gcash:this.ccash,
+        csales:this.csales  + this.amountInInteger,
+        gsales: this.gsales
           }); 
 
  this.currentweek =  currentWeekNumber ;
@@ -1318,7 +1338,9 @@ this.pickedactive = false
          sales:  this.currentsaledaily + 1,
         gcash:this.cgcash + 1,
          currentday: dailysalee,
-         cash:this.ccash
+         cash:this.ccash,
+         gsales:this.gsales + this.amountInInteger,
+         csales: this.csales
        
          
            
@@ -1398,7 +1420,9 @@ this.deliveredavtive = false
          sales:  this.currentsaledaily + 1,
          currentday: dailysalee,
          cash:this.ccash + 1,
-          gcash:this.ccash
+          gcash:this.ccash,
+          csales:this.csales + this.amountInInteger,
+          gsales: this.gsales
             }); 
   
    this.currentweek =  currentWeekNumber ;
@@ -1554,8 +1578,9 @@ this.deliveredavtive = false
              sales:  this.currentsaledaily + 1,
             gcash:this.cgcash + 1,
              currentday: dailysalee,
-             cash:this.ccash
-           
+             cash:this.ccash,
+             gsales:this.gsales + this.amountInInteger,
+             csales: this.csales
              
                
                 }); 
