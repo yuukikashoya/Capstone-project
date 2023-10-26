@@ -107,3 +107,11 @@ h1{
   left: 50%;
   transform: translate(-50%, -50%);
 }
+th{
+  background-color: rgb(83, 82, 82);
+  color: white;
+  font-size: 14px;
+  }
+  td{
+  font-size: 14px;
+  }

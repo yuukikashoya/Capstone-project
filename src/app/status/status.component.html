@@ -1,7 +1,9 @@
-<div class="ww">
+<div class="ww" >
 <h1>Laundry Status</h1>
-<div class="container" style="padding-top:6em;">
 
+<div class="container" style="padding-top:6em;" *ngIf="!view">
+ 
+<button class="btn btn-primary" (click)="vieww()" *ngIf="!view && eid"> <h2>View history transaction</h2></button>
 <!-- pickup delivery rider -->
 <div class=" jumbotron-fluid  " *ngIf="!eid">
   <div class="wrap">
@@ -219,5 +221,46 @@
       </table>
 </div>
 </div>
+
 </div>
+<div class="container" style="padding-top:6em;"  *ngIf="view">
+
+  <button class="btn btn-danger" (click)="close()"   *ngIf="view"> <h2>Close</h2></button>
+  <div class="jumbotron  table-responsive scrollable"  >
+      <h3> <span class="">Logs</span>  </h3>
+      <table class="table table-bordered ">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Client Username</th>  
+              <th scope="col">Client Name</th>              
+              <th scope="col">Time & Date</th>
+              <th scope="col">Instructions</th>
+              <th scope="col">Transac by</th>
+              <th scope="col">Payment Method</th>
+              <th scope="col">Payed Amount</th>
+
+
+            </tr>
+          </thead>
+          <tbody *ngFor="let z of logs | async;">
+            <tr  *ngIf= "z && eid == z.username || z && eid == z.username && z.pastid == seachname ">
+              <th scope="row">{{z.pastid}}</th>
+              <td>{{z.username}}</td>    
+              <td>{{z.name}}</td>                            
+              <td>{{z.time}} {{z.date}}</td>
+              <td>{{z.type}}</td>
+              <td>{{z.transacby}}</td>
+              <td>{{z.paymentMethod}}</td>
+              <td>{{z.payed}}</td>
+
+
+    
+
+            </tr>
+   
+          </tbody>
+          
+        </table>
+  </div>
 </div>
