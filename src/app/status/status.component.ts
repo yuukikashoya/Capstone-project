@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class StatusComponent implements OnInit {
    eid = sessionStorage.getItem('id');
+   logs!: Observable<any[]>;
 pickup!: Observable<any[]>;
 laundry!: Observable<any[]>;
 delivery!: Observable<any[]>;
@@ -21,14 +22,12 @@ customerpickup!: Observable<any[]>;
   ReadyP = false
   constructor(public router:Router,private FireDb: AngularFireDatabase) {
     const sessionValue = sessionStorage.getItem('type');   
-    if (sessionValue ) {
+    this.logs = FireDb.list('/logs').valueChanges();
       this.pickup = FireDb.list('/pickup').valueChanges();
       this.laundry = FireDb.list('/laundry').valueChanges();
       this.delivery = FireDb.list('/delivery').valueChanges();
       this.customerpickup = FireDb.list('/customerpickup').valueChanges();
-    } else {
-      this.router.navigate(['/sign'])
-    }
+  
   }
 
   ngOnInit(): void {
@@ -69,4 +68,25 @@ customerpickup!: Observable<any[]>;
     this.ReadyD = false
     this.ReadyP = true
   }
+  seachname = ""
+  searchs = true
+userlist!: Observable<any[]>;
+onsearch(){
+
+}
+offsearch(value: any){
+
+  this.seachname = value
+}
+clearseachname(){
+  this.seachname = ""
+
+}
+view = false
+vieww(){
+  this.view = true
+}
+close(){
+  this.view = false
+}
 }
