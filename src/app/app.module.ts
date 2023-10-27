@@ -25,6 +25,7 @@ import { CustomConfirmDialogComponent } from './dialog.component';
 import { LogsComponent } from './logs/logs.component';
 import { SalesGraphComponent } from './sales-graph/sales-graph.component';
 import { termsclass } from './tdialog.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { termsclass } from './tdialog.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

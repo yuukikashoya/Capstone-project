@@ -85,7 +85,8 @@ export class LaundryComponent implements OnInit {
   wgcash = 0
   ycash = 0 
   ygcash = 0
-
+  gsales = 0
+  csales = 0
   paymentMethod= "unpaid"
   constructor(private FireDb: AngularFireDatabase,
      public database:Database,public router:Router,
@@ -120,11 +121,19 @@ export class LaundryComponent implements OnInit {
        this.currentsaledaily = db4.sales
        this.ccash = db4.cash
        this.cgcash = db4.gcash
+      this.gsales = db4.gsales
+      this.csales = db4.csales
              if(this.ccash == undefined){
         this.ccash = 0
        }
        if(this.cgcash == undefined){
         this.cgcash = 0
+       } 
+       if(this.gsales == undefined){
+        this.gsales = 0
+       }
+       if(this.csales == undefined){
+        this.csales = 0
        } 
        });
 
@@ -714,7 +723,9 @@ deliveryyes(){
        sales:  this.currentsaledaily + 1,
        currentday: dailysalee,
        cash:this.ccash + 1,
-        gcash:this.ccash
+        gcash:this.ccash,
+        csales:this.csales + this.amountInInteger,
+        gsales: this.gsales
           }); 
 
  this.currentweek =  currentWeekNumber ;
@@ -751,8 +762,9 @@ this.deliveredavtive = false
          sales:  this.currentsaledaily + 1,
         gcash:this.cgcash + 1,
          currentday: dailysalee,
-         cash:this.ccash
-       
+         cash:this.ccash,
+         gsales:this.gsales + this.amountInInteger,
+         csales: this.csales
          
            
             }); 
@@ -803,15 +815,19 @@ this.deliveredavtive = false
   async addlaundryy(value:any){
     let pstatus 
     let pmethod
+    let ppayment
     if(this.paymentMethod == "unpaid"){
        pstatus = "unpaid"
        pmethod = "unpaid"
+       ppayment = "unpaid"
     }else if(this.paymentMethod == "gcash"){
        pstatus = "paid"
        pmethod = "gcash"
+       ppayment = "Paid-gcash"
     }else if(this.paymentMethod == "cash"){
        pstatus = "paid"
        pmethod = "cash"
+       ppayment = "Paid-cash"
     }
     this.username = value.username
     const starCountRef = ref(this.database, 'client/' + this.username);
@@ -880,7 +896,13 @@ time:times,
 date: dates
 
      }); 
-
+     let go = ""
+     if(this.changedd == "Delivery to Address"){
+      go = "Delivery"
+     }else{
+      go = "Pick Up"
+     }
+     const id= sessionStorage.getItem('id');
 
      const screenWidth = window.screen.width;
      const screenHeight = window.screen.height;
@@ -891,15 +913,16 @@ date: dates
          <head>
          <style>
          @page{
-          size:45mm 50mm;
+          size:50mm auto;
           
          }
+    
          body{
        
           margin-left: -10px;
-          size:45mm 50mm;
+          size:50mm auto;
           text-align:center;
-          height: 45mm;
+          font-family: Helvetica, Sans-Serif;
           padding:10px;
           page-break-after:always;
          }
@@ -910,36 +933,47 @@ date: dates
       }
   
       .left {
+        padding:0;
           text-align: left;
       }
   
       .right {
+        padding:0;
           text-align: right;
+          margin-left:-10px
       }
          </style>
            <title>Print Number</title>
          </head>
          <body>
-         <br><br><hr style="border-top:1px white;"><br>
-           <h3 class="to">IM CAFE & LAUNDROMAT</h1><br><br><hr><br>
+         <br><hr style="border-top:1px white;"><br>
+           <h3 class="to">IM CAFE & LAUNDROMAT</h1>
+              <p>Old Albay District, Legazpi City, Albay
+            </p><hr><br>
            <h1>${this.uuid}</h1>
            <br><br><hr><br>
+           <h4>Offical Receipt</h4>
            <div class="container">
            <div class="left">
-               <p>Name:</p>
+               <p>Username:</p>
                <p>Time:</p>
                <p>Date:</p>
                <p>Payment:</p>
                <p>Total:</p>
+               <p>Teller:</p>
+               <p>For:</p>
            </div>
            <div class="right">
-               <p>John Lloyd</p>
-               <p>3:04</p>
-               <p>10~19~2023</p>
-               <p>paid</p>
-               <p>4k</p>
+               <p>${this.username}</p>
+               <p>${times}</p>
+               <p>${dates}</p>
+               <p>${ppayment}</p>
+               <p>${this.total}</p>
+               <p>${id}</p>
+               <p>${go}</p>
            </div>
        </div>
+       <br>
          </body>
        </html>
      `;
@@ -1058,7 +1092,9 @@ this.pickedactive = false
          sales:  this.currentsaledaily + 1,
         gcash:this.cgcash + 1,
          currentday: dailysalee,
-         cash:this.ccash
+         cash:this.ccash,
+         gsales:this.gsales + this.amountInInteger,
+         csales: this.csales
        
          
            
@@ -1139,7 +1175,9 @@ set(ref(this.database, 'logs/' + this.transacitonid), {
        sales:  this.currentsaledaily + 1,
        currentday: dailysalee,
        cash:this.ccash + 1,
-        gcash:this.ccash
+        gcash:this.ccash,
+        csales:this.csales + this.amountInInteger,
+        gsales: this.gsales
           }); 
 
  this.currentweek =  currentWeekNumber ;
@@ -1176,7 +1214,9 @@ this.pickedactive = false
          sales:  this.currentsaledaily + 1,
         gcash:this.cgcash + 1,
          currentday: dailysalee,
-         cash:this.ccash
+         cash:this.ccash,
+         gsales:this.gsales + this.amountInInteger,
+         csales: this.csales
        
          
            
@@ -1259,7 +1299,9 @@ deliverycash(){
        sales:  this.currentsaledaily + 1,
        currentday: dailysalee,
        cash:this.ccash + 1,
-        gcash:this.ccash
+        gcash:this.ccash,
+        csales:this.csales  + this.amountInInteger,
+        gsales: this.gsales
           }); 
 
  this.currentweek =  currentWeekNumber ;
@@ -1296,7 +1338,9 @@ this.pickedactive = false
          sales:  this.currentsaledaily + 1,
         gcash:this.cgcash + 1,
          currentday: dailysalee,
-         cash:this.ccash
+         cash:this.ccash,
+         gsales:this.gsales + this.amountInInteger,
+         csales: this.csales
        
          
            
@@ -1376,7 +1420,9 @@ this.deliveredavtive = false
          sales:  this.currentsaledaily + 1,
          currentday: dailysalee,
          cash:this.ccash + 1,
-          gcash:this.ccash
+          gcash:this.ccash,
+          csales:this.csales + this.amountInInteger,
+          gsales: this.gsales
             }); 
   
    this.currentweek =  currentWeekNumber ;
@@ -1532,8 +1578,9 @@ this.deliveredavtive = false
              sales:  this.currentsaledaily + 1,
             gcash:this.cgcash + 1,
              currentday: dailysalee,
-             cash:this.ccash
-           
+             cash:this.ccash,
+             gsales:this.gsales + this.amountInInteger,
+             csales: this.csales
              
                
                 }); 
