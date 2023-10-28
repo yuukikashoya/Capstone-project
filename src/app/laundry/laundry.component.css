@@ -49,7 +49,7 @@
 
 #nav{ 
   margin-top: 2em;
-  background-color: white;
+  background-color: rgb(255, 249, 228);
   min-width: 100%;
   border: none;
   padding-left: 1em;
@@ -62,7 +62,7 @@
 
 .item{
   border: none;
-  background-color: rgb(40, 39, 39);
+  background-color: rgb(202, 108, 0);
   text-align: center;
   color: white;  
   padding: 2.5%;
@@ -116,7 +116,7 @@ h4{
 }
 .title2{
   font-family: Bahnschrift;;
-  font-size: 18px;
+  font-size: 30px;
   color: black;
   padding-top: 15px;
   text-align: center;
@@ -235,7 +235,7 @@ margin-right: 4%;
 }
 
 .jumbotron{
-  background-color: white;
+  background-color: rgb(255, 249, 228);
   border: none;
   padding: 1rem 2rem;
 }
@@ -250,7 +250,7 @@ margin-right: 4%;
   margin-right: 2%; 
 }
 .table-responsive{
-  background-color: white;
+  background-color: rgb(255, 249, 228);
   box-shadow: 5px 5px 10px black;
 }
 td{
@@ -306,7 +306,10 @@ h3{
   margin-right: 2%;
 }
 .vv{
-  background-color: rgb(137, 137, 137);
+  background: url(../../assets/image/minimalistt.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
 }
 /* Media query for screens smaller than 768px */
