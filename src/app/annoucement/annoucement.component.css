@@ -70,7 +70,7 @@ text-align: justify;
     font-size: 1.9em;
     padding-right: 2em;
     margin-right: 20px;
-    color: white;
+    color: black;
   }
   .scrollable-div {
 
@@ -92,7 +92,7 @@ margin-top: 5em;
   padding: 10px;
 }
 .jumbotron{
-  background-color: rgb(56, 56, 56);
+  background-color: rgb(255, 249, 228);
   text-align: justify;
   margin-top: 1px;
   height: 23em;
@@ -171,7 +171,10 @@ margin-top: 5em;
   font-weight: bold;
 }
 .vv{
-  background-color: rgb(137, 137, 137);
+  background: url(../../assets/image/minimalistt.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
 }
 @media screen and (max-width: 768px) {
