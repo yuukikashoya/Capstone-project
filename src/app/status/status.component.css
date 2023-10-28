@@ -36,7 +36,7 @@
 }
 td{
   color: black;
-  background-color: rgb(203, 203, 203);
+  background-color: rgb(255, 255, 255);
 }
 h1{
   margin-left:6%;
@@ -51,9 +51,16 @@ h1{
   margin-top: -50px;
 }
 .ww{
-  background-color: rgb(137, 137, 137);
-  height: 190vh;
+  background: url(../../assets/image/minimalistt.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
+th{
+  background-color: rgb(202, 108, 0);
+}
+
 @media screen and (max-width: 768px) {
 .ww{
   height: 180vh;
@@ -108,7 +115,6 @@ h1{
   transform: translate(-50%, -50%);
 }
 th{
-  background-color: rgb(83, 82, 82);
   color: white;
   font-size: 14px;
   }
