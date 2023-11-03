@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import {formatDate} from '@angular/common';
 import { Router } from '@angular/router';
 import { SmsService } from '../sms.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-laundry',
@@ -90,7 +91,7 @@ export class LaundryComponent implements OnInit {
   paymentMethod= "unpaid"
   constructor(private FireDb: AngularFireDatabase,
      public database:Database,public router:Router,
-     private smsService: SmsService) { 
+     private smsService: SmsService,private http: HttpClient) { 
       this.userlist = FireDb.list('/client').valueChanges();
       const qwer = ref(this.database, 'sales/Pricing');
       onValue(qwer, (snapshot) => {
@@ -423,17 +424,37 @@ readyfordelivery(){
    date:this.getdate
    }); 
    const message = "Hello "+ this.laname +", Exciting news! Your fresh laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is on its way. Payment amount: "+ this.laprice +". We value your trust and look forward to serving you again.  -I.M CAFE AND LAUNDROMAT";
-     this.smsService.sendSMS(this.laphonenumber, message)
-       .subscribe(
-         (response) => {
-           console.log('SMS sent successfully:', response);
-         },
-         (error) => {
-           console.error('Failed to send SMS:', error);
-         }
-       );
-   this.Wactive =  true;
-   this.WUactive = false;
+  //    this.smsService.sendSMS(this.laphonenumber, message)
+  //      .subscribe(
+  //        (response) => {
+  //          console.log('SMS sent successfully:', response);
+  //        },
+  //        (error) => {
+  //          console.error('Failed to send SMS:', error);
+  //        }
+  //      );
+  //  this.Wactive =  true;
+  //  this.WUactive = false;
+  // i dint put my ip address for my securety porpuses
+  this.http.get('http://0.0.0.0:8090/SendSMS', {
+    params: {
+      username: 'yuki',
+      password: 'yuki',
+      phone: this.laphonenumber,
+      message: message
+    }
+  }).subscribe(
+    (response: any) => {
+     
+    
+    },
+    (error) => {
+     
+    
+    }
+  );
+  this.Wactive =  true;
+  this.WUactive = false;
 }
 
 readyforpickup(){
@@ -466,18 +487,37 @@ readyforpickup(){
    time:this.gettime,
    date:this.getdate
    }); 
-   const message = "Hello "+ this.laname +", Your laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is ready for pick up. Payment amount: "+ this.laprice +". Thank you for choosing us. We look forward to serving you again. -I.M CAFE AND LAUNDROMAT";  
-     this.smsService.sendSMS(this.laphonenumber, message)
-       .subscribe(
-         (response) => {
-           console.log('SMS sent successfully:', response);
-         },
-         (error) => {
-           console.error('Failed to send SMS:', error);
-         }
-       );
-   this.Wactive =  true;
-   this.WUactive = false;
+    const message = "Hello "+ this.laname +", Your laundry packs: "+ this.lapack +", kilos: "+ this.lakilo +" is ready for pick up. Payment amount: "+ this.laprice +". Thank you for choosing us. We look forward to serving you again. -I.M CAFE AND LAUNDROMAT";  
+  //    this.smsService.sendSMS(this.laphonenumber, message)
+  //      .subscribe(
+  //        (response) => {
+  //          console.log('SMS sent successfully:', response);
+  //        },
+  //        (error) => {
+  //          console.error('Failed to send SMS:', error);
+  //        }
+  //      );
+  //  this.Wactive =  true;
+  //  this.WUactive = false;
+  this.http.get('http://0.0.0.0:8090/SendSMS', {
+    params: {
+      username: 'yuki',
+      password: 'yuki',
+      phone: this.laphonenumber,
+      message: message
+    }
+  }).subscribe(
+    (response: any) => {
+     
+    
+    },
+    (error) => {
+     
+    
+    }
+  );
+  this.WUactive = false;
+  this.Wactive =  true;
 }
 
 
