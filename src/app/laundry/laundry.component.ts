@@ -596,7 +596,9 @@ set(ref(this.database, 'logs/' + this.transacitonid), {
        sales:  this.currentsaledaily + 1,
        currentday: dailysalee,
        cash:this.ccash + 1,
-        gcash:this.ccash
+        gcash:this.ccash,
+        csales:this.csales + this.amountInInteger,
+        gsales: this.gsales
           }); 
 
  this.currentweek =  currentWeekNumber ;
@@ -633,7 +635,9 @@ this.pickedactive = false
          sales:  this.currentsaledaily + 1,
         gcash:this.cgcash + 1,
          currentday: dailysalee,
-         cash:this.ccash
+         cash:this.ccash,
+        gsales:this.gsales + this.amountInInteger,
+         csales: this.csales
        
          
            
